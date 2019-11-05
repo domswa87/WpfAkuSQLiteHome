@@ -10,12 +10,14 @@
     <Window.Resources>
         <Style TargetType="TextBox">
             <Setter Property="TextAlignment" Value="Center"/>
+            <Setter Property="IsReadOnly" Value="True"/>
+            <Setter Property="Focusable" Value="False"/>
         </Style>
     </Window.Resources>
 
     <Grid>
-        
-        
+
+
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="10*"/>
             <ColumnDefinition Width="120*"/>
@@ -45,52 +47,52 @@
         <Label Content="Month" Grid.Column="1" Grid.Row="3" VerticalAlignment="Top" Height="25"/>
         <Label Content="Day" Grid.Column="1" Grid.Row="5" VerticalAlignment="Top" Height="25" Margin="0,4,0,0" Grid.RowSpan="2"/>
         <Label Content="Hour" Grid.Column="1" Grid.Row="7" VerticalAlignment="Top" Height="25"/>
-        <TextBox x:Name="TBBirtYear" Grid.Column="1" Height="23" Grid.Row="2" TextWrapping="Wrap" Text="1989" VerticalAlignment="Top" TextAlignment="Left"/>
-        <TextBox x:Name="TBBirthMonth" Grid.Column="1" Height="23" Grid.Row="4" TextWrapping="Wrap" Text="3" VerticalAlignment="Top" TextAlignment="Left"/>
-        <TextBox x:Name="TBBirthDay" Grid.Column="1" Height="23" Grid.Row="6" TextWrapping="Wrap" Text="13" VerticalAlignment="Top" TextAlignment="Left"/>
-        <TextBox x:Name="TBBirthHour" Grid.Column="1" Height="23" Grid.Row="8" TextWrapping="Wrap" Text="13" VerticalAlignment="Top" TextAlignment="Left"/>
+        <TextBox x:Name="TBBirtYear" Grid.Column="1" Height="23" Grid.Row="2" TextWrapping="Wrap" Text="1989" VerticalAlignment="Top" TextAlignment="Left" IsReadOnly="False" Focusable="True"/>
+        <TextBox x:Name="TBBirthMonth" Grid.Column="1" Height="23" Grid.Row="4" TextWrapping="Wrap" Text="3" VerticalAlignment="Top" TextAlignment="Left" IsReadOnly="False" Focusable="True"/>
+        <TextBox x:Name="TBBirthDay" Grid.Column="1" Height="23" Grid.Row="6" TextWrapping="Wrap" Text="13" VerticalAlignment="Top" TextAlignment="Left" IsReadOnly="False" Focusable="True"/>
+        <TextBox x:Name="TBBirthHour" Grid.Column="1" Height="23" Grid.Row="8" TextWrapping="Wrap" Text="13" VerticalAlignment="Top" TextAlignment="Left" IsReadOnly="False" Focusable="True"/>
         <Button Content="Calculate" Grid.Column="1" Grid.Row="9" VerticalAlignment="Top" Click="Button_Click_1" Height="20"/>
 
-        <TextBox x:Name="HTitle" Grid.Column="3" Grid.Row="1" Text="Hour" Background="White" Height="25"  TextWrapping="Wrap" TextAlignment="Center"/>
+        <TextBox x:Name="HTitle" Grid.Column="3" Grid.Row="1" Text="Hour" Background="White" Height="25"  TextWrapping="Wrap" TextAlignment="Center" BorderThickness="3"/>
 
-        <TextBox x:Name="H1" Grid.Column="3" Grid.Row="2" Text="" Background="Gray" Height="25"  TextWrapping="Wrap"/>
-        <TextBox x:Name="H2" Grid.Column="3" Grid.Row="3" Text="" Background="Gray" Height="25"  TextWrapping="Wrap"/>
-        <TextBox x:Name="H3" Grid.Column="3" Grid.Row="4" Text="" Background="Gray" Height="25"  TextWrapping="Wrap"/>
-        <TextBox x:Name="H4" Grid.Column="3" Grid.Row="5" Text="" Background="Gray" Height="25"  TextWrapping="Wrap"/>
-        <TextBox x:Name="H5" Grid.Column="3" Grid.Row="6" Text="" Background="Gray" Height="25"  TextWrapping="Wrap"/>
-        <TextBox x:Name="H6" Grid.Column="3" Grid.Row="7" Text="" Background="Gray" Height="25"  TextWrapping="Wrap"/>
-        <TextBox x:Name="H7" Grid.Column="3" Grid.Row="8" Text="" Background="Gray" Height="25"  TextWrapping="Wrap"/>
-        <TextBox x:Name="H8" Grid.Column="3" Grid.Row="9" Text="" Background="LightGray" Height="25"  TextWrapping="Wrap"/>
+        <TextBox x:Name="H1" Grid.Column="3" Grid.Row="2" Text="" Background="Gray" Height="25"  TextWrapping="Wrap" BorderThickness="3" SelectionOpacity="0" Focusable="True"/>
+        <TextBox x:Name="H2" Grid.Column="3" Grid.Row="3" Text="" Background="Gray" Height="25"  TextWrapping="Wrap" BorderThickness="3,3,3,0"/>
+        <TextBox x:Name="H3" Grid.Column="3" Grid.Row="4" Text="" Background="Gray" Height="25"  TextWrapping="Wrap" BorderThickness="3,0" ClipToBounds="True"/>
+        <TextBox x:Name="H4" Grid.Column="3" Grid.Row="5" Text="" Background="Gray" Height="25"  TextWrapping="Wrap" BorderThickness="3,0,3,3"/>
+        <TextBox x:Name="H5" Grid.Column="3" Grid.Row="6" Text="" Background="Gray" Height="25"  TextWrapping="Wrap" BorderThickness="3,3,3,0"/>
+        <TextBox x:Name="H6" Grid.Column="3" Grid.Row="7" Text="" Background="Gray" Height="25"  TextWrapping="Wrap" BorderThickness="3,0"/>
+        <TextBox x:Name="H7" Grid.Column="3" Grid.Row="8" Text="" Background="Gray" Height="25"  TextWrapping="Wrap" BorderThickness="3,0,3,3"/>
+        <TextBox x:Name="H8" Grid.Column="3" Grid.Row="9" Text="" Background="LightGray" Height="25"  TextWrapping="Wrap" BorderThickness="3"/>
 
-        <TextBox x:Name="DTitle" Grid.Column="4" Grid.Row="1" Text="Day" Background="White" Height="25"  TextWrapping="Wrap" TextAlignment="Center"/>
-        <TextBox x:Name="D1" Grid.Column="4" Grid.Row="2" Text="" Background="Gray" Height="25"  TextWrapping="Wrap"/>
-        <TextBox x:Name="D2" Grid.Column="4" Grid.Row="3" Text="" Background="Gray" Height="25"  TextWrapping="Wrap"/>
-        <TextBox x:Name="D3" Grid.Column="4" Grid.Row="4" Text="" Background="Gray" Height="25"  TextWrapping="Wrap"/>
-        <TextBox x:Name="D4" Grid.Column="4" Grid.Row="5" Text="" Background="Gray" Height="25"  TextWrapping="Wrap"/>
-        <TextBox x:Name="D5" Grid.Column="4" Grid.Row="6" Text="" Background="Gray" Height="25"  TextWrapping="Wrap"/>
-        <TextBox x:Name="D6" Grid.Column="4" Grid.Row="7" Text="" Background="Gray" Height="25"  TextWrapping="Wrap"/>
-        <TextBox x:Name="D7" Grid.Column="4" Grid.Row="8" Text="" Background="Gray" Height="25"  TextWrapping="Wrap"/>
-        <TextBox x:Name="D8" Grid.Column="4" Grid.Row="9" Text="" Background="LightGray" Height="25"  TextWrapping="Wrap"/>
+        <TextBox x:Name="DTitle" Grid.Column="4" Grid.Row="1" Text="Day" Background="White" Height="25"  TextWrapping="Wrap" TextAlignment="Center" BorderThickness="3"/>
+        <TextBox x:Name="D1" Grid.Column="4" Grid.Row="2" Text="" Background="Gray" Height="25"  TextWrapping="Wrap" BorderThickness="3"/>
+        <TextBox x:Name="D2" Grid.Column="4" Grid.Row="3" Text="" Background="Gray" Height="25"  TextWrapping="Wrap" BorderThickness="3,3,3,0"/>
+        <TextBox x:Name="D3" Grid.Column="4" Grid.Row="4" Text="" Background="Gray" Height="25"  TextWrapping="Wrap" BorderThickness="3,0"/>
+        <TextBox x:Name="D4" Grid.Column="4" Grid.Row="5" Text="" Background="Gray" Height="25"  TextWrapping="Wrap" BorderThickness="3,0,3,3"/>
+        <TextBox x:Name="D5" Grid.Column="4" Grid.Row="6" Text="" Background="Gray" Height="25"  TextWrapping="Wrap" BorderThickness="3,3,3,0"/>
+        <TextBox x:Name="D6" Grid.Column="4" Grid.Row="7" Text="" Background="Gray" Height="25"  TextWrapping="Wrap" BorderThickness="3,0"/>
+        <TextBox x:Name="D7" Grid.Column="4" Grid.Row="8" Text="" Background="Gray" Height="25"  TextWrapping="Wrap" BorderThickness="3,0,3,3"/>
+        <TextBox x:Name="D8" Grid.Column="4" Grid.Row="9" Text="" Background="LightGray" Height="25"  TextWrapping="Wrap" BorderThickness="3"/>
 
-        <TextBox x:Name="MTitle" Grid.Column="5" Grid.Row="1" Text="Month" Background="White" Height="25"  TextWrapping="Wrap" TextAlignment="Center"/>
-        <TextBox x:Name="M1" Grid.Column="5" Grid.Row="2" Text="" Background="Gray" Height="25"  TextWrapping="Wrap"/>
-        <TextBox x:Name="M2" Grid.Column="5" Grid.Row="3" Text="" Background="Gray" Height="25"  TextWrapping="Wrap"/>
-        <TextBox x:Name="M3" Grid.Column="5" Grid.Row="4" Text="" Background="Gray" Height="25"  TextWrapping="Wrap"/>
-        <TextBox x:Name="M4" Grid.Column="5" Grid.Row="5" Text="" Background="Gray" Height="25"  TextWrapping="Wrap"/>
-        <TextBox x:Name="M5" Grid.Column="5" Grid.Row="6" Text="" Background="Gray" Height="25"  TextWrapping="Wrap"/>
-        <TextBox x:Name="M6" Grid.Column="5" Grid.Row="7" Text="" Background="Gray" Height="25"  TextWrapping="Wrap"/>
-        <TextBox x:Name="M7" Grid.Column="5" Grid.Row="8" Text="" Background="Gray" Height="25"  TextWrapping="Wrap"/>
-        <TextBox x:Name="M8" Grid.Column="5" Grid.Row="9" Text="" Background="LightGray" Height="25"  TextWrapping="Wrap"/>
+        <TextBox x:Name="MTitle" Grid.Column="5" Grid.Row="1" Text="Month" Background="White" Height="25"  TextWrapping="Wrap" TextAlignment="Center" BorderThickness="3"/>
+        <TextBox x:Name="M1" Grid.Column="5" Grid.Row="2" Text="" Background="Gray" Height="25"  TextWrapping="Wrap" BorderThickness="3"/>
+        <TextBox x:Name="M2" Grid.Column="5" Grid.Row="3" Text="" Background="Gray" Height="25"  TextWrapping="Wrap" BorderThickness="3,3,3,0"/>
+        <TextBox x:Name="M3" Grid.Column="5" Grid.Row="4" Text="" Background="Gray" Height="25"  TextWrapping="Wrap" BorderThickness="3,0"/>
+        <TextBox x:Name="M4" Grid.Column="5" Grid.Row="5" Text="" Background="Gray" Height="25"  TextWrapping="Wrap" BorderThickness="3,0,3,3"/>
+        <TextBox x:Name="M5" Grid.Column="5" Grid.Row="6" Text="" Background="Gray" Height="25"  TextWrapping="Wrap" BorderThickness="3,3,3,0"/>
+        <TextBox x:Name="M6" Grid.Column="5" Grid.Row="7" Text="" Background="Gray" Height="25"  TextWrapping="Wrap" BorderThickness="3,0"/>
+        <TextBox x:Name="M7" Grid.Column="5" Grid.Row="8" Text="" Background="Gray" Height="25"  TextWrapping="Wrap" BorderThickness="3,0,3,3"/>
+        <TextBox x:Name="M8" Grid.Column="5" Grid.Row="9" Text="" Background="LightGray" Height="25"  TextWrapping="Wrap" BorderThickness="3"/>
 
-        <TextBox x:Name="YTitle" Grid.Column="6" Grid.Row="1" Text="Year" Background="White" Height="25"  TextWrapping="Wrap" TextAlignment="Center"/>
-        <TextBox x:Name="Y1" Grid.Column="6" Grid.Row="2" Text="" Background="Gray" Height="25"  TextWrapping="Wrap"/>
-        <TextBox x:Name="Y2" Grid.Column="6" Grid.Row="3" Text="" Background="Gray" Height="25"  TextWrapping="Wrap"/>
-        <TextBox x:Name="Y3" Grid.Column="6" Grid.Row="4" Text="" Background="Gray" Height="25"  TextWrapping="Wrap"/>
-        <TextBox x:Name="Y4" Grid.Column="6" Grid.Row="5" Text="" Background="Gray" Height="25"  TextWrapping="Wrap"/>
-        <TextBox x:Name="Y5" Grid.Column="6" Grid.Row="6" Text="" Background="Gray" Height="25"  TextWrapping="Wrap"/>
-        <TextBox x:Name="Y6" Grid.Column="6" Grid.Row="7" Text="" Background="Gray" Height="25"  TextWrapping="Wrap"/>
-        <TextBox x:Name="Y7" Grid.Column="6" Grid.Row="8" Text="" Background="Gray" Height="25"  TextWrapping="Wrap"/>
-        <TextBox x:Name="Y8" Grid.Column="6" Grid.Row="9" Text="" Background="LightGray" Height="25"  TextWrapping="Wrap"/>
+        <TextBox x:Name="YTitle" Grid.Column="6" Grid.Row="1" Text="Year" Background="White" Height="25"  TextWrapping="Wrap" TextAlignment="Center" BorderThickness="3"/>
+        <TextBox x:Name="Y1" Grid.Column="6" Grid.Row="2" Text="" Background="Gray" Height="25"  TextWrapping="Wrap" BorderThickness="3"/>
+        <TextBox x:Name="Y2" Grid.Column="6" Grid.Row="3" Text="" Background="Gray" Height="25"  TextWrapping="Wrap" BorderThickness="3,3,3,0"/>
+        <TextBox x:Name="Y3" Grid.Column="6" Grid.Row="4" Text="" Background="Gray" Height="25"  TextWrapping="Wrap" BorderThickness="3,0"/>
+        <TextBox x:Name="Y4" Grid.Column="6" Grid.Row="5" Text="" Background="Gray" Height="25"  TextWrapping="Wrap" BorderThickness="3,0,3,3"/>
+        <TextBox x:Name="Y5" Grid.Column="6" Grid.Row="6" Text="" Background="Gray" Height="25"  TextWrapping="Wrap" BorderThickness="3,3,3,0"/>
+        <TextBox x:Name="Y6" Grid.Column="6" Grid.Row="7" Text="" Background="Gray" Height="25"  TextWrapping="Wrap" BorderThickness="3,0"/>
+        <TextBox x:Name="Y7" Grid.Column="6" Grid.Row="8" Text="" Background="Gray" Height="25"  TextWrapping="Wrap" BorderThickness="3,0,3,3"/>
+        <TextBox x:Name="Y8" Grid.Column="6" Grid.Row="9" Text="" Background="LightGray" Height="25"  TextWrapping="Wrap" BorderThickness="3"/>
 
 
 
