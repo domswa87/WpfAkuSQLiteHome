@@ -22,9 +22,6 @@ namespace WpfAkuSQLite
     /// </summary>
     public partial class MainWindow : Window
     {
-        int Year = 0;
-        int Month = 0;
-        int Day = 0;
         int YearSteamKey = 0;
         int DaySteamKey = 0;
         DateTime givenDate;
@@ -35,22 +32,22 @@ namespace WpfAkuSQLite
         public List<SeasonTable> seasonTable { get; set; } = new List<SeasonTable>();
         public List<StemsTable> stemsTable { get; set; } = new List<StemsTable>();
         public List<YearTable> yearTable { get; set; } = new List<YearTable>();
-
-        FinalOutput finalOutput = new FinalOutput();
+        FinalOutput finalOutput;
 
         public MainWindow()
         {
             InitializeComponent();
-            LoadData();
+            finalOutput = new FinalOutput();
+            this.DataContext = finalOutput;
         }
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
+            LoadData();
             YearCalculation();
             MonthCalculation();
             DayCalculation();
             HourCalculation();
-            AssignTextBoxes();
         }
 
         private void LoadData()
@@ -66,8 +63,8 @@ namespace WpfAkuSQLite
 
         private void YearCalculation()
         {
-            Year = int.Parse(TBBirtYear.Text);
-            int YearkeyNo = Year - 1923;
+            int year = int.Parse(finalOutput.GivenDate.Year);
+            int YearkeyNo = year - 1923;
             YearSteamKey = YearkeyNo % 10 == 0 ? 10 : YearkeyNo % 10;
             int YearBranchKey = YearkeyNo % 12 == 0 ? 12 : YearkeyNo % 12;
 
@@ -76,8 +73,6 @@ namespace WpfAkuSQLite
 
         private void MonthCalculation()
         {
-            Month = int.Parse(TBBirthMonth.Text);
-            Day = int.Parse(TBBirthDay.Text);
             int monthNumber = GetMonthNumber();
             int MonthSteamKey = ((2 * (YearSteamKey % 5)) + monthNumber) % 10 == 0 ? 10 : ((2 * (YearSteamKey % 5)) + monthNumber) % 10;
             int MontBranchKey = (monthNumber + 14) % 12 == 0 ? 12 : (monthNumber + 14) % 12;
@@ -115,7 +110,7 @@ namespace WpfAkuSQLite
         private int GetHourNumber()
         {
             int hourNumber = 0;
-            int hour = int.Parse(TBBirthHour.Text);
+            int hour = int.Parse(finalOutput.GivenDate.Hour);
             int[] hours = { 0, 1, 3, 5, 7, 9, 11, 13, 15, 17, 19, 21, 23, 24 };
             foreach (var item in hours)
             {
@@ -134,7 +129,7 @@ namespace WpfAkuSQLite
 
         private int GetMonthNumber()
         {
-            int index = Year - 1925;
+            int index = int.Parse(finalOutput.GivenDate.Year) - 1925;
             Regex ex = new Regex(@"(?<day>\d{2})\.(?<month>\d{2})");
             List<DateTime> DateList = new List<DateTime>();
             var tab = yearTable[index];
@@ -146,12 +141,12 @@ namespace WpfAkuSQLite
                 {
                     int month = int.Parse(m.Groups["month"].Value);
                     int day = int.Parse(m.Groups["day"].Value);
-                    DateTime dt = new DateTime(Year, month, day);
+                    DateTime dt = new DateTime(int.Parse(finalOutput.GivenDate.Year), month, day);
                     DateList.Add(dt);
                 }
             }
 
-            givenDate = new DateTime(Year, Month, Day);
+            givenDate = new DateTime(int.Parse(finalOutput.GivenDate.Year), int.Parse(finalOutput.GivenDate.Month), int.Parse(finalOutput.GivenDate.Day));
             int counter = 0;
             int monthNumber = 0;
             foreach (var item in DateList)
@@ -168,17 +163,17 @@ namespace WpfAkuSQLite
 
         private void AssignYearFinalOutput(int YearBranchKey)
         {
-            finalOutput.Year.GMColour = stemsTable[YearSteamKey - 1].GMColour;
+            finalOutput.Year.GMColour = GetColor(stemsTable[YearSteamKey - 1].GMColour);
 
             finalOutput.Year.Steam.ChineseSign = stemsTable[YearSteamKey - 1].StemsSymbol1;
             finalOutput.Year.Steam.ChineseString = stemsTable[YearSteamKey - 1].StemsSymbol2;
             finalOutput.Year.Steam.EnglishString = stemsTable[YearSteamKey - 1].StemsSymbol3;
-            finalOutput.Year.Steam.Colour = stemsTable[YearSteamKey - 1].StemColour;
+            finalOutput.Year.Steam.Colour = GetColor(stemsTable[YearSteamKey - 1].StemColour);
 
             finalOutput.Year.Branch.ChineseSign = branchTables[YearBranchKey - 1].Symbol1;
             finalOutput.Year.Branch.ChineseString = branchTables[YearBranchKey - 1].Symbol2;
             finalOutput.Year.Branch.EnglishString = branchTables[YearBranchKey - 1].Symbol3;
-            finalOutput.Year.Branch.Colour = branchTables[YearBranchKey - 1].Colour;
+            finalOutput.Year.Branch.Colour = GetColor(branchTables[YearBranchKey - 1].Colour);
 
             finalOutput.Year.BelowRowTable = branchTables[YearBranchKey - 1].BelowTableRow;
         }
@@ -186,142 +181,70 @@ namespace WpfAkuSQLite
 
         private void AssignMonthFinalOutput(int MonthSteamKey, int MontBranchKey)
         {
-            finalOutput.Month.GMColour = stemsTable[MonthSteamKey - 1].GMColour;
+            finalOutput.Month.GMColour = GetColor(stemsTable[MonthSteamKey - 1].GMColour);
 
             finalOutput.Month.Steam.ChineseSign = stemsTable[MonthSteamKey - 1].StemsSymbol1;
             finalOutput.Month.Steam.ChineseString = stemsTable[MonthSteamKey - 1].StemsSymbol2;
             finalOutput.Month.Steam.EnglishString = stemsTable[MonthSteamKey - 1].StemsSymbol3;
-            finalOutput.Month.Steam.Colour = stemsTable[MonthSteamKey - 1].StemColour;
+            finalOutput.Month.Steam.Colour = GetColor(stemsTable[MonthSteamKey - 1].StemColour);
 
             finalOutput.Month.Branch.ChineseSign = branchTables[MontBranchKey - 1].Symbol1;
             finalOutput.Month.Branch.ChineseString = branchTables[MontBranchKey - 1].Symbol2;
             finalOutput.Month.Branch.EnglishString = branchTables[MontBranchKey - 1].Symbol3;
-            finalOutput.Month.Branch.Colour = branchTables[MontBranchKey - 1].Colour;
+            finalOutput.Month.Branch.Colour = GetColor(branchTables[MontBranchKey - 1].Colour);
 
             finalOutput.Month.BelowRowTable = branchTables[MontBranchKey - 1].BelowTableRow;
         }
 
         private void AssignDayFinalOutput(int steamKey, int branchKey)
         {
-            finalOutput.Day.GMColour = stemsTable[steamKey - 1].GMColour;
+            finalOutput.Day.GMColour = GetColor(stemsTable[steamKey - 1].GMColour);
 
             finalOutput.Day.Steam.ChineseSign = stemsTable[steamKey - 1].StemsSymbol1;
             finalOutput.Day.Steam.ChineseString = stemsTable[steamKey - 1].StemsSymbol2;
             finalOutput.Day.Steam.EnglishString = stemsTable[steamKey - 1].StemsSymbol3;
-            finalOutput.Day.Steam.Colour = stemsTable[steamKey - 1].StemColour;
+            finalOutput.Day.Steam.Colour = GetColor(stemsTable[steamKey - 1].StemColour);
 
             finalOutput.Day.Branch.ChineseSign = branchTables[branchKey - 1].Symbol1;
             finalOutput.Day.Branch.ChineseString = branchTables[branchKey - 1].Symbol2;
             finalOutput.Day.Branch.EnglishString = branchTables[branchKey - 1].Symbol3;
-            finalOutput.Day.Branch.Colour = branchTables[branchKey - 1].Colour;
+            finalOutput.Day.Branch.Colour = GetColor(branchTables[branchKey - 1].Colour);
 
             finalOutput.Day.BelowRowTable = branchTables[branchKey - 1].BelowTableRow;
         }
 
         private void AssignHourFinalOutput(int steamKey, int branchKey)
         {
-            finalOutput.Hour.GMColour = stemsTable[steamKey - 1].GMColour;
-
+            finalOutput.Hour.GMColour = GetColor(stemsTable[steamKey - 1].GMColour);
             finalOutput.Hour.Steam.ChineseSign = stemsTable[steamKey - 1].StemsSymbol1;
             finalOutput.Hour.Steam.ChineseString = stemsTable[steamKey - 1].StemsSymbol2;
             finalOutput.Hour.Steam.EnglishString = stemsTable[steamKey - 1].StemsSymbol3;
-            finalOutput.Hour.Steam.Colour = stemsTable[steamKey - 1].StemColour;
-
+            finalOutput.Hour.Steam.Colour = GetColor(stemsTable[steamKey - 1].StemColour);
             finalOutput.Hour.Branch.ChineseSign = branchTables[branchKey - 1].Symbol1;
             finalOutput.Hour.Branch.ChineseString = branchTables[branchKey - 1].Symbol2;
             finalOutput.Hour.Branch.EnglishString = branchTables[branchKey - 1].Symbol3;
-            finalOutput.Hour.Branch.Colour = branchTables[branchKey - 1].Colour;
-
+            finalOutput.Hour.Branch.Colour = GetColor(branchTables[branchKey - 1].Colour);
             finalOutput.Hour.BelowRowTable = branchTables[branchKey - 1].BelowTableRow;
         }
 
-        private void AssignTextBoxes()
-        {
-            TextBoxColor(H1, finalOutput.Hour.GMColour);
-            H2.Text = finalOutput.Hour.Steam.ChineseSign;
-            H3.Text = finalOutput.Hour.Steam.ChineseString;
-            H4.Text = finalOutput.Hour.Steam.EnglishString;
-            TextBoxColor(H2, finalOutput.Hour.Steam.Colour);
-            TextBoxColor(H3, finalOutput.Hour.Steam.Colour);
-            TextBoxColor(H4, finalOutput.Hour.Steam.Colour);
-            H5.Text = finalOutput.Hour.Branch.ChineseSign;
-            H6.Text = finalOutput.Hour.Branch.ChineseString;
-            H7.Text = finalOutput.Hour.Branch.EnglishString;
-            TextBoxColor(H5, finalOutput.Hour.Branch.Colour);
-            TextBoxColor(H6, finalOutput.Hour.Branch.Colour);
-            TextBoxColor(H7, finalOutput.Hour.Branch.Colour);
-            H8.Text = finalOutput.Hour.BelowRowTable;
+      
 
-            TextBoxColor(D1, finalOutput.Day.GMColour);
-            D2.Text = finalOutput.Day.Steam.ChineseSign;
-            D3.Text = finalOutput.Day.Steam.ChineseString;
-            D4.Text = finalOutput.Day.Steam.EnglishString;
-            TextBoxColor(D2, finalOutput.Day.Steam.Colour);
-            TextBoxColor(D3, finalOutput.Day.Steam.Colour);
-            TextBoxColor(D4, finalOutput.Day.Steam.Colour);
-            D5.Text = finalOutput.Day.Branch.ChineseSign;
-            D6.Text = finalOutput.Day.Branch.ChineseString;
-            D7.Text = finalOutput.Day.Branch.EnglishString;
-            TextBoxColor(D5, finalOutput.Day.Branch.Colour);
-            TextBoxColor(D6, finalOutput.Day.Branch.Colour);
-            TextBoxColor(D7, finalOutput.Day.Branch.Colour);
-            D8.Text = finalOutput.Day.BelowRowTable;
-
-            TextBoxColor(M1, finalOutput.Month.GMColour);
-            M2.Text = finalOutput.Month.Steam.ChineseSign;
-            M3.Text = finalOutput.Month.Steam.ChineseString;
-            M4.Text = finalOutput.Month.Steam.EnglishString;
-            TextBoxColor(M2, finalOutput.Month.Steam.Colour);
-            TextBoxColor(M3, finalOutput.Month.Steam.Colour);
-            TextBoxColor(M4, finalOutput.Month.Steam.Colour);
-            M5.Text = finalOutput.Month.Branch.ChineseSign;
-            M6.Text = finalOutput.Month.Branch.ChineseString;
-            M7.Text = finalOutput.Month.Branch.EnglishString;
-            TextBoxColor(M5, finalOutput.Month.Branch.Colour);
-            TextBoxColor(M6, finalOutput.Month.Branch.Colour);
-            TextBoxColor(M7, finalOutput.Month.Branch.Colour);
-            M8.Text = finalOutput.Month.BelowRowTable;
-
-            TextBoxColor(Y1, finalOutput.Year.GMColour);
-            Y2.Text = finalOutput.Year.Steam.ChineseSign;
-            Y3.Text = finalOutput.Year.Steam.ChineseString;
-            Y4.Text = finalOutput.Year.Steam.EnglishString;
-            TextBoxColor(Y2, finalOutput.Year.Steam.Colour);
-            TextBoxColor(Y3, finalOutput.Year.Steam.Colour);
-            TextBoxColor(Y4, finalOutput.Year.Steam.Colour);
-            Y5.Text = finalOutput.Year.Branch.ChineseSign;
-            Y6.Text = finalOutput.Year.Branch.ChineseString;
-            Y7.Text = finalOutput.Year.Branch.EnglishString;
-            TextBoxColor(Y5, finalOutput.Year.Branch.Colour);
-            TextBoxColor(Y6, finalOutput.Year.Branch.Colour);
-            TextBoxColor(Y7, finalOutput.Year.Branch.Colour);
-            Y8.Text = finalOutput.Year.BelowRowTable;
-
-        }
-
-        private void TextBoxColor(TextBox tb, string color)
+        private SolidColorBrush GetColor(string color)
         {
             switch (color)
             {
                 case "green":
-                    tb.Background = Brushes.LightGreen;
-                    break;
+                    return Brushes.LightGreen;
                 case "red":
-                    tb.Background = Brushes.Red;
-
-                    break;
+                    return Brushes.Red;
                 case "yellow":
-                    tb.Background = Brushes.Yellow;
-                    break;
+                    return Brushes.Yellow;
                 case "blue":
-                    tb.Background = Brushes.LightBlue;
-                    break;
+                    return Brushes.Blue;
                 case "white":
-                    tb.Background = Brushes.White;
-                    break;
-
+                    return Brushes.White;
                 default:
-                    break;
+                    return Brushes.LightGreen;
             }
         }
     }

@@ -47,52 +47,62 @@
         <Label Content="Month" Grid.Column="1" Grid.Row="3" VerticalAlignment="Top" Height="25"/>
         <Label Content="Day" Grid.Column="1" Grid.Row="5" VerticalAlignment="Top" Height="25" Margin="0,4,0,0" Grid.RowSpan="2"/>
         <Label Content="Hour" Grid.Column="1" Grid.Row="7" VerticalAlignment="Top" Height="25"/>
-        <TextBox x:Name="TBBirtYear" Grid.Column="1" Height="23" Grid.Row="2" TextWrapping="Wrap" Text="1989" VerticalAlignment="Top" TextAlignment="Left" IsReadOnly="False" Focusable="True"/>
-        <TextBox x:Name="TBBirthMonth" Grid.Column="1" Height="23" Grid.Row="4" TextWrapping="Wrap" Text="3" VerticalAlignment="Top" TextAlignment="Left" IsReadOnly="False" Focusable="True"/>
-        <TextBox x:Name="TBBirthDay" Grid.Column="1" Height="23" Grid.Row="6" TextWrapping="Wrap" Text="13" VerticalAlignment="Top" TextAlignment="Left" IsReadOnly="False" Focusable="True"/>
-        <TextBox x:Name="TBBirthHour" Grid.Column="1" Height="23" Grid.Row="8" TextWrapping="Wrap" Text="13" VerticalAlignment="Top" TextAlignment="Left" IsReadOnly="False" Focusable="True"/>
+        <TextBox Grid.Column="1" Height="23" Grid.Row="2" TextWrapping="Wrap" Text="{Binding Path=GivenDate.Year, Mode=TwoWay}" VerticalAlignment="Top" TextAlignment="Left" IsReadOnly="False" Focusable="True"/>
+        <TextBox Grid.Column="1" Height="23" Grid.Row="4" TextWrapping="Wrap" Text="{Binding Path=GivenDate.Month, Mode=TwoWay}" VerticalAlignment="Top" TextAlignment="Left" IsReadOnly="False" Focusable="True"/>
+        <TextBox Grid.Column="1" Height="23" Grid.Row="6" TextWrapping="Wrap" Text="{Binding Path=GivenDate.Day, Mode=TwoWay}" VerticalAlignment="Top" TextAlignment="Left" IsReadOnly="False" Focusable="True"/>
+        <TextBox Grid.Column="1" Height="23" Grid.Row="8" TextWrapping="Wrap" Text="{Binding Path=GivenDate.Hour, Mode=TwoWay}" VerticalAlignment="Top" TextAlignment="Left" IsReadOnly="False" Focusable="True"/>
         <Button Content="Calculate" Grid.Column="1" Grid.Row="9" VerticalAlignment="Top" Click="Button_Click_1" Height="20"/>
-
+        
+        
         <TextBox x:Name="HTitle" Grid.Column="3" Grid.Row="1" Text="Hour" Background="White" Height="25"  TextWrapping="Wrap" TextAlignment="Center" BorderThickness="3"/>
 
-        <TextBox x:Name="H1" Grid.Column="3" Grid.Row="2" Text="" Background="Gray" Height="25"  TextWrapping="Wrap" BorderThickness="3" SelectionOpacity="0" Focusable="True"/>
-        <TextBox x:Name="H2" Grid.Column="3" Grid.Row="3" Text="" Background="Gray" Height="25"  TextWrapping="Wrap" BorderThickness="3,3,3,0"/>
-        <TextBox x:Name="H3" Grid.Column="3" Grid.Row="4" Text="" Background="Gray" Height="25"  TextWrapping="Wrap" BorderThickness="3,0" ClipToBounds="True"/>
-        <TextBox x:Name="H4" Grid.Column="3" Grid.Row="5" Text="" Background="Gray" Height="25"  TextWrapping="Wrap" BorderThickness="3,0,3,3"/>
-        <TextBox x:Name="H5" Grid.Column="3" Grid.Row="6" Text="" Background="Gray" Height="25"  TextWrapping="Wrap" BorderThickness="3,3,3,0"/>
-        <TextBox x:Name="H6" Grid.Column="3" Grid.Row="7" Text="" Background="Gray" Height="25"  TextWrapping="Wrap" BorderThickness="3,0"/>
-        <TextBox x:Name="H7" Grid.Column="3" Grid.Row="8" Text="" Background="Gray" Height="25"  TextWrapping="Wrap" BorderThickness="3,0,3,3"/>
-        <TextBox x:Name="H8" Grid.Column="3" Grid.Row="9" Text="" Background="LightGray" Height="25"  TextWrapping="Wrap" BorderThickness="3"/>
+        <TextBox x:Name="H1" Grid.Column="3" Grid.Row="2" Text="" Background="{Binding Path=Hour.GMColour, Mode=TwoWay}" Height="25"  TextWrapping="Wrap" BorderThickness="3" SelectionOpacity="0" Focusable="True"/>
+        <TextBox x:Name="H2" Grid.Column="3" Grid.Row="3" Text="{Binding Path=Hour.Steam.ChineseSign, Mode=TwoWay}" Background="{Binding Path=Hour.Steam.Colour, Mode=TwoWay}" Height="25"  TextWrapping="Wrap" BorderThickness="3,3,3,0"/>
+        <TextBox x:Name="H3" Grid.Column="3" Grid.Row="4" Text="{Binding Path=Hour.Steam.ChineseString, Mode=TwoWay}" Background="{Binding Path=Hour.Steam.Colour, Mode=TwoWay}" Height="25"  TextWrapping="Wrap" BorderThickness="3,0" ClipToBounds="True"/>
+        <TextBox x:Name="H4" Grid.Column="3" Grid.Row="5" Text="{Binding Path=Hour.Steam.EnglishString, Mode=TwoWay}" Background="{Binding Path=Hour.Steam.Colour, Mode=TwoWay}" Height="25"  TextWrapping="Wrap" BorderThickness="3,0,3,3"/>
+        <TextBox x:Name="H5" Grid.Column="3" Grid.Row="6" Text="{Binding Path=Hour.Branch.ChineseSign, Mode=TwoWay}" Background="{Binding Path=Hour.Branch.Colour, Mode=TwoWay}" Height="25"  TextWrapping="Wrap" BorderThickness="3,3,3,0"/>
+        <TextBox x:Name="H6" Grid.Column="3" Grid.Row="7" Text="{Binding Path=Hour.Branch.ChineseString, Mode=TwoWay}" Background="{Binding Path=Hour.Branch.Colour, Mode=TwoWay}" Height="25"  TextWrapping="Wrap" BorderThickness="3,0"/>
+        <TextBox x:Name="H7" Grid.Column="3" Grid.Row="8" Text="{Binding Path=Hour.Branch.EnglishString, Mode=TwoWay}" Background="{Binding Path=Hour.Branch.Colour, Mode=TwoWay}" Height="25"  TextWrapping="Wrap" BorderThickness="3,0,3,3"/>
+        <TextBox x:Name="H8" Grid.Column="3" Grid.Row="9" Text="{Binding Path=Hour.BelowRowTable, Mode=TwoWay}" Background="LightGray" Height="25"  TextWrapping="Wrap" BorderThickness="3"/>
 
+        
+        
         <TextBox x:Name="DTitle" Grid.Column="4" Grid.Row="1" Text="Day" Background="White" Height="25"  TextWrapping="Wrap" TextAlignment="Center" BorderThickness="3"/>
-        <TextBox x:Name="D1" Grid.Column="4" Grid.Row="2" Text="" Background="Gray" Height="25"  TextWrapping="Wrap" BorderThickness="3"/>
-        <TextBox x:Name="D2" Grid.Column="4" Grid.Row="3" Text="" Background="Gray" Height="25"  TextWrapping="Wrap" BorderThickness="3,3,3,0"/>
-        <TextBox x:Name="D3" Grid.Column="4" Grid.Row="4" Text="" Background="Gray" Height="25"  TextWrapping="Wrap" BorderThickness="3,0"/>
-        <TextBox x:Name="D4" Grid.Column="4" Grid.Row="5" Text="" Background="Gray" Height="25"  TextWrapping="Wrap" BorderThickness="3,0,3,3"/>
-        <TextBox x:Name="D5" Grid.Column="4" Grid.Row="6" Text="" Background="Gray" Height="25"  TextWrapping="Wrap" BorderThickness="3,3,3,0"/>
-        <TextBox x:Name="D6" Grid.Column="4" Grid.Row="7" Text="" Background="Gray" Height="25"  TextWrapping="Wrap" BorderThickness="3,0"/>
-        <TextBox x:Name="D7" Grid.Column="4" Grid.Row="8" Text="" Background="Gray" Height="25"  TextWrapping="Wrap" BorderThickness="3,0,3,3"/>
-        <TextBox x:Name="D8" Grid.Column="4" Grid.Row="9" Text="" Background="LightGray" Height="25"  TextWrapping="Wrap" BorderThickness="3"/>
+
+        <TextBox x:Name="D1" Grid.Column="4" Grid.Row="2" Text="" Background="{Binding Path=Day.GMColour, Mode=TwoWay}" Height="25"  TextWrapping="Wrap" BorderThickness="3"/>
+        <TextBox x:Name="D2" Grid.Column="4" Grid.Row="3" Text="{Binding Path=Day.Steam.ChineseSign, Mode=TwoWay}" Background="{Binding Path=Day.Steam.Colour, Mode=TwoWay}" Height="25"  TextWrapping="Wrap" BorderThickness="3,3,3,0"/>
+        <TextBox x:Name="D3" Grid.Column="4" Grid.Row="4" Text="{Binding Path=Day.Steam.ChineseString, Mode=TwoWay}" Background="{Binding Path=Day.Steam.Colour, Mode=TwoWay}" Height="25"  TextWrapping="Wrap" BorderThickness="3,0"/>
+        <TextBox x:Name="D4" Grid.Column="4" Grid.Row="5" Text="{Binding Path=Day.Steam.EnglishString, Mode=TwoWay}" Background="{Binding Path=Day.Steam.Colour, Mode=TwoWay}" Height="25"  TextWrapping="Wrap" BorderThickness="3,0,3,3"/>
+        <TextBox x:Name="D5" Grid.Column="4" Grid.Row="6" Text="{Binding Path=Day.Branch.ChineseSign, Mode=TwoWay}" Background="{Binding Path=Day.Branch.Colour, Mode=TwoWay}" Height="25"  TextWrapping="Wrap" BorderThickness="3,3,3,0"/>
+        <TextBox x:Name="D6" Grid.Column="4" Grid.Row="7" Text="{Binding Path=Day.Branch.ChineseString, Mode=TwoWay}" Background="{Binding Path=Day.Branch.Colour, Mode=TwoWay}" Height="25"  TextWrapping="Wrap" BorderThickness="3,0"/>
+        <TextBox x:Name="D7" Grid.Column="4" Grid.Row="8" Text="{Binding Path=Day.BelowRowTable, Mode=TwoWay}" Background="{Binding Path=Day.Branch.Colour, Mode=TwoWay}" Height="25"  TextWrapping="Wrap" BorderThickness="3,0,3,3"/>
+        <TextBox x:Name="D8" Grid.Column="4" Grid.Row="9" Text="{Binding Path=Day.BelowRowTable, Mode=TwoWay}" Background="LightGray" Height="25"  TextWrapping="Wrap" BorderThickness="3"/>
+
+
 
         <TextBox x:Name="MTitle" Grid.Column="5" Grid.Row="1" Text="Month" Background="White" Height="25"  TextWrapping="Wrap" TextAlignment="Center" BorderThickness="3"/>
-        <TextBox x:Name="M1" Grid.Column="5" Grid.Row="2" Text="" Background="Gray" Height="25"  TextWrapping="Wrap" BorderThickness="3"/>
-        <TextBox x:Name="M2" Grid.Column="5" Grid.Row="3" Text="" Background="Gray" Height="25"  TextWrapping="Wrap" BorderThickness="3,3,3,0"/>
-        <TextBox x:Name="M3" Grid.Column="5" Grid.Row="4" Text="" Background="Gray" Height="25"  TextWrapping="Wrap" BorderThickness="3,0"/>
-        <TextBox x:Name="M4" Grid.Column="5" Grid.Row="5" Text="" Background="Gray" Height="25"  TextWrapping="Wrap" BorderThickness="3,0,3,3"/>
-        <TextBox x:Name="M5" Grid.Column="5" Grid.Row="6" Text="" Background="Gray" Height="25"  TextWrapping="Wrap" BorderThickness="3,3,3,0"/>
-        <TextBox x:Name="M6" Grid.Column="5" Grid.Row="7" Text="" Background="Gray" Height="25"  TextWrapping="Wrap" BorderThickness="3,0"/>
-        <TextBox x:Name="M7" Grid.Column="5" Grid.Row="8" Text="" Background="Gray" Height="25"  TextWrapping="Wrap" BorderThickness="3,0,3,3"/>
-        <TextBox x:Name="M8" Grid.Column="5" Grid.Row="9" Text="" Background="LightGray" Height="25"  TextWrapping="Wrap" BorderThickness="3"/>
 
+        <TextBox x:Name="M1" Grid.Column="5" Grid.Row="2" Text="" Background="{Binding Path=Month.GMColour, Mode=TwoWay}" Height="25"  TextWrapping="Wrap" BorderThickness="3"/>
+        <TextBox x:Name="M2" Grid.Column="5" Grid.Row="3" Text="{Binding Path=Month.Steam.ChineseSign, Mode=TwoWay}" Background="{Binding Path=Month.Steam.Colour, Mode=TwoWay}" Height="25"  TextWrapping="Wrap" BorderThickness="3,3,3,0"/>
+        <TextBox x:Name="M3" Grid.Column="5" Grid.Row="4" Text="{Binding Path=Month.Steam.ChineseString, Mode=TwoWay}" Background="{Binding Path=Month.Steam.Colour, Mode=TwoWay}" Height="25"  TextWrapping="Wrap" BorderThickness="3,0"/>
+        <TextBox x:Name="M4" Grid.Column="5" Grid.Row="5" Text="{Binding Path=Month.Steam.EnglishString, Mode=TwoWay}" Background="{Binding Path=Month.Steam.Colour, Mode=TwoWay}" Height="25"  TextWrapping="Wrap" BorderThickness="3,0,3,3"/>
+        <TextBox x:Name="M5" Grid.Column="5" Grid.Row="6" Text="{Binding Path=Month.Branch.ChineseSign, Mode=TwoWay}" Background="{Binding Path=Month.Branch.Colour, Mode=TwoWay}" Height="25"  TextWrapping="Wrap" BorderThickness="3,3,3,0"/>
+        <TextBox x:Name="M6" Grid.Column="5" Grid.Row="7" Text="{Binding Path=Month.Branch.ChineseString, Mode=TwoWay}" Background="{Binding Path=Month.Branch.Colour, Mode=TwoWay}" Height="25"  TextWrapping="Wrap" BorderThickness="3,0"/>
+        <TextBox x:Name="M7" Grid.Column="5" Grid.Row="8" Text="{Binding Path=Month.Branch.EnglishString, Mode=TwoWay}" Background="{Binding Path=Month.Branch.Colour, Mode=TwoWay}" Height="25"  TextWrapping="Wrap" BorderThickness="3,0,3,3"/>
+        <TextBox x:Name="M8" Grid.Column="5" Grid.Row="9" Text="{Binding Path=Month.BelowRowTable, Mode=TwoWay}" Background="LightGray" Height="25"  TextWrapping="Wrap" BorderThickness="3"/>
+
+        
+        
         <TextBox x:Name="YTitle" Grid.Column="6" Grid.Row="1" Text="Year" Background="White" Height="25"  TextWrapping="Wrap" TextAlignment="Center" BorderThickness="3"/>
-        <TextBox x:Name="Y1" Grid.Column="6" Grid.Row="2" Text="" Background="Gray" Height="25"  TextWrapping="Wrap" BorderThickness="3"/>
-        <TextBox x:Name="Y2" Grid.Column="6" Grid.Row="3" Text="" Background="Gray" Height="25"  TextWrapping="Wrap" BorderThickness="3,3,3,0"/>
-        <TextBox x:Name="Y3" Grid.Column="6" Grid.Row="4" Text="" Background="Gray" Height="25"  TextWrapping="Wrap" BorderThickness="3,0"/>
-        <TextBox x:Name="Y4" Grid.Column="6" Grid.Row="5" Text="" Background="Gray" Height="25"  TextWrapping="Wrap" BorderThickness="3,0,3,3"/>
-        <TextBox x:Name="Y5" Grid.Column="6" Grid.Row="6" Text="" Background="Gray" Height="25"  TextWrapping="Wrap" BorderThickness="3,3,3,0"/>
-        <TextBox x:Name="Y6" Grid.Column="6" Grid.Row="7" Text="" Background="Gray" Height="25"  TextWrapping="Wrap" BorderThickness="3,0"/>
-        <TextBox x:Name="Y7" Grid.Column="6" Grid.Row="8" Text="" Background="Gray" Height="25"  TextWrapping="Wrap" BorderThickness="3,0,3,3"/>
-        <TextBox x:Name="Y8" Grid.Column="6" Grid.Row="9" Text="" Background="LightGray" Height="25"  TextWrapping="Wrap" BorderThickness="3"/>
+
+        <TextBox x:Name="Y1" Grid.Column="6" Grid.Row="2" Text="" Background="{Binding Path=Year.GMColour, Mode=TwoWay}" Height="25"  TextWrapping="Wrap" BorderThickness="3"/>
+        <TextBox x:Name="Y2" Grid.Column="6" Grid.Row="3" Text="{Binding Path=Year.Steam.ChineseSign, Mode=TwoWay}" Background="{Binding Path=Year.Steam.Colour, Mode=TwoWay}" Height="25"  TextWrapping="Wrap" BorderThickness="3,3,3,0"/>
+        <TextBox x:Name="Y3" Grid.Column="6" Grid.Row="4" Text="{Binding Path=Year.Steam.ChineseString, Mode=TwoWay}" Background="{Binding Path=Year.Steam.Colour, Mode=TwoWay}" Height="25"  TextWrapping="Wrap" BorderThickness="3,0"/>
+        <TextBox x:Name="Y4" Grid.Column="6" Grid.Row="5" Text="{Binding Path=Year.Steam.EnglishString, Mode=TwoWay}" Background="{Binding Path=Year.Steam.Colour, Mode=TwoWay}" Height="25"  TextWrapping="Wrap" BorderThickness="3,0,3,3"/>
+        <TextBox x:Name="Y5" Grid.Column="6" Grid.Row="6" Text="{Binding Path=Year.Branch.ChineseSign, Mode=TwoWay}" Background="{Binding Path=Year.Branch.Colour, Mode=TwoWay}" Height="25"  TextWrapping="Wrap" BorderThickness="3,3,3,0"/>
+        <TextBox x:Name="Y6" Grid.Column="6" Grid.Row="7" Text="{Binding Path=Year.Branch.ChineseString, Mode=TwoWay}" Background="{Binding Path=Year.Branch.Colour, Mode=TwoWay}" Height="25"  TextWrapping="Wrap" BorderThickness="3,0"/>
+        <TextBox x:Name="Y7" Grid.Column="6" Grid.Row="8" Text="{Binding Path=Year.Branch.EnglishString, Mode=TwoWay}" Background="{Binding Path=Year.Branch.Colour, Mode=TwoWay}" Height="25"  TextWrapping="Wrap" BorderThickness="3,0,3,3"/>
+        <TextBox x:Name="Y8" Grid.Column="6" Grid.Row="9" Text="{Binding Path=Year.BelowRowTable, Mode=TwoWay}" Background="LightGray" Height="25"  TextWrapping="Wrap" BorderThickness="3"/>
 
 
 

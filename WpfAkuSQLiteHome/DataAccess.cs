@@ -1,11 +1,13 @@
 ﻿using Dapper;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Data;
 using System.Data.SQLite;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Media;
 
 namespace WpfAkuSQLite
 {
@@ -88,7 +90,7 @@ namespace WpfAkuSQLite
             public String Colour { get; set; }
 
             public String BelowTableRow { get; set; }
-
+               
 
         }
 
@@ -194,28 +196,165 @@ namespace WpfAkuSQLite
 
         }
 
-        public class FinalOutput
+        public class FinalOutput : INotifyPropertyChanged
         {
-            public ColumnCLass Hour { get; set; } = new ColumnCLass();
-            public ColumnCLass Day { get; set; } = new ColumnCLass();
-            public ColumnCLass Month { get; set; } = new ColumnCLass();
-            public ColumnCLass Year { get; set; } = new ColumnCLass();
+            private ColumnCLass _hour;
+            public ColumnCLass Hour
+            { get { return _hour; } set { _hour = value; OnPropertyRaised("Hour"); } }
+
+            private ColumnCLass _day;
+            public ColumnCLass Day
+            { get { return _day; } set { _day = value; OnPropertyRaised("Day"); } }
+
+            private ColumnCLass _month;
+            public ColumnCLass Month
+            { get { return _month; } set { _month = value; OnPropertyRaised("Month"); } }
+
+            private ColumnCLass _year;
+            public ColumnCLass Year
+            { get { return _year; } set { _year = value; OnPropertyRaised("Year"); } }
+
+            private GivenDate _givenDate;
+            public GivenDate GivenDate
+            { get { return _givenDate; } set { _givenDate = value; OnPropertyRaised("GivenDate"); } }
+
+
+            public FinalOutput()
+            {
+                this.Year = new ColumnCLass();
+                this.Month = new ColumnCLass();
+                this.Day = new ColumnCLass();
+                this.Hour = new ColumnCLass();
+                this.GivenDate = new GivenDate();
+            }
+
+            public event PropertyChangedEventHandler PropertyChanged;
+
+            private void OnPropertyRaised(string propertname)
+            {
+                if (PropertyChanged != null)
+                {
+                    PropertyChanged(this, new PropertyChangedEventArgs(propertname));
+                }
+            }
         }
 
-        public class ColumnCLass
+        public class ColumnCLass : INotifyPropertyChanged
         {
-            public string GMColour { get; set; } = null;
-            public SymbolClass Steam { get; set; } = new SymbolClass();
-            public SymbolClass Branch { get; set; } = new SymbolClass();
-            public string BelowRowTable { get; set; } = null;
+
+            private SolidColorBrush _gmcolour;
+            public SolidColorBrush GMColour
+            { get { return _gmcolour; } set { _gmcolour = value; OnPropertyRaised("GMColour"); } }
+
+
+            private SymbolClass _steam;
+            public SymbolClass Steam
+            { get { return _steam; } set { _steam = value; OnPropertyRaised("Steam"); } }
+
+
+            private SymbolClass _branch;
+            public SymbolClass Branch
+            { get { return _branch; } set { _branch = value; OnPropertyRaised("Branch"); } }
+
+
+            private string _belowRowTable;
+            public string BelowRowTable
+            { get { return _belowRowTable; } set { _belowRowTable = value; OnPropertyRaised("BelowRowTable"); } }
+
+
+            public ColumnCLass()
+            {
+                this.Steam = new SymbolClass();
+                this.Branch = new SymbolClass();
+                this.GMColour = null;
+                this.BelowRowTable = null;
+
+            }
+
+            public event PropertyChangedEventHandler PropertyChanged;
+
+            private void OnPropertyRaised(string propertname)
+            {
+                if (PropertyChanged != null)
+                {
+                    PropertyChanged(this, new PropertyChangedEventArgs(propertname));
+                }
+            }
         }
 
-        public class SymbolClass
+        public class SymbolClass : INotifyPropertyChanged
         {
-            public String ChineseSign { get; set; }
-            public String ChineseString { get; set; }
-            public String EnglishString { get; set; }
-            public string Colour { get; set; } = null;
+            public SymbolClass()
+            {
+                this.ChineseSign = null;
+                this.ChineseString = null;
+                this.EnglishString = null;
+                this.Colour = null;
+            }
+
+
+            private string _chineseSign;
+            public string ChineseSign
+            { get { return _chineseSign; } set { _chineseSign = value; OnPropertyRaised("ChineseSign"); } }
+
+
+            private string _chineseString;
+            public string ChineseString
+            { get { return _chineseString; } set { _chineseString = value; OnPropertyRaised("ChineseString"); } }
+
+
+            private string _englishString;
+            public string EnglishString
+            { get { return _englishString; } set { _englishString = value; OnPropertyRaised("EnglishString"); } }
+
+
+            private SolidColorBrush _colour;
+            public SolidColorBrush Colour
+            { get { return _colour; } set { _colour = value; OnPropertyRaised("Colour"); } }
+
+
+            public event PropertyChangedEventHandler PropertyChanged;
+
+            private void OnPropertyRaised(string propertname)
+            {
+                if (PropertyChanged != null)
+                {
+                    PropertyChanged(this, new PropertyChangedEventArgs(propertname));
+                }
+            }
         }
+
+        public class GivenDate : INotifyPropertyChanged
+        {
+
+            private string _year;
+            public string Year
+            { get { return _year; } set { _year = value; OnPropertyRaised("Year"); } }
+
+            private string _month;
+            public string Month
+            { get { return _month; } set { _month = value; OnPropertyRaised("Month"); } }
+
+            private string _day;
+            public string Day
+            { get { return _day; } set { _day = value; OnPropertyRaised("Day"); } }
+
+            private string _hour;
+            public string Hour
+            { get { return _hour; } set { _hour = value; OnPropertyRaised("Hour"); } }
+
+            public event PropertyChangedEventHandler PropertyChanged;
+
+            private void OnPropertyRaised(string propertname)
+            {
+                if (PropertyChanged != null)
+                {
+                    PropertyChanged(this, new PropertyChangedEventArgs(propertname));
+                }
+            }
+        }
+
+
+
     }
 }
