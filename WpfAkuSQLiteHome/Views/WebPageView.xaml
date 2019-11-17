@@ -1,14 +1,12 @@
-﻿<UserControl x:Class="WpfAkuSQLiteHome.Views.SBCalculatorView"
+﻿<UserControl x:Class="WpfAkuSQLiteHome.Views.WebPageView"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:WpfAkuSQLiteHome.Views"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800" Background="LightGray">
+             d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
-        <ContentControl HorizontalAlignment="left" VerticalAlignment="Top" Height="170" Width="140" x:Name="SetBirthDateViewModel"/>
-        <ContentControl HorizontalAlignment="left" VerticalAlignment="top" Height="245" Width="500" x:Name="SBTableVIewModel" Margin="150,0,0,0"/>
-       
+        <WebBrowser Name="webBrowser" Source="http://google.com" HorizontalAlignment="Left" VerticalAlignment="Top"/>
     </Grid>
 </UserControl>

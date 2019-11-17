@@ -82,10 +82,12 @@
     <Compile Include="ViewModels\ISBCalculatorViewModel.cs" />
     <Compile Include="ViewModels\ISBTableVIewModel.cs" />
     <Compile Include="ViewModels\ISetBirthDateViewModel.cs" />
+    <Compile Include="ViewModels\IWebPageViewModel.cs" />
     <Compile Include="ViewModels\SBCalculatorViewModel.cs" />
     <Compile Include="ViewModels\SBTableViewModel.cs" />
     <Compile Include="ViewModels\SetBirthDateViewModel.cs" />
     <Compile Include="ViewModels\ShellViewModel.cs" />
+    <Compile Include="ViewModels\WebPageViewModel.cs" />
     <Compile Include="Views\SBCalculatorView.xaml.cs">
       <DependentUpon>SBCalculatorView.xaml</DependentUpon>
     </Compile>
@@ -97,6 +99,9 @@
     </Compile>
     <Compile Include="Views\ShellView.xaml.cs">
       <DependentUpon>ShellView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\WebPageView.xaml.cs">
+      <DependentUpon>WebPageView.xaml</DependentUpon>
     </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -128,6 +133,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\ShellView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\WebPageView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

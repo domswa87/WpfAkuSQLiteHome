@@ -10,12 +10,16 @@ namespace WpfAkuSQLiteHome.ViewModels
     public class ShellViewModel : Conductor<object>.Collection.OneActive
     {
         public ISBCalculatorViewModel SBCalculatorViewModel { get; }
+        public IWebPageViewModel WebPageViewModel { get; }
 
-        public ShellViewModel(ISBCalculatorViewModel sBCalculatorViewModel)
+        public ShellViewModel(ISBCalculatorViewModel sBCalculatorViewModel, IWebPageViewModel webPageViewModel)
         {
             SBCalculatorViewModel = sBCalculatorViewModel;
+            WebPageViewModel = webPageViewModel;
         }
 
         public void LoadPageOne() => ActivateItem(SBCalculatorViewModel);
+
+        public void LoadPageTwo() => ActivateItem(WebPageViewModel);
     }
 }
