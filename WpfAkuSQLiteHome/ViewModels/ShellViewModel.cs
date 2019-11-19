@@ -11,15 +11,19 @@ namespace WpfAkuSQLiteHome.ViewModels
     {
         public ISBCalculatorViewModel SBCalculatorViewModel { get; }
         public IWebPageViewModel WebPageViewModel { get; }
+        public ICalendarViewModel CalendarViewModel { get; }
 
-        public ShellViewModel(ISBCalculatorViewModel sBCalculatorViewModel, IWebPageViewModel webPageViewModel)
+        public ShellViewModel(ISBCalculatorViewModel sBCalculatorViewModel, IWebPageViewModel webPageViewModel, ICalendarViewModel calendarViewModel)
         {
             SBCalculatorViewModel = sBCalculatorViewModel;
             WebPageViewModel = webPageViewModel;
+            CalendarViewModel = calendarViewModel;
         }
 
         public void LoadPageOne() => ActivateItem(SBCalculatorViewModel);
 
         public void LoadPageTwo() => ActivateItem(WebPageViewModel);
+
+        public void LoadPageThree() => ActivateItem(CalendarViewModel);
     }
 }

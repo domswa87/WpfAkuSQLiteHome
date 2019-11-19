@@ -31,7 +31,8 @@ namespace WpfAkuSQLiteHome
                 .PerRequest<ISBCalculatorViewModel, SBCalculatorViewModel>()
                 .PerRequest<ISetBirthDateViewModel, SetBirthDateViewModel>()
                 .PerRequest<IWebPageViewModel, WebPageViewModel>()
-                .PerRequest<ISBTableVIewModel, SBTableViewModel>();
+                .PerRequest<ISBTableVIewModel, SBTableViewModel>()
+                .PerRequest<ICalendarViewModel, CalendarViewModel>();
 
 
             GetType().Assembly.GetTypes()
