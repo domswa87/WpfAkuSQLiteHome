@@ -22,11 +22,10 @@ namespace WpfAkuSQLiteHome.Models
         static string ApplicationName = "Google Calendar API .NET Quickstart";
 
         public Events events;
+        CalendarService service = CreateService();
 
         public void RunRequst(DateTime? timeMin, DateTime? timeMax, string calendarName = "primary", int maxResults = 10)
         {
-            CalendarService service = CreateService();
-
             EventsResource.ListRequest request = service.Events.List(calendarName);
             request.TimeMin = timeMin;
             request.TimeMax = timeMax;
@@ -37,7 +36,6 @@ namespace WpfAkuSQLiteHome.Models
 
             // List events.
             events = request.Execute();
-
         }
 
         private static CalendarService CreateService()
@@ -88,6 +86,23 @@ namespace WpfAkuSQLiteHome.Models
                 MessageBox.Show("No upcoming events found.");
             }
             return list;
+        }
+
+        public void CreateEvent(DateTime startDate, DateTime endDate, string summary)
+        {
+            var ev = new Event();
+
+            EventDateTime start = new EventDateTime();
+            start.DateTime = startDate;
+            EventDateTime end = new EventDateTime();
+            end.DateTime = endDate;
+
+            ev.Start = start;
+            ev.End = end;
+            ev.Summary = summary;
+
+            var calendarId = "primary";
+            Event recurringEvent = service.Events.Insert(ev, calendarId).Execute();
         }
     }
 }

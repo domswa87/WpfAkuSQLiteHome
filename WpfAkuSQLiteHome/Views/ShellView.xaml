@@ -31,6 +31,7 @@
         <Button x:Name="LoadPageThree" Grid.Row="1" Grid.Column="3">Third</Button>
         <Button x:Name="LoadPageFour" Grid.Row="1" Grid.Column="4">Fouth</Button>
         <Button x:Name="LoadPageFive" Grid.Row="1" Grid.Column="5">Fifth</Button>
+        <TextBox x:Name="MyPropertDS" Grid.Row="1" Grid.Column="6"></TextBox>
         <ContentControl Grid.Row="2" Grid.Column="1" Grid.RowSpan="3" Grid.ColumnSpan="6" x:Name="ActiveItem"/>
 
     </Grid>

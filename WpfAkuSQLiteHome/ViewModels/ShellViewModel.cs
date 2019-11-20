@@ -9,6 +9,16 @@ namespace WpfAkuSQLiteHome.ViewModels
 {
     public class ShellViewModel : Conductor<object>.Collection.OneActive
     {
+        private string myVar;
+
+        public string MyPropertyDS
+        {
+            get { return myVar; }
+            set { myVar = value; NotifyOfPropertyChange(() => MyPropertyDS); }
+        }
+
+
+
         public ISBCalculatorViewModel SBCalculatorViewModel { get; }
         public IWebPageViewModel WebPageViewModel { get; }
         public ICalendarViewModel CalendarViewModel { get; }

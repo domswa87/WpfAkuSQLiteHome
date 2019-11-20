@@ -4,22 +4,43 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:WpfAkuSQLiteHome.Views"
-             xmlns:vm ="clr-namespace:WpfAkuSQLiteHome.ViewModels"
+             xmlns:sys="clr-namespace:System;assembly=mscorlib"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
 
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="20"/>
+            <ColumnDefinition Width="100"/>
+            <ColumnDefinition Width="100"/>
+            <ColumnDefinition Width="100"/>
+            <ColumnDefinition Width="100"/>
+            <ColumnDefinition Width="100"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="20"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="100"/>
+            <RowDefinition Height="100"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="20"/>
+        </Grid.RowDefinitions>
+        <Label Grid.Row="0" Grid.Column="1" Content="Start Date"/>
+        <Label Grid.Row="0" Grid.Column="2" Content="End Date"/>
+        <DatePicker x:Name="StartDate" HorizontalAlignment="Left" Grid.Row="1" Grid.Column="1"/>
+        <DatePicker x:Name="EndDate" HorizontalAlignment="Left"  Grid.Row="1" Grid.Column="2"/>
+        <Button x:Name="LoadEvents" Content="Load Events" Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="2" Height="50"></Button>
+        <ListBox x:Name="GoogleEvents" Grid.Row="3" Grid.Column="1" Grid.RowSpan="4" Grid.ColumnSpan="2"></ListBox>
 
-    <UserControl.Resources>
-        <vm:CalendarViewModel x:Key="CalendarViewModel"/>
-    </UserControl.Resources>
 
-    <Grid DataContext="{Binding Source={StaticResource CalendarViewModel}}">
-       
-        <StackPanel Width="800" Height="200" VerticalAlignment="Bottom">
-            <Button x:Name="LoadEvents" HorizontalAlignment="Center" Height="50" Width="250" Content="Load Events"></Button>
-            <TextBlock x:Name="One" FontSize="20"></TextBlock>
-            <TextBlock x:Name="Two" FontSize="20"></TextBlock>
-            <TextBlock x:Name="Three" FontSize="20"></TextBlock>
-        </StackPanel>
+        <Label Grid.Row="0" Grid.Column="4" Content="New Start Date"/>
+        <Label Grid.Row="0" Grid.Column="5" Content="New End Date"/>
+        <Label Grid.Row="0" Grid.Column="6" Content="New Summary"/>
+        <DatePicker x:Name="NewStartDate" HorizontalAlignment="Left" Grid.Row="1" Grid.Column="4"/>
+        <DatePicker x:Name="NewEndDate" HorizontalAlignment="Left" Grid.Row="1" Grid.Column="5"/>
+        <TextBox x:Name="NewSummary" Grid.Row="1" Grid.Column="6"/>
+        <Button x:Name="CreateEvent" Content="Create Event" Grid.Row="2" Grid.Column="4" Grid.ColumnSpan="2" Height="50"></Button>
     </Grid>
 </UserControl>

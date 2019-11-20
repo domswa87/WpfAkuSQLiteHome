@@ -18,32 +18,27 @@ namespace WpfAkuSQLiteHome.ViewModels
 {
     public class CalendarViewModel : Screen, ICalendarViewModel, INotifyPropertyChangedEx
     {
+        public DateTime StartDate { get; set; } = new DateTime(2019, 10, 1);
+        public DateTime EndDate { get; set; } = new DateTime(2019, 10, 3);
+        public DateTime NewEndDate { get; set; } = DateTime.Today;
+        public DateTime NewStartDate { get; set; } = DateTime.Today;
+        public string NewSummary { get; set; }
+        public BindableCollection<string> GoogleEvents { get; set; } = new BindableCollection<string>();
         public List<Event> eventsList = new List<Event>();
-
-        private string one;
-        private string two;
-        private string three;
- 
-
-        public string One { get => one; set { one = value; NotifyOfPropertyChange(() => One); } }
-        public string Two { get => two; set { two = value; NotifyOfPropertyChange(() => Two); } }
-        public string Three { get => three; set { three = value; NotifyOfPropertyChange(() => Three); } }
-
-
-
+        GoogleCalendarAPI googleCalendarAPI = new GoogleCalendarAPI();
 
         public void LoadEvents()
         {
-            GoogleCalendarAPI googleCalendarAPI = new GoogleCalendarAPI();
-
-            DateTime? min = new DateTime?(new DateTime(2019, 10, 01));
-            DateTime? max = new DateTime?(new DateTime(2019, 12, 01));
-
-            googleCalendarAPI.RunRequst(min, max);
+            GoogleEvents.Clear();
+            googleCalendarAPI.RunRequst(new DateTime?(StartDate), new DateTime?(EndDate));
             eventsList = googleCalendarAPI.LoadEventsToList();
-            One = eventsList[0].Start.DateTime.Value.Hour.ToString() + " " + eventsList[0].Summary;
-            Two = eventsList[1].Start.DateTime.Value.Hour.ToString() + " " + eventsList[1].Summary;
-            Three = eventsList[2].Start.DateTime.Value.Hour.ToString() + " " + eventsList[2].Summary;
+            foreach (var item in eventsList)
+                GoogleEvents.Add(item.Start.DateTime.ToString() + " " + item.Summary);
+        }
+
+        public void CreateEvent()
+        {
+            googleCalendarAPI.CreateEvent(NewStartDate, NewEndDate, NewSummary);
         }
     }
 }
