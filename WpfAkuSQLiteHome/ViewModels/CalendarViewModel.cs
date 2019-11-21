@@ -16,8 +16,23 @@ using WpfAkuSQLiteHome.Models;
 
 namespace WpfAkuSQLiteHome.ViewModels
 {
-    public class CalendarViewModel : Screen, ICalendarViewModel, INotifyPropertyChangedEx
+    public class CalendarViewModel : Conductor<object>.Collection.AllActive, ICalendarViewModel, INotifyPropertyChangedEx, IHandle<string>
     {
+        public IDayViewModel DayViewModel { get; }
+        public IEventAggregator EventAggregator { get; }
+
+        public string HourStart
+        {
+            get => hourStart;
+            set
+            {
+                hourStart = value;
+                NotifyOfPropertyChange(() => HourStart);
+            }
+        }
+
+
+
         public DateTime StartDate { get; set; } = new DateTime(2019, 10, 1);
         public DateTime EndDate { get; set; } = new DateTime(2019, 10, 3);
         public DateTime NewEndDate { get; set; } = DateTime.Today;
@@ -26,6 +41,15 @@ namespace WpfAkuSQLiteHome.ViewModels
         public BindableCollection<string> GoogleEvents { get; set; } = new BindableCollection<string>();
         public List<Event> eventsList = new List<Event>();
         GoogleCalendarAPI googleCalendarAPI = new GoogleCalendarAPI();
+        private string hourStart;
+
+        public CalendarViewModel(IDayViewModel dayViewModel, IEventAggregator eventAggregator)
+        {
+            DayViewModel = dayViewModel;
+            EventAggregator = eventAggregator;
+            EventAggregator.Subscribe(this);
+        }
+
 
         public void LoadEvents()
         {
@@ -39,6 +63,11 @@ namespace WpfAkuSQLiteHome.ViewModels
         public void CreateEvent()
         {
             googleCalendarAPI.CreateEvent(NewStartDate, NewEndDate, NewSummary);
+        }
+
+        public void Handle(string message)
+        {
+            HourStart = message;
         }
     }
 }

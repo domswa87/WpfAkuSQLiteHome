@@ -102,7 +102,9 @@
       <DependentUpon>UserControlDS.xaml</DependentUpon>
     </Compile>
     <Compile Include="ViewModels\CalendarViewModel.cs" />
+    <Compile Include="ViewModels\DayViewModel.cs" />
     <Compile Include="ViewModels\ICalendarViewModel.cs" />
+    <Compile Include="ViewModels\IDayViewModel.cs" />
     <Compile Include="ViewModels\ISBCalculatorViewModel.cs" />
     <Compile Include="ViewModels\ISBTableVIewModel.cs" />
     <Compile Include="ViewModels\ISetBirthDateViewModel.cs" />
@@ -114,6 +116,9 @@
     <Compile Include="ViewModels\WebPageViewModel.cs" />
     <Compile Include="Views\CalendarView.xaml.cs">
       <DependentUpon>CalendarView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\DayView.xaml.cs">
+      <DependentUpon>DayView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\SBCalculatorView.xaml.cs">
       <DependentUpon>SBCalculatorView.xaml</DependentUpon>
@@ -148,6 +153,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\CalendarView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\DayView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
