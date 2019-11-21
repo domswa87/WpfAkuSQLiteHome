@@ -6,8 +6,7 @@
              xmlns:local="clr-namespace:WpfAkuSQLiteHome.Views"
              xmlns:cal="http://www.caliburnproject.org"
              mc:Ignorable="d" 
-             d:DesignHeight="260" d:DesignWidth="310">
-
+             d:DesignHeight="400" d:DesignWidth="310">
    
     <Grid>
         <ListBox HorizontalAlignment="Left" SelectedIndex="{Binding Path=ItemIndex, Mode=TwoWay}" cal:Message.Attach="[MouseDoubleClick] = [Action MethodDS()]">
@@ -17,5 +16,21 @@
             <ListBoxItem Content="11:00" Height="50" FontSize="10" Width="300" BorderBrush="Black"/>
             <ListBoxItem Content="12:00" Height="50" FontSize="10" Width="300" BorderBrush="Black"/>
         </ListBox>
+
+        <ListView Height="180" Width="120" Visibility="{Binding VisibilityProp, Mode=OneWay}" Margin="{Binding MarginDS, Mode=TwoWay}" HorizontalAlignment="Left" VerticalAlignment="Top">
+            <ListViewItem Height="20" Width="100">Hour Start</ListViewItem>
+            <TextBox Height="20" Width="100"></TextBox>
+            <ListViewItem  Height="20" Width="100">Hour End</ListViewItem>
+            <TextBox Height="20" Width="100"></TextBox>
+            <ListViewItem  Height="20" Width="100">Description</ListViewItem>
+            <TextBox Height="20" Width="100"></TextBox>
+            <StackPanel Orientation="Horizontal">
+                <Button x:Name="OKDS" Height="20" Width="40" Margin="3,3,10,3">OK</Button>
+                <Button x:Name="CancelDS" Height="20" Width="40" Margin="3,3,3,3">Cancel</Button>
+            </StackPanel>
+           
+
+        </ListView>
+        <Button x:Name="marginUP" Height="20" Width="120" Margin="3,3,3,3" VerticalAlignment="Bottom">Margin up</Button>
     </Grid>
 </UserControl>
