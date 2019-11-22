@@ -18,38 +18,6 @@ namespace WpfAkuSQLiteHome.ViewModels
 {
     public class CalendarViewModel : Conductor<object>.Collection.AllActive, ICalendarViewModel, INotifyPropertyChangedEx, IHandle<string>
     {
-        public IDayViewModel DayViewModel1 { get; }
-        public IDayViewModel DayViewModel2 { get; }
-        public IDayViewModel DayViewModel3 { get; }
-        public IDayViewModel DayViewModel4 { get; }
-        public IDayViewModel DayViewModel5 { get; }
-        public IDayViewModel DayViewModel6 { get; }
-        public IDayViewModel DayViewModel7 { get; }
-
-        public IEventAggregator EventAggregator { get; }
-
-        public string HourStart
-        {
-            get => hourStart;
-            set
-            {
-                hourStart = value;
-                NotifyOfPropertyChange(() => HourStart);
-            }
-        }
-
-
-
-        public DateTime StartDate { get; set; } = new DateTime(2019, 10, 1);
-        public DateTime EndDate { get; set; } = new DateTime(2019, 10, 3);
-        public DateTime NewEndDate { get; set; } = DateTime.Today;
-        public DateTime NewStartDate { get; set; } = DateTime.Today;
-        public string NewSummary { get; set; }
-        public BindableCollection<string> GoogleEvents { get; set; } = new BindableCollection<string>();
-        public List<Event> eventsList = new List<Event>();
-        GoogleCalendarAPI googleCalendarAPI = new GoogleCalendarAPI();
-        private string hourStart;
-
         public CalendarViewModel(IDayViewModel dayViewModel1, IDayViewModel dayViewModel2, IDayViewModel dayViewModel3, IDayViewModel dayViewModel4, IDayViewModel dayViewModel5, IDayViewModel dayViewModel6, IDayViewModel dayViewModel7, IEventAggregator eventAggregator)
         {
             DayViewModel1 = dayViewModel1;
@@ -61,24 +29,87 @@ namespace WpfAkuSQLiteHome.ViewModels
             DayViewModel7 = dayViewModel7;
             EventAggregator = eventAggregator;
             EventAggregator.Subscribe(this);
-
-            DayViewModel1.DayString = "Monday";
-            DayViewModel2.DayString = "Tuesday";
-            DayViewModel3.DayString = "Wednesday";
-            DayViewModel4.DayString = "Thrstday";
-            DayViewModel5.DayString = "Friday";
-            DayViewModel6.DayString = "Saturday";
-            DayViewModel7.DayString = "Sunday";
+           
+            DateUpdate();
         }
 
 
+        public IDayViewModel DayViewModel1 { get; }
+        public IDayViewModel DayViewModel2 { get; }
+        public IDayViewModel DayViewModel3 { get; }
+        public IDayViewModel DayViewModel4 { get; }
+        public IDayViewModel DayViewModel5 { get; }
+        public IDayViewModel DayViewModel6 { get; }
+        public IDayViewModel DayViewModel7 { get; }
+
+        public IEventAggregator EventAggregator { get; }
+        public DateTime NewEndDate { get; set; } = DateTime.Today;
+        public DateTime NewStartDate { get; set; } = DateTime.Today;
+        public string NewSummary { get; set; }
+        public BindableCollection<string> GoogleEvents { get; set; } = new BindableCollection<string>();
+        public List<Event> eventsList = new List<Event>();
+        public GoogleCalendarAPI googleCalendarAPI = new GoogleCalendarAPI();
+
+        private string hourStart;
+        private DateTime startDate = DateTime.Now.StartOfWeek(DayOfWeek.Monday);
+
+
+        public string HourStart
+        {
+            get => hourStart;
+            set
+            {
+                hourStart = value;
+                NotifyOfPropertyChange(() => HourStart);
+            }
+        }
+
+        public DateTime StartDate
+        {
+            get => startDate;
+            set
+            {
+                startDate = value;
+                NotifyOfPropertyChange(() => StartDate);
+                DateUpdate();
+            }
+        }
+
+        private void DateUpdate()
+        {
+            DateTime FirstMonday = StartDate.StartOfWeek(DayOfWeek.Monday);
+            DayViewModel1.DatePickerDS = FirstMonday;
+            DayViewModel2.DatePickerDS = FirstMonday.AddDays(1);
+            DayViewModel3.DatePickerDS = FirstMonday.AddDays(2);
+            DayViewModel4.DatePickerDS = FirstMonday.AddDays(3);
+            DayViewModel5.DatePickerDS = FirstMonday.AddDays(4);
+            DayViewModel6.DatePickerDS = FirstMonday.AddDays(5);
+            DayViewModel7.DatePickerDS = FirstMonday.AddDays(6);
+
+            DayViewModel1.DateString = DayViewModel1.DatePickerDS.ToShortDateString(); 
+            DayViewModel2.DateString = DayViewModel2.DatePickerDS.ToShortDateString();
+            DayViewModel3.DateString = DayViewModel3.DatePickerDS.ToShortDateString();
+            DayViewModel4.DateString = DayViewModel4.DatePickerDS.ToShortDateString();
+            DayViewModel5.DateString = DayViewModel5.DatePickerDS.ToShortDateString();
+            DayViewModel6.DateString = DayViewModel6.DatePickerDS.ToShortDateString();
+            DayViewModel7.DateString = DayViewModel7.DatePickerDS.ToShortDateString();
+
+            DayViewModel1.DayString = "Poniedziałek";
+            DayViewModel2.DayString = "Wtorek";
+            DayViewModel3.DayString = "Środa";
+            DayViewModel4.DayString = "Czwartek";
+            DayViewModel5.DayString = "Piątek";
+            DayViewModel6.DayString = "Sobota";
+            DayViewModel7.DayString = "Niedziela";
+        }
+
         public void LoadEvents()
         {
-            GoogleEvents.Clear();
-            googleCalendarAPI.RunRequst(new DateTime?(StartDate), new DateTime?(EndDate));
-            eventsList = googleCalendarAPI.LoadEventsToList();
-            foreach (var item in eventsList)
-                GoogleEvents.Add(item.Start.DateTime.ToString() + " " + item.Summary);
+            //GoogleEvents.Clear();
+            //googleCalendarAPI.RunRequst(new DateTime?(StartDate), new DateTime?(EndDate));
+            //eventsList = googleCalendarAPI.LoadEventsToList();
+            //foreach (var item in eventsList)
+            //    GoogleEvents.Add(item.Start.DateTime.ToString() + " " + item.Summary);
         }
 
         public void CreateEvent()
@@ -89,6 +120,16 @@ namespace WpfAkuSQLiteHome.ViewModels
         public void Handle(string message)
         {
             HourStart = message;
+        }
+
+        public void Add7Days()
+        {
+            StartDate = StartDate.AddDays(7);
+        }
+
+        public void Sub7Days()
+        {
+            StartDate = StartDate.AddDays(-7);
         }
     }
 }

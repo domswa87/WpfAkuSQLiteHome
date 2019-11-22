@@ -19,13 +19,24 @@ namespace WpfAkuSQLiteHome.ViewModels
 
         public IEventAggregator EventAggregator { get; }
         public bool IsWindowBox { get; set; } = false;
-        public string DayString { get; set; }
         public int ItemIndex { get; set; }
+        public string DayString { get; set; }
 
         private Thickness marginDS = new Thickness(50, 20, 0, 0);
         private Visibility visibilityProp = Visibility.Hidden;
         private string hourString;
-    
+        private DateTime dataPickerDS;
+        private string dayString;
+
+        public string DateString
+        {
+            get => dayString;
+            set
+            {
+                dayString = value;
+                NotifyOfPropertyChange(() => DateString);
+            }
+        }
 
         public Thickness MarginDS
         {
@@ -33,6 +44,15 @@ namespace WpfAkuSQLiteHome.ViewModels
             {
                 marginDS = value;
                 NotifyOfPropertyChange(() => MarginDS);
+            }
+        }
+
+        public DateTime DatePickerDS
+        {
+            get => dataPickerDS; set
+            {
+                dataPickerDS = value;
+                NotifyOfPropertyChange(() => DatePickerDS);
             }
         }
 
@@ -73,6 +93,24 @@ namespace WpfAkuSQLiteHome.ViewModels
                 HourString = "11:00";
             else if (ItemIndex == 4)
                 HourString = "12:00";
+            else if (ItemIndex == 5)
+                HourString = "13:00";
+            else if (ItemIndex == 6)
+                HourString = "14:00";
+            else if (ItemIndex == 7)
+                HourString = "15:00";
+            else if (ItemIndex == 8)
+                HourString = "16:00";
+            else if (ItemIndex == 9)
+                HourString = "17:00";
+            else if (ItemIndex == 10)
+                HourString = "18:00";
+            else if (ItemIndex == 11)
+                HourString = "19:00";
+            else if (ItemIndex == 12)
+                HourString = "20:00";
+            else if (ItemIndex == 13)
+                HourString = "21:00";
 
             EventAggregator.PublishOnUIThread(HourString);
 

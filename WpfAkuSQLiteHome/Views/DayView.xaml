@@ -6,18 +6,34 @@
              xmlns:local="clr-namespace:WpfAkuSQLiteHome.Views"
              xmlns:cal="http://www.caliburnproject.org"
              mc:Ignorable="d" 
-             d:DesignHeight="400" d:DesignWidth="250">
+             d:DesignHeight="800" d:DesignWidth="260">
 
     <Grid>
         <StackPanel>
-            <TextBlock x:Name="DayString" VerticalAlignment="Top" Text="1" Background="Gray" TextAlignment="Center"></TextBlock>
-            <ListBox HorizontalAlignment="Left" SelectedIndex="{Binding Path=ItemIndex, Mode=TwoWay}" cal:Message.Attach="[MouseDoubleClick] = [Action MethodDS()]">
-                <ListBoxItem Content="8:00" Height="50" FontSize="10" Width="250" BorderBrush="Black"/>
-                <ListBoxItem Content="9:00" Height="50" FontSize="10" Width="250" BorderBrush="Black"/>
-                <ListBoxItem Content="10:00" Height="50" FontSize="10" Width="250" BorderBrush="Black"/>
-                <ListBoxItem Content="11:00" Height="50" FontSize="10" Width="250" BorderBrush="Black"/>
-                <ListBoxItem Content="12:00" Height="50" FontSize="10" Width="250" BorderBrush="Black"/>
-            </ListBox>
+            <Border BorderBrush="Black" BorderThickness="2">
+                <StackPanel>
+                    <TextBlock x:Name="DateString" VerticalAlignment="Top" Background="LightYellow" TextAlignment="Center" FontSize="25"></TextBlock>
+                    <TextBlock x:Name="DayString" VerticalAlignment="Top" Background="LightYellow" TextAlignment="Center" FontSize="25"></TextBlock>
+                </StackPanel>
+            </Border>
+            <Border BorderBrush="Black" BorderThickness="2">
+                <ListBox HorizontalAlignment="Left" SelectedIndex="{Binding Path=ItemIndex, Mode=TwoWay}" cal:Message.Attach="[MouseDoubleClick] = [Action MethodDS()]">
+                    <ListBoxItem Content="8:00" Height="60" FontSize="15" Width="250" BorderBrush="Black"/>
+                    <ListBoxItem Content="9:00" Height="60" FontSize="15" Width="250" BorderBrush="Black"/>
+                    <ListBoxItem Content="10:00" Height="60" FontSize="15" Width="250" BorderBrush="Black"/>
+                    <ListBoxItem Content="11:00" Height="60" FontSize="15" Width="250" BorderBrush="Black"/>
+                    <ListBoxItem Content="12:00" Height="60" FontSize="15" Width="250" BorderBrush="Black"/>
+                    <ListBoxItem Content="13:00" Height="60" FontSize="15" Width="250" BorderBrush="Black"/>
+                    <ListBoxItem Content="14:00" Height="60" FontSize="15" Width="250" BorderBrush="Black"/>
+                    <ListBoxItem Content="15:00" Height="60" FontSize="15" Width="250" BorderBrush="Black"/>
+                    <ListBoxItem Content="16:00" Height="60" FontSize="15" Width="250" BorderBrush="Black"/>
+                    <ListBoxItem Content="17:00" Height="60" FontSize="15" Width="250" BorderBrush="Black"/>
+                    <ListBoxItem Content="18:00" Height="60" FontSize="15" Width="250" BorderBrush="Black"/>
+                    <ListBoxItem Content="19:00" Height="60" FontSize="15" Width="250" BorderBrush="Black"/>
+                    <ListBoxItem Content="20:00" Height="60" FontSize="15" Width="250" BorderBrush="Black"/>
+                    <ListBoxItem Content="21:00" Height="60" FontSize="15" Width="250" BorderBrush="Black"/>
+                </ListBox>
+            </Border>
         </StackPanel>
 
         <ListView Height="180" Width="120" Visibility="{Binding VisibilityProp, Mode=OneWay}" Margin="{Binding MarginDS, Mode=TwoWay}" HorizontalAlignment="Left" VerticalAlignment="Top">

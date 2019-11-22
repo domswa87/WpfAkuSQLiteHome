@@ -97,6 +97,7 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Bootstrapper.cs" />
+    <Compile Include="Models\DateTimeExtensions.cs" />
     <Compile Include="Models\GoogleCalendarAPI.cs" />
     <Compile Include="UserControlDS.xaml.cs">
       <DependentUpon>UserControlDS.xaml</DependentUpon>
