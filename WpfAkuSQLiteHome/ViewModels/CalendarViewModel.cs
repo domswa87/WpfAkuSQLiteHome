@@ -18,7 +18,8 @@ namespace WpfAkuSQLiteHome.ViewModels
 {
     public class CalendarViewModel : Conductor<object>.Collection.AllActive, ICalendarViewModel, INotifyPropertyChangedEx, IHandle<string>
     {
-        public IDayViewModel DayViewModel { get; }
+        public IDayViewModel DayViewModel1 { get; }
+        public IDayViewModel DayViewModel2 { get; }
         public IEventAggregator EventAggregator { get; }
 
         public string HourStart
@@ -43,11 +44,15 @@ namespace WpfAkuSQLiteHome.ViewModels
         GoogleCalendarAPI googleCalendarAPI = new GoogleCalendarAPI();
         private string hourStart;
 
-        public CalendarViewModel(IDayViewModel dayViewModel, IEventAggregator eventAggregator)
+        public CalendarViewModel(IDayViewModel dayViewModel1, IDayViewModel dayViewModel2, IEventAggregator eventAggregator)
         {
-            DayViewModel = dayViewModel;
+            DayViewModel1 = dayViewModel1;
+            DayViewModel2 = dayViewModel2;
             EventAggregator = eventAggregator;
             EventAggregator.Subscribe(this);
+
+            DayViewModel1.DayString = "Monday";
+            DayViewModel2.DayString = "Tuesday";
         }
 
 

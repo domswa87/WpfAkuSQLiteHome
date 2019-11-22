@@ -7,41 +7,46 @@
              xmlns:sys="clr-namespace:System;assembly=mscorlib"
              mc:Ignorable="d"
              d:DesignHeight="450" d:DesignWidth="800">
-  <Grid>
-    <Grid.ColumnDefinitions>
-      <ColumnDefinition Width="20"/>
-      <ColumnDefinition Width="100"/>
-      <ColumnDefinition Width="100"/>
-      <ColumnDefinition Width="100"/>
-      <ColumnDefinition Width="100"/>
-      <ColumnDefinition Width="100"/>
-      <ColumnDefinition Width="100"/>
-      <ColumnDefinition Width="*"/>
-      <ColumnDefinition Width="20"/>
-    </Grid.ColumnDefinitions>
-    <Grid.RowDefinitions>
-      <RowDefinition Height="30"/>
-      <RowDefinition Height="30"/>
-      <RowDefinition Height="100"/>
-      <RowDefinition Height="100"/>
-      <RowDefinition Height="*"/>
-      <RowDefinition Height="20"/>
-    </Grid.RowDefinitions>
-    <Label Grid.Row="0" Grid.Column="1" Content="Start Date"/>
-    <Label Grid.Row="0" Grid.Column="2" Content="End Date"/>
-    <DatePicker x:Name="StartDate" HorizontalAlignment="Left" Grid.Row="1" Grid.Column="1"/>
-    <DatePicker x:Name="EndDate" HorizontalAlignment="Left"  Grid.Row="1" Grid.Column="2"/>
-    <Button x:Name="LoadEvents" Content="Load Events" Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="2" Height="50"></Button>
-    <ListBox x:Name="GoogleEvents" Grid.Row="3" Grid.Column="1" Grid.RowSpan="2" Grid.ColumnSpan="2"></ListBox>
-    <ContentControl x:Name="DayViewModel" Grid.Row="3" Grid.Column="4" Grid.RowSpan="2" Grid.ColumnSpan="2"/>
-    <Label Grid.Row="0" Grid.Column="4" Content="New Start Date"/>
-    <Label Grid.Row="0" Grid.Column="5" Content="New End Date"/>
-    <Label Grid.Row="0" Grid.Column="6" Content="New Summary"/>
-    <Label Grid.Row="0" Grid.Column="7" Content="Start Hour"/>
-    <DatePicker x:Name="NewStartDate" HorizontalAlignment="Left" Grid.Row="1" Grid.Column="4"/>
-    <DatePicker x:Name="NewEndDate" HorizontalAlignment="Left" Grid.Row="1" Grid.Column="5"/>
-    <TextBox x:Name="NewSummary" Grid.Row="1" Grid.Column="6"/>
-    <TextBox x:Name="HourStart" Grid.Row="1" Grid.Column="7"/>
-    <Button x:Name="CreateEvent" Content="Create Event" Grid.Row="2" Grid.Column="4" Grid.ColumnSpan="2" Height="50"></Button>
-  </Grid>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="20"/>
+            <ColumnDefinition Width="100"/>
+            <ColumnDefinition Width="100"/>
+            <ColumnDefinition Width="100"/>
+            <ColumnDefinition Width="150"/>
+            <ColumnDefinition Width="150"/>
+            <ColumnDefinition Width="150"/>
+            <ColumnDefinition Width="150"/>
+            <ColumnDefinition Width="150"/>
+            <ColumnDefinition Width="150"/>
+            <ColumnDefinition Width="150"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="20"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="100"/>
+            <RowDefinition Height="100"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="20"/>
+        </Grid.RowDefinitions>
+        <Label Grid.Row="0" Grid.Column="1" Content="Start Date"/>
+        <Label Grid.Row="0" Grid.Column="2" Content="End Date"/>
+        <DatePicker x:Name="StartDate" HorizontalAlignment="Left" Grid.Row="1" Grid.Column="1"/>
+        <DatePicker x:Name="EndDate" HorizontalAlignment="Left"  Grid.Row="1" Grid.Column="2"/>
+        <Button x:Name="LoadEvents" Content="Load Events" Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="2" Height="50"></Button>
+        <ListBox x:Name="GoogleEvents" Grid.Row="3" Grid.Column="1" Grid.RowSpan="2" Grid.ColumnSpan="2"></ListBox>
+        <ContentControl x:Name="DayViewModel1" Grid.Row="3" Grid.Column="4" Grid.RowSpan="2" Grid.ColumnSpan="1"/>
+        <ContentControl x:Name="DayViewModel2" Grid.Row="3" Grid.Column="5" Grid.RowSpan="2" Grid.ColumnSpan="1"/>
+        <Label Grid.Row="0" Grid.Column="4" Content="New Start Date"/>
+        <Label Grid.Row="0" Grid.Column="5" Content="New End Date"/>
+        <Label Grid.Row="0" Grid.Column="6" Content="New Summary"/>
+        <Label Grid.Row="0" Grid.Column="7" Content="Start Hour"/>
+        <DatePicker x:Name="NewStartDate" HorizontalAlignment="Left" Grid.Row="1" Grid.Column="4"/>
+        <DatePicker x:Name="NewEndDate" HorizontalAlignment="Left" Grid.Row="1" Grid.Column="5"/>
+        <TextBox x:Name="NewSummary" Grid.Row="1" Grid.Column="6"/>
+        <TextBox x:Name="HourStart" Grid.Row="1" Grid.Column="7"/>
+        <Button x:Name="CreateEvent" Content="Create Event" Grid.Row="2" Grid.Column="4" Grid.ColumnSpan="2" Height="50"></Button>
+    </Grid>
 </UserControl>

@@ -2,5 +2,6 @@
 {
     public interface IDayViewModel
     {
+        string DayString { get; set; }
     }
 }

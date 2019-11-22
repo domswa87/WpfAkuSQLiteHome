@@ -10,9 +10,22 @@ namespace WpfAkuSQLiteHome.ViewModels
 {
     public class DayViewModel : Screen, IDayViewModel
     {
-        private string itemValue;
-        private Visibility visibilityProp = Visibility.Hidden;
+        public DayViewModel(IEventAggregator eventAggregator)
+        {
+            EventAggregator = eventAggregator;
+        }
+
+        // Properies
+
+        public IEventAggregator EventAggregator { get; }
+        public bool IsWindowBox { get; set; } = false;
+        public string DayString { get; set; }
+        public int ItemIndex { get; set; }
+
         private Thickness marginDS = new Thickness(50, 20, 0, 0);
+        private Visibility visibilityProp = Visibility.Hidden;
+        private string hourString;
+    
 
         public Thickness MarginDS
         {
@@ -22,6 +35,7 @@ namespace WpfAkuSQLiteHome.ViewModels
                 NotifyOfPropertyChange(() => MarginDS);
             }
         }
+
         public Visibility VisibilityProp
         {
             get => visibilityProp;
@@ -31,44 +45,38 @@ namespace WpfAkuSQLiteHome.ViewModels
                 NotifyOfPropertyChange(() => VisibilityProp);
             }
         }
-        public IEventAggregator EventAggregator { get; }
-        public bool IsWindowBox { get; set; } = false;
 
-        public DayViewModel(IEventAggregator eventAggregator)
+        public string HourString
         {
-            EventAggregator = eventAggregator;
-        }
-
-
-
-        public int ItemIndex { get; set; }
-        public string ItemValue
-        {
-            get { return itemValue; }
+            get { return hourString; }
             set
             {
-                itemValue = value;
-                NotifyOfPropertyChange(() => ItemValue);
+                hourString = value;
+                NotifyOfPropertyChange(() => HourString);
             }
         }
 
 
+
+
+        // Methods
+
         public void MethodDS()
         {
             if (ItemIndex == 0)
-                ItemValue = "8:00";
+                HourString = "8:00";
             else if (ItemIndex == 1)
-                ItemValue = "9:00";
+                HourString = "9:00";
             else if (ItemIndex == 2)
-                ItemValue = "10:00";
+                HourString = "10:00";
             else if (ItemIndex == 3)
-                ItemValue = "11:00";
+                HourString = "11:00";
             else if (ItemIndex == 4)
-                ItemValue = "12:00";
+                HourString = "12:00";
 
-            EventAggregator.PublishOnUIThread(ItemValue);
+            EventAggregator.PublishOnUIThread(HourString);
 
-            MessageBoxResult result = MessageBox.Show("Do you want to create new event ? \r\n aaa \r\n ddd",
+            MessageBoxResult result = MessageBox.Show($"Do you want to create new event ? \r\n Day:{DayString} \r\n Hour {HourString}",
                                          "Confirmation",
                                          MessageBoxButton.YesNo,
                                          MessageBoxImage.Question);
