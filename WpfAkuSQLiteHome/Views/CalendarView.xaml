@@ -6,20 +6,17 @@
              xmlns:local="clr-namespace:WpfAkuSQLiteHome.Views"
              xmlns:sys="clr-namespace:System;assembly=mscorlib"
              mc:Ignorable="d"
-             d:DesignHeight="450" d:DesignWidth="800">
+             d:DesignHeight="450" d:DesignWidth="1900">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="20"/>
-            <ColumnDefinition Width="100"/>
-            <ColumnDefinition Width="100"/>
-            <ColumnDefinition Width="100"/>
-            <ColumnDefinition Width="150"/>
-            <ColumnDefinition Width="150"/>
-            <ColumnDefinition Width="150"/>
-            <ColumnDefinition Width="150"/>
-            <ColumnDefinition Width="150"/>
-            <ColumnDefinition Width="150"/>
-            <ColumnDefinition Width="150"/>
+            <ColumnDefinition Width="260"/>
+            <ColumnDefinition Width="260"/>
+            <ColumnDefinition Width="260"/>
+            <ColumnDefinition Width="260"/>
+            <ColumnDefinition Width="260"/>
+            <ColumnDefinition Width="260"/>
+            <ColumnDefinition Width="260"/>
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="20"/>
         </Grid.ColumnDefinitions>
@@ -36,9 +33,13 @@
         <DatePicker x:Name="StartDate" HorizontalAlignment="Left" Grid.Row="1" Grid.Column="1"/>
         <DatePicker x:Name="EndDate" HorizontalAlignment="Left"  Grid.Row="1" Grid.Column="2"/>
         <Button x:Name="LoadEvents" Content="Load Events" Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="2" Height="50"></Button>
-        <ListBox x:Name="GoogleEvents" Grid.Row="3" Grid.Column="1" Grid.RowSpan="2" Grid.ColumnSpan="2"></ListBox>
-        <ContentControl x:Name="DayViewModel1" Grid.Row="3" Grid.Column="4" Grid.RowSpan="2" Grid.ColumnSpan="1"/>
-        <ContentControl x:Name="DayViewModel2" Grid.Row="3" Grid.Column="5" Grid.RowSpan="2" Grid.ColumnSpan="1"/>
+        <ContentControl x:Name="DayViewModel1" Grid.Row="3" Grid.Column="1" Grid.RowSpan="2" Grid.ColumnSpan="1"/>
+        <ContentControl x:Name="DayViewModel2" Grid.Row="3" Grid.Column="2" Grid.RowSpan="2" Grid.ColumnSpan="1"/>
+        <ContentControl x:Name="DayViewModel3" Grid.Row="3" Grid.Column="3" Grid.RowSpan="2" Grid.ColumnSpan="1"/>
+        <ContentControl x:Name="DayViewModel4" Grid.Row="3" Grid.Column="4" Grid.RowSpan="2" Grid.ColumnSpan="1"/>
+        <ContentControl x:Name="DayViewModel5" Grid.Row="3" Grid.Column="5" Grid.RowSpan="2" Grid.ColumnSpan="1"/>
+        <ContentControl x:Name="DayViewModel6" Grid.Row="3" Grid.Column="6" Grid.RowSpan="2" Grid.ColumnSpan="1"/>
+        <ContentControl x:Name="DayViewModel7" Grid.Row="3" Grid.Column="7" Grid.RowSpan="2" Grid.ColumnSpan="1"/>
         <Label Grid.Row="0" Grid.Column="4" Content="New Start Date"/>
         <Label Grid.Row="0" Grid.Column="5" Content="New End Date"/>
         <Label Grid.Row="0" Grid.Column="6" Content="New Summary"/>

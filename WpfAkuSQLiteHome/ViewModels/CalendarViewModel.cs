@@ -20,6 +20,12 @@ namespace WpfAkuSQLiteHome.ViewModels
     {
         public IDayViewModel DayViewModel1 { get; }
         public IDayViewModel DayViewModel2 { get; }
+        public IDayViewModel DayViewModel3 { get; }
+        public IDayViewModel DayViewModel4 { get; }
+        public IDayViewModel DayViewModel5 { get; }
+        public IDayViewModel DayViewModel6 { get; }
+        public IDayViewModel DayViewModel7 { get; }
+
         public IEventAggregator EventAggregator { get; }
 
         public string HourStart
@@ -44,15 +50,25 @@ namespace WpfAkuSQLiteHome.ViewModels
         GoogleCalendarAPI googleCalendarAPI = new GoogleCalendarAPI();
         private string hourStart;
 
-        public CalendarViewModel(IDayViewModel dayViewModel1, IDayViewModel dayViewModel2, IEventAggregator eventAggregator)
+        public CalendarViewModel(IDayViewModel dayViewModel1, IDayViewModel dayViewModel2, IDayViewModel dayViewModel3, IDayViewModel dayViewModel4, IDayViewModel dayViewModel5, IDayViewModel dayViewModel6, IDayViewModel dayViewModel7, IEventAggregator eventAggregator)
         {
             DayViewModel1 = dayViewModel1;
             DayViewModel2 = dayViewModel2;
+            DayViewModel3 = dayViewModel3;
+            DayViewModel4 = dayViewModel4;
+            DayViewModel5 = dayViewModel5;
+            DayViewModel6 = dayViewModel6;
+            DayViewModel7 = dayViewModel7;
             EventAggregator = eventAggregator;
             EventAggregator.Subscribe(this);
 
             DayViewModel1.DayString = "Monday";
             DayViewModel2.DayString = "Tuesday";
+            DayViewModel3.DayString = "Wednesday";
+            DayViewModel4.DayString = "Thrstday";
+            DayViewModel5.DayString = "Friday";
+            DayViewModel6.DayString = "Saturday";
+            DayViewModel7.DayString = "Sunday";
         }
 
 

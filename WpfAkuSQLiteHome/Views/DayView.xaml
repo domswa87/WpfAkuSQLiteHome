@@ -6,18 +6,18 @@
              xmlns:local="clr-namespace:WpfAkuSQLiteHome.Views"
              xmlns:cal="http://www.caliburnproject.org"
              mc:Ignorable="d" 
-             d:DesignHeight="400" d:DesignWidth="310">
-   
+             d:DesignHeight="400" d:DesignWidth="250">
+
     <Grid>
         <StackPanel>
             <TextBlock x:Name="DayString" VerticalAlignment="Top" Text="1" Background="Gray" TextAlignment="Center"></TextBlock>
-        <ListBox HorizontalAlignment="Left" SelectedIndex="{Binding Path=ItemIndex, Mode=TwoWay}" cal:Message.Attach="[MouseDoubleClick] = [Action MethodDS()]">
-            <ListBoxItem Content="8:00" Height="50" FontSize="10" Width="300" BorderBrush="Black"/>
-            <ListBoxItem Content="9:00" Height="50" FontSize="10" Width="300" BorderBrush="Black"/>
-            <ListBoxItem Content="10:00" Height="50" FontSize="10" Width="300" BorderBrush="Black"/>
-            <ListBoxItem Content="11:00" Height="50" FontSize="10" Width="300" BorderBrush="Black"/>
-            <ListBoxItem Content="12:00" Height="50" FontSize="10" Width="300" BorderBrush="Black"/>
-        </ListBox>
+            <ListBox HorizontalAlignment="Left" SelectedIndex="{Binding Path=ItemIndex, Mode=TwoWay}" cal:Message.Attach="[MouseDoubleClick] = [Action MethodDS()]">
+                <ListBoxItem Content="8:00" Height="50" FontSize="10" Width="250" BorderBrush="Black"/>
+                <ListBoxItem Content="9:00" Height="50" FontSize="10" Width="250" BorderBrush="Black"/>
+                <ListBoxItem Content="10:00" Height="50" FontSize="10" Width="250" BorderBrush="Black"/>
+                <ListBoxItem Content="11:00" Height="50" FontSize="10" Width="250" BorderBrush="Black"/>
+                <ListBoxItem Content="12:00" Height="50" FontSize="10" Width="250" BorderBrush="Black"/>
+            </ListBox>
         </StackPanel>
 
         <ListView Height="180" Width="120" Visibility="{Binding VisibilityProp, Mode=OneWay}" Margin="{Binding MarginDS, Mode=TwoWay}" HorizontalAlignment="Left" VerticalAlignment="Top">
@@ -31,7 +31,7 @@
                 <Button x:Name="OKDS" Height="20" Width="40" Margin="3,3,10,3">OK</Button>
                 <Button x:Name="CancelDS" Height="20" Width="40" Margin="3,3,3,3">Cancel</Button>
             </StackPanel>
-           
+
 
         </ListView>
         <Button x:Name="marginUP" Height="20" Width="120" Margin="3,3,3,3" VerticalAlignment="Bottom">Margin up</Button>
