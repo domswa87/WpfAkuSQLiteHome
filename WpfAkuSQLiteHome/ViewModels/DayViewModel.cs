@@ -14,17 +14,15 @@ namespace WpfAkuSQLiteHome.ViewModels
         public DayViewModel(IEventAggregator eventAggregator)
         {
             EventAggregator = eventAggregator;
-            EventsCollection = new ObservableCollection<EventButton>();
         }
 
         // Properies
 
-        public ObservableCollection<EventButton> EventsCollection { get; set; }
+        public ObservableCollection<EventButton> EventsCollection { get; set; } = new ObservableCollection<EventButton>();
         public ObservableCollection<Hour> HoursCollection { get; set; } = new ObservableCollection<Hour>();
-
+        public int HourCounter { get; set; }
         public IEventAggregator EventAggregator { get; }
         public bool IsWindowBox { get; set; } = false;
-        public int ItemIndex { get; set; }
         public string DayString { get; set; }
 
         private Thickness marginDS = new Thickness(50, 20, 0, 0);
@@ -86,37 +84,9 @@ namespace WpfAkuSQLiteHome.ViewModels
 
         // Methods
 
-        public void MethodDS()
+        public void OnHoursClick(Hour hour)
         {
-            if (ItemIndex == 0)
-                HourString = "8:00";
-            else if (ItemIndex == 1)
-                HourString = "9:00";
-            else if (ItemIndex == 2)
-                HourString = "10:00";
-            else if (ItemIndex == 3)
-                HourString = "11:00";
-            else if (ItemIndex == 4)
-                HourString = "12:00";
-            else if (ItemIndex == 5)
-                HourString = "13:00";
-            else if (ItemIndex == 6)
-                HourString = "14:00";
-            else if (ItemIndex == 7)
-                HourString = "15:00";
-            else if (ItemIndex == 8)
-                HourString = "16:00";
-            else if (ItemIndex == 9)
-                HourString = "17:00";
-            else if (ItemIndex == 10)
-                HourString = "18:00";
-            else if (ItemIndex == 11)
-                HourString = "19:00";
-            else if (ItemIndex == 12)
-                HourString = "20:00";
-            else if (ItemIndex == 13)
-                HourString = "21:00";
-
+            HourString = hour.Content;
             EventAggregator.PublishOnUIThread(HourString);
 
             MessageBoxResult result = MessageBox.Show($"Do you want to create new event ? \r\n Day:{DayString} \r\n Hour {HourString}",
@@ -140,7 +110,7 @@ namespace WpfAkuSQLiteHome.ViewModels
             MessageBox.Show("CancelDS");
         }
 
-        public void OKDS()
+        public void ConfirmDS()
         {
             VisibilityProp = Visibility.Hidden;
             MessageBox.Show("Task is created");
@@ -149,14 +119,15 @@ namespace WpfAkuSQLiteHome.ViewModels
 
         public void LoadEvents()
         {
-            EventButton eventButton = new EventButton { MarginDS = new Thickness(10, 10, 10, 10), TextDS = "JEEEEEAH", Height=50, Width=50 };
+            EventButton eventButton = new EventButton { MarginDS = new Thickness(10, 10, 10, 10), TextDS = "JEEEEEAH", Height = 50, Width = 50 };
             EventsCollection.Add(eventButton);
         }
 
         public void LoadHours()
         {
-                Hour hour = new Hour { Content = "hour", Height = 60, Width = 100 };
-                HoursCollection.Add(hour);
+            Hour hour = new Hour { Content = "hour : " + HourCounter, Height = 60, Width = 100 };
+            HoursCollection.Add(hour);
+            HourCounter++;
         }
     }
 

@@ -20,7 +20,7 @@
                     <ItemsControl ItemsSource="{Binding HoursCollection}" Background="Gray">
                         <ItemsControl.ItemTemplate>
                             <DataTemplate>
-                            <ListBoxItem Content="{Binding Path=Content}" Height="{Binding Path=Height}"  Width="{Binding Path=Width}" FontSize="15" BorderBrush="Black" Background="LightGray"/>
+                            <ListBoxItem Content="{Binding Path=Content}" Height="{Binding Path=Height}"  Width="{Binding Path=Width}"  FontSize="15" BorderBrush="Black" Background="LightGray" cal:Message.Attach="[MouseDoubleClick] = [Action OnHoursClick($this)]" />
                             </DataTemplate>
                         </ItemsControl.ItemTemplate>
                     </ItemsControl>
@@ -35,19 +35,22 @@
             <ListViewItem  Height="20" Width="100">Description</ListViewItem>
             <TextBox Height="20" Width="100"></TextBox>
             <StackPanel Orientation="Horizontal">
-                <Button x:Name="OKDS" Height="20" Width="40" Margin="3,3,10,3">OK</Button>
+                <Button x:Name="ConfirmDS" Height="20" Width="40" Margin="3,3,10,3">OK</Button>
                 <Button x:Name="CancelDS" Height="20" Width="40" Margin="3,3,3,3">Cancel</Button>
             </StackPanel>
         </ListView>
-        <Button x:Name="LoadEvents" Height="20" Width="120" Margin="3,3,3,3" VerticalAlignment="Bottom">Load Events</Button>
-        <Button x:Name="LoadHours" Height="20" Width="120" Margin="3,3,3,34" VerticalAlignment="Bottom">Load Hours</Button>
+  
         <ItemsControl ItemsSource="{Binding EventsCollection}">
             <ItemsControl.ItemTemplate>
                 <DataTemplate>
                     <Button Content="{Binding Path=TextDS}" Margin="{Binding Path=MarginDS}"
-                                Height="{Binding Path=Height}" Width="{Binding Path=Width}"/>
+                            Height="{Binding Path=Height}" Width="{Binding Path=Width}"/>
                 </DataTemplate>
             </ItemsControl.ItemTemplate>
         </ItemsControl>
+        
+        <Button x:Name="LoadEvents" Height="20" Width="120" Margin="3,3,3,3" VerticalAlignment="Bottom">Load Events</Button>
+        <Button x:Name="LoadHours" Height="20" Width="120" Margin="3,3,3,34" VerticalAlignment="Bottom">Load Hours</Button>
+        
     </Grid>
 </UserControl>
