@@ -1,6 +1,7 @@
 ﻿using Caliburn.Micro;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,9 +14,12 @@ namespace WpfAkuSQLiteHome.ViewModels
         public DayViewModel(IEventAggregator eventAggregator)
         {
             EventAggregator = eventAggregator;
+            EventsCollection = new ObservableCollection<EventButton>();
         }
 
         // Properies
+
+        public ObservableCollection<EventButton> EventsCollection { get; set; }
 
         public IEventAggregator EventAggregator { get; }
         public bool IsWindowBox { get; set; } = false;
@@ -142,12 +146,23 @@ namespace WpfAkuSQLiteHome.ViewModels
         }
 
 
-        public void marginUP()
+        public void LoadDayEvents()
         {
-            double n = MarginDS.Top;
-            n += 10;
-            MarginDS = new Thickness(50, n, 0, 0);
-
+            EventButton eventButton = new EventButton { MarginDS = new Thickness(10, 10, 10, 10), TextDS = "JEEEEEAH", Height=50, Width=50 };
+            EventsCollection.Add(eventButton);
         }
+    }
+
+    public class EventButton
+    {
+        public Thickness MarginDS { get; set; }
+        public string TextDS { get; set; }
+        public int Height { get; set; }
+        public int Width { get; set; }
+
+
+
+
+
     }
 }

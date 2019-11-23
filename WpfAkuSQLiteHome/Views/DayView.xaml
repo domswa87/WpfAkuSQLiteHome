@@ -10,6 +10,7 @@
 
     <Grid>
         <StackPanel>
+           
             <Border BorderBrush="Black" BorderThickness="2">
                 <StackPanel>
                     <TextBlock x:Name="DateString" VerticalAlignment="Top" Background="LightYellow" TextAlignment="Center" FontSize="25"></TextBlock>
@@ -50,6 +51,14 @@
 
 
         </ListView>
-        <Button x:Name="marginUP" Height="20" Width="120" Margin="3,3,3,3" VerticalAlignment="Bottom">Margin up</Button>
+        <Button x:Name="LoadDayEvents" Height="20" Width="120" Margin="3,3,3,3" VerticalAlignment="Bottom">Load Day</Button>
+        <ItemsControl ItemsSource="{Binding EventsCollection}">
+            <ItemsControl.ItemTemplate>
+                <DataTemplate>
+                    <Button Content="{Binding Path=TextDS}" Margin="{Binding Path=MarginDS}"
+                                Height="{Binding Path=Height}" Width="{Binding Path=Width}"/>
+                </DataTemplate>
+            </ItemsControl.ItemTemplate>
+        </ItemsControl>
     </Grid>
 </UserControl>
