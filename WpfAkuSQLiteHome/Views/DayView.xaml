@@ -10,7 +10,6 @@
 
     <Grid>
         <StackPanel>
-           
             <Border BorderBrush="Black" BorderThickness="2">
                 <StackPanel>
                     <TextBlock x:Name="DateString" VerticalAlignment="Top" Background="LightYellow" TextAlignment="Center" FontSize="25"></TextBlock>
@@ -18,22 +17,13 @@
                 </StackPanel>
             </Border>
             <Border BorderBrush="Black" BorderThickness="2">
-                <ListBox HorizontalAlignment="Left" SelectedIndex="{Binding Path=ItemIndex, Mode=TwoWay}" cal:Message.Attach="[MouseDoubleClick] = [Action MethodDS()]">
-                    <ListBoxItem Content="8:00" Height="60" FontSize="15" Width="250" BorderBrush="Black"/>
-                    <ListBoxItem Content="9:00" Height="60" FontSize="15" Width="250" BorderBrush="Black"/>
-                    <ListBoxItem Content="10:00" Height="60" FontSize="15" Width="250" BorderBrush="Black"/>
-                    <ListBoxItem Content="11:00" Height="60" FontSize="15" Width="250" BorderBrush="Black"/>
-                    <ListBoxItem Content="12:00" Height="60" FontSize="15" Width="250" BorderBrush="Black"/>
-                    <ListBoxItem Content="13:00" Height="60" FontSize="15" Width="250" BorderBrush="Black"/>
-                    <ListBoxItem Content="14:00" Height="60" FontSize="15" Width="250" BorderBrush="Black"/>
-                    <ListBoxItem Content="15:00" Height="60" FontSize="15" Width="250" BorderBrush="Black"/>
-                    <ListBoxItem Content="16:00" Height="60" FontSize="15" Width="250" BorderBrush="Black"/>
-                    <ListBoxItem Content="17:00" Height="60" FontSize="15" Width="250" BorderBrush="Black"/>
-                    <ListBoxItem Content="18:00" Height="60" FontSize="15" Width="250" BorderBrush="Black"/>
-                    <ListBoxItem Content="19:00" Height="60" FontSize="15" Width="250" BorderBrush="Black"/>
-                    <ListBoxItem Content="20:00" Height="60" FontSize="15" Width="250" BorderBrush="Black"/>
-                    <ListBoxItem Content="21:00" Height="60" FontSize="15" Width="250" BorderBrush="Black"/>
-                </ListBox>
+                    <ItemsControl ItemsSource="{Binding HoursCollection}" Background="Gray">
+                        <ItemsControl.ItemTemplate>
+                            <DataTemplate>
+                            <ListBoxItem Content="{Binding Path=Content}" Height="{Binding Path=Height}"  Width="{Binding Path=Width}" FontSize="15" BorderBrush="Black" Background="LightGray"/>
+                            </DataTemplate>
+                        </ItemsControl.ItemTemplate>
+                    </ItemsControl>
             </Border>
         </StackPanel>
 
@@ -48,10 +38,9 @@
                 <Button x:Name="OKDS" Height="20" Width="40" Margin="3,3,10,3">OK</Button>
                 <Button x:Name="CancelDS" Height="20" Width="40" Margin="3,3,3,3">Cancel</Button>
             </StackPanel>
-
-
         </ListView>
-        <Button x:Name="LoadDayEvents" Height="20" Width="120" Margin="3,3,3,3" VerticalAlignment="Bottom">Load Day</Button>
+        <Button x:Name="LoadEvents" Height="20" Width="120" Margin="3,3,3,3" VerticalAlignment="Bottom">Load Events</Button>
+        <Button x:Name="LoadHours" Height="20" Width="120" Margin="3,3,3,34" VerticalAlignment="Bottom">Load Hours</Button>
         <ItemsControl ItemsSource="{Binding EventsCollection}">
             <ItemsControl.ItemTemplate>
                 <DataTemplate>

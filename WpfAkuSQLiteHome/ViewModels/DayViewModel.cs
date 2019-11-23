@@ -20,6 +20,7 @@ namespace WpfAkuSQLiteHome.ViewModels
         // Properies
 
         public ObservableCollection<EventButton> EventsCollection { get; set; }
+        public ObservableCollection<Hour> HoursCollection { get; set; } = new ObservableCollection<Hour>();
 
         public IEventAggregator EventAggregator { get; }
         public bool IsWindowBox { get; set; } = false;
@@ -146,10 +147,16 @@ namespace WpfAkuSQLiteHome.ViewModels
         }
 
 
-        public void LoadDayEvents()
+        public void LoadEvents()
         {
             EventButton eventButton = new EventButton { MarginDS = new Thickness(10, 10, 10, 10), TextDS = "JEEEEEAH", Height=50, Width=50 };
             EventsCollection.Add(eventButton);
+        }
+
+        public void LoadHours()
+        {
+                Hour hour = new Hour { Content = "hour", Height = 60, Width = 100 };
+                HoursCollection.Add(hour);
         }
     }
 
@@ -159,10 +166,12 @@ namespace WpfAkuSQLiteHome.ViewModels
         public string TextDS { get; set; }
         public int Height { get; set; }
         public int Width { get; set; }
+    }
 
-
-
-
-
+    public class Hour
+    {
+        public string Content { get; set; }
+        public int Height { get; set; }
+        public int Width { get; set; }
     }
 }
