@@ -140,7 +140,6 @@ namespace WpfAkuSQLiteHome.ViewModels
 
             int height;
             int counter =0;
-            int startPoint = 0;
             int endPositionOfPreviousEvent = 0;
 
             // displayEvents
@@ -168,12 +167,7 @@ namespace WpfAkuSQLiteHome.ViewModels
                 EventsCollection.Add(eventButton);
                 counter++;
             }
-
-
-            //int margin = int.Parse(MarginTextBox);
-
-            //EventButton eventButton = new EventButton { MarginDS = new Thickness(0, margin, 0, 0), TextDS = "ffg", Height = 10, Width = 180 };
-            //EventsCollection.Add(eventButton);
+           
         }
 
         public void LoadHours()
