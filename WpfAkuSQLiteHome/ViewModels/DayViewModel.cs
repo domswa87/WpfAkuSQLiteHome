@@ -139,35 +139,34 @@ namespace WpfAkuSQLiteHome.ViewModels
             eventsList = googleCalendarAPI.LoadEventsToList();
 
             int height;
-            int counter =0;
             int endPositionOfPreviousEvent = 0;
+            int left = 0;
 
             // displayEvents
-            foreach (var item in eventsList)
+            foreach (var singleEvent in eventsList)
             {
-                int hoursDuration = item.End.DateTime.Value.Hour - item.Start.DateTime.Value.Hour;
-                int minutesDuration = item.End.DateTime.Value.Minute - item.Start.DateTime.Value.Minute;
+                int hoursDuration = singleEvent.End.DateTime.Value.Hour - singleEvent.Start.DateTime.Value.Hour;
+                int minutesDuration = singleEvent.End.DateTime.Value.Minute - singleEvent.Start.DateTime.Value.Minute;
                 height = hoursDuration * 60 + minutesDuration;
 
-                int startHour = item.Start.DateTime.Value.Hour - 8;
-                int startMin = item.Start.DateTime.Value.Minute;
+                int startHour = singleEvent.Start.DateTime.Value.Hour - 8;
+                int startMin = singleEvent.Start.DateTime.Value.Minute;
                 int startPosition = startHour * 60 + startMin + 85;
-
           
                 int differenceBetweenEvents = startPosition - endPositionOfPreviousEvent;
-
                 int endPosition = startPosition + height;
-
-
                 endPositionOfPreviousEvent = endPosition;
 
+             
+                if (differenceBetweenEvents<0)
+                    left += 50;
+                else
+                    left = 0;
 
 
-                EventButton eventButton = new EventButton { MarginDS = new Thickness(0, differenceBetweenEvents, 0, 0), TextDS = item.Summary, Height = height, Width = 180 };
+                EventButton eventButton = new EventButton { MarginDS = new Thickness(left +10, differenceBetweenEvents, 0, 0), TextDS = singleEvent.Summary, Height = height, Width = 180 };
                 EventsCollection.Add(eventButton);
-                counter++;
             }
-           
         }
 
         public void LoadHours()

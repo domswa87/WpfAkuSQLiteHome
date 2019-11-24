@@ -17,13 +17,13 @@
                 </StackPanel>
             </Border>
             <Border BorderBrush="Black" BorderThickness="2">
-                    <ItemsControl ItemsSource="{Binding HoursCollection}" Background="Gray">
-                        <ItemsControl.ItemTemplate>
-                            <DataTemplate>
+                <ItemsControl ItemsSource="{Binding HoursCollection}" Background="Gray">
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate>
                             <ListBoxItem Content="{Binding Path=Content}" Height="{Binding Path=Height}"  Width="{Binding Path=Width}"  FontSize="15" BorderBrush="Black" Background="LightGray" cal:Message.Attach="[MouseDoubleClick] = [Action OnHoursClick($this)]" />
-                            </DataTemplate>
-                        </ItemsControl.ItemTemplate>
-                    </ItemsControl>
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                </ItemsControl>
             </Border>
         </StackPanel>
 
@@ -39,16 +39,20 @@
                 <Button x:Name="CancelDS" Height="20" Width="40" Margin="3,3,3,3">Cancel</Button>
             </StackPanel>
         </ListView>
-  
+
         <ItemsControl ItemsSource="{Binding EventsCollection}">
             <ItemsControl.ItemTemplate>
                 <DataTemplate>
-                    <Button Content="{Binding Path=TextDS}" Margin="{Binding Path=MarginDS}"
-                            Height="{Binding Path=Height}" Width="{Binding Path=Width}"/>
+                    <Button Content="{Binding Path=TextDS}" Margin="{Binding Path=MarginDS}" VerticalContentAlignment="Top" HorizontalContentAlignment="Left"
+                            Height="{Binding Path=Height}" Width="{Binding Path=Width}" Opacity="0.75">
+                        <Button.Background>
+                            <SolidColorBrush Color="#FFD38334" Opacity="0.8"/>
+                        </Button.Background>
+                    </Button>
                 </DataTemplate>
             </ItemsControl.ItemTemplate>
         </ItemsControl>
-        
+
         <Button x:Name="LoadEvents" Height="20" Width="120" Margin="3,3,3,3" VerticalAlignment="Bottom">Load Events</Button>
         <Button x:Name="LoadHours" Height="20" Width="120" Margin="3,3,3,34" VerticalAlignment="Bottom">Load Hours</Button>
         <TextBox x:Name="MarginTextBox" Height="20" Width="120" Margin="3,3,3,64" VerticalAlignment="Bottom"/>
