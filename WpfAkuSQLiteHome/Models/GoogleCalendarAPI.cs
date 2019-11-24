@@ -24,14 +24,14 @@ namespace WpfAkuSQLiteHome.Models
         public Events events;
         CalendarService service = CreateService();
 
-        public void RunRequst(DateTime? timeMin, DateTime? timeMax, string calendarName = "primary", int maxResults = 10)
+        public void RunRequst(DateTime? timeMin, DateTime? timeMax, string calendarName = "primary", int maxResults = 20)
         {
             EventsResource.ListRequest request = service.Events.List(calendarName);
             request.TimeMin = timeMin;
             request.TimeMax = timeMax;
             request.ShowDeleted = false;
             request.SingleEvents = true;
-            request.MaxResults = 10;
+            request.MaxResults = maxResults;
             request.OrderBy = EventsResource.ListRequest.OrderByEnum.StartTime;
 
             // List events.

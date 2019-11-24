@@ -1,4 +1,5 @@
 ﻿using Caliburn.Micro;
+using Google.Apis.Calendar.v3.Data;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -6,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using WpfAkuSQLiteHome.Models;
 
 namespace WpfAkuSQLiteHome.ViewModels
 {
@@ -16,11 +18,20 @@ namespace WpfAkuSQLiteHome.ViewModels
             EventAggregator = eventAggregator;
         }
 
+        public string MarginTextBox { get; set; }
+
+        // Config Properties
+        public int StartHour { get; set; } = 8;
+        public int QuantityOfHours { get; set; } = 14;
+
         // Properies
+        public BindableCollection<string> GoogleEvents { get; set; } = new BindableCollection<string>();
+        public List<Event> eventsList = new List<Event>();
+        public GoogleCalendarAPI googleCalendarAPI = new GoogleCalendarAPI();
 
         public ObservableCollection<EventButton> EventsCollection { get; set; } = new ObservableCollection<EventButton>();
         public ObservableCollection<Hour> HoursCollection { get; set; } = new ObservableCollection<Hour>();
-        public int HourCounter { get; set; }
+        public double HourCounter { get; set; }
         public IEventAggregator EventAggregator { get; }
         public bool IsWindowBox { get; set; } = false;
         public string DayString { get; set; }
@@ -119,15 +130,61 @@ namespace WpfAkuSQLiteHome.ViewModels
 
         public void LoadEvents()
         {
-            EventButton eventButton = new EventButton { MarginDS = new Thickness(10, 10, 10, 10), TextDS = "JEEEEEAH", Height = 50, Width = 50 };
-            EventsCollection.Add(eventButton);
+            EventsCollection.Clear();
+            DateTime? startTime = new DateTime?(DatePickerDS);
+            DateTime? endTime = new DateTime?(DatePickerDS.AddHours(23));
+
+            GoogleEvents.Clear();
+            googleCalendarAPI.RunRequst(startTime, endTime, "primary", 20);
+            eventsList = googleCalendarAPI.LoadEventsToList();
+
+            int height;
+            int counter =0;
+            int startPoint = 0;
+            int endPositionOfPreviousEvent = 0;
+
+            // displayEvents
+            foreach (var item in eventsList)
+            {
+                int hoursDuration = item.End.DateTime.Value.Hour - item.Start.DateTime.Value.Hour;
+                int minutesDuration = item.End.DateTime.Value.Minute - item.Start.DateTime.Value.Minute;
+                height = hoursDuration * 60 + minutesDuration;
+
+                int startHour = item.Start.DateTime.Value.Hour - 8;
+                int startMin = item.Start.DateTime.Value.Minute;
+                int startPosition = startHour * 60 + startMin + 85;
+
+          
+                int differenceBetweenEvents = startPosition - endPositionOfPreviousEvent;
+
+                int endPosition = startPosition + height;
+
+
+                endPositionOfPreviousEvent = endPosition;
+
+
+
+                EventButton eventButton = new EventButton { MarginDS = new Thickness(0, differenceBetweenEvents, 0, 0), TextDS = item.Summary, Height = height, Width = 180 };
+                EventsCollection.Add(eventButton);
+                counter++;
+            }
+
+
+            //int margin = int.Parse(MarginTextBox);
+
+            //EventButton eventButton = new EventButton { MarginDS = new Thickness(0, margin, 0, 0), TextDS = "ffg", Height = 10, Width = 180 };
+            //EventsCollection.Add(eventButton);
         }
 
         public void LoadHours()
         {
-            Hour hour = new Hour { Content = "hour : " + HourCounter, Height = 60, Width = 100 };
-            HoursCollection.Add(hour);
-            HourCounter++;
+            for (int i = 0; i < QuantityOfHours; i++)
+            {
+                string hourString = new DateTime(1, 1, 1, StartHour, 0, 0).AddHours(HourCounter).ToString("HH:mm");
+                Hour hour = new Hour { Content = hourString, Height = 60, Width = 260 };
+                HoursCollection.Add(hour);
+                HourCounter++;
+            }
         }
     }
 
