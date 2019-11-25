@@ -81,10 +81,6 @@ namespace WpfAkuSQLiteHome.Models
                     list.Add(eventItem);
                 }
             }
-            else
-            {
-                MessageBox.Show("No upcoming events found.");
-            }
             return list;
         }
 

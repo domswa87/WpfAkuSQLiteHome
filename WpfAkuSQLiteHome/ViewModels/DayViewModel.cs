@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Controls;
 using WpfAkuSQLiteHome.Models;
 
 namespace WpfAkuSQLiteHome.ViewModels
@@ -16,6 +17,8 @@ namespace WpfAkuSQLiteHome.ViewModels
         public DayViewModel(IEventAggregator eventAggregator)
         {
             EventAggregator = eventAggregator;
+            LoadHours();
+            LoadEvents();
         }
 
         public string MarginTextBox { get; set; }
@@ -130,6 +133,12 @@ namespace WpfAkuSQLiteHome.ViewModels
 
         public void LoadEvents()
         {
+            LoadEventsToList();
+            DisplayEventOnScreen();
+        }
+
+        private void LoadEventsToList()
+        {
             EventsCollection.Clear();
             DateTime? startTime = new DateTime?(DatePickerDS);
             DateTime? endTime = new DateTime?(DatePickerDS.AddHours(23));
@@ -137,37 +146,49 @@ namespace WpfAkuSQLiteHome.ViewModels
             GoogleEvents.Clear();
             googleCalendarAPI.RunRequst(startTime, endTime, "primary", 20);
             eventsList = googleCalendarAPI.LoadEventsToList();
+        }
 
+        private void DisplayEventOnScreen()
+        {
             int height;
-            int endPositionOfPreviousEvent = 0;
+            int maxPosition = 0;
             int left = 0;
+            int offset = 0;
 
             // displayEvents
             foreach (var singleEvent in eventsList)
             {
+                int startHour = singleEvent.Start.DateTime.Value.Hour - 8;
+                int startMin = singleEvent.Start.DateTime.Value.Minute;
+                int startPosition = startHour * 60 + startMin + 85;
+
                 int hoursDuration = singleEvent.End.DateTime.Value.Hour - singleEvent.Start.DateTime.Value.Hour;
                 int minutesDuration = singleEvent.End.DateTime.Value.Minute - singleEvent.Start.DateTime.Value.Minute;
                 height = hoursDuration * 60 + minutesDuration;
 
-                int startHour = singleEvent.Start.DateTime.Value.Hour - 8;
-                int startMin = singleEvent.Start.DateTime.Value.Minute;
-                int startPosition = startHour * 60 + startMin + 85;
-          
-                int differenceBetweenEvents = startPosition - endPositionOfPreviousEvent;
                 int endPosition = startPosition + height;
-                endPositionOfPreviousEvent = endPosition;
 
-             
-                if (differenceBetweenEvents<0)
+
+                if (endPosition > maxPosition)
+                    offset = startPosition - maxPosition;
+                else
+                    offset = startPosition - maxPosition - (maxPosition - endPosition);
+
+                if (endPosition > maxPosition)
+                    maxPosition = endPosition;
+
+                if (offset < 0)
                     left += 50;
                 else
                     left = 0;
 
-
-                EventButton eventButton = new EventButton { MarginDS = new Thickness(left +10, differenceBetweenEvents, 0, 0), TextDS = singleEvent.Summary, Height = height, Width = 180 };
+                string text = singleEvent.Summary + "\r\n" + singleEvent.Start.DateTime.Value.ToString("HH:mm");
+                EventButton eventButton = new EventButton { MarginDS = new Thickness(left + 10, offset, 0, 0), TextDS = text, Height = height, Width = 180 };
                 EventsCollection.Add(eventButton);
             }
         }
+
+       
 
         public void LoadHours()
         {
@@ -179,6 +200,12 @@ namespace WpfAkuSQLiteHome.ViewModels
                 HourCounter++;
             }
         }
+
+        public void OnEventClickDS(EventButton eve)
+        {
+            MessageBox.Show(eve.TextDS);
+        }
+
     }
 
     public class EventButton

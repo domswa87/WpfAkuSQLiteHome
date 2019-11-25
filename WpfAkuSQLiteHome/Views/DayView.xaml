@@ -44,7 +44,8 @@
             <ItemsControl.ItemTemplate>
                 <DataTemplate>
                     <Button Content="{Binding Path=TextDS}" Margin="{Binding Path=MarginDS}" VerticalContentAlignment="Top" HorizontalContentAlignment="Left"
-                            Height="{Binding Path=Height}" Width="{Binding Path=Width}" Opacity="0.75">
+                            Height="{Binding Path=Height}" Width="{Binding Path=Width}" Opacity="0.75" BorderBrush="Black" BorderThickness="3" FontWeight="Bold" FontSize="16"
+                            cal:Message.Attach="[Click] = [Action OnEventClickDS($this)]">
                         <Button.Background>
                             <SolidColorBrush Color="#FFD38334" Opacity="0.8"/>
                         </Button.Background>
@@ -52,9 +53,5 @@
                 </DataTemplate>
             </ItemsControl.ItemTemplate>
         </ItemsControl>
-
-        <Button x:Name="LoadEvents" Height="20" Width="120" Margin="3,3,3,3" VerticalAlignment="Bottom">Load Events</Button>
-        <Button x:Name="LoadHours" Height="20" Width="120" Margin="3,3,3,34" VerticalAlignment="Bottom">Load Hours</Button>
-        <TextBox x:Name="MarginTextBox" Height="20" Width="120" Margin="3,3,3,64" VerticalAlignment="Bottom"/>
     </Grid>
 </UserControl>

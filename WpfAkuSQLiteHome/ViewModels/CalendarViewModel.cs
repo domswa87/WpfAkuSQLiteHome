@@ -101,6 +101,15 @@ namespace WpfAkuSQLiteHome.ViewModels
             DayViewModel5.DayString = "Piątek";
             DayViewModel6.DayString = "Sobota";
             DayViewModel7.DayString = "Niedziela";
+
+            DayViewModel1.LoadEvents();
+            DayViewModel2.LoadEvents();
+            DayViewModel3.LoadEvents();
+            DayViewModel4.LoadEvents();
+            DayViewModel5.LoadEvents();
+            DayViewModel6.LoadEvents();
+            DayViewModel7.LoadEvents();
+
         }
 
         public void LoadEvents()
