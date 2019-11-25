@@ -27,7 +27,7 @@
             </Border>
         </StackPanel>
 
-        <ListView Height="180" Width="120" Visibility="{Binding VisibilityProp, Mode=OneWay}" Margin="{Binding MarginDS, Mode=TwoWay}" HorizontalAlignment="Left" VerticalAlignment="Top">
+        <ListView Height="180" Width="120" Visibility="{Binding VisibilityProp, Mode=OneWay}" Margin="{Binding MarginDS, Mode=TwoWay}" HorizontalAlignment="Center" VerticalAlignment="Center">
             <ListViewItem Height="20" Width="100">Hour Start</ListViewItem>
             <TextBox Height="20" Width="100"></TextBox>
             <ListViewItem  Height="20" Width="100">Hour End</ListViewItem>

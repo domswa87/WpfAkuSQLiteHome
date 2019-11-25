@@ -28,16 +28,16 @@ namespace WpfAkuSQLiteHome.ViewModels
         public int QuantityOfHours { get; set; } = 14;
 
         // Properies
-        public BindableCollection<string> GoogleEvents { get; set; } = new BindableCollection<string>();
-        public List<Event> eventsList = new List<Event>();
-        public GoogleCalendarAPI googleCalendarAPI = new GoogleCalendarAPI();
-
         public ObservableCollection<EventButton> EventsCollection { get; set; } = new ObservableCollection<EventButton>();
         public ObservableCollection<Hour> HoursCollection { get; set; } = new ObservableCollection<Hour>();
+        public List<Event> eventsList = new List<Event>();
+        public int BelowLineMarginPosion { get; set; }
+        public GoogleCalendarAPI googleCalendarAPI = new GoogleCalendarAPI();
         public double HourCounter { get; set; }
         public IEventAggregator EventAggregator { get; }
         public bool IsWindowBox { get; set; } = false;
         public string DayString { get; set; }
+
 
         private Thickness marginDS = new Thickness(50, 20, 0, 0);
         private Visibility visibilityProp = Visibility.Hidden;
@@ -93,28 +93,31 @@ namespace WpfAkuSQLiteHome.ViewModels
             }
         }
 
-
-
-
         // Methods
 
         public void OnHoursClick(Hour hour)
         {
-            HourString = hour.Content;
-            EventAggregator.PublishOnUIThread(HourString);
+            MessageBox.Show(hour.HourString);
 
-            MessageBoxResult result = MessageBox.Show($"Do you want to create new event ? \r\n Day:{DayString} \r\n Hour {HourString}",
-                                         "Confirmation",
-                                         MessageBoxButton.YesNo,
-                                         MessageBoxImage.Question);
-            if (result == MessageBoxResult.Yes)
-            {
-                VisibilityProp = Visibility.Visible;
-            }
-            else
-            {
-                VisibilityProp = Visibility.Hidden;
-            }
+            int startPosition = ((hour.HourInt - 8) * 60) + 85;
+            int offset = startPosition - BelowLineMarginPosion;
+            EventButton eventButton = new EventButton { MarginDS = new Thickness(10, offset, 0, 0), TextDS = "", Height = 60, Width = 180 };
+            EventsCollection.Add(eventButton);
+
+            //EventAggregator.PublishOnUIThread(HourString);
+
+            //MessageBoxResult result = MessageBox.Show($"Do you want to create new event ? \r\n Day:{DayString} \r\n Hour {HourString}",
+            //                             "Confirmation",
+            //                             MessageBoxButton.YesNo,
+            //                             MessageBoxImage.Question);
+            //if (result == MessageBoxResult.Yes)
+            //{
+            //    VisibilityProp = Visibility.Visible;
+            //}
+            //else
+            //{
+            //    VisibilityProp = Visibility.Hidden;
+            //}
         }
 
 
@@ -143,7 +146,6 @@ namespace WpfAkuSQLiteHome.ViewModels
             DateTime? startTime = new DateTime?(DatePickerDS);
             DateTime? endTime = new DateTime?(DatePickerDS.AddHours(23));
 
-            GoogleEvents.Clear();
             googleCalendarAPI.RunRequst(startTime, endTime, "primary", 20);
             eventsList = googleCalendarAPI.LoadEventsToList();
         }
@@ -155,7 +157,6 @@ namespace WpfAkuSQLiteHome.ViewModels
             int left = 0;
             int offset = 0;
 
-            // displayEvents
             foreach (var singleEvent in eventsList)
             {
                 int startHour = singleEvent.Start.DateTime.Value.Hour - 8;
@@ -175,7 +176,10 @@ namespace WpfAkuSQLiteHome.ViewModels
                     offset = startPosition - maxPosition - (maxPosition - endPosition);
 
                 if (endPosition > maxPosition)
+                {
                     maxPosition = endPosition;
+                    BelowLineMarginPosion = maxPosition;
+                }
 
                 if (offset < 0)
                     left += 50;
@@ -195,7 +199,7 @@ namespace WpfAkuSQLiteHome.ViewModels
             for (int i = 0; i < QuantityOfHours; i++)
             {
                 string hourString = new DateTime(1, 1, 1, StartHour, 0, 0).AddHours(HourCounter).ToString("HH:mm");
-                Hour hour = new Hour { Content = hourString, Height = 60, Width = 260 };
+                Hour hour = new Hour {HourInt = StartHour + i, HourString = hourString, Height = 60, Width = 260 };
                 HoursCollection.Add(hour);
                 HourCounter++;
             }
@@ -210,6 +214,8 @@ namespace WpfAkuSQLiteHome.ViewModels
 
     public class EventButton
     {
+        public TimeSpan startTime { get; set; }
+        public TimeSpan endTime { get; set; }
         public Thickness MarginDS { get; set; }
         public string TextDS { get; set; }
         public int Height { get; set; }
@@ -218,7 +224,8 @@ namespace WpfAkuSQLiteHome.ViewModels
 
     public class Hour
     {
-        public string Content { get; set; }
+        public int HourInt { get; set; }
+        public string HourString { get; set; }
         public int Height { get; set; }
         public int Width { get; set; }
     }
