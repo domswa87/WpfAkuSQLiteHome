@@ -20,7 +20,8 @@
                 <ItemsControl ItemsSource="{Binding HoursCollection}" Background="Gray">
                     <ItemsControl.ItemTemplate>
                         <DataTemplate>
-                            <ListBoxItem Content="{Binding Path=HourString}" Height="{Binding Path=Height}"  Width="{Binding Path=Width}"  FontSize="15" BorderBrush="Black" Background="LightGray" cal:Message.Attach="[MouseDoubleClick] = [Action OnHoursClick($this)]" />
+                            <ListBoxItem Content="{Binding Path=HourString}" Height="{Binding Path=Height}"  Width="{Binding Path=Width}" 
+                                         FontSize="15" BorderBrush="Black" Background="LightBlue" cal:Message.Attach="[MouseDoubleClick] = [Action OnHoursClick($this)]" />
                         </DataTemplate>
                     </ItemsControl.ItemTemplate>
                 </ItemsControl>
@@ -29,11 +30,11 @@
 
         <ListView Height="180" Width="120" Visibility="{Binding VisibilityProp, Mode=OneWay}" Margin="{Binding MarginDS, Mode=TwoWay}" HorizontalAlignment="Center" VerticalAlignment="Center">
             <ListViewItem Height="20" Width="100">Hour Start</ListViewItem>
-            <TextBox Height="20" Width="100"></TextBox>
+            <TextBox x:Name="StartHourCreateEvent" Height="20" Width="100"></TextBox>
             <ListViewItem  Height="20" Width="100">Hour End</ListViewItem>
-            <TextBox Height="20" Width="100"></TextBox>
+            <TextBox x:Name="EndHourCreateEvent" Height="20" Width="100"></TextBox>
             <ListViewItem  Height="20" Width="100">Description</ListViewItem>
-            <TextBox Height="20" Width="100"></TextBox>
+            <TextBox x:Name="SummaryCreateEvent" Height="20" Width="100"></TextBox>
             <StackPanel Orientation="Horizontal">
                 <Button x:Name="ConfirmDS" Height="20" Width="40" Margin="3,3,10,3">OK</Button>
                 <Button x:Name="CancelDS" Height="20" Width="40" Margin="3,3,3,3">Cancel</Button>

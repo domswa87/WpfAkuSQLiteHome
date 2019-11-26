@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Media;
 using WpfAkuSQLiteHome.Models;
 
 namespace WpfAkuSQLiteHome.ViewModels
@@ -37,6 +38,51 @@ namespace WpfAkuSQLiteHome.ViewModels
         public IEventAggregator EventAggregator { get; }
         public bool IsWindowBox { get; set; } = false;
         public string DayString { get; set; }
+        public Hour ActiveHour { get; set; }
+
+
+
+        private string startHourCreateEvent;
+        public string StartHourCreateEvent
+        {
+            get { return startHourCreateEvent; }
+            set
+            {
+                startHourCreateEvent = value;
+                NotifyOfPropertyChange(() => StartHourCreateEvent);
+            }
+        }
+
+        private string endHourCreateEvent;
+        public string EndHourCreateEvent
+        {
+            get { return endHourCreateEvent; }
+            set
+            {
+                endHourCreateEvent = value;
+                NotifyOfPropertyChange(() => EndHourCreateEvent);
+            }
+        }
+
+
+        private string summaryCreateEvent;
+        public string SummaryCreateEvent
+        {
+            get { return summaryCreateEvent; }
+            set
+            {
+                summaryCreateEvent = value;
+                NotifyOfPropertyChange(() => SummaryCreateEvent);
+            }
+        }
+
+
+
+
+
+
+
+
 
 
         private Thickness marginDS = new Thickness(50, 20, 0, 0);
@@ -97,17 +143,26 @@ namespace WpfAkuSQLiteHome.ViewModels
 
         public void OnHoursClick(Hour hour)
         {
-            MessageBox.Show(hour.HourString);
+            ActiveHour = hour;
+            MessageBox.Show("Test");
+            VisibilityProp = Visibility.Visible;
+            StartHourCreateEvent = hour.HourString;
+            EndHourCreateEvent = hour.HourTime.AddHours(1).ToString("HH:mm");
 
-            int startPosition = ((hour.HourInt - 8) * 60) + 85;
-            int offset = startPosition - BelowLineMarginPosion;
-            EventButton eventButton = new EventButton { MarginDS = new Thickness(10, offset, 0, 0), TextDS = "", Height = 60, Width = 180 };
-            EventsCollection.Add(eventButton);
 
-            //EventAggregator.PublishOnUIThread(HourString);
 
-            //MessageBoxResult result = MessageBox.Show($"Do you want to create new event ? \r\n Day:{DayString} \r\n Hour {HourString}",
-            //                             "Confirmation",
+           // MessageBox.Show(hour.HourString);
+
+
+            //int startPosition = ((hour.HourInt - 8) * 60) + 85;
+            //int offset = startPosition - BelowLineMarginPosion;
+            //EventButton eventButton = new EventButton { MarginDS = new Thickness(10, offset, 0, 0), TextDS = "", Height = 60, Width = 180 };
+            //EventsCollection.Add(eventButton);
+
+            ////EventAggregator.PublishOnUIThread(HourString);
+
+            ////MessageBoxResult result = MessageBox.Show($"Do you want to create new event ? \r\n Day:{DayString} \r\n Hour {HourString}",
+            ////                             "Confirmation",
             //                             MessageBoxButton.YesNo,
             //                             MessageBoxImage.Question);
             //if (result == MessageBoxResult.Yes)
@@ -129,7 +184,15 @@ namespace WpfAkuSQLiteHome.ViewModels
 
         public void ConfirmDS()
         {
+            int hour = ActiveHour.HourTime.Hour;
+            DateTime startTime = new DateTime(dataPickerDS.Year, dataPickerDS.Month, dataPickerDS.Day, hour,0,0);
+            DateTime endTime = new DateTime(dataPickerDS.Year, dataPickerDS.Month, dataPickerDS.Day, hour + 1, 0, 0);
+
+
+            googleCalendarAPI.CreateEvent(startTime, endTime, SummaryCreateEvent);
+
             VisibilityProp = Visibility.Hidden;
+            LoadEvents();
             MessageBox.Show("Task is created");
         }
 
@@ -199,7 +262,7 @@ namespace WpfAkuSQLiteHome.ViewModels
             for (int i = 0; i < QuantityOfHours; i++)
             {
                 string hourString = new DateTime(1, 1, 1, StartHour, 0, 0).AddHours(HourCounter).ToString("HH:mm");
-                Hour hour = new Hour {HourInt = StartHour + i, HourString = hourString, Height = 60, Width = 260 };
+                Hour hour = new Hour { HourTime = new DateTime(1,1,1,StartHour + i,0,0), HourString = hourString, Height = 60, Width = 260};
                 HoursCollection.Add(hour);
                 HourCounter++;
             }
@@ -224,7 +287,7 @@ namespace WpfAkuSQLiteHome.ViewModels
 
     public class Hour
     {
-        public int HourInt { get; set; }
+        public DateTime HourTime { get; set; }
         public string HourString { get; set; }
         public int Height { get; set; }
         public int Width { get; set; }
