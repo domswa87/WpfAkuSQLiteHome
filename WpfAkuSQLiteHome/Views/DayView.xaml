@@ -20,7 +20,9 @@
                 <ItemsControl ItemsSource="{Binding HoursCollection}" Background="Gray">
                     <ItemsControl.ItemTemplate>
                         <DataTemplate>
-                            <ListBoxItem Content="{Binding Path=Content}" Height="{Binding Path=Height}"  Width="{Binding Path=Width}"  FontSize="15" BorderBrush="Black" Background="LightGray" cal:Message.Attach="[MouseDoubleClick] = [Action OnHoursClick($this)]" />
+                            <ListBoxItem Content="{Binding Path=HourString}" Height="{Binding Path=Height}"  Width="{Binding Path=Width}"
+                                         FontSize="15" BorderBrush="Black" Background="{Binding Path=BackgroundDS}" cal:Message.Attach="[MouseDoubleClick] = [Action OnHoursClick($this)]"
+                                         />
                         </DataTemplate>
                     </ItemsControl.ItemTemplate>
                 </ItemsControl>
