@@ -78,21 +78,21 @@ namespace WpfAkuSQLiteHome.ViewModels
         private void DateUpdate()
         {
             DateTime FirstMonday = StartDate.StartOfWeek(DayOfWeek.Monday);
-            DayViewModel1.DatePickerDS = FirstMonday;
-            DayViewModel2.DatePickerDS = FirstMonday.AddDays(1);
-            DayViewModel3.DatePickerDS = FirstMonday.AddDays(2);
-            DayViewModel4.DatePickerDS = FirstMonday.AddDays(3);
-            DayViewModel5.DatePickerDS = FirstMonday.AddDays(4);
-            DayViewModel6.DatePickerDS = FirstMonday.AddDays(5);
-            DayViewModel7.DatePickerDS = FirstMonday.AddDays(6);
+            DayViewModel1.ActualDay = FirstMonday;
+            DayViewModel2.ActualDay = FirstMonday.AddDays(1);
+            DayViewModel3.ActualDay = FirstMonday.AddDays(2);
+            DayViewModel4.ActualDay = FirstMonday.AddDays(3);
+            DayViewModel5.ActualDay = FirstMonday.AddDays(4);
+            DayViewModel6.ActualDay = FirstMonday.AddDays(5);
+            DayViewModel7.ActualDay = FirstMonday.AddDays(6);
 
-            DayViewModel1.DateString = DayViewModel1.DatePickerDS.ToShortDateString(); 
-            DayViewModel2.DateString = DayViewModel2.DatePickerDS.ToShortDateString();
-            DayViewModel3.DateString = DayViewModel3.DatePickerDS.ToShortDateString();
-            DayViewModel4.DateString = DayViewModel4.DatePickerDS.ToShortDateString();
-            DayViewModel5.DateString = DayViewModel5.DatePickerDS.ToShortDateString();
-            DayViewModel6.DateString = DayViewModel6.DatePickerDS.ToShortDateString();
-            DayViewModel7.DateString = DayViewModel7.DatePickerDS.ToShortDateString();
+            DayViewModel1.DateString = DayViewModel1.ActualDay.ToShortDateString(); 
+            DayViewModel2.DateString = DayViewModel2.ActualDay.ToShortDateString();
+            DayViewModel3.DateString = DayViewModel3.ActualDay.ToShortDateString();
+            DayViewModel4.DateString = DayViewModel4.ActualDay.ToShortDateString();
+            DayViewModel5.DateString = DayViewModel5.ActualDay.ToShortDateString();
+            DayViewModel6.DateString = DayViewModel6.ActualDay.ToShortDateString();
+            DayViewModel7.DateString = DayViewModel7.ActualDay.ToShortDateString();
 
             DayViewModel1.DayString = "Poniedziałek";
             DayViewModel2.DayString = "Wtorek";

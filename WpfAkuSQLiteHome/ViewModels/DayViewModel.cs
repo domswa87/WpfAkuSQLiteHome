@@ -27,6 +27,8 @@ namespace WpfAkuSQLiteHome.ViewModels
         // Config Properties
         public int StartHour { get; set; } = 8;
         public int QuantityOfHours { get; set; } = 14;
+        public int HourHeight { get; set; } = 60;
+        public int HourWidth { get; set; } = 260;
 
         // Properies
         public ObservableCollection<EventButton> EventsCollection { get; set; } = new ObservableCollection<EventButton>();
@@ -40,9 +42,22 @@ namespace WpfAkuSQLiteHome.ViewModels
         public string DayString { get; set; }
         public Hour ActiveHour { get; set; }
 
-
-
+        private DateTime actualDay;
+        private Thickness marginConfirmationWindow = new Thickness(0, 0, 0, 0);
+        private Visibility visibilityProp = Visibility.Hidden;
+        private string hourString;
+        private string dayString;
         private string startHourCreateEvent;
+
+        public DateTime ActualDay
+        {
+            get => actualDay; set
+            {
+                actualDay = value;
+                NotifyOfPropertyChange(() => ActualDay);
+            }
+        }
+
         public string StartHourCreateEvent
         {
             get { return startHourCreateEvent; }
@@ -76,21 +91,6 @@ namespace WpfAkuSQLiteHome.ViewModels
             }
         }
 
-
-
-
-
-
-
-
-
-
-        private Thickness marginDS = new Thickness(50, 20, 0, 0);
-        private Visibility visibilityProp = Visibility.Hidden;
-        private string hourString;
-        private DateTime dataPickerDS;
-        private string dayString;
-
         public string DateString
         {
             get => dayString;
@@ -101,21 +101,12 @@ namespace WpfAkuSQLiteHome.ViewModels
             }
         }
 
-        public Thickness MarginDS
+        public Thickness MarginConfirmationWindow
         {
-            get => marginDS; set
+            get => marginConfirmationWindow; set
             {
-                marginDS = value;
-                NotifyOfPropertyChange(() => MarginDS);
-            }
-        }
-
-        public DateTime DatePickerDS
-        {
-            get => dataPickerDS; set
-            {
-                dataPickerDS = value;
-                NotifyOfPropertyChange(() => DatePickerDS);
+                marginConfirmationWindow = value;
+                NotifyOfPropertyChange(() => MarginConfirmationWindow);
             }
         }
 
@@ -141,12 +132,24 @@ namespace WpfAkuSQLiteHome.ViewModels
 
         // Methods
 
+        public void LoadHours()
+        {
+            for (int i = 0; i < QuantityOfHours; i++)
+            {
+                string hourString = new DateTime(1, 1, 1, StartHour, 0, 0).AddHours(HourCounter).ToString("HH:mm");
+                Hour hour = new Hour { HourTime = new DateTime(1, 1, 1, StartHour + i, 0, 0), HourString = hourString, Height = HourHeight, Width = HourWidth };
+                HoursCollection.Add(hour);
+                HourCounter++;
+            }
+        }
+
+
         public void OnHoursClick(Hour hour)
         {
             ActiveHour = hour;
             MessageBox.Show("Test");
             VisibilityProp = Visibility.Visible;
-            StartHourCreateEvent = hour.HourString;
+            StartHourCreateEvent = ActiveHour.HourTime.ToString("HH:mm");
             EndHourCreateEvent = hour.HourTime.AddHours(1).ToString("HH:mm");
 
 
@@ -185,8 +188,8 @@ namespace WpfAkuSQLiteHome.ViewModels
         public void ConfirmDS()
         {
             int hour = ActiveHour.HourTime.Hour;
-            DateTime startTime = new DateTime(dataPickerDS.Year, dataPickerDS.Month, dataPickerDS.Day, hour,0,0);
-            DateTime endTime = new DateTime(dataPickerDS.Year, dataPickerDS.Month, dataPickerDS.Day, hour + 1, 0, 0);
+            DateTime startTime = new DateTime(actualDay.Year, actualDay.Month, actualDay.Day, hour,0,0);
+            DateTime endTime = new DateTime(actualDay.Year, actualDay.Month, actualDay.Day, hour + 1, 0, 0);
 
 
             googleCalendarAPI.CreateEvent(startTime, endTime, SummaryCreateEvent);
@@ -206,8 +209,8 @@ namespace WpfAkuSQLiteHome.ViewModels
         private void LoadEventsToList()
         {
             EventsCollection.Clear();
-            DateTime? startTime = new DateTime?(DatePickerDS);
-            DateTime? endTime = new DateTime?(DatePickerDS.AddHours(23));
+            DateTime? startTime = new DateTime?(ActualDay);
+            DateTime? endTime = new DateTime?(ActualDay.AddHours(23));
 
             googleCalendarAPI.RunRequst(startTime, endTime, "primary", 20);
             eventsList = googleCalendarAPI.LoadEventsToList();
@@ -250,21 +253,8 @@ namespace WpfAkuSQLiteHome.ViewModels
                     left = 0;
 
                 string text = singleEvent.Summary + "\r\n" + singleEvent.Start.DateTime.Value.ToString("HH:mm");
-                EventButton eventButton = new EventButton { MarginDS = new Thickness(left + 10, offset, 0, 0), TextDS = text, Height = height, Width = 180 };
+                EventButton eventButton = new EventButton { MarginButtonEvent = new Thickness(left + 10, offset, 0, 0), TextDS = text, Height = height, Width = 180 };
                 EventsCollection.Add(eventButton);
-            }
-        }
-
-       
-
-        public void LoadHours()
-        {
-            for (int i = 0; i < QuantityOfHours; i++)
-            {
-                string hourString = new DateTime(1, 1, 1, StartHour, 0, 0).AddHours(HourCounter).ToString("HH:mm");
-                Hour hour = new Hour { HourTime = new DateTime(1,1,1,StartHour + i,0,0), HourString = hourString, Height = 60, Width = 260};
-                HoursCollection.Add(hour);
-                HourCounter++;
             }
         }
 
@@ -279,7 +269,7 @@ namespace WpfAkuSQLiteHome.ViewModels
     {
         public TimeSpan startTime { get; set; }
         public TimeSpan endTime { get; set; }
-        public Thickness MarginDS { get; set; }
+        public Thickness MarginButtonEvent { get; set; }
         public string TextDS { get; set; }
         public int Height { get; set; }
         public int Width { get; set; }

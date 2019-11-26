@@ -28,23 +28,10 @@
             </Border>
         </StackPanel>
 
-        <ListView Height="180" Width="120" Visibility="{Binding VisibilityProp, Mode=OneWay}" Margin="{Binding MarginDS, Mode=TwoWay}" HorizontalAlignment="Center" VerticalAlignment="Center">
-            <ListViewItem Height="20" Width="100">Hour Start</ListViewItem>
-            <TextBox x:Name="StartHourCreateEvent" Height="20" Width="100"></TextBox>
-            <ListViewItem  Height="20" Width="100">Hour End</ListViewItem>
-            <TextBox x:Name="EndHourCreateEvent" Height="20" Width="100"></TextBox>
-            <ListViewItem  Height="20" Width="100">Description</ListViewItem>
-            <TextBox x:Name="SummaryCreateEvent" Height="20" Width="100"></TextBox>
-            <StackPanel Orientation="Horizontal">
-                <Button x:Name="ConfirmDS" Height="20" Width="40" Margin="3,3,10,3">OK</Button>
-                <Button x:Name="CancelDS" Height="20" Width="40" Margin="3,3,3,3">Cancel</Button>
-            </StackPanel>
-        </ListView>
-
         <ItemsControl ItemsSource="{Binding EventsCollection}">
             <ItemsControl.ItemTemplate>
                 <DataTemplate>
-                    <Button Content="{Binding Path=TextDS}" Margin="{Binding Path=MarginDS}" VerticalContentAlignment="Top" HorizontalContentAlignment="Left"
+                    <Button Content="{Binding Path=TextDS}" Margin="{Binding Path=MarginButtonEvent}" VerticalContentAlignment="Top" HorizontalContentAlignment="Left"
                             Height="{Binding Path=Height}" Width="{Binding Path=Width}" Opacity="0.90" BorderBrush="Black" BorderThickness="3" FontWeight="Bold" FontSize="16"
                             cal:Message.Attach="[Click] = [Action OnEventClickDS($this)]">
                         <Button.Background>
@@ -54,5 +41,23 @@
                 </DataTemplate>
             </ItemsControl.ItemTemplate>
         </ItemsControl>
+
+        <ListView Height="60" Width="250" Visibility="{Binding VisibilityProp, Mode=OneWay}" Margin="{Binding MarginConfirmationWindow, Mode=TwoWay}" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <StackPanel Orientation="Horizontal">
+                <ListViewItem Height="18" Width="40">Start :</ListViewItem>
+                <TextBox x:Name="StartHourCreateEvent" Height="18" Width="40"></TextBox>
+                <ListViewItem  Height="18" Width="40">End :</ListViewItem>
+                <TextBox x:Name="EndHourCreateEvent" Height="18" Width="40"></TextBox>
+                <Button x:Name="ConfirmDS" Height="18" Width="25" Margin="3,3,10,3">OK</Button>
+                <Button x:Name="CancelDS" Height="18" Width="25" Margin="3,3,3,3">X</Button>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <ListViewItem  Height="17" Width="30">Text</ListViewItem>
+                <TextBox x:Name="SummaryCreateEvent" Height="17" Width="200"></TextBox>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+    
+            </StackPanel>
+        </ListView>
     </Grid>
 </UserControl>

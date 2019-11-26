@@ -7,6 +7,6 @@ namespace WpfAkuSQLiteHome.ViewModels
         string DateString { get; set; }
         string DayString { get; set; }
         void LoadEvents();
-        DateTime DatePickerDS { get; set; }
+        DateTime ActualDay { get; set; }
     }
 }
