@@ -86,21 +86,13 @@ namespace WpfAkuSQLiteHome.ViewModels
             DayViewModel6.ActualDay = FirstMonday.AddDays(5);
             DayViewModel7.ActualDay = FirstMonday.AddDays(6);
 
-            DayViewModel1.DateString = DayViewModel1.ActualDay.ToShortDateString(); 
-            DayViewModel2.DateString = DayViewModel2.ActualDay.ToShortDateString();
-            DayViewModel3.DateString = DayViewModel3.ActualDay.ToShortDateString();
-            DayViewModel4.DateString = DayViewModel4.ActualDay.ToShortDateString();
-            DayViewModel5.DateString = DayViewModel5.ActualDay.ToShortDateString();
-            DayViewModel6.DateString = DayViewModel6.ActualDay.ToShortDateString();
-            DayViewModel7.DateString = DayViewModel7.ActualDay.ToShortDateString();
-
-            DayViewModel1.DayString = "Poniedziałek";
-            DayViewModel2.DayString = "Wtorek";
-            DayViewModel3.DayString = "Środa";
-            DayViewModel4.DayString = "Czwartek";
-            DayViewModel5.DayString = "Piątek";
-            DayViewModel6.DayString = "Sobota";
-            DayViewModel7.DayString = "Niedziela";
+            DayViewModel1.DateString = "PN " + DayViewModel1.ActualDay.ToShortDateString(); 
+            DayViewModel2.DateString = "WT " + DayViewModel2.ActualDay.ToShortDateString();
+            DayViewModel3.DateString = "ŚR " + DayViewModel3.ActualDay.ToShortDateString();
+            DayViewModel4.DateString = "CZ " + DayViewModel4.ActualDay.ToShortDateString();
+            DayViewModel5.DateString = "PT " + DayViewModel5.ActualDay.ToShortDateString();
+            DayViewModel6.DateString = "SO " + DayViewModel6.ActualDay.ToShortDateString();
+            DayViewModel7.DateString = "ND " + DayViewModel7.ActualDay.ToShortDateString();
 
             DayViewModel1.LoadEvents();
             DayViewModel2.LoadEvents();

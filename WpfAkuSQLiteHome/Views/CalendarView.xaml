@@ -6,44 +6,38 @@
              xmlns:local="clr-namespace:WpfAkuSQLiteHome.Views"
              xmlns:sys="clr-namespace:System;assembly=mscorlib"
              mc:Ignorable="d"
-             d:DesignHeight="1000" d:DesignWidth="1900">
+             d:DesignHeight="1200" d:DesignWidth="1900">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="20"/>
-            <ColumnDefinition Width="260"/>
-            <ColumnDefinition Width="260"/>
-            <ColumnDefinition Width="260"/>
-            <ColumnDefinition Width="260"/>
-            <ColumnDefinition Width="260"/>
-            <ColumnDefinition Width="260"/>
-            <ColumnDefinition Width="260"/>
+            <ColumnDefinition Width="190"/>
+            <ColumnDefinition Width="190"/>
+            <ColumnDefinition Width="190"/>
+            <ColumnDefinition Width="190"/>
+            <ColumnDefinition Width="190"/>
+            <ColumnDefinition Width="190"/>
+            <ColumnDefinition Width="190"/>
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="20"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="30"/>
             <RowDefinition Height="30"/>
-            <RowDefinition Height="30"/>
-            <RowDefinition Height="300"/>
-            <RowDefinition Height="300"/>
-            <RowDefinition Height="300"/>
+            <RowDefinition Height="350"/>
+            <RowDefinition Height="350"/>
+            <RowDefinition Height="350"/>
             <RowDefinition Height="*"/>
             <RowDefinition Height="20"/>
         </Grid.RowDefinitions>
-        <DatePicker x:Name="StartDate"  Grid.Row="2" Grid.Column="1"/>
-        <Button x:Name="Sub7Days" Grid.Row="1" Grid.Column="1" Width="100" Margin="-140,0,0,0">lewo</Button>
-        <Button x:Name="Add7Days" Grid.Row="1" Grid.Column="1" Width="100" Margin="140,0,0,0" HorizontalAlignment="Left">prawo</Button>
-        <ContentControl x:Name="DayViewModel1" Grid.Row="3" Grid.Column="1" Grid.RowSpan="3" Grid.ColumnSpan="1"/>
-        <ContentControl x:Name="DayViewModel2" Grid.Row="3" Grid.Column="2" Grid.RowSpan="3" Grid.ColumnSpan="1"/>
-        <ContentControl x:Name="DayViewModel3" Grid.Row="3" Grid.Column="3" Grid.RowSpan="3" Grid.ColumnSpan="1"/>
-        <ContentControl x:Name="DayViewModel4" Grid.Row="3" Grid.Column="4" Grid.RowSpan="3" Grid.ColumnSpan="1"/>
-        <ContentControl x:Name="DayViewModel5" Grid.Row="3" Grid.Column="5" Grid.RowSpan="3" Grid.ColumnSpan="1"/>
-        <ContentControl x:Name="DayViewModel6" Grid.Row="3" Grid.Column="6" Grid.RowSpan="3" Grid.ColumnSpan="1"/>
-        <ContentControl x:Name="DayViewModel7" Grid.Row="3" Grid.Column="7" Grid.RowSpan="3" Grid.ColumnSpan="1"/>
-        <Label Grid.Row="1" Grid.Column="6" Content="New Summary"/>
-        <Label Grid.Row="1" Grid.Column="7" Content="Start Hour"/>
-     
-        <TextBox x:Name="NewSummary" Grid.Row="2" Grid.Column="6"/>
-        <TextBox x:Name="HourStart" Grid.Row="2" Grid.Column="7"/>
+        <DatePicker x:Name="StartDate"  Grid.Row="1" Grid.Column="2"/>
+        <Button x:Name="Sub7Days" Grid.Row="1" Grid.Column="1" Width="80" Margin="-100,0,0,0">Poprzedni</Button>
+        <Button x:Name="Add7Days" Grid.Row="1" Grid.Column="1" Width="80" Margin="100,0,0,0" HorizontalAlignment="Left">Następny</Button>
+        <ContentControl x:Name="DayViewModel1" Grid.Row="2" Grid.Column="1" Grid.RowSpan="4" Grid.ColumnSpan="1"/>
+        <ContentControl x:Name="DayViewModel2" Grid.Row="2" Grid.Column="2" Grid.RowSpan="4" Grid.ColumnSpan="1"/>
+        <ContentControl x:Name="DayViewModel3" Grid.Row="2" Grid.Column="3" Grid.RowSpan="4" Grid.ColumnSpan="1"/>
+        <ContentControl x:Name="DayViewModel4" Grid.Row="2" Grid.Column="4" Grid.RowSpan="4" Grid.ColumnSpan="1"/>
+        <ContentControl x:Name="DayViewModel5" Grid.Row="2" Grid.Column="5" Grid.RowSpan="4" Grid.ColumnSpan="1"/>
+        <ContentControl x:Name="DayViewModel6" Grid.Row="2" Grid.Column="6" Grid.RowSpan="4" Grid.ColumnSpan="1"/>
+        <ContentControl x:Name="DayViewModel7" Grid.Row="2" Grid.Column="7" Grid.RowSpan="4" Grid.ColumnSpan="1"/>
     </Grid>
 </UserControl>

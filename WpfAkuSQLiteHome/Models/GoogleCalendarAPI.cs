@@ -100,5 +100,11 @@ namespace WpfAkuSQLiteHome.Models
             var calendarId = "primary";
             Event recurringEvent = service.Events.Insert(ev, calendarId).Execute();
         }
+
+        public void DeleteEventByID(string EventID)
+        {
+            var calendarId = "primary";
+            service.Events.Delete(calendarId, EventID).Execute();
+        }
     }
 }

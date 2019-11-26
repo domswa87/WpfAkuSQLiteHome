@@ -6,14 +6,13 @@
              xmlns:local="clr-namespace:WpfAkuSQLiteHome.Views"
              xmlns:cal="http://www.caliburnproject.org"
              mc:Ignorable="d" 
-             d:DesignHeight="900" d:DesignWidth="260">
+             d:DesignHeight="1100" d:DesignWidth="210">
 
     <Grid>
         <StackPanel>
             <Border BorderBrush="Black" BorderThickness="2">
                 <StackPanel>
                     <TextBlock x:Name="DateString" VerticalAlignment="Top" Background="LightYellow" TextAlignment="Center" FontSize="25" Height="40"></TextBlock>
-                    <TextBlock x:Name="DayString" VerticalAlignment="Top" Background="LightYellow" TextAlignment="Center" FontSize="25" Height="40"></TextBlock>
                 </StackPanel>
             </Border>
             <Border BorderBrush="Black" BorderThickness="2">
@@ -42,7 +41,7 @@
             </ItemsControl.ItemTemplate>
         </ItemsControl>
 
-        <StackPanel Height="60" Width="250" Visibility="{Binding VisibilityProp, Mode=OneWay}"
+        <StackPanel Height="80" Width="210" Visibility="{Binding VisibilityProp, Mode=OneWay}"
                     Margin="{Binding MarginConfirmationWindow, Mode=TwoWay}" HorizontalAlignment="Center"
                     VerticalAlignment="Top" Background="Gray">
             <StackPanel Orientation="Horizontal" Height="25">
@@ -50,12 +49,16 @@
                 <TextBox x:Name="StartHourCreateEvent" Width="40"></TextBox>
                 <ListViewItem Width="40">End :</ListViewItem>
                 <TextBox x:Name="EndHourCreateEvent" Width="40"></TextBox>
-                <Button x:Name="ConfirmDS" Width="25" Margin="3,3,10,3">OK</Button>
-                <Button x:Name="CancelDS" Width="25" Margin="3,3,3,3">X</Button>
+             
             </StackPanel>
             <StackPanel Orientation="Horizontal" Height="25">
                 <ListViewItem  Width="40">Text</ListViewItem>
                 <TextBox x:Name="SummaryCreateEvent" Width="200"></TextBox>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Height="25">
+                <Button x:Name="ConfirmEditButtonClick" Width="60" Height="25" HorizontalAlignment="Center" VerticalAlignment="Center" Content="{Binding Path=PropButtonContentCreateModify}" ></Button>
+                <Button x:Name="DeleteEvent" Width="60" Height="25" HorizontalAlignment="Center" VerticalAlignment="Center" Visibility="{Binding VisibilityDeleteButton, Mode=OneWay}">Usuń</Button>
+                <Button x:Name="CancelDS" Width="60" Height="25" HorizontalAlignment="Center" VerticalAlignment="Center">Anuluj</Button>
             </StackPanel>
         </StackPanel>
     </Grid>
