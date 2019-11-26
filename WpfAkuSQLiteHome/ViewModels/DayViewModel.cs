@@ -147,8 +147,11 @@ namespace WpfAkuSQLiteHome.ViewModels
         public void OnHoursClick(Hour hour)
         {
             ActiveHour = hour;
-            MessageBox.Show("Test");
+            int offset = ((ActiveHour.HourTime.Hour -8) *60) + 85;
+
+            MarginConfirmationWindow = new Thickness(0, offset, 0, 0);
             VisibilityProp = Visibility.Visible;
+
             StartHourCreateEvent = ActiveHour.HourTime.ToString("HH:mm");
             EndHourCreateEvent = hour.HourTime.AddHours(1).ToString("HH:mm");
 
