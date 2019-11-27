@@ -41,7 +41,7 @@
             </ItemsControl.ItemTemplate>
         </ItemsControl>
 
-        <StackPanel Height="48" Width="190" Visibility="{Binding VisibilityProp, Mode=OneWay}"
+        <StackPanel Height="48" Width="190" Visibility="{Binding VisibilityConfirmationWindow, Mode=OneWay}"
                     Margin="{Binding MarginConfirmationWindow, Mode=TwoWay}" HorizontalAlignment="Center"
                     VerticalAlignment="Top" Background="Gray">
             <StackPanel Orientation="Horizontal" Height="16">
