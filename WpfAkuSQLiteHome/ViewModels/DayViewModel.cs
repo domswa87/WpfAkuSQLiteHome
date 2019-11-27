@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -27,8 +28,8 @@ namespace WpfAkuSQLiteHome.ViewModels
         // Config Properties
         public int StartHour { get; set; } = 8;
         public int QuantityOfHours { get; set; } = 14;
-        public int HourHeight { get; set; } = 60;
-        public int HourWidth { get; set; } = 260;
+        public int HourHeight { get; set; } = 48;
+        public int HourWidth { get; set; } = 190;
         public int DistanceFromTopToFirstHour { get; set; } = 45;
 
         // Properies
@@ -39,20 +40,21 @@ namespace WpfAkuSQLiteHome.ViewModels
         public GoogleCalendarAPI googleCalendarAPI = new GoogleCalendarAPI();
         public double HourCounter { get; set; }
         public IEventAggregator EventAggregator { get; }
-        public bool IsWindowBox { get; set; } = false;
         public string DayString { get; set; }
         public Hour ActiveHour { get; set; }
         public EventButton ActiceEventButton { get; set; }
-       
+
         private DateTime actualDay;
         private Thickness marginConfirmationWindow = new Thickness(0, 0, 0, 0);
         private Visibility visibilityProp = Visibility.Hidden;
-        private Visibility visibilityDeleteButton = Visibility.Hidden;
+        private Visibility visibilityDeleteAndEditButtons = Visibility.Hidden;
+        private Visibility visibilityokButton = Visibility.Hidden;
         private string hourString;
         private string dayString;
         private string startHourCreateEvent;
+        private string endHourCreateEvent;
         private string summaryCreateEvent;
-        private string _propButtonContentCreateModify = "Utwórz";
+        private bool isModifyButtonEnabled;
 
         public DateTime ActualDay
         {
@@ -70,10 +72,10 @@ namespace WpfAkuSQLiteHome.ViewModels
             {
                 startHourCreateEvent = value;
                 NotifyOfPropertyChange(() => StartHourCreateEvent);
+                IsModifyButtonEnabled = true;
             }
         }
 
-        private string endHourCreateEvent;
         public string EndHourCreateEvent
         {
             get { return endHourCreateEvent; }
@@ -81,11 +83,9 @@ namespace WpfAkuSQLiteHome.ViewModels
             {
                 endHourCreateEvent = value;
                 NotifyOfPropertyChange(() => EndHourCreateEvent);
+                IsModifyButtonEnabled = true;
             }
         }
-
-
-       
 
         public string SummaryCreateEvent
         {
@@ -94,37 +94,14 @@ namespace WpfAkuSQLiteHome.ViewModels
             {
                 summaryCreateEvent = value;
                 NotifyOfPropertyChange(() => SummaryCreateEvent);
+                IsModifyButtonEnabled = true;
             }
         }
 
-        public string DateString
-        {
-            get => dayString;
-            set
-            {
-                dayString = value;
-                NotifyOfPropertyChange(() => DateString);
-            }
-        }
-
-        public Thickness MarginConfirmationWindow
-        {
-            get => marginConfirmationWindow; set
-            {
-                marginConfirmationWindow = value;
-                NotifyOfPropertyChange(() => MarginConfirmationWindow);
-            }
-        }
-
-        public Visibility VisibilityDeleteButton
-        {
-            get => visibilityDeleteButton;
-            set
-            {
-                visibilityDeleteButton = value;
-                NotifyOfPropertyChange(() => VisibilityDeleteButton);
-            }
-        }
+        public string DateString{get => dayString;set{dayString = value;NotifyOfPropertyChange(() => DateString);}}
+        public Thickness MarginConfirmationWindow{get => marginConfirmationWindow; set{ marginConfirmationWindow = value;NotifyOfPropertyChange(() => MarginConfirmationWindow);}}
+        public Visibility VisibilityDeleteAndEditButtons{get => visibilityDeleteAndEditButtons;set{visibilityDeleteAndEditButtons = value;NotifyOfPropertyChange(() => VisibilityDeleteAndEditButtons);}}
+        public Visibility VisibilityOkButton { get => visibilityokButton; set { visibilityokButton = value; NotifyOfPropertyChange(() => VisibilityOkButton); } }
 
         public Visibility VisibilityProp
         {
@@ -146,18 +123,17 @@ namespace WpfAkuSQLiteHome.ViewModels
             }
         }
 
-        public string PropButtonContentCreateModify
+        public bool IsModifyButtonEnabled
         {
-            get => _propButtonContentCreateModify;
+            get => isModifyButtonEnabled;
             set
             {
-                _propButtonContentCreateModify = value;
-                NotifyOfPropertyChange(() => PropButtonContentCreateModify);
+                isModifyButtonEnabled = value;
+                NotifyOfPropertyChange(() => IsModifyButtonEnabled);
             }
         }
 
         // Methods
-
         public void LoadHours()
         {
             for (int i = 0; i < QuantityOfHours; i++)
@@ -168,65 +144,66 @@ namespace WpfAkuSQLiteHome.ViewModels
                 HourCounter++;
             }
         }
+        public void LoadEvents()
+        {
+            LoadEventsToList();
+            DisplayEventOnScreen();
+        }
 
 
         public void OnHoursClick(Hour hour)
         {
             ActiveHour = hour;
-            int offset = ((ActiveHour.HourTime.Hour - 8) * 60) + DistanceFromTopToFirstHour;
+            int offset = ((ActiveHour.HourTime.Hour - 8) * HourHeight) + DistanceFromTopToFirstHour;
 
             MarginConfirmationWindow = new Thickness(0, offset, 0, 0);
 
-            PropButtonContentCreateModify = "Utwórz";
             SummaryCreateEvent = null;
             VisibilityProp = Visibility.Visible;
 
             StartHourCreateEvent = ActiveHour.HourTime.ToString("HH:mm");
             EndHourCreateEvent = hour.HourTime.AddHours(1).ToString("HH:mm");
-            VisibilityDeleteButton = Visibility.Hidden;
-
-
-            // MessageBox.Show(hour.HourString);
-
-
-            //int startPosition = ((hour.HourInt - 8) * 60) + 85;
-            //int offset = startPosition - BelowLineMarginPosion;
-            //EventButton eventButton = new EventButton { MarginDS = new Thickness(10, offset, 0, 0), TextDS = "", Height = 60, Width = 180 };
-            //EventsCollection.Add(eventButton);
-
-            ////EventAggregator.PublishOnUIThread(HourString);
-
-            ////MessageBoxResult result = MessageBox.Show($"Do you want to create new event ? \r\n Day:{DayString} \r\n Hour {HourString}",
-            ////                             "Confirmation",
-            //                             MessageBoxButton.YesNo,
-            //                             MessageBoxImage.Question);
-            //if (result == MessageBoxResult.Yes)
-            //{
-            //    VisibilityProp = Visibility.Visible;
-            //}
-            //else
-            //{
-            //    VisibilityProp = Visibility.Hidden;
-            //}
+            VisibilityDeleteAndEditButtons = Visibility.Hidden;
+            VisibilityOkButton = Visibility.Visible;
         }
 
         public void OnEventClickDS(EventButton eve)
         {
-            VisibilityDeleteButton = Visibility.Visible;
+            VisibilityDeleteAndEditButtons = Visibility.Visible;
             ActiceEventButton = eve;
-            int offset = ((eve.startTime.Hour - 8) * 60) + DistanceFromTopToFirstHour;
+            int offset = ((eve.startTime.Hour - 8) * HourHeight) + DistanceFromTopToFirstHour;
             MarginConfirmationWindow = new Thickness(0, offset, 0, 0);
             VisibilityProp = Visibility.Visible;
+            VisibilityOkButton = Visibility.Hidden;
 
             StartHourCreateEvent = eve.startTime.ToString("HH:mm");
             EndHourCreateEvent = eve.endTime.ToString("HH:mm");
             SummaryCreateEvent = eve.TextDS.Split(new[] { '\r', '\n' }).FirstOrDefault();
-
-            PropButtonContentCreateModify = "Zamień";
-
+            IsModifyButtonEnabled = false;
         }
 
-        public void DeleteEvent()
+
+        public void CancelButtonClick()
+        {
+            VisibilityProp = Visibility.Hidden;
+        }
+
+        public void CreateButtonClick()
+        {
+            int startHour, startMinute, endHour, endMinute;
+            GetTime(out startHour, out startMinute, out endHour, out endMinute);
+
+            DateTime startTime = new DateTime(actualDay.Year, actualDay.Month, actualDay.Day, startHour, startMinute, 0);
+            DateTime endTime = new DateTime(actualDay.Year, actualDay.Month, actualDay.Day, endHour, endMinute, 0);
+
+            googleCalendarAPI.CreateEvent(startTime, endTime, SummaryCreateEvent);
+
+            VisibilityProp = Visibility.Hidden;
+            LoadEvents();
+            MessageBox.Show("Task is created");
+
+        }
+        public void DeleteEventButtonClick()
         {
             googleCalendarAPI.DeleteEventByID(ActiceEventButton.GoogleEvent.Id);
             VisibilityProp = Visibility.Hidden;
@@ -234,42 +211,32 @@ namespace WpfAkuSQLiteHome.ViewModels
             LoadEvents();
         }
 
-
-
-        public void CancelDS()
+        public void EditButtonClick()
         {
+            int startHour, startMinute, endHour, endMinute;
+            GetTime(out startHour, out startMinute, out endHour, out endMinute);
+
+            ActiceEventButton.GoogleEvent.Summary = SummaryCreateEvent;
+            ActiceEventButton.GoogleEvent.Start.DateTime = new DateTime(ActualDay.Year, ActualDay.Month, actualDay.Day, startHour, startMinute, 0);
+            ActiceEventButton.GoogleEvent.End.DateTime = new DateTime(ActualDay.Year, ActualDay.Month, actualDay.Day, endHour, endMinute, 0);
+
+            googleCalendarAPI.UpdateEvent(ActiceEventButton.GoogleEvent, ActiceEventButton.GoogleEvent.Id);
+
             VisibilityProp = Visibility.Hidden;
+            LoadEvents();
+            MessageBox.Show("Task was modify");
         }
 
-        public void ConfirmEditButtonClick()
+        private void GetTime(out int startHour, out int startMinute, out int endHour, out int endMinute)
         {
-            if (PropButtonContentCreateModify == "Utwórz")
-            {
-                int hour = ActiveHour.HourTime.Hour;
-                DateTime startTime = new DateTime(actualDay.Year, actualDay.Month, actualDay.Day, hour, 0, 0);
-                DateTime endTime = new DateTime(actualDay.Year, actualDay.Month, actualDay.Day, hour + 1, 0, 0);
+            Regex exTime = new Regex(@"(?<hour>\d{2}):?(?<min>\d{2})");
+            Match matchStart = exTime.Match(StartHourCreateEvent);
+            Match matchEnd = exTime.Match(EndHourCreateEvent);
 
-
-                googleCalendarAPI.CreateEvent(startTime, endTime, SummaryCreateEvent);
-
-                VisibilityProp = Visibility.Hidden;
-                LoadEvents();
-                MessageBox.Show("Task is created");
-            }
-            else if(PropButtonContentCreateModify == "Zamień")
-            {
-                googleCalendarAPI.DeleteEventByID(ActiceEventButton.GoogleEvent.Id);
-                MessageBox.Show("Task will be modify");
-
-            }
-         
-        }
-
-
-        public void LoadEvents()
-        {
-            LoadEventsToList();
-            DisplayEventOnScreen();
+            startHour = int.Parse(matchStart.Groups["hour"].Value);
+            startMinute = int.Parse(matchStart.Groups["min"].Value);
+            endHour = int.Parse(matchEnd.Groups["hour"].Value);
+            endMinute = int.Parse(matchEnd.Groups["min"].Value);
         }
 
         private void LoadEventsToList()
@@ -293,14 +260,15 @@ namespace WpfAkuSQLiteHome.ViewModels
             {
                 int startHour = singleEvent.Start.DateTime.Value.Hour - 8;
                 int startMin = singleEvent.Start.DateTime.Value.Minute;
-                int startPosition = startHour * 60 + startMin + DistanceFromTopToFirstHour;
+                int minuteCalculation = (startMin / 5) * 4;
+                int startPosition = startHour * HourHeight + minuteCalculation + DistanceFromTopToFirstHour;
 
                 int hoursDuration = singleEvent.End.DateTime.Value.Hour - singleEvent.Start.DateTime.Value.Hour;
                 int minutesDuration = singleEvent.End.DateTime.Value.Minute - singleEvent.Start.DateTime.Value.Minute;
-                height = hoursDuration * 60 + minutesDuration;
+                int minutesDuationCalculation = (minutesDuration / 5) * 4;
+                height = hoursDuration * HourHeight + minutesDuationCalculation;
 
                 int endPosition = startPosition + height;
-
 
                 if (endPosition > maxPosition)
                     offset = startPosition - maxPosition;
@@ -319,16 +287,19 @@ namespace WpfAkuSQLiteHome.ViewModels
                     left = 0;
 
                 string text = singleEvent.Summary + "\r\n" + singleEvent.Start.DateTime.Value.ToString("HH:mm");
-                EventButton eventButton = new EventButton { MarginButtonEvent = new Thickness(left + 10, offset, 0, 0), TextDS = text, Height = height, Width = 180,
-                                                            startTime = new DateTime(1,1,1,singleEvent.Start.DateTime.Value.Hour, singleEvent.Start.DateTime.Value.Minute,0),
-                                                            endTime = new DateTime(1,1,1,singleEvent.End.DateTime.Value.Hour, singleEvent.End.DateTime.Value.Minute,0),
-                                                            GoogleEvent = singleEvent};
+                EventButton eventButton = new EventButton
+                {
+                    MarginButtonEvent = new Thickness(left + 10, offset, 0, 0),
+                    TextDS = text,
+                    Height = height,
+                    Width = 180,
+                    startTime = new DateTime(1, 1, 1, singleEvent.Start.DateTime.Value.Hour, singleEvent.Start.DateTime.Value.Minute, 0),
+                    endTime = new DateTime(1, 1, 1, singleEvent.End.DateTime.Value.Hour, singleEvent.End.DateTime.Value.Minute, 0),
+                    GoogleEvent = singleEvent
+                };
                 EventsCollection.Add(eventButton);
             }
         }
-
-    
-
     }
 
     public class EventButton

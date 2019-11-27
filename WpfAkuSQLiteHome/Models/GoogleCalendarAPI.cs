@@ -106,5 +106,11 @@ namespace WpfAkuSQLiteHome.Models
             var calendarId = "primary";
             service.Events.Delete(calendarId, EventID).Execute();
         }
+
+        public void UpdateEvent(Event body, string EventID)
+        {
+            var calendarId = "primary";
+            service.Events.Update(body, calendarId, EventID).Execute();
+        }
     }
 }

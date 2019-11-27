@@ -6,7 +6,7 @@
              xmlns:local="clr-namespace:WpfAkuSQLiteHome.Views"
              xmlns:cal="http://www.caliburnproject.org"
              mc:Ignorable="d" 
-             d:DesignHeight="1100" d:DesignWidth="210">
+             d:DesignHeight="1100" d:DesignWidth="190">
 
     <Grid>
         <StackPanel>
@@ -20,7 +20,7 @@
                     <ItemsControl.ItemTemplate>
                         <DataTemplate>
                             <ListBoxItem Content="{Binding Path=HourString}" Height="{Binding Path=Height}"  Width="{Binding Path=Width}" 
-                                         FontSize="15" BorderBrush="Black" Background="LightBlue" cal:Message.Attach="[MouseDoubleClick] = [Action OnHoursClick($this)]" />
+                                         FontSize="10" BorderBrush="Black" Background="LightBlue" cal:Message.Attach="[MouseDoubleClick] = [Action OnHoursClick($this)]" />
                         </DataTemplate>
                     </ItemsControl.ItemTemplate>
                 </ItemsControl>
@@ -31,34 +31,33 @@
             <ItemsControl.ItemTemplate>
                 <DataTemplate>
                     <Button Content="{Binding Path=TextDS}" Margin="{Binding Path=MarginButtonEvent}" VerticalContentAlignment="Top" HorizontalContentAlignment="Left"
-                            Height="{Binding Path=Height}" Width="{Binding Path=Width}" Opacity="0.90" BorderBrush="Black" BorderThickness="3" FontWeight="Bold" FontSize="16"
+                            Height="{Binding Path=Height}" Width="{Binding Path=Width}" Opacity="0.90" BorderBrush="Black" BorderThickness="3" FontWeight="Bold" FontSize="12"
                             cal:Message.Attach="[Click] = [Action OnEventClickDS($this)]">
                         <Button.Background>
-                            <SolidColorBrush Color="#FFD38334" Opacity="0.8"/>
+                            <SolidColorBrush Color="#FFD38334" Opacity="0.9"/>
                         </Button.Background>
                     </Button>
                 </DataTemplate>
             </ItemsControl.ItemTemplate>
         </ItemsControl>
 
-        <StackPanel Height="80" Width="210" Visibility="{Binding VisibilityProp, Mode=OneWay}"
+        <StackPanel Height="48" Width="190" Visibility="{Binding VisibilityProp, Mode=OneWay}"
                     Margin="{Binding MarginConfirmationWindow, Mode=TwoWay}" HorizontalAlignment="Center"
                     VerticalAlignment="Top" Background="Gray">
-            <StackPanel Orientation="Horizontal" Height="25">
-                <ListViewItem Width="40">Start :</ListViewItem>
-                <TextBox x:Name="StartHourCreateEvent" Width="40"></TextBox>
-                <ListViewItem Width="40">End :</ListViewItem>
-                <TextBox x:Name="EndHourCreateEvent" Width="40"></TextBox>
-             
+            <StackPanel Orientation="Horizontal" Height="16">
+                <ListViewItem Width="50" FontSize="10" Content="  OD :" FontWeight="Bold"></ListViewItem>
+                <TextBox x:Name="StartHourCreateEvent" Width="40" Height="16" FontSize="10" FontWeight="Bold"></TextBox>
+                <ListViewItem Width="50" FontSize="10" Content="  DO :" FontWeight="Bold"></ListViewItem>
+                <TextBox x:Name="EndHourCreateEvent" Width="40" Height="16" FontSize="10" FontWeight="Bold"></TextBox>
             </StackPanel>
-            <StackPanel Orientation="Horizontal" Height="25">
-                <ListViewItem  Width="40">Text</ListViewItem>
-                <TextBox x:Name="SummaryCreateEvent" Width="200"></TextBox>
+            <StackPanel Orientation="Horizontal" Height="16">
+                <TextBox x:Name="SummaryCreateEvent" Width="175" Height="16" Margin="5,0,5,0" FontSize="10" FontWeight="Bold"></TextBox>
             </StackPanel>
-            <StackPanel Orientation="Horizontal" Height="25">
-                <Button x:Name="ConfirmEditButtonClick" Width="60" Height="25" HorizontalAlignment="Center" VerticalAlignment="Center" Content="{Binding Path=PropButtonContentCreateModify}" ></Button>
-                <Button x:Name="DeleteEvent" Width="60" Height="25" HorizontalAlignment="Center" VerticalAlignment="Center" Visibility="{Binding VisibilityDeleteButton, Mode=OneWay}">Usuń</Button>
-                <Button x:Name="CancelDS" Width="60" Height="25" HorizontalAlignment="Center" VerticalAlignment="Center">Anuluj</Button>
+            <StackPanel Orientation="Horizontal" Height="16">
+                <Button x:Name="CreateButtonClick" Visibility="{Binding VisibilityOkButton, Mode=OneWay}" FontSize="10" Width="40" Height="16" HorizontalAlignment="Left" VerticalAlignment="Center" Content="Utwórz" Margin="5,0,5,0" ></Button>
+                <Button x:Name="EditButtonClick" Visibility="{Binding VisibilityDeleteAndEditButtons, Mode=OneWay}" IsEnabled="{Binding Path=IsModifyButtonEnabled}" FontSize="10" Width="40" Height="16" HorizontalAlignment="Left" VerticalAlignment="Center" Content="Zmień" Margin="0,0,5,0" ></Button>
+                <Button x:Name="DeleteEventButtonClick" Visibility="{Binding VisibilityDeleteAndEditButtons, Mode=OneWay}" Width="40" FontSize="10" Height="16" HorizontalAlignment="Center" VerticalAlignment="Center"  Margin="0,0,5,0">Usuń</Button>
+                <Button x:Name="CancelButtonClick" Width="40" FontSize="10" Height="16" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,5,0" >Anuluj</Button>
             </StackPanel>
         </StackPanel>
     </Grid>
