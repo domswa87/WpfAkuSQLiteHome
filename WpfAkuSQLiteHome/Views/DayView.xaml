@@ -41,13 +41,16 @@
             </ItemsControl.ItemTemplate>
         </ItemsControl>
 
-        <StackPanel Height="48" Width="190" Visibility="{Binding VisibilityConfirmationWindow, Mode=OneWay}"
+        <StackPanel Height="72" Width="190" Visibility="{Binding VisibilityConfirmationWindow, Mode=OneWay}"
                     Margin="{Binding MarginConfirmationWindow, Mode=TwoWay}" HorizontalAlignment="Center"
                     VerticalAlignment="Top" Background="Gray">
+            <StackPanel>
+                <DatePicker x:Name="StartDate"  Grid.Row="1" Grid.Column="2" Height="24" FontSize="10"/>
+            </StackPanel>
             <StackPanel Orientation="Horizontal" Height="16">
-                <ListViewItem Width="50" FontSize="10" Content="  OD :" FontWeight="Bold"></ListViewItem>
+                <ListViewItem Width="50" FontSize="10" Content="  OD :" FontWeight="Bold" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"></ListViewItem>
                 <TextBox x:Name="StartHourCreateEvent" Width="40" Height="16" FontSize="10" FontWeight="Bold"></TextBox>
-                <ListViewItem Width="50" FontSize="10" Content="  DO :" FontWeight="Bold"></ListViewItem>
+                <ListViewItem Width="50" FontSize="10" Content="  DO :" FontWeight="Bold" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"></ListViewItem>
                 <TextBox x:Name="EndHourCreateEvent" Width="40" Height="16" FontSize="10" FontWeight="Bold"></TextBox>
             </StackPanel>
             <StackPanel Orientation="Horizontal" Height="16">
