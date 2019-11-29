@@ -11,6 +11,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
 using WpfAkuSQLiteHome.Models;
+using Colors = System.Windows.Media.Colors;
 
 namespace WpfAkuSQLiteHome.ViewModels
 {
@@ -132,6 +133,17 @@ namespace WpfAkuSQLiteHome.ViewModels
             }
         }
 
+        private Brush buttonColor;
+        public Brush ButtonColor
+        {
+            get => buttonColor;
+            set
+            {
+                buttonColor = value;
+                NotifyOfPropertyChange(() => ButtonColor);
+            }
+        }
+
         // Methods
         public void LoadHours()
         {
@@ -152,6 +164,7 @@ namespace WpfAkuSQLiteHome.ViewModels
 
         public void OnHoursClick(Hour hour)
         {
+            ButtonColor = new SolidColorBrush(Colors.Yellow);
             ActiveHour = hour;
             int offset = ((ActiveHour.HourTime.Hour - 8) * HourHeight) + DistanceFromTopToFirstHour;
 
