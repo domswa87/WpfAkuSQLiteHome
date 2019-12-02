@@ -29,10 +29,18 @@ namespace WpfAkuSQLiteHome.ViewModels
             DayViewModel7 = dayViewModel7;
             EventAggregator = eventAggregator;
             EventAggregator.Subscribe(this);
-           
             DateUpdate();
         }
 
+
+        public string EventMessage
+        {
+            get => eventMessage;
+            set
+            {
+                eventMessage = value;
+            }
+        }
 
         public IDayViewModel DayViewModel1 { get; }
         public IDayViewModel DayViewModel2 { get; }
@@ -52,7 +60,7 @@ namespace WpfAkuSQLiteHome.ViewModels
 
         private string hourStart;
         private DateTime startDate = DateTime.Now.StartOfWeek(DayOfWeek.Monday);
-
+        private string eventMessage;
 
         public string HourStart
         {
@@ -86,7 +94,7 @@ namespace WpfAkuSQLiteHome.ViewModels
             DayViewModel6.ActualDay = FirstMonday.AddDays(5);
             DayViewModel7.ActualDay = FirstMonday.AddDays(6);
 
-            DayViewModel1.DateString = "PN " + DayViewModel1.ActualDay.ToShortDateString(); 
+            DayViewModel1.DateString = "PN " + DayViewModel1.ActualDay.ToShortDateString();
             DayViewModel2.DateString = "WT " + DayViewModel2.ActualDay.ToShortDateString();
             DayViewModel3.DateString = "ŚR " + DayViewModel3.ActualDay.ToShortDateString();
             DayViewModel4.DateString = "CZ " + DayViewModel4.ActualDay.ToShortDateString();
@@ -120,7 +128,29 @@ namespace WpfAkuSQLiteHome.ViewModels
 
         public void Handle(string message)
         {
-            HourStart = message;
+            if (message == "refresh")
+            {
+                DateUpdate();
+            }
+            if (message == "clearSelection")
+            {
+                DayViewModel1.ClearSelection();
+                DayViewModel2.ClearSelection();
+                DayViewModel3.ClearSelection();
+                DayViewModel4.ClearSelection();
+                DayViewModel5.ClearSelection();
+                DayViewModel6.ClearSelection();
+                DayViewModel7.ClearSelection();
+
+                DayViewModel1.VisibilityConfirmationWindow = Visibility.Hidden;
+                DayViewModel2.VisibilityConfirmationWindow = Visibility.Hidden;
+                DayViewModel3.VisibilityConfirmationWindow = Visibility.Hidden;
+                DayViewModel4.VisibilityConfirmationWindow = Visibility.Hidden;
+                DayViewModel5.VisibilityConfirmationWindow = Visibility.Hidden;
+                DayViewModel6.VisibilityConfirmationWindow = Visibility.Hidden;
+                DayViewModel7.VisibilityConfirmationWindow = Visibility.Hidden;
+            }
+
         }
 
         public void Add7Days()

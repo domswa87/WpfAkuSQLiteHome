@@ -31,9 +31,8 @@
             <ItemsControl.ItemTemplate>
                 <DataTemplate>
                     <Button Content="{Binding Path=TextDS}" Margin="{Binding Path=MarginButtonEvent}" VerticalContentAlignment="Top" HorizontalContentAlignment="Left"
-                            Height="{Binding Path=Height}" Width="{Binding Path=Width}" Background="{Binding Path=ButtonColour}" Opacity="0.90" BorderBrush="Black" BorderThickness="3" FontWeight="Bold" FontSize="12"
-                            cal:Message.Attach="[Click] = [Action OnEventClickDS($this)]"> 
-                       
+                            Height="{Binding Path=Height}" Width="{Binding Path=Width}" Background="{Binding Path=ButtonColor}" Opacity="0.90" BorderBrush="Black" BorderThickness="3" FontWeight="Bold" FontSize="12"
+                            cal:Message.Attach="[MouseDoubleClick] = [Action OnEventDoubleClick($this)];[Click] = [Action OnEventClick($this)]"> 
                     </Button>
                 </DataTemplate>
             </ItemsControl.ItemTemplate>

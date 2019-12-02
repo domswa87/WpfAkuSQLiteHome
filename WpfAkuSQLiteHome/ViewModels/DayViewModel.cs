@@ -3,6 +3,7 @@ using Google.Apis.Calendar.v3.Data;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
@@ -17,10 +18,12 @@ namespace WpfAkuSQLiteHome.ViewModels
 {
     public class DayViewModel : Screen, IDayViewModel
     {
-        public DayViewModel()
+        public DayViewModel(IEventAggregator eventAggregator)
         {
             LoadHours();
             LoadEvents();
+            ClearSelection();
+            EventAggregator = eventAggregator;
         }
 
         public string MarginTextBox { get; set; }
@@ -42,9 +45,10 @@ namespace WpfAkuSQLiteHome.ViewModels
         public double HourCounter { get; set; }
         public string DayString { get; set; }
         public Hour ActiveHour { get; set; }
-        public EventButton ActiceEventButton { get; set; }
+        public EventButton ActiveEventButton { get; set; }
 
         private DateTime actualDay;
+        private DateTime startDay; 
         private Thickness marginConfirmationWindow = new Thickness(0, 0, 0, 0);
         private Visibility visibilityConfirmationWindow = Visibility.Hidden;
         private Visibility visibilityDeleteAndEditButtons = Visibility.Hidden;
@@ -62,6 +66,16 @@ namespace WpfAkuSQLiteHome.ViewModels
             {
                 actualDay = value;
                 NotifyOfPropertyChange(() => ActualDay);
+            }
+        }
+
+        public DateTime StartDate
+        {
+            get => startDay; set
+            {
+                startDay = value;
+                NotifyOfPropertyChange(() => StartDate);
+                IsModifyButtonEnabled = true;
             }
         }
 
@@ -133,16 +147,10 @@ namespace WpfAkuSQLiteHome.ViewModels
             }
         }
 
-        private Brush buttonColor;
-        public Brush ButtonColor
-        {
-            get => buttonColor;
-            set
-            {
-                buttonColor = value;
-                NotifyOfPropertyChange(() => ButtonColor);
-            }
-        }
+        public IEventAggregator EventAggregator { get; }
+
+
+
 
         // Methods
         public void LoadHours()
@@ -164,7 +172,6 @@ namespace WpfAkuSQLiteHome.ViewModels
 
         public void OnHoursClick(Hour hour)
         {
-            ButtonColor = new SolidColorBrush(Colors.Yellow);
             ActiveHour = hour;
             int offset = ((ActiveHour.HourTime.Hour - 8) * HourHeight) + DistanceFromTopToFirstHour;
 
@@ -179,10 +186,30 @@ namespace WpfAkuSQLiteHome.ViewModels
             VisibilityOkButton = Visibility.Visible;
         }
 
-        public void OnEventClickDS(EventButton eve)
+        public void OnEventClick(EventButton eve)
         {
+            if (ActiveEventButton == eve)
+            {
+
+            }
+            else
+            {
+                ClearSelection();
+                EventAggregator.PublishOnUIThread("clearSelection");
+                eve.ButtonColor = new SolidColorBrush(Colors.Yellow);
+                ActiveEventButton = eve;
+            }
+        }
+
+        public void OnEventDoubleClick(EventButton eve)
+        {
+            StartDate = new DateTime(ActualDay.Year, ActualDay.Month, ActualDay.Day);
+
+            EventAggregator.PublishOnUIThread("clearSelection");
             VisibilityDeleteAndEditButtons = Visibility.Visible;
-            ActiceEventButton = eve;
+            eve.ButtonColor = new SolidColorBrush(Colors.Yellow);
+            ActiveEventButton = eve;
+
             int offset = ((eve.startTime.Hour - 8) * HourHeight) + DistanceFromTopToFirstHour;
             MarginConfirmationWindow = new Thickness(0, offset, 0, 0);
             VisibilityConfirmationWindow = Visibility.Visible;
@@ -194,6 +221,12 @@ namespace WpfAkuSQLiteHome.ViewModels
             IsModifyButtonEnabled = false;
         }
 
+        public void ClearSelection()
+        {
+            foreach (var eventButton in EventsCollection)
+                eventButton.ButtonColor = new SolidColorBrush(Colors.Orange);
+            ActiveEventButton = null;
+        }
 
         public void CancelButtonClick()
         {
@@ -223,7 +256,7 @@ namespace WpfAkuSQLiteHome.ViewModels
 
         public void DeleteEventButtonClick()
         {
-            googleCalendarAPI.DeleteEventByID(ActiceEventButton.GoogleEvent.Id);
+            googleCalendarAPI.DeleteEventByID(ActiveEventButton.GoogleEvent.Id);
             VisibilityConfirmationWindow = Visibility.Hidden;
             MessageBox.Show("Event is deleted");
             LoadEvents();
@@ -237,15 +270,15 @@ namespace WpfAkuSQLiteHome.ViewModels
 
             if (isCorrectFormat)
             {
-                ActiceEventButton.GoogleEvent.Summary = SummaryCreateEvent;
-                ActiceEventButton.GoogleEvent.Start.DateTime = new DateTime(ActualDay.Year, ActualDay.Month, actualDay.Day, startHour, startMinute, 0);
-                ActiceEventButton.GoogleEvent.End.DateTime = new DateTime(ActualDay.Year, ActualDay.Month, actualDay.Day, endHour, endMinute, 0);
+                ActiveEventButton.GoogleEvent.Summary = SummaryCreateEvent;
+                ActiveEventButton.GoogleEvent.Start.DateTime = new DateTime(StartDate.Year, StartDate.Month, StartDate.Day, startHour, startMinute, 0);
+                ActiveEventButton.GoogleEvent.End.DateTime = new DateTime(StartDate.Year, StartDate.Month, StartDate.Day, endHour, endMinute, 0);
 
-                googleCalendarAPI.UpdateEvent(ActiceEventButton.GoogleEvent, ActiceEventButton.GoogleEvent.Id);
+                googleCalendarAPI.UpdateEvent(ActiveEventButton.GoogleEvent, ActiveEventButton.GoogleEvent.Id);
 
                 VisibilityConfirmationWindow = Visibility.Hidden;
                 LoadEvents();
-                MessageBox.Show("Task was modify");
+                EventAggregator.PublishOnUIThread("refresh");
             }
             else
                 MessageBox.Show("Wrong date format");
@@ -357,8 +390,19 @@ namespace WpfAkuSQLiteHome.ViewModels
         }
     }
 
-    public class EventButton
+    public class EventButton : Screen
     {
+        private Brush buttonColor = new SolidColorBrush(Colors.Orange);
+        public Brush ButtonColor
+        {
+            get => buttonColor;
+            set
+            {
+                buttonColor = value;
+                NotifyOfPropertyChange(() => ButtonColor);
+            }
+        }
+
         public Event GoogleEvent { get; set; }
         public DateTime startTime { get; set; }
         public DateTime endTime { get; set; }
