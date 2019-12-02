@@ -10,6 +10,7 @@ using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Input;
 using System.Windows.Media;
 using WpfAkuSQLiteHome.Models;
 using Colors = System.Windows.Media.Colors;
@@ -48,7 +49,7 @@ namespace WpfAkuSQLiteHome.ViewModels
         public EventButton ActiveEventButton { get; set; }
 
         private DateTime actualDay;
-        private DateTime startDay; 
+        private DateTime startDay;
         private Thickness marginConfirmationWindow = new Thickness(0, 0, 0, 0);
         private Visibility visibilityConfirmationWindow = Visibility.Hidden;
         private Visibility visibilityDeleteAndEditButtons = Visibility.Hidden;
@@ -69,12 +70,12 @@ namespace WpfAkuSQLiteHome.ViewModels
             }
         }
 
-        public DateTime StartDate
+        public DateTime StartEventDate
         {
             get => startDay; set
             {
                 startDay = value;
-                NotifyOfPropertyChange(() => StartDate);
+                NotifyOfPropertyChange(() => StartEventDate);
                 IsModifyButtonEnabled = true;
             }
         }
@@ -112,9 +113,9 @@ namespace WpfAkuSQLiteHome.ViewModels
             }
         }
 
-        public string DateString{get => dayString;set{dayString = value;NotifyOfPropertyChange(() => DateString);}}
-        public Thickness MarginConfirmationWindow{get => marginConfirmationWindow; set{ marginConfirmationWindow = value;NotifyOfPropertyChange(() => MarginConfirmationWindow);}}
-        public Visibility VisibilityDeleteAndEditButtons{get => visibilityDeleteAndEditButtons;set{visibilityDeleteAndEditButtons = value;NotifyOfPropertyChange(() => VisibilityDeleteAndEditButtons);}}
+        public string DateString { get => dayString; set { dayString = value; NotifyOfPropertyChange(() => DateString); } }
+        public Thickness MarginConfirmationWindow { get => marginConfirmationWindow; set { marginConfirmationWindow = value; NotifyOfPropertyChange(() => MarginConfirmationWindow); } }
+        public Visibility VisibilityDeleteAndEditButtons { get => visibilityDeleteAndEditButtons; set { visibilityDeleteAndEditButtons = value; NotifyOfPropertyChange(() => VisibilityDeleteAndEditButtons); } }
         public Visibility VisibilityOkButton { get => visibilityokButton; set { visibilityokButton = value; NotifyOfPropertyChange(() => VisibilityOkButton); } }
 
         public Visibility VisibilityConfirmationWindow
@@ -198,12 +199,13 @@ namespace WpfAkuSQLiteHome.ViewModels
                 EventAggregator.PublishOnUIThread("clearSelection");
                 eve.ButtonColor = new SolidColorBrush(Colors.Yellow);
                 ActiveEventButton = eve;
+                StartEventDate = new DateTime(ActualDay.Year, ActualDay.Month, ActualDay.Day);
             }
         }
 
         public void OnEventDoubleClick(EventButton eve)
         {
-            StartDate = new DateTime(ActualDay.Year, ActualDay.Month, ActualDay.Day);
+            StartEventDate = new DateTime(ActualDay.Year, ActualDay.Month, ActualDay.Day);
 
             EventAggregator.PublishOnUIThread("clearSelection");
             VisibilityDeleteAndEditButtons = Visibility.Visible;
@@ -219,6 +221,21 @@ namespace WpfAkuSQLiteHome.ViewModels
             EndHourCreateEvent = eve.endTime.ToString("HH:mm");
             SummaryCreateEvent = eve.TextDS.Split(new[] { '\r', '\n' }).FirstOrDefault();
             IsModifyButtonEnabled = false;
+        }
+
+        public void KeyDownMethod(ActionExecutionContext context)
+        {
+            var keyArgs = context.EventArgs as KeyEventArgs;
+
+            if (keyArgs != null && keyArgs.Key == Key.Left)
+            {
+                StartEventDate = StartEventDate.AddDays(-1);
+            }
+            if (keyArgs != null && keyArgs.Key == Key.Right)
+            {
+               StartEventDate = StartEventDate.AddDays(1);
+            }
+            // tutaj metoda odswiezajaca
         }
 
         public void ClearSelection()
@@ -271,8 +288,8 @@ namespace WpfAkuSQLiteHome.ViewModels
             if (isCorrectFormat)
             {
                 ActiveEventButton.GoogleEvent.Summary = SummaryCreateEvent;
-                ActiveEventButton.GoogleEvent.Start.DateTime = new DateTime(StartDate.Year, StartDate.Month, StartDate.Day, startHour, startMinute, 0);
-                ActiveEventButton.GoogleEvent.End.DateTime = new DateTime(StartDate.Year, StartDate.Month, StartDate.Day, endHour, endMinute, 0);
+                ActiveEventButton.GoogleEvent.Start.DateTime = new DateTime(StartEventDate.Year, StartEventDate.Month, StartEventDate.Day, startHour, startMinute, 0);
+                ActiveEventButton.GoogleEvent.End.DateTime = new DateTime(StartEventDate.Year, StartEventDate.Month, StartEventDate.Day, endHour, endMinute, 0);
 
                 googleCalendarAPI.UpdateEvent(ActiveEventButton.GoogleEvent, ActiveEventButton.GoogleEvent.Id);
 
@@ -307,7 +324,7 @@ namespace WpfAkuSQLiteHome.ViewModels
                 endHour = 1;
                 endMinute = 1;
             }
-            
+
         }
 
         private void LoadEventsToList()
@@ -358,7 +375,7 @@ namespace WpfAkuSQLiteHome.ViewModels
 
 
                 EventButton eventButton;
-                if (left>0)
+                if (left > 0)
                 {
                     eventButton = new EventButton
                     {
@@ -384,7 +401,7 @@ namespace WpfAkuSQLiteHome.ViewModels
                         GoogleEvent = singleEvent
                     };
                 }
-        
+
                 EventsCollection.Add(eventButton);
             }
         }
