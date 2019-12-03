@@ -150,7 +150,6 @@ namespace WpfAkuSQLiteHome.ViewModels
                 DayViewModel6.VisibilityConfirmationWindow = Visibility.Hidden;
                 DayViewModel7.VisibilityConfirmationWindow = Visibility.Hidden;
             }
-
         }
 
         public void Add7Days()

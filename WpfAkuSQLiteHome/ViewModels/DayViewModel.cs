@@ -230,12 +230,35 @@ namespace WpfAkuSQLiteHome.ViewModels
             if (keyArgs != null && keyArgs.Key == Key.Left)
             {
                 StartEventDate = StartEventDate.AddDays(-1);
+                RefreshAfterKeyDown();
             }
             if (keyArgs != null && keyArgs.Key == Key.Right)
             {
-               StartEventDate = StartEventDate.AddDays(1);
+                StartEventDate = StartEventDate.AddDays(1);
+                RefreshAfterKeyDown();
             }
-            // tutaj metoda odswiezajaca
+            if (keyArgs != null && keyArgs.Key == Key.Down)
+            {
+                ActiveEventButton.startTime = ActiveEventButton.startTime.AddHours(1);
+                ActiveEventButton.endTime = ActiveEventButton.endTime.AddHours(1);
+                RefreshAfterKeyDown();
+            }
+            if (keyArgs != null && keyArgs.Key == Key.Up)
+            {
+                ActiveEventButton.startTime = ActiveEventButton.startTime.AddHours(-1);
+                ActiveEventButton.endTime = ActiveEventButton.endTime.AddHours(-1);
+                RefreshAfterKeyDown();
+            }
+        }
+
+        private void RefreshAfterKeyDown()
+        {
+            ActiveEventButton.GoogleEvent.Start.DateTime = new DateTime(StartEventDate.Year, StartEventDate.Month, StartEventDate.Day, ActiveEventButton.startTime.Hour, ActiveEventButton.startTime.Minute, 0);
+            ActiveEventButton.GoogleEvent.End.DateTime = new DateTime(StartEventDate.Year, StartEventDate.Month, StartEventDate.Day, ActiveEventButton.endTime.Hour, ActiveEventButton.endTime.Minute, 0);
+
+            googleCalendarAPI.UpdateEvent(ActiveEventButton.GoogleEvent, ActiveEventButton.GoogleEvent.Id);
+            LoadEvents();
+            EventAggregator.PublishOnUIThread("refresh");
         }
 
         public void ClearSelection()
@@ -371,7 +394,7 @@ namespace WpfAkuSQLiteHome.ViewModels
                 else
                     left = 0;
 
-                string text = singleEvent.Summary + "\r\n" + singleEvent.Start.DateTime.Value.ToString("HH:mm");
+                string text = singleEvent.Summary + "\r\n" + singleEvent.Start.DateTime.Value.ToString("HH:mm") + " - " +singleEvent.End.DateTime.Value.ToString("HH:mm");
 
 
                 EventButton eventButton;

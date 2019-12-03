@@ -31,7 +31,7 @@
             <ItemsControl.ItemTemplate>
                 <DataTemplate>
                     <Button Content="{Binding Path=TextDS}" Margin="{Binding Path=MarginButtonEvent}" VerticalContentAlignment="Top" HorizontalContentAlignment="Left"
-                            Height="{Binding Path=Height}" Width="{Binding Path=Width}" Background="{Binding Path=ButtonColor}" Opacity="0.90" BorderBrush="Black" BorderThickness="3" FontWeight="Bold" FontSize="12"
+                            Height="{Binding Path=Height}" Width="{Binding Path=Width}" Background="{Binding Path=ButtonColor}" Opacity="0.90" BorderBrush="Black" BorderThickness="3" FontWeight="Bold" FontSize="10"
                             cal:Message.Attach="[MouseDoubleClick] = [Action OnEventDoubleClick($this)];
                             [Click] = [Action OnEventClick($this)];
                             [Event KeyDown] = [Action KeyDownMethod($executionContext)]"> 
@@ -44,7 +44,7 @@
                     Margin="{Binding MarginConfirmationWindow, Mode=TwoWay}" HorizontalAlignment="Center"
                     VerticalAlignment="Top" Background="Gray">
             <StackPanel>
-                <DatePicker x:Name="StartDate"  Grid.Row="1" Grid.Column="2" Height="24" FontSize="10"/>
+                <DatePicker x:Name="StartEventDate"  Grid.Row="1" Grid.Column="2" Height="24" FontSize="10"/>
             </StackPanel>
             <StackPanel Orientation="Horizontal" Height="16">
                 <ListViewItem Width="50" FontSize="10" Content="  OD :" FontWeight="Bold" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"></ListViewItem>
