@@ -22,12 +22,14 @@ namespace WpfAkuSQLiteHome.ViewModels
         public ISBCalculatorViewModel SBCalculatorViewModel { get; }
         public IWebPageViewModel WebPageViewModel { get; }
         public ICalendarViewModel CalendarViewModel { get; }
+        public IFocusViewModel FocusViewModel { get; }
 
-        public ShellViewModel(ISBCalculatorViewModel sBCalculatorViewModel, IWebPageViewModel webPageViewModel, ICalendarViewModel calendarViewModel)
+        public ShellViewModel(ISBCalculatorViewModel sBCalculatorViewModel, IWebPageViewModel webPageViewModel, ICalendarViewModel calendarViewModel, IFocusViewModel focusViewModel)
         {
             SBCalculatorViewModel = sBCalculatorViewModel;
             WebPageViewModel = webPageViewModel;
             CalendarViewModel = calendarViewModel;
+            FocusViewModel = focusViewModel;
         }
 
         public void LoadPageOne() => ActivateItem(SBCalculatorViewModel);
@@ -35,5 +37,7 @@ namespace WpfAkuSQLiteHome.ViewModels
         public void LoadPageTwo() => ActivateItem(WebPageViewModel);
 
         public void LoadPageThree() => ActivateItem(CalendarViewModel);
+
+        public void LoadPageFour() => ActivateItem(FocusViewModel);
     }
 }

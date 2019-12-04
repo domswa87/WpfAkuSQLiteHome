@@ -98,14 +98,17 @@
     </ApplicationDefinition>
     <Compile Include="Bootstrapper.cs" />
     <Compile Include="Models\DateTimeExtensions.cs" />
+    <Compile Include="Models\FocusExtension.cs" />
     <Compile Include="Models\GoogleCalendarAPI.cs" />
     <Compile Include="UserControlDS.xaml.cs">
       <DependentUpon>UserControlDS.xaml</DependentUpon>
     </Compile>
     <Compile Include="ViewModels\CalendarViewModel.cs" />
     <Compile Include="ViewModels\DayViewModel.cs" />
+    <Compile Include="ViewModels\FocusViewModel.cs" />
     <Compile Include="ViewModels\ICalendarViewModel.cs" />
     <Compile Include="ViewModels\IDayViewModel.cs" />
+    <Compile Include="ViewModels\IFocusViewModel.cs" />
     <Compile Include="ViewModels\ISBCalculatorViewModel.cs" />
     <Compile Include="ViewModels\ISBTableVIewModel.cs" />
     <Compile Include="ViewModels\ISetBirthDateViewModel.cs" />
@@ -120,6 +123,9 @@
     </Compile>
     <Compile Include="Views\DayView.xaml.cs">
       <DependentUpon>DayView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\FocusView.xaml.cs">
+      <DependentUpon>FocusView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\SBCalculatorView.xaml.cs">
       <DependentUpon>SBCalculatorView.xaml</DependentUpon>
@@ -158,6 +164,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\DayView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\FocusView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
