@@ -112,15 +112,6 @@ namespace WpfAkuSQLiteHome.ViewModels
 
         }
 
-        public void LoadEvents()
-        {
-            //GoogleEvents.Clear();
-            //googleCalendarAPI.RunRequst(new DateTime?(StartDate), new DateTime?(EndDate));
-            //eventsList = googleCalendarAPI.LoadEventsToList();
-            //foreach (var item in eventsList)
-            //    GoogleEvents.Add(item.Start.DateTime.ToString() + " " + item.Summary);
-        }
-
         public void CreateEvent()
         {
             googleCalendarAPI.CreateEvent(NewStartDate, NewEndDate, NewSummary);
