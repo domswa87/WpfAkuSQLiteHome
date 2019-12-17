@@ -117,6 +117,22 @@ namespace WpfAkuSQLiteHome.ViewModels
         public Brush YearSteamColor { get => yearSteamColor; set { yearSteamColor = value; NotifyOfPropertyChange(() => YearSteamColor); } }
         public Brush YearBranchColor { get => yearBranchColor; set { yearBranchColor = value; NotifyOfPropertyChange(() => YearBranchColor); } }
 
+
+        int YearSteamKey = 0;
+        int YearBranchKey = 0;
+        int monthNumber = 0;
+        int DaySteamKey = 0;
+        DateTime givenDate;
+        public List<BranchTable> branchTables { get; set; } = new List<BranchTable>();
+        public List<DayTable> dayTables { get; set; } = new List<DayTable>();
+        public List<DivisionTable> divisionTable { get; set; } = new List<DivisionTable>();
+        public List<HsiuTable> hsiuTable { get; set; } = new List<HsiuTable>();
+        public List<SeasonTable> seasonTable { get; set; } = new List<SeasonTable>();
+        public List<StemsTable> stemsTable { get; set; } = new List<StemsTable>();
+        public List<YearTable> yearTable { get; set; } = new List<YearTable>();
+        FinalOutput finalOutput;
+
+
         private void AssignProperties()
         {
             H1 = "";
@@ -173,17 +189,7 @@ namespace WpfAkuSQLiteHome.ViewModels
             finalOutput = new FinalOutput();
         }
 
-        int YearSteamKey = 0;
-        int DaySteamKey = 0;
-        DateTime givenDate;
-        public List<BranchTable> branchTables { get; set; } = new List<BranchTable>();
-        public List<DayTable> dayTables { get; set; } = new List<DayTable>();
-        public List<DivisionTable> divisionTable { get; set; } = new List<DivisionTable>();
-        public List<HsiuTable> hsiuTable { get; set; } = new List<HsiuTable>();
-        public List<SeasonTable> seasonTable { get; set; } = new List<SeasonTable>();
-        public List<StemsTable> stemsTable { get; set; } = new List<StemsTable>();
-        public List<YearTable> yearTable { get; set; } = new List<YearTable>();
-        FinalOutput finalOutput;
+   
 
         public void LoadData(string year, string month, string day, string hour)
         {
@@ -213,14 +219,14 @@ namespace WpfAkuSQLiteHome.ViewModels
             int year = int.Parse(finalOutput.GivenDate.Year);
             int YearkeyNo = year - 1923;
             YearSteamKey = YearkeyNo % 10 == 0 ? 10 : YearkeyNo % 10;
-            int YearBranchKey = YearkeyNo % 12 == 0 ? 12 : YearkeyNo % 12;
+            YearBranchKey = YearkeyNo % 12 == 0 ? 12 : YearkeyNo % 12;
 
             AssignYearFinalOutput(YearBranchKey);
         }
 
         private void MonthCalculation()
         {
-            int monthNumber = GetMonthNumber();
+            monthNumber = GetMonthNumber();
             int MonthSteamKey = ((2 * (YearSteamKey % 5)) + monthNumber) % 10 == 0 ? 10 : ((2 * (YearSteamKey % 5)) + monthNumber) % 10;
             int MontBranchKey = (monthNumber + 14) % 12 == 0 ? 12 : (monthNumber + 14) % 12;
 

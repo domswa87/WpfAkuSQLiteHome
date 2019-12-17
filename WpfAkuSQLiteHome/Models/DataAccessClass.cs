@@ -200,25 +200,15 @@ namespace WpfAkuSQLite.Models
 
     public class FinalOutput : INotifyPropertyChanged
     {
-        private ColumnCLass _hour;
-        public ColumnCLass Hour
-        { get { return _hour; } set { _hour = value; OnPropertyRaised("Hour"); } }
+        public ColumnCLass Hour { get; set; }
+        public ColumnCLass Day { get; set; }
+        public ColumnCLass Month { get; set; }
+        public ColumnCLass Year { get; set; }
+        public GivenDate GivenDate { get; set; }
+        public AdditionalInfo AdditionalInfo { get; set; }
 
-        private ColumnCLass _day;
-        public ColumnCLass Day
-        { get { return _day; } set { _day = value; OnPropertyRaised("Day"); } }
 
-        private ColumnCLass _month;
-        public ColumnCLass Month
-        { get { return _month; } set { _month = value; OnPropertyRaised("Month"); } }
 
-        private ColumnCLass _year;
-        public ColumnCLass Year
-        { get { return _year; } set { _year = value; OnPropertyRaised("Year"); } }
-
-        private GivenDate _givenDate;
-        public GivenDate GivenDate
-        { get { return _givenDate; } set { _givenDate = value; OnPropertyRaised("GivenDate"); } }
 
 
         public FinalOutput()
@@ -228,6 +218,7 @@ namespace WpfAkuSQLite.Models
             this.Day = new ColumnCLass();
             this.Hour = new ColumnCLass();
             this.GivenDate = new GivenDate();
+            this.AdditionalInfo = new AdditionalInfo();
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
@@ -354,6 +345,22 @@ namespace WpfAkuSQLite.Models
                 PropertyChanged(this, new PropertyChangedEventArgs(propertname));
             }
         }
+    }
+
+    public class AdditionalInfo
+    {
+        public string Division { get; set; }
+        public string CorrectiveEnergy { get; set; }
+        public string Season { get; set; }
+
+        public string Forbidden { get; set; }
+        public string ForbiddenMeridians { get; set; }
+        public string ForbiddenRegion { get; set; }
+
+        public string Hsiu { get; set; }
+        public string Planet { get; set; }
+        public string Points { get; set; }
+
     }
 
 
