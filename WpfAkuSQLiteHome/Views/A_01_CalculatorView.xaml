@@ -1,4 +1,4 @@
-﻿<UserControl x:Class="WpfAkuSQLiteHome.Views.SBCalculatorView"
+﻿<UserControl x:Class="WpfAkuSQLiteHome.Views.A_01_CalculatorView"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 

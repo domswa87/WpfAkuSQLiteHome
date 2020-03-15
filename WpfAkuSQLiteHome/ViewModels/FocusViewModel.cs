@@ -9,7 +9,6 @@ namespace WpfAkuSQLiteHome.ViewModels
 {
     public class FocusViewModel : Screen, IFocusViewModel
     {
-        private bool isTxt1Focused = false;
         private bool isTxt1Focused1;
 
         public string Txt1 { get; set; } = "aaa";

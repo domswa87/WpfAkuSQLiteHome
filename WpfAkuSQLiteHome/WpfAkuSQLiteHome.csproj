@@ -97,6 +97,9 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Bootstrapper.cs" />
+    <Compile Include="Models\Calculator\CalculatorLogic.cs" />
+    <Compile Include="Models\Calculator\CalculatorOutput.cs" />
+    <Compile Include="Models\DatabaseTables.cs" />
     <Compile Include="Models\DateTimeExtensions.cs" />
     <Compile Include="Models\GoogleCalendarAPI.cs" />
     <Compile Include="UserControlDS.xaml.cs">
@@ -108,13 +111,13 @@
     <Compile Include="ViewModels\ICalendarViewModel.cs" />
     <Compile Include="ViewModels\IDayViewModel.cs" />
     <Compile Include="ViewModels\IFocusViewModel.cs" />
-    <Compile Include="ViewModels\ISBCalculatorViewModel.cs" />
+    <Compile Include="ViewModels\A_01_X_ICalculatorViewModel.cs" />
     <Compile Include="ViewModels\ISBTableVIewModel.cs" />
-    <Compile Include="ViewModels\ISetBirthDateViewModel.cs" />
+    <Compile Include="ViewModels\A_02_X_IInputCalculatorViewModel.cs" />
     <Compile Include="ViewModels\IWebPageViewModel.cs" />
-    <Compile Include="ViewModels\SBCalculatorViewModel.cs" />
+    <Compile Include="ViewModels\A_01_CalculatorViewModel.cs" />
     <Compile Include="ViewModels\SBTableViewModel.cs" />
-    <Compile Include="ViewModels\SetBirthDateViewModel.cs" />
+    <Compile Include="ViewModels\A_02_InputCalculatorViewModel.cs" />
     <Compile Include="ViewModels\ShellViewModel.cs" />
     <Compile Include="ViewModels\WebPageViewModel.cs" />
     <Compile Include="Views\CalendarView.xaml.cs">
@@ -126,14 +129,14 @@
     <Compile Include="Views\FocusView.xaml.cs">
       <DependentUpon>FocusView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\SBCalculatorView.xaml.cs">
-      <DependentUpon>SBCalculatorView.xaml</DependentUpon>
+    <Compile Include="Views\A_01_CalculatorView.xaml.cs">
+      <DependentUpon>A_01_CalculatorView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\SBTableView.xaml.cs">
       <DependentUpon>SBTableView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\SetBirthDateView.xaml.cs">
-      <DependentUpon>SetBirthDateView.xaml</DependentUpon>
+    <Compile Include="Views\A_02_InputCalculatorView.xaml.cs">
+      <DependentUpon>A_02_InputCalculatorView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\ShellView.xaml.cs">
       <DependentUpon>ShellView.xaml</DependentUpon>
@@ -170,7 +173,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\SBCalculatorView.xaml">
+    <Page Include="Views\A_01_CalculatorView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -178,7 +181,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\SetBirthDateView.xaml">
+    <Page Include="Views\A_02_InputCalculatorView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -224,7 +227,9 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="ViewModels\Interfaces\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\System.Data.SQLite.Core.1.0.112.0\build\net46\System.Data.SQLite.Core.targets" Condition="Exists('..\packages\System.Data.SQLite.Core.1.0.112.0\build\net46\System.Data.SQLite.Core.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

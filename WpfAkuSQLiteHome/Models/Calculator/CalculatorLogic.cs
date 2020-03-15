@@ -4,27 +4,22 @@ using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
 using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 using WpfAkuSQLite.Models;
-using WpfAkuSQLiteHome.Models;
 
-namespace WpfAkuSQLite
+namespace WpfAkuSQLiteHome.Models.Calculator
 {
-    /// <summary>
-    /// Interaction logic for MainWindow.xaml
-    /// </summary>
-    public partial class MainWindow : Window
+    public class CalculatorLogic
     {
-        int YearSteamKey = 0;
-        int DaySteamKey = 0;
+        public FinalOutput finalOutput { get; set; }
+        public DateTime GivenDate { get; set; }
+
+
+
+        private int YearSteamKey = 0;
+        private int YearBranchKey = 0;
+        private int monthNumber = 0;
+        private int DaySteamKey = 0;
         DateTime givenDate;
         public List<BranchTable> branchTables { get; set; } = new List<BranchTable>();
         public List<DayTable> dayTables { get; set; } = new List<DayTable>();
@@ -33,25 +28,14 @@ namespace WpfAkuSQLite
         public List<SeasonTable> seasonTable { get; set; } = new List<SeasonTable>();
         public List<StemsTable> stemsTable { get; set; } = new List<StemsTable>();
         public List<YearTable> yearTable { get; set; } = new List<YearTable>();
-        FinalOutput finalOutput;
 
-        public MainWindow()
+        public CalculatorLogic(FinalOutput finalOutput, DateTime givenDate)
         {
-            InitializeComponent();
-            finalOutput = new FinalOutput(givenDate);
-            this.DataContext = finalOutput;
+            this.finalOutput = finalOutput;
+            this.GivenDate = givenDate;
         }
 
-        private void Button_Click_1(object sender, RoutedEventArgs e)
-        {
-            LoadData();
-            YearCalculation();
-            MonthCalculation();
-            DayCalculation();
-            HourCalculation();
-        }
-
-        private void LoadData()
+        public void LoadData(DateTime givenDate)
         {
             branchTables = DataAccessClass.LoadBranchTable();
             dayTables = DataAccessClass.LoadDayTable();
@@ -60,21 +44,28 @@ namespace WpfAkuSQLite
             seasonTable = DataAccessClass.LoadSeasonTable();
             stemsTable = DataAccessClass.LoadStemsTable();
             yearTable = DataAccessClass.LoadYearTable();
+            this.givenDate = givenDate;
+           
+
+            YearCalculation();
+            MonthCalculation();
+            DayCalculation();
+            HourCalculation();
         }
 
         private void YearCalculation()
         {
-            int year = int.Parse(finalOutput.GivenDate.Year.ToString());
+            int year = int.Parse(GivenDate.Year.ToString());
             int YearkeyNo = year - 1923;
             YearSteamKey = YearkeyNo % 10 == 0 ? 10 : YearkeyNo % 10;
-            int YearBranchKey = YearkeyNo % 12 == 0 ? 12 : YearkeyNo % 12;
+            YearBranchKey = YearkeyNo % 12 == 0 ? 12 : YearkeyNo % 12;
 
             AssignYearFinalOutput(YearBranchKey);
         }
 
         private void MonthCalculation()
         {
-            int monthNumber = GetMonthNumber();
+            monthNumber = GetMonthNumber();
             int MonthSteamKey = ((2 * (YearSteamKey % 5)) + monthNumber) % 10 == 0 ? 10 : ((2 * (YearSteamKey % 5)) + monthNumber) % 10;
             int MontBranchKey = (monthNumber + 14) % 12 == 0 ? 12 : (monthNumber + 14) % 12;
 
@@ -83,6 +74,7 @@ namespace WpfAkuSQLite
 
         private void DayCalculation()
         {
+
             var betweenDatesDays = (givenDate - Convert.ToDateTime("01/01/1904")).TotalDays;
             int days = Convert.ToInt32(betweenDatesDays);
             int keyNumber = (days - 29) % 60 == 0 ? 60 : (days - 29) % 60;
@@ -228,7 +220,7 @@ namespace WpfAkuSQLite
             finalOutput.Hour.BelowRowTable = branchTables[branchKey - 1].BelowTableRow;
         }
 
-      
+
 
         private SolidColorBrush GetColor(string color)
         {
@@ -249,5 +241,4 @@ namespace WpfAkuSQLite
             }
         }
     }
-
 }

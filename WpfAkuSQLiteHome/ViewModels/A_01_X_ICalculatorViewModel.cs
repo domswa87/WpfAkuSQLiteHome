@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace WpfAkuSQLiteHome.ViewModels
 {
-    public interface ISBCalculatorViewModel
+    public interface A_01_X_ICalculatorViewModel
     {
       
     }

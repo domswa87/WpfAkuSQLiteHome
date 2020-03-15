@@ -186,12 +186,12 @@ namespace WpfAkuSQLiteHome.ViewModels
 
         public SBTableViewModel()
         {
-            finalOutput = new FinalOutput();
+            finalOutput = new FinalOutput(givenDate);
         }
 
    
 
-        public void LoadData(string year, string month, string day, string hour)
+        public void LoadData(DateTime dateTime)
         {
             branchTables = DataAccessClass.LoadBranchTable();
             dayTables = DataAccessClass.LoadDayTable();
@@ -200,10 +200,7 @@ namespace WpfAkuSQLiteHome.ViewModels
             seasonTable = DataAccessClass.LoadSeasonTable();
             stemsTable = DataAccessClass.LoadStemsTable();
             yearTable = DataAccessClass.LoadYearTable();
-            finalOutput.GivenDate.Year = year;
-            finalOutput.GivenDate.Month = month;
-            finalOutput.GivenDate.Day = day;
-            finalOutput.GivenDate.Hour = hour;
+            finalOutput.GivenDate = dateTime;
 
             YearCalculation();
             MonthCalculation();
@@ -216,7 +213,7 @@ namespace WpfAkuSQLiteHome.ViewModels
 
         private void YearCalculation()
         {
-            int year = int.Parse(finalOutput.GivenDate.Year);
+            int year = int.Parse(finalOutput.GivenDate.Year.ToString());
             int YearkeyNo = year - 1923;
             YearSteamKey = YearkeyNo % 10 == 0 ? 10 : YearkeyNo % 10;
             YearBranchKey = YearkeyNo % 12 == 0 ? 12 : YearkeyNo % 12;
@@ -263,7 +260,7 @@ namespace WpfAkuSQLiteHome.ViewModels
         private int GetHourNumber()
         {
             int hourNumber = 0;
-            int hour = int.Parse(finalOutput.GivenDate.Hour);
+            int hour = int.Parse(finalOutput.GivenDate.Hour.ToString());
             int[] hours = { 0, 1, 3, 5, 7, 9, 11, 13, 15, 17, 19, 21, 23, 24 };
             foreach (var item in hours)
             {
@@ -282,7 +279,7 @@ namespace WpfAkuSQLiteHome.ViewModels
 
         private int GetMonthNumber()
         {
-            int index = int.Parse(finalOutput.GivenDate.Year) - 1925;
+            int index = int.Parse(finalOutput.GivenDate.Year.ToString()) - 1925;
             Regex ex = new Regex(@"(?<day>\d{2})\.(?<month>\d{2})");
             List<DateTime> DateList = new List<DateTime>();
             var tab = yearTable[index];
@@ -294,12 +291,12 @@ namespace WpfAkuSQLiteHome.ViewModels
                 {
                     int month = int.Parse(m.Groups["month"].Value);
                     int day = int.Parse(m.Groups["day"].Value);
-                    DateTime dt = new DateTime(int.Parse(finalOutput.GivenDate.Year), month, day);
+                    DateTime dt = new DateTime(int.Parse(finalOutput.GivenDate.Year.ToString()), month, day);
                     DateList.Add(dt);
                 }
             }
 
-            givenDate = new DateTime(int.Parse(finalOutput.GivenDate.Year), int.Parse(finalOutput.GivenDate.Month), int.Parse(finalOutput.GivenDate.Day));
+            givenDate = new DateTime(int.Parse(finalOutput.GivenDate.Year.ToString()), int.Parse(finalOutput.GivenDate.Month.ToString()), int.Parse(finalOutput.GivenDate.Day.ToString()));
             int counter = 0;
             int monthNumber = 0;
             foreach (var item in DateList)
