@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace WpfAkuSQLiteHome.ViewModels
 {
-    public interface ITableCalculatorViewModel
+    public interface ISBTableVIewModel
     {
         void LoadData(DateTime dateTime);
     }

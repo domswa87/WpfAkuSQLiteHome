@@ -11,7 +11,7 @@ using WpfAkuSQLiteHome.Models;
 
 namespace WpfAkuSQLiteHome.ViewModels
 {
-    public class TableCalculatorViewModel : Screen, ITableCalculatorViewModel
+    public class TableCalculatorViewModel : Screen, ISBTableVIewModel
     {
         // HOUR
 

@@ -107,7 +107,7 @@
     </Compile>
     <Compile Include="ViewModels\Calculator\Interfaces\IInputCalculatorViewModel.cs" />
     <Compile Include="ViewModels\Calculator\Interfaces\ICalculatorViewModel.cs" />
-    <Compile Include="ViewModels\Calculator\Interfaces\ITableCalculatorViewModel.cs" />
+    <Compile Include="ViewModels\Calculator\Interfaces\ISBTableVIewModel.cs" />
     <Compile Include="ViewModels\Calendar\CalendarViewModel.cs" />
     <Compile Include="ViewModels\Calendar\DayViewModel.cs" />
     <Compile Include="ViewModels\Calendar\Interfaces\ICalendarViewModel.cs" />

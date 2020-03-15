@@ -11,10 +11,10 @@ namespace WpfAkuSQLiteHome.ViewModels
     {
         public IEventAggregator EventAggregator { get; }
         public IInputCalculatorViewModel SetBirthDateViewModel { get; }
-        public ITableCalculatorViewModel SBTableVIewModel { get; }
+        public ISBTableVIewModel SBTableVIewModel { get; }
 
 
-        public CalculatorViewModel(IEventAggregator eventAggregator, IInputCalculatorViewModel setBirthDateViewModel, ITableCalculatorViewModel sBTableVIewModel)
+        public CalculatorViewModel(IEventAggregator eventAggregator, IInputCalculatorViewModel setBirthDateViewModel, ISBTableVIewModel sBTableVIewModel)
         {
             EventAggregator = eventAggregator;
             SetBirthDateViewModel = setBirthDateViewModel;
@@ -25,7 +25,10 @@ namespace WpfAkuSQLiteHome.ViewModels
         public void Handle(string message)
         {
             if (message == "calculate")
+            {
                 SBTableVIewModel.LoadData(SetBirthDateViewModel.InputDate);
+            }
+                
         }
     }
 }
