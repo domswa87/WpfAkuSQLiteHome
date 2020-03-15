@@ -11,7 +11,7 @@ using WpfAkuSQLiteHome.Models;
 
 namespace WpfAkuSQLiteHome.ViewModels
 {
-    public class SBTableViewModel : Screen, ISBTableVIewModel
+    public class TableCalculatorViewModel : Screen, ITableCalculatorViewModel
     {
         // HOUR
 
@@ -184,7 +184,7 @@ namespace WpfAkuSQLiteHome.ViewModels
             MonthBranchColor = finalOutput.Month.Branch.Colour;
         }
 
-        public SBTableViewModel()
+        public TableCalculatorViewModel()
         {
             finalOutput = new FinalOutput(givenDate);
         }

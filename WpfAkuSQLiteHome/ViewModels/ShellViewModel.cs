@@ -19,12 +19,12 @@ namespace WpfAkuSQLiteHome.ViewModels
 
 
 
-        public A_01_ICalculatorViewModel SBCalculatorViewModel { get; }
+        public ICalculatorViewModel SBCalculatorViewModel { get; }
         public IWebPageViewModel WebPageViewModel { get; }
         public ICalendarViewModel CalendarViewModel { get; }
         public IFocusViewModel FocusViewModel { get; }
 
-        public ShellViewModel(A_01_ICalculatorViewModel sBCalculatorViewModel, IWebPageViewModel webPageViewModel, ICalendarViewModel calendarViewModel, IFocusViewModel focusViewModel)
+        public ShellViewModel(ICalculatorViewModel sBCalculatorViewModel, IWebPageViewModel webPageViewModel, ICalendarViewModel calendarViewModel, IFocusViewModel focusViewModel)
         {
             SBCalculatorViewModel = sBCalculatorViewModel;
             WebPageViewModel = webPageViewModel;

@@ -16,11 +16,11 @@ using System.Windows.Shapes;
 namespace WpfAkuSQLiteHome.Views
 {
     /// <summary>
-    /// Interaction logic for SBTableView.xaml
+    /// Interaction logic for SetBirthDateView.xaml
     /// </summary>
-    public partial class SBTableView : UserControl
+    public partial class InputCalculatorView : UserControl
     {
-        public SBTableView()
+        public InputCalculatorView()
         {
             InitializeComponent();
         }

@@ -28,11 +28,11 @@ namespace WpfAkuSQLiteHome
 
 
             _container
-                .PerRequest<A_01_ICalculatorViewModel, CalculatorViewModel>()
-                .PerRequest<A_02_IInputCalculatorViewModel, A_02_InputCalculatorViewModel>()
+                .PerRequest<ICalculatorViewModel, CalculatorViewModel>()
+                .PerRequest<IInputCalculatorViewModel, InputCalculatorViewModel>()
                 .PerRequest<IWebPageViewModel, WebPageViewModel>()
                 .PerRequest<IDayViewModel, DayViewModel>()
-                .PerRequest<ISBTableVIewModel, SBTableViewModel>()
+                .PerRequest<ITableCalculatorViewModel, TableCalculatorViewModel>()
                 .PerRequest<ICalendarViewModel, CalendarViewModel>()
                 .PerRequest<IFocusViewModel, FocusViewModel>();
 

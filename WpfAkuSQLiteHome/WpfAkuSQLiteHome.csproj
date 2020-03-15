@@ -105,44 +105,34 @@
     <Compile Include="UserControlDS.xaml.cs">
       <DependentUpon>UserControlDS.xaml</DependentUpon>
     </Compile>
-    <Compile Include="ViewModels\CalendarViewModel.cs" />
-    <Compile Include="ViewModels\DayViewModel.cs" />
-    <Compile Include="ViewModels\FocusViewModel.cs" />
-    <Compile Include="ViewModels\ICalendarViewModel.cs" />
-    <Compile Include="ViewModels\IDayViewModel.cs" />
-    <Compile Include="ViewModels\IFocusViewModel.cs" />
-    <Compile Include="ViewModels\Interfaces\A_01_ICalculatorViewModel.cs" />
-    <Compile Include="ViewModels\ISBTableVIewModel.cs" />
-    <Compile Include="ViewModels\Interfaces\A_02_IInputCalculatorViewModel.cs" />
-    <Compile Include="ViewModels\IWebPageViewModel.cs" />
+    <Compile Include="ViewModels\Calculator\Interfaces\IInputCalculatorViewModel.cs" />
+    <Compile Include="ViewModels\Calculator\Interfaces\ICalculatorViewModel.cs" />
+    <Compile Include="ViewModels\Calculator\Interfaces\ITableCalculatorViewModel.cs" />
+    <Compile Include="ViewModels\Calendar\CalendarViewModel.cs" />
+    <Compile Include="ViewModels\Calendar\DayViewModel.cs" />
+    <Compile Include="ViewModels\Calendar\Interfaces\ICalendarViewModel.cs" />
+    <Compile Include="ViewModels\Calendar\Interfaces\IDayViewModel.cs" />
     <Compile Include="ViewModels\Calculator\CalculatorViewModel.cs" />
-    <Compile Include="ViewModels\SBTableViewModel.cs" />
-    <Compile Include="ViewModels\A_02_InputCalculatorViewModel.cs" />
+    <Compile Include="ViewModels\Calculator\TableCalculatorViewModel.cs" />
+    <Compile Include="ViewModels\Calculator\InputCalculatorViewModel.cs" />
     <Compile Include="ViewModels\ShellViewModel.cs" />
-    <Compile Include="ViewModels\WebPageViewModel.cs" />
-    <Compile Include="Views\CalendarView.xaml.cs">
+    <Compile Include="Views\Calendar\CalendarView.xaml.cs">
       <DependentUpon>CalendarView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\DayView.xaml.cs">
+    <Compile Include="Views\Calendar\DayView.xaml.cs">
       <DependentUpon>DayView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\FocusView.xaml.cs">
-      <DependentUpon>FocusView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Calculator\CalculatorView.xaml.cs">
       <DependentUpon>CalculatorView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\Calculator\SBTableView.xaml.cs">
-      <DependentUpon>SBTableView.xaml</DependentUpon>
+    <Compile Include="Views\Calculator\TableCalculatorView.xaml.cs">
+      <DependentUpon>TableCalculatorView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\Calculator\A_02_InputCalculatorView.xaml.cs">
-      <DependentUpon>A_02_InputCalculatorView.xaml</DependentUpon>
+    <Compile Include="Views\Calculator\InputCalculatorView.xaml.cs">
+      <DependentUpon>InputCalculatorView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\ShellView.xaml.cs">
       <DependentUpon>ShellView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\WebPageView.xaml.cs">
-      <DependentUpon>WebPageView.xaml</DependentUpon>
     </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -161,15 +151,11 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\CalendarView.xaml">
+    <Page Include="Views\Calendar\CalendarView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\DayView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\FocusView.xaml">
+    <Page Include="Views\Calendar\DayView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -177,19 +163,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\Calculator\SBTableView.xaml">
+    <Page Include="Views\Calculator\TableCalculatorView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\Calculator\A_02_InputCalculatorView.xaml">
+    <Page Include="Views\Calculator\InputCalculatorView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\ShellView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\WebPageView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

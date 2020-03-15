@@ -7,13 +7,14 @@ using System.Threading.Tasks;
 
 namespace WpfAkuSQLiteHome.ViewModels
 {
-    public class CalculatorViewModel : Conductor<object>.Collection.AllActive, A_01_ICalculatorViewModel, IHandle<string>
+    public class CalculatorViewModel : Conductor<object>.Collection.AllActive, ICalculatorViewModel, IHandle<string>
     {
         public IEventAggregator EventAggregator { get; }
-        public A_02_IInputCalculatorViewModel SetBirthDateViewModel { get; }
-        public ISBTableVIewModel SBTableVIewModel { get; }
+        public IInputCalculatorViewModel SetBirthDateViewModel { get; }
+        public ITableCalculatorViewModel SBTableVIewModel { get; }
 
-        public CalculatorViewModel(IEventAggregator eventAggregator, A_02_IInputCalculatorViewModel setBirthDateViewModel, ISBTableVIewModel sBTableVIewModel)
+
+        public CalculatorViewModel(IEventAggregator eventAggregator, IInputCalculatorViewModel setBirthDateViewModel, ITableCalculatorViewModel sBTableVIewModel)
         {
             EventAggregator = eventAggregator;
             SetBirthDateViewModel = setBirthDateViewModel;
