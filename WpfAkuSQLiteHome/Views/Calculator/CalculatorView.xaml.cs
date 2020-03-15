@@ -18,9 +18,9 @@ namespace WpfAkuSQLiteHome.Views
     /// <summary>
     /// Interaction logic for SBCalculatorView.xaml
     /// </summary>
-    public partial class A_01_CalculatorView : UserControl
+    public partial class CalculatorView : UserControl
     {
-        public A_01_CalculatorView()
+        public CalculatorView()
         {
             InitializeComponent();
         }

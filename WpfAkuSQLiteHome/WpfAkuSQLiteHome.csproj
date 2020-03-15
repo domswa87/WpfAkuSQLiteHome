@@ -115,7 +115,7 @@
     <Compile Include="ViewModels\ISBTableVIewModel.cs" />
     <Compile Include="ViewModels\Interfaces\A_02_IInputCalculatorViewModel.cs" />
     <Compile Include="ViewModels\IWebPageViewModel.cs" />
-    <Compile Include="ViewModels\A_01_CalculatorViewModel.cs" />
+    <Compile Include="ViewModels\Calculator\CalculatorViewModel.cs" />
     <Compile Include="ViewModels\SBTableViewModel.cs" />
     <Compile Include="ViewModels\A_02_InputCalculatorViewModel.cs" />
     <Compile Include="ViewModels\ShellViewModel.cs" />
@@ -129,8 +129,8 @@
     <Compile Include="Views\FocusView.xaml.cs">
       <DependentUpon>FocusView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\Calculator\A_01_CalculatorView.xaml.cs">
-      <DependentUpon>A_01_CalculatorView.xaml</DependentUpon>
+    <Compile Include="Views\Calculator\CalculatorView.xaml.cs">
+      <DependentUpon>CalculatorView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Calculator\SBTableView.xaml.cs">
       <DependentUpon>SBTableView.xaml</DependentUpon>
@@ -173,7 +173,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\Calculator\A_01_CalculatorView.xaml">
+    <Page Include="Views\Calculator\CalculatorView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
