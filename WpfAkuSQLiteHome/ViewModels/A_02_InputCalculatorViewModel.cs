@@ -8,12 +8,12 @@ using System.Windows;
 
 namespace WpfAkuSQLiteHome.ViewModels
 {
-    public class A_02_InputCalculatorViewModel : Screen, A_02_X_IInputCalculatorViewModel
+    public class A_02_InputCalculatorViewModel : Screen, A_02_IInputCalculatorViewModel
     {
-        public string Year { get; set; }
-        public string Month { get; set; }
-        public string Day { get; set; }
-        public string Hour { get; set; }
+        public string Year { get; set; } = "2000";
+        public string Month { get; set; } = "3";
+        public string Day { get; set; } = "3";
+        public string Hour { get; set; } = "3";
 
         public A_02_InputCalculatorViewModel(IEventAggregator eventAggregator) => EventAggregator = eventAggregator;
         public DateTime InputDate { get; set; }

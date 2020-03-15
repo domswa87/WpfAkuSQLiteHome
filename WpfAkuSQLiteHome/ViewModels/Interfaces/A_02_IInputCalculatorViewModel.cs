@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace WpfAkuSQLiteHome.ViewModels
 {
-    public interface A_02_X_IInputCalculatorViewModel
+    public interface A_02_IInputCalculatorViewModel
     {
         string Year { get; set; }
         string Month { get; set; }
