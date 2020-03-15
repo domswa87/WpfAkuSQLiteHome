@@ -13,7 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using static WpfAkuSQLite.DataAccess;
+using WpfAkuSQLite.Models;
 
 namespace WpfAkuSQLite
 {
@@ -52,13 +52,13 @@ namespace WpfAkuSQLite
 
         private void LoadData()
         {
-            branchTables = DataAccess.LoadBranchTable();
-            dayTables = DataAccess.LoadDayTable();
-            divisionTable = DataAccess.LoadDivisionTable();
-            hsiuTable = DataAccess.LoadHsiuTable();
-            seasonTable = DataAccess.LoadSeasonTable();
-            stemsTable = DataAccess.LoadStemsTable();
-            yearTable = DataAccess.LoadYearTable();
+            branchTables = DataAccessClass.LoadBranchTable();
+            dayTables = DataAccessClass.LoadDayTable();
+            divisionTable = DataAccessClass.LoadDivisionTable();
+            hsiuTable = DataAccessClass.LoadHsiuTable();
+            seasonTable = DataAccessClass.LoadSeasonTable();
+            stemsTable = DataAccessClass.LoadStemsTable();
+            yearTable = DataAccessClass.LoadYearTable();
         }
 
         private void YearCalculation()

@@ -9,11 +9,13 @@
              d:DesignHeight="450" d:DesignWidth="800" Background="LightBlue">
     <Grid>
         <StackPanel>
-            <TextBox x:Name="Txt1" Width="100" Height="50" ></TextBox>
-            <TextBox x:Name="Txt3" Width="100" Height="50" ></TextBox>
-
+            <TextBox x:Name="Txt1" Width="100" Height="50" FocusVisualStyle="{Binding Path=IsTxt1Focused}" ></TextBox>
             <Button x:Name="But1" Width="100" Height="50" >1</Button>
+            
+            <TextBox x:Name="Txt2" Width="100" Height="50" ></TextBox>
             <Button x:Name="But2" Width="100" Height="50" >2</Button>
+            
+            <TextBox x:Name="Txt3" Width="100" Height="50" ></TextBox>
             <Button x:Name="But3" Width="100" Height="50" >3</Button>
         </StackPanel>
     </Grid>

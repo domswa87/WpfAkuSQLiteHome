@@ -29,11 +29,11 @@
         <Label Content="Month" Grid.Column="1" Grid.Row="2" VerticalAlignment="Top" Height="25"/>
         <Label Content="Day" Grid.Column="1" Grid.Row="3" VerticalAlignment="Top" Height="25" Margin="0,4,0,0" Grid.RowSpan="2"/>
         <Label Content="Hour" Grid.Column="1" Grid.Row="4" VerticalAlignment="Top" Height="25"/>
-        <TextBox Grid.Column="2" Height="25" Grid.Row="1" TextWrapping="Wrap" Text="{Binding Path=GivenDate.Year, Mode=TwoWay}" VerticalAlignment="Top" TextAlignment="Left" IsReadOnly="False" Focusable="True"/>
-        <TextBox Grid.Column="2" Height="25" Grid.Row="2" TextWrapping="Wrap" Text="{Binding Path=GivenDate.Month, Mode=TwoWay}" VerticalAlignment="Top" TextAlignment="Left" IsReadOnly="False" Focusable="True"/>
-        <TextBox Grid.Column="2" Height="25" Grid.Row="3" TextWrapping="Wrap" Text="{Binding Path=GivenDate.Day, Mode=TwoWay}" VerticalAlignment="Top" TextAlignment="Left" IsReadOnly="False" Focusable="True"/>
-        <TextBox Grid.Column="2" Height="25" Grid.Row="4" TextWrapping="Wrap" Text="{Binding Path=GivenDate.Hour, Mode=TwoWay}" VerticalAlignment="Top" TextAlignment="Left" IsReadOnly="False" Focusable="True"/>
-        <Button Content="Calculate" Grid.Column="2" Grid.Row="6" VerticalAlignment="Top" Height="25"/>
+        <TextBox x:Name="Year" Grid.Column="2" Height="25" Grid.Row="1" TextWrapping="Wrap"  VerticalAlignment="Top" TextAlignment="Left" IsReadOnly="False" Focusable="True"/>
+        <TextBox x:Name="Month" Grid.Column="2" Height="25" Grid.Row="2" TextWrapping="Wrap" VerticalAlignment="Top" TextAlignment="Left" IsReadOnly="False" Focusable="True"/>
+        <TextBox x:Name="Day" Grid.Column="2" Height="25" Grid.Row="3" TextWrapping="Wrap" VerticalAlignment="Top" TextAlignment="Left" IsReadOnly="False" Focusable="True"/>
+        <TextBox x:Name="Hour" Grid.Column="2" Height="25" Grid.Row="4" TextWrapping="Wrap" VerticalAlignment="Top" TextAlignment="Left" IsReadOnly="False" Focusable="True"/>
+        <Button x:Name="Calculate" Content="Calculate" Grid.Column="2" Grid.Row="6" VerticalAlignment="Top" Height="25"/>
             
     </Grid>
 </UserControl>

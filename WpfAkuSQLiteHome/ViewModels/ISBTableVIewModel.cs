@@ -8,6 +8,6 @@ namespace WpfAkuSQLiteHome.ViewModels
 {
     public interface ISBTableVIewModel
     {
-
+        void LoadData(string year, string month, string day, string hour);
     }
 }
