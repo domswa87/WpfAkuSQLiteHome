@@ -129,13 +129,13 @@
     <Compile Include="Views\FocusView.xaml.cs">
       <DependentUpon>FocusView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\A_01_CalculatorView.xaml.cs">
+    <Compile Include="Views\Calculator\A_01_CalculatorView.xaml.cs">
       <DependentUpon>A_01_CalculatorView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\SBTableView.xaml.cs">
+    <Compile Include="Views\Calculator\SBTableView.xaml.cs">
       <DependentUpon>SBTableView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\A_02_InputCalculatorView.xaml.cs">
+    <Compile Include="Views\Calculator\A_02_InputCalculatorView.xaml.cs">
       <DependentUpon>A_02_InputCalculatorView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\ShellView.xaml.cs">
@@ -173,15 +173,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\A_01_CalculatorView.xaml">
+    <Page Include="Views\Calculator\A_01_CalculatorView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\SBTableView.xaml">
+    <Page Include="Views\Calculator\SBTableView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\A_02_InputCalculatorView.xaml">
+    <Page Include="Views\Calculator\A_02_InputCalculatorView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
