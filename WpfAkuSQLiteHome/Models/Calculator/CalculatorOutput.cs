@@ -9,24 +9,22 @@ using WpfAkuSQLiteHome.Models.Calculator;
 
 namespace WpfAkuSQLiteHome.Models
 {
-    public class FinalOutput : INotifyPropertyChanged
+    public class CalculatorOutput : INotifyPropertyChanged
     {
         public ColumnCLass Hour { get; set; }
         public ColumnCLass Day { get; set; }
         public ColumnCLass Month { get; set; }
         public ColumnCLass Year { get; set; }
-        public DateTime GivenDate { get; set; }
         public AdditionalInfo AdditionalInfo { get; set; }
 
 
 
-        public FinalOutput(DateTime givenDate)
+        public CalculatorOutput()
         {
             this.Year = new ColumnCLass();
             this.Month = new ColumnCLass();
             this.Day = new ColumnCLass();
             this.Hour = new ColumnCLass();
-            this.GivenDate = givenDate;
             this.AdditionalInfo = new AdditionalInfo();
         }
 

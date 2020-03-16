@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using WpfAkuSQLiteHome.Models;
+using WpfAkuSQLiteHome.Models.Calculator;
 
 namespace WpfAkuSQLiteHome.ViewModels
 {
@@ -12,6 +14,7 @@ namespace WpfAkuSQLiteHome.ViewModels
         public IEventAggregator EventAggregator { get; }
         public IInputCalculatorViewModel InputCalculatorViewModel { get; }
         public ITableCalculatorViewModel TableCalculatorViewModel { get; }
+        public CalculatorOutput CalculatorOutput { get; set; }
 
 
         public CalculatorViewModel(IEventAggregator eventAggregator, IInputCalculatorViewModel inputCalculatorViewModel, ITableCalculatorViewModel tableCalculatorViewModel)
@@ -26,9 +29,10 @@ namespace WpfAkuSQLiteHome.ViewModels
         {
             if (message == "calculate")
             {
-                TableCalculatorViewModel.LoadData(InputCalculatorViewModel.InputDate);
+                Calculator calculator = new Calculator(InputCalculatorViewModel.InputDate);
+                CalculatorOutput = calculator.CalculateOutput();
+                TableCalculatorViewModel.FillTableFromCalculatorOutput(CalculatorOutput);
             }
-                
         }
     }
 }

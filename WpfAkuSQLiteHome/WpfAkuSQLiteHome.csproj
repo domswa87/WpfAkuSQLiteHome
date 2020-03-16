@@ -97,10 +97,12 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Bootstrapper.cs" />
+    <Compile Include="Models\Calculator\Calculator.cs" />
     <Compile Include="Models\Calculator\CalculatorLogic.cs" />
     <Compile Include="Models\Calculator\CalculatorOutput.cs" />
-    <Compile Include="Models\DatabaseTables.cs" />
-    <Compile Include="Models\DateTimeExtensions.cs" />
+    <Compile Include="Models\Calculator\DatabaseTables.cs" />
+    <Compile Include="Models\Calculator\DatabaseTablesCollection.cs" />
+    <Compile Include="Models\Calculator\DateTimeExtensions.cs" />
     <Compile Include="Models\GoogleCalendarAPI.cs" />
     <Compile Include="UserControlDS.xaml.cs">
       <DependentUpon>UserControlDS.xaml</DependentUpon>
@@ -142,7 +144,7 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Models\DataAccessClass.cs" />
+    <Compile Include="Models\Calculator\DataAccessClass.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>

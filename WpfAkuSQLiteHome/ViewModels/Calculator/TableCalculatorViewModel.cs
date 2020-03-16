@@ -117,287 +117,65 @@ namespace WpfAkuSQLiteHome.ViewModels
         public Brush YearSteamColor { get => yearSteamColor; set { yearSteamColor = value; NotifyOfPropertyChange(() => YearSteamColor); } }
         public Brush YearBranchColor { get => yearBranchColor; set { yearBranchColor = value; NotifyOfPropertyChange(() => YearBranchColor); } }
 
+     
+        public CalculatorOutput CalculatorOutput;
 
-        int YearSteamKey = 0;
-        int YearBranchKey = 0;
-        int monthNumber = 0;
-        int DaySteamKey = 0;
-        DateTime givenDate;
-        public List<BranchTable> branchTables { get; set; } = new List<BranchTable>();
-        public List<DayTable> dayTables { get; set; } = new List<DayTable>();
-        public List<DivisionTable> divisionTable { get; set; } = new List<DivisionTable>();
-        public List<HsiuTable> hsiuTable { get; set; } = new List<HsiuTable>();
-        public List<SeasonTable> seasonTable { get; set; } = new List<SeasonTable>();
-        public List<StemsTable> stemsTable { get; set; } = new List<StemsTable>();
-        public List<YearTable> yearTable { get; set; } = new List<YearTable>();
-        FinalOutput finalOutput;
-
-
-        private void AssignProperties()
+        public void FillTableFromCalculatorOutput(CalculatorOutput calculatorOutput)
         {
+            this.CalculatorOutput = calculatorOutput;
             H1 = "";
-            H2 = finalOutput.Hour.Steam.ChineseSign;
-            H3 = finalOutput.Hour.Steam.ChineseString;
-            H4 = finalOutput.Hour.Steam.EnglishString;
-            H5 = finalOutput.Hour.Branch.ChineseSign;
-            H6 = finalOutput.Hour.Branch.ChineseString;
-            H7 = finalOutput.Hour.Branch.EnglishString;
-            H8 = finalOutput.Hour.BelowRowTable;
-            HourGMColor = finalOutput.Hour.GMColour;
-            HourSteamColor = finalOutput.Hour.Steam.Colour;
-            HourBranchColor = finalOutput.Hour.Branch.Colour;
+            H2 = CalculatorOutput.Hour.Steam.ChineseSign;
+            H3 = CalculatorOutput.Hour.Steam.ChineseString;
+            H4 = CalculatorOutput.Hour.Steam.EnglishString;
+            H5 = CalculatorOutput.Hour.Branch.ChineseSign;
+            H6 = CalculatorOutput.Hour.Branch.ChineseString;
+            H7 = CalculatorOutput.Hour.Branch.EnglishString;
+            H8 = CalculatorOutput.Hour.BelowRowTable;
+            HourGMColor = CalculatorOutput.Hour.GMColour;
+            HourSteamColor = CalculatorOutput.Hour.Steam.Colour;
+            HourBranchColor = CalculatorOutput.Hour.Branch.Colour;
 
             D1 = "";
-            D2 = finalOutput.Day.Steam.ChineseSign;
-            D3 = finalOutput.Day.Steam.ChineseString;
-            D4 = finalOutput.Day.Steam.EnglishString;
-            D5 = finalOutput.Day.Branch.ChineseSign;
-            D6 = finalOutput.Day.Branch.ChineseString;
-            D7 = finalOutput.Day.Branch.EnglishString;
-            D8 = finalOutput.Day.BelowRowTable;
-            DayGMColor = finalOutput.Day.GMColour;
-            DaySteamColor = finalOutput.Day.Steam.Colour;
-            DayBranchColor = finalOutput.Day.Branch.Colour;
+            D2 = CalculatorOutput.Day.Steam.ChineseSign;
+            D3 = CalculatorOutput.Day.Steam.ChineseString;
+            D4 = CalculatorOutput.Day.Steam.EnglishString;
+            D5 = CalculatorOutput.Day.Branch.ChineseSign;
+            D6 = CalculatorOutput.Day.Branch.ChineseString;
+            D7 = CalculatorOutput.Day.Branch.EnglishString;
+            D8 = CalculatorOutput.Day.BelowRowTable;
+            DayGMColor = CalculatorOutput.Day.GMColour;
+            DaySteamColor = CalculatorOutput.Day.Steam.Colour;
+            DayBranchColor = CalculatorOutput.Day.Branch.Colour;
 
             Y1 = "";
-            Y2 = finalOutput.Year.Steam.ChineseSign;
-            Y3 = finalOutput.Year.Steam.ChineseString;
-            Y4 = finalOutput.Year.Steam.EnglishString;
-            Y5 = finalOutput.Year.Branch.ChineseSign;
-            Y6 = finalOutput.Year.Branch.ChineseString;
-            Y7 = finalOutput.Year.Branch.EnglishString;
-            Y8 = finalOutput.Year.BelowRowTable;
-            YearGMColor = finalOutput.Year.GMColour;
-            YearSteamColor = finalOutput.Year.Steam.Colour;
-            YearBranchColor = finalOutput.Year.Branch.Colour;
+            Y2 = CalculatorOutput.Year.Steam.ChineseSign;
+            Y3 = CalculatorOutput.Year.Steam.ChineseString;
+            Y4 = CalculatorOutput.Year.Steam.EnglishString;
+            Y5 = CalculatorOutput.Year.Branch.ChineseSign;
+            Y6 = CalculatorOutput.Year.Branch.ChineseString;
+            Y7 = CalculatorOutput.Year.Branch.EnglishString;
+            Y8 = CalculatorOutput.Year.BelowRowTable;
+            YearGMColor = CalculatorOutput.Year.GMColour;
+            YearSteamColor = CalculatorOutput.Year.Steam.Colour;
+            YearBranchColor = CalculatorOutput.Year.Branch.Colour;
 
             M1 = "";
-            M2 = finalOutput.Month.Steam.ChineseSign;
-            M3 = finalOutput.Month.Steam.ChineseString;
-            M4 = finalOutput.Month.Steam.EnglishString;
-            M5 = finalOutput.Month.Branch.ChineseSign;
-            M6 = finalOutput.Month.Branch.ChineseString;
-            M7 = finalOutput.Month.Branch.EnglishString;
-            M8 = finalOutput.Month.BelowRowTable;
-            MonthGMColor = finalOutput.Month.GMColour;
-            MonthSteamColor = finalOutput.Month.Steam.Colour;
-            MonthBranchColor = finalOutput.Month.Branch.Colour;
+            M2 = CalculatorOutput.Month.Steam.ChineseSign;
+            M3 = CalculatorOutput.Month.Steam.ChineseString;
+            M4 = CalculatorOutput.Month.Steam.EnglishString;
+            M5 = CalculatorOutput.Month.Branch.ChineseSign;
+            M6 = CalculatorOutput.Month.Branch.ChineseString;
+            M7 = CalculatorOutput.Month.Branch.EnglishString;
+            M8 = CalculatorOutput.Month.BelowRowTable;
+            MonthGMColor = CalculatorOutput.Month.GMColour;
+            MonthSteamColor = CalculatorOutput.Month.Steam.Colour;
+            MonthBranchColor = CalculatorOutput.Month.Branch.Colour;
         }
 
-        public TableCalculatorViewModel()
+        public TableCalculatorViewModel(CalculatorOutput finalOutput)
         {
-            finalOutput = new FinalOutput(givenDate);
-        }
-
-   
-
-        public void LoadData(DateTime dateTime)
-        {
-            branchTables = DataAccessClass.LoadBranchTable();
-            dayTables = DataAccessClass.LoadDayTable();
-            divisionTable = DataAccessClass.LoadDivisionTable();
-            hsiuTable = DataAccessClass.LoadHsiuTable();
-            seasonTable = DataAccessClass.LoadSeasonTable();
-            stemsTable = DataAccessClass.LoadStemsTable();
-            yearTable = DataAccessClass.LoadYearTable();
-            finalOutput.GivenDate = dateTime;
-
-            YearCalculation();
-            MonthCalculation();
-            DayCalculation();
-            HourCalculation();
-            AssignProperties();
-        }
-
-   
-
-        private void YearCalculation()
-        {
-            int year = int.Parse(finalOutput.GivenDate.Year.ToString());
-            int YearkeyNo = year - 1923;
-            YearSteamKey = YearkeyNo % 10 == 0 ? 10 : YearkeyNo % 10;
-            YearBranchKey = YearkeyNo % 12 == 0 ? 12 : YearkeyNo % 12;
-
-            AssignYearFinalOutput(YearBranchKey);
-        }
-
-        private void MonthCalculation()
-        {
-            monthNumber = GetMonthNumber();
-            int MonthSteamKey = ((2 * (YearSteamKey % 5)) + monthNumber) % 10 == 0 ? 10 : ((2 * (YearSteamKey % 5)) + monthNumber) % 10;
-            int MontBranchKey = (monthNumber + 14) % 12 == 0 ? 12 : (monthNumber + 14) % 12;
-
-            AssignMonthFinalOutput(MonthSteamKey, MontBranchKey);
-        }
-
-        private void DayCalculation()
-        {
-            var betweenDatesDays = (givenDate - Convert.ToDateTime("01/01/1904")).TotalDays;
-            int days = Convert.ToInt32(betweenDatesDays);
-            int keyNumber = (days - 29) % 60 == 0 ? 60 : (days - 29) % 60;
-            int adjustedNumber = keyNumber == 13 ? keyNumber + 1 : keyNumber;
-            int steamKey = adjustedNumber % 10 == 0 ? 10 : adjustedNumber % 10;
-            int branchKey = adjustedNumber % 12 == 0 ? 12 : adjustedNumber % 12;
-            DaySteamKey = steamKey;
-
-            AssignDayFinalOutput(steamKey, branchKey);
 
         }
-
-        private void HourCalculation()
-        {
-            int hourNumber = GetHourNumber();
-            hourNumber = hourNumber == 13 ? 1 : hourNumber;
-            int steamKey = (((DaySteamKey % 5) * 2) + (hourNumber - 2)) % 10;
-            steamKey = steamKey == 0 ? 10 : steamKey;
-            int branchKey = hourNumber;
-
-            AssignHourFinalOutput(steamKey, branchKey);
-
-        }
-
-
-        private int GetHourNumber()
-        {
-            int hourNumber = 0;
-            int hour = int.Parse(finalOutput.GivenDate.Hour.ToString());
-            int[] hours = { 0, 1, 3, 5, 7, 9, 11, 13, 15, 17, 19, 21, 23, 24 };
-            foreach (var item in hours)
-            {
-                if (hour < item)
-                {
-                    hourNumber = Array.FindIndex(hours, x => x == item);
-                    break;
-                }
-                else
-                {
-
-                }
-            }
-            return hourNumber;
-        }
-
-        private int GetMonthNumber()
-        {
-            int index = int.Parse(finalOutput.GivenDate.Year.ToString()) - 1925;
-            Regex ex = new Regex(@"(?<day>\d{2})\.(?<month>\d{2})");
-            List<DateTime> DateList = new List<DateTime>();
-            var tab = yearTable[index];
-            string[] dates = { tab.P1, tab.P2, tab.P3, tab.P4, tab.P5, tab.P6, tab.P7, tab.P8, tab.P9, tab.P10, tab.P11, tab.P12 };
-            foreach (var item in dates)
-            {
-                Match m = ex.Match(item);
-                if (m.Success)
-                {
-                    int month = int.Parse(m.Groups["month"].Value);
-                    int day = int.Parse(m.Groups["day"].Value);
-                    DateTime dt = new DateTime(int.Parse(finalOutput.GivenDate.Year.ToString()), month, day);
-                    DateList.Add(dt);
-                }
-            }
-
-            givenDate = new DateTime(int.Parse(finalOutput.GivenDate.Year.ToString()), int.Parse(finalOutput.GivenDate.Month.ToString()), int.Parse(finalOutput.GivenDate.Day.ToString()));
-            int counter = 0;
-            int monthNumber = 0;
-            foreach (var item in DateList)
-            {
-                if (givenDate < item)
-                {
-                    monthNumber = counter;
-                    continue;
-                }
-                counter++;
-            }
-            return monthNumber;
-        }
-
-        private void AssignYearFinalOutput(int YearBranchKey)
-        {
-            finalOutput.Year.GMColour = GetColor(stemsTable[YearSteamKey - 1].GMColour);
-
-            finalOutput.Year.Steam.ChineseSign = stemsTable[YearSteamKey - 1].StemsSymbol1;
-            finalOutput.Year.Steam.ChineseString = stemsTable[YearSteamKey - 1].StemsSymbol2;
-            finalOutput.Year.Steam.EnglishString = stemsTable[YearSteamKey - 1].StemsSymbol3;
-            finalOutput.Year.Steam.Colour = GetColor(stemsTable[YearSteamKey - 1].StemColour);
-
-            finalOutput.Year.Branch.ChineseSign = branchTables[YearBranchKey - 1].Symbol1;
-            finalOutput.Year.Branch.ChineseString = branchTables[YearBranchKey - 1].Symbol2;
-            finalOutput.Year.Branch.EnglishString = branchTables[YearBranchKey - 1].Symbol3;
-            finalOutput.Year.Branch.Colour = GetColor(branchTables[YearBranchKey - 1].Colour);
-
-            finalOutput.Year.BelowRowTable = branchTables[YearBranchKey - 1].BelowTableRow;
-        }
-
-
-        private void AssignMonthFinalOutput(int MonthSteamKey, int MontBranchKey)
-        {
-            finalOutput.Month.GMColour = GetColor(stemsTable[MonthSteamKey - 1].GMColour);
-
-            finalOutput.Month.Steam.ChineseSign = stemsTable[MonthSteamKey - 1].StemsSymbol1;
-            finalOutput.Month.Steam.ChineseString = stemsTable[MonthSteamKey - 1].StemsSymbol2;
-            finalOutput.Month.Steam.EnglishString = stemsTable[MonthSteamKey - 1].StemsSymbol3;
-            finalOutput.Month.Steam.Colour = GetColor(stemsTable[MonthSteamKey - 1].StemColour);
-
-            finalOutput.Month.Branch.ChineseSign = branchTables[MontBranchKey - 1].Symbol1;
-            finalOutput.Month.Branch.ChineseString = branchTables[MontBranchKey - 1].Symbol2;
-            finalOutput.Month.Branch.EnglishString = branchTables[MontBranchKey - 1].Symbol3;
-            finalOutput.Month.Branch.Colour = GetColor(branchTables[MontBranchKey - 1].Colour);
-
-            finalOutput.Month.BelowRowTable = branchTables[MontBranchKey - 1].BelowTableRow;
-        }
-
-        private void AssignDayFinalOutput(int steamKey, int branchKey)
-        {
-            finalOutput.Day.GMColour = GetColor(stemsTable[steamKey - 1].GMColour);
-
-            finalOutput.Day.Steam.ChineseSign = stemsTable[steamKey - 1].StemsSymbol1;
-            finalOutput.Day.Steam.ChineseString = stemsTable[steamKey - 1].StemsSymbol2;
-            finalOutput.Day.Steam.EnglishString = stemsTable[steamKey - 1].StemsSymbol3;
-            finalOutput.Day.Steam.Colour = GetColor(stemsTable[steamKey - 1].StemColour);
-
-            finalOutput.Day.Branch.ChineseSign = branchTables[branchKey - 1].Symbol1;
-            finalOutput.Day.Branch.ChineseString = branchTables[branchKey - 1].Symbol2;
-            finalOutput.Day.Branch.EnglishString = branchTables[branchKey - 1].Symbol3;
-            finalOutput.Day.Branch.Colour = GetColor(branchTables[branchKey - 1].Colour);
-
-            finalOutput.Day.BelowRowTable = branchTables[branchKey - 1].BelowTableRow;
-        }
-
-        private void AssignHourFinalOutput(int steamKey, int branchKey)
-        {
-            finalOutput.Hour.GMColour = GetColor(stemsTable[steamKey - 1].GMColour);
-            finalOutput.Hour.Steam.ChineseSign = stemsTable[steamKey - 1].StemsSymbol1;
-            finalOutput.Hour.Steam.ChineseString = stemsTable[steamKey - 1].StemsSymbol2;
-            finalOutput.Hour.Steam.EnglishString = stemsTable[steamKey - 1].StemsSymbol3;
-            finalOutput.Hour.Steam.Colour = GetColor(stemsTable[steamKey - 1].StemColour);
-            finalOutput.Hour.Branch.ChineseSign = branchTables[branchKey - 1].Symbol1;
-            finalOutput.Hour.Branch.ChineseString = branchTables[branchKey - 1].Symbol2;
-            finalOutput.Hour.Branch.EnglishString = branchTables[branchKey - 1].Symbol3;
-            finalOutput.Hour.Branch.Colour = GetColor(branchTables[branchKey - 1].Colour);
-            finalOutput.Hour.BelowRowTable = branchTables[branchKey - 1].BelowTableRow;
-        }
-
-
-
-        private SolidColorBrush GetColor(string color)
-        {
-            switch (color)
-            {
-                case "green":
-                    return Brushes.LightGreen;
-                case "red":
-                    return Brushes.Red;
-                case "yellow":
-                    return Brushes.Yellow;
-                case "blue":
-                    return Brushes.Blue;
-                case "white":
-                    return Brushes.White;
-                default:
-                    return Brushes.LightGreen;
-            }
-        }
-
 
     }
 
