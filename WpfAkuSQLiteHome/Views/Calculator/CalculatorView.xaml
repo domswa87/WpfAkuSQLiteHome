@@ -7,8 +7,8 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800" Background="LightGray">
     <Grid>
-        <ContentControl HorizontalAlignment="left" VerticalAlignment="Top" Height="170" Width="140" x:Name="SetBirthDateViewModel"/>
-        <ContentControl HorizontalAlignment="left" VerticalAlignment="top" Height="245" Width="500" x:Name="SBTableVIewModel" Margin="150,0,0,0"/>
+        <ContentControl HorizontalAlignment="left" VerticalAlignment="Top" Height="170" Width="140" x:Name="InputCalculatorViewModel"/>
+        <ContentControl HorizontalAlignment="left" VerticalAlignment="top" Height="245" Width="500" x:Name="TableCalculatorViewModel" Margin="150,0,0,0"/>
        
     </Grid>
 </UserControl>

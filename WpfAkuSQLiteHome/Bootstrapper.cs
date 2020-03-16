@@ -31,7 +31,7 @@ namespace WpfAkuSQLiteHome
                 .PerRequest<ICalculatorViewModel, CalculatorViewModel>()
                 .PerRequest<IInputCalculatorViewModel, InputCalculatorViewModel>()
                 .PerRequest<IDayViewModel, DayViewModel>()
-                .PerRequest<ISBTableVIewModel, TableCalculatorViewModel>()
+                .PerRequest<ITableCalculatorViewModel, TableCalculatorViewModel>()
                 .PerRequest<ICalendarViewModel, CalendarViewModel>();
 
 
