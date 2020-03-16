@@ -98,78 +98,72 @@
     </ApplicationDefinition>
     <Compile Include="Bootstrapper.cs" />
     <Compile Include="Models\Calculator\Calculator.cs" />
-    <Compile Include="Models\Calculator\CalculatorLogic.cs" />
-    <Compile Include="Models\Calculator\CalculatorOutput.cs" />
-    <Compile Include="Models\Calculator\DatabaseTables.cs" />
-    <Compile Include="Models\Calculator\DatabaseTablesCollection.cs" />
-    <Compile Include="Models\Calculator\DateTimeExtensions.cs" />
-    <Compile Include="Models\GoogleCalendarAPI.cs" />
-    <Compile Include="UserControlDS.xaml.cs">
-      <DependentUpon>UserControlDS.xaml</DependentUpon>
-    </Compile>
+    <Compile Include="Models\Calculator\Logic\CalculatorLogic.cs" />
+    <Compile Include="Models\Calculator\Logic\Output\CalculatorOutput.cs" />
+    <Compile Include="Models\Calculator\DataForCalculation\DataAccess\Tables\DatabaseTables.cs" />
+    <Compile Include="Models\Calculator\DataForCalculation\DatabaseTablesCollection.cs" />
+    <Compile Include="Models\Extension\DateTimeExtensions.cs" />
+    <Compile Include="Models\Calendar\GoogleCalendarAPI.cs" />
+    <Compile Include="ViewModels\Calculator\sub\GraphCalculatorViewModel.cs" />
     <Compile Include="ViewModels\Calculator\Interfaces\IInputCalculatorViewModel.cs" />
     <Compile Include="ViewModels\Calculator\Interfaces\ICalculatorViewModel.cs" />
     <Compile Include="ViewModels\Calculator\Interfaces\ITableCalculatorViewModel.cs" />
+    <Compile Include="ViewModels\Calculator\Interfaces\IGraphCalculatorViewModel.cs" />
     <Compile Include="ViewModels\Calendar\CalendarViewModel.cs" />
     <Compile Include="ViewModels\Calendar\DayViewModel.cs" />
     <Compile Include="ViewModels\Calendar\Interfaces\ICalendarViewModel.cs" />
     <Compile Include="ViewModels\Calendar\Interfaces\IDayViewModel.cs" />
-    <Compile Include="ViewModels\Calculator\CalculatorViewModel.cs" />
-    <Compile Include="ViewModels\Calculator\TableCalculatorViewModel.cs" />
-    <Compile Include="ViewModels\Calculator\InputCalculatorViewModel.cs" />
+    <Compile Include="ViewModels\Calculator\main\CalculatorViewModel.cs" />
+    <Compile Include="ViewModels\Calculator\sub\TableCalculatorViewModel.cs" />
+    <Compile Include="ViewModels\Calculator\sub\InputCalculatorViewModel.cs" />
     <Compile Include="ViewModels\ShellViewModel.cs" />
-    <Compile Include="Views\Calendar\CalendarView.xaml.cs">
+    <Compile Include="Views\Calendar\Main\CalendarView.xaml.cs">
       <DependentUpon>CalendarView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\Calendar\DayView.xaml.cs">
+    <Compile Include="Views\Calendar\SubView\DayView.xaml.cs">
       <DependentUpon>DayView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\Calculator\CalculatorView.xaml.cs">
+    <Compile Include="Views\Calculator\Main\CalculatorView.xaml.cs">
       <DependentUpon>CalculatorView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\Calculator\TableCalculatorView.xaml.cs">
+    <Compile Include="Views\Calculator\SubView\TableCalculatorView.xaml.cs">
       <DependentUpon>TableCalculatorView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\Calculator\InputCalculatorView.xaml.cs">
+    <Compile Include="Views\Calculator\SubView\InputCalculatorView.xaml.cs">
       <DependentUpon>InputCalculatorView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Calculator\SubView\GraphCalculatorView.xaml.cs">
+      <DependentUpon>GraphCalculatorView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\ShellView.xaml.cs">
       <DependentUpon>ShellView.xaml</DependentUpon>
     </Compile>
-    <Page Include="MainWindow.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Models\Calculator\DataAccessClass.cs" />
-    <Compile Include="MainWindow.xaml.cs">
-      <DependentUpon>MainWindow.xaml</DependentUpon>
-      <SubType>Code</SubType>
-    </Compile>
-    <Page Include="UserControlDS.xaml">
+    <Compile Include="Models\Calculator\DataForCalculation\DataAccess\DataAccessClass.cs" />
+    <Page Include="Views\Calendar\Main\CalendarView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\Calendar\CalendarView.xaml">
+    <Page Include="Views\Calendar\SubView\DayView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\Calendar\DayView.xaml">
+    <Page Include="Views\Calculator\Main\CalculatorView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\Calculator\CalculatorView.xaml">
+    <Page Include="Views\Calculator\SubView\TableCalculatorView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\Calculator\TableCalculatorView.xaml">
+    <Page Include="Views\Calculator\SubView\InputCalculatorView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\Calculator\InputCalculatorView.xaml">
+    <Page Include="Views\Calculator\SubView\GraphCalculatorView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -172,7 +172,7 @@ namespace WpfAkuSQLiteHome.ViewModels
             MonthBranchColor = CalculatorOutput.Month.Branch.Colour;
         }
 
-        public TableCalculatorViewModel(CalculatorOutput finalOutput)
+        public TableCalculatorViewModel()
         {
 
         }

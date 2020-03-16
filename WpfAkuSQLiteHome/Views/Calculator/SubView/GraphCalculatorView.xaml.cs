@@ -13,14 +13,14 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace WpfAkuSQLiteHome
+namespace WpfAkuSQLiteHome.Views
 {
     /// <summary>
-    /// Interaction logic for UserControlDS.xaml
+    /// Interaction logic for GraphhCalculatorView.xaml
     /// </summary>
-    public partial class UserControlDS : UserControl
+    public partial class GraphCalculatorView : UserControl
     {
-        public UserControlDS()
+        public GraphCalculatorView()
         {
             InitializeComponent();
         }

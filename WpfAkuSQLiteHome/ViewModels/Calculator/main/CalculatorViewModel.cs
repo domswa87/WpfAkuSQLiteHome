@@ -14,14 +14,16 @@ namespace WpfAkuSQLiteHome.ViewModels
         public IEventAggregator EventAggregator { get; }
         public IInputCalculatorViewModel InputCalculatorViewModel { get; }
         public ITableCalculatorViewModel TableCalculatorViewModel { get; }
+        public IGraphCalculatorViewModel GraphCalculatorViewModel { get; }
         public CalculatorOutput CalculatorOutput { get; set; }
 
 
-        public CalculatorViewModel(IEventAggregator eventAggregator, IInputCalculatorViewModel inputCalculatorViewModel, ITableCalculatorViewModel tableCalculatorViewModel)
+        public CalculatorViewModel(IEventAggregator eventAggregator, IInputCalculatorViewModel inputCalculatorViewModel, ITableCalculatorViewModel tableCalculatorViewModel, IGraphCalculatorViewModel graphCalculatorViewModel)
         {
             EventAggregator = eventAggregator;
             InputCalculatorViewModel = inputCalculatorViewModel;
             TableCalculatorViewModel = tableCalculatorViewModel;
+            GraphCalculatorViewModel = graphCalculatorViewModel;
             EventAggregator.Subscribe(this);
         }
 
