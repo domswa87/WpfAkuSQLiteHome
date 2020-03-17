@@ -7,8 +7,8 @@
              mc:Ignorable="d" 
              d:DesignHeight="1200" d:DesignWidth="1900" Background="LightGray">
     <Grid>
-        <ContentControl HorizontalAlignment="left" VerticalAlignment="Top" Height="170" Width="140" x:Name="InputCalculatorViewModel"/>
-        <ContentControl HorizontalAlignment="left" VerticalAlignment="top" Height="245" Width="500" x:Name="TableCalculatorViewModel" Margin="150,0,0,0"/>
+        <ContentControl HorizontalAlignment="left" VerticalAlignment="Top" Height="245" Width="140" x:Name="InputCalculatorViewModel"/>
+        <ContentControl HorizontalAlignment="left" VerticalAlignment="top" Height="245" Width="620" x:Name="TableCalculatorViewModel" Margin="150,0,0,0"/>
         <ContentControl HorizontalAlignment="left" VerticalAlignment="Bottom" Height="700" Width="1200" x:Name="GraphCalculatorViewModel" Margin="40,0,0,85"/>
     </Grid>
 </UserControl>

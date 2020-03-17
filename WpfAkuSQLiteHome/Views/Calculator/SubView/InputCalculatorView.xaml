@@ -5,7 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:WpfAkuSQLiteHome.Views"
              mc:Ignorable="d" 
-             d:DesignHeight="170" d:DesignWidth="140" Background="Gray">
+             d:DesignHeight="245" d:DesignWidth="140" Background="Gray">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="10"/>
@@ -16,24 +16,24 @@
 
         <Grid.RowDefinitions>
             <RowDefinition Height="10" />
-            <RowDefinition Height="25" />
-            <RowDefinition Height="25" />
-            <RowDefinition Height="25" />
-            <RowDefinition Height="25" />
-            <RowDefinition Height="25" />
-            <RowDefinition Height="25" />
+            <RowDefinition Height="35" />
+            <RowDefinition Height="35" />
+            <RowDefinition Height="35" />
+            <RowDefinition Height="35" />
+            <RowDefinition Height="35" />
+            <RowDefinition Height="35" />
             <RowDefinition Height="10" />
 
         </Grid.RowDefinitions>
-        <Label Content="Year" Grid.Column="1" Grid.Row="1" VerticalAlignment="Top" Height="25"/>
-        <Label Content="Month" Grid.Column="1" Grid.Row="2" VerticalAlignment="Top" Height="25"/>
-        <Label Content="Day" Grid.Column="1" Grid.Row="3" VerticalAlignment="Top" Height="25" Margin="0,4,0,0" Grid.RowSpan="2"/>
-        <Label Content="Hour" Grid.Column="1" Grid.Row="4" VerticalAlignment="Top" Height="25"/>
-        <TextBox x:Name="Year" Grid.Column="2" Height="25" Grid.Row="1" TextWrapping="Wrap"  VerticalAlignment="Top" TextAlignment="Left" IsReadOnly="False" Focusable="True"/>
-        <TextBox x:Name="Month" Grid.Column="2" Height="25" Grid.Row="2" TextWrapping="Wrap" VerticalAlignment="Top" TextAlignment="Left" IsReadOnly="False" Focusable="True"/>
-        <TextBox x:Name="Day" Grid.Column="2" Height="25" Grid.Row="3" TextWrapping="Wrap" VerticalAlignment="Top" TextAlignment="Left" IsReadOnly="False" Focusable="True"/>
-        <TextBox x:Name="Hour" Grid.Column="2" Height="25" Grid.Row="4" TextWrapping="Wrap" VerticalAlignment="Top" TextAlignment="Left" IsReadOnly="False" Focusable="True"/>
-        <Button x:Name="Calculate" Content="Calculate" Grid.Column="2" Grid.Row="6" VerticalAlignment="Top" Height="25"/>
+        <Label Content="Year" Grid.Column="1" Grid.Row="1" VerticalAlignment="Top" Height="35"/>
+        <Label Content="Month" Grid.Column="1" Grid.Row="2" VerticalAlignment="Top" Height="35"/>
+        <Label Content="Day" Grid.Column="1" Grid.Row="3" VerticalAlignment="Top" Height="35" Margin="0,4,0,0" Grid.RowSpan="2"/>
+        <Label Content="Hour" Grid.Column="1" Grid.Row="4" VerticalAlignment="Top" Height="35"/>
+        <TextBox x:Name="Year" Grid.Column="2" Height="35" Grid.Row="1" TextWrapping="Wrap"  VerticalAlignment="Top" TextAlignment="Left" IsReadOnly="False" Focusable="True"/>
+        <TextBox x:Name="Month" Grid.Column="2" Height="35" Grid.Row="2" TextWrapping="Wrap" VerticalAlignment="Top" TextAlignment="Left" IsReadOnly="False" Focusable="True"/>
+        <TextBox x:Name="Day" Grid.Column="2" Height="35" Grid.Row="3" TextWrapping="Wrap" VerticalAlignment="Top" TextAlignment="Left" IsReadOnly="False" Focusable="True"/>
+        <TextBox x:Name="Hour" Grid.Column="2" Height="35" Grid.Row="4" TextWrapping="Wrap" VerticalAlignment="Top" TextAlignment="Left" IsReadOnly="False" Focusable="True"/>
+        <Button x:Name="Calculate" Content="Calculate" Grid.Column="2" Grid.Row="6" VerticalAlignment="Top" Height="35"/>
             
     </Grid>
 </UserControl>

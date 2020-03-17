@@ -5,12 +5,12 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:WpfAkuSQLiteHome.Views"
              mc:Ignorable="d" 
-             d:DesignHeight="245" d:DesignWidth="500" Background="Gray">
+             d:DesignHeight="245" d:DesignWidth="620" Background="Gray">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="1"/>
             <ColumnDefinition Width="1"/>
-            <ColumnDefinition Width="8"/>
+            <ColumnDefinition Width="120"/>
             <ColumnDefinition Width="120"/>
             <ColumnDefinition Width="120"/>
             <ColumnDefinition Width="120"/>
@@ -32,10 +32,12 @@
             <RowDefinition Height="10" />
 
         </Grid.RowDefinitions>
-      
 
+        <TextBox Grid.Column="2" Grid.Row="2" Text="GM" Background="White" Height="25"  TextWrapping="Wrap" TextAlignment="Center" BorderThickness="3" FontWeight="Bold" IsReadOnly="True"/>
+        <TextBox Grid.Column="2" Grid.Row="3" Grid.RowSpan="3" Text="Stems" Background="White" BorderThickness="3" FontWeight="Bold" IsReadOnly="True" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+        <TextBox Grid.Column="2" Grid.Row="6" Grid.RowSpan="3" Text="Branches" Background="White" BorderThickness="3" FontWeight="Bold" IsReadOnly="True" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
 
-        <TextBox x:Name="HTitle" Grid.Column="3" Grid.Row="1" Text="Hour" Background="White" Height="25"  TextWrapping="Wrap" TextAlignment="Center" BorderThickness="3"/>
+        <TextBox x:Name="HTitle" Grid.Column="3" Grid.Row="1" Text="Hour" Background="White" Height="25"  TextWrapping="Wrap" TextAlignment="Center" BorderThickness="3" FontWeight="Bold" IsReadOnly="True"/>
 
         <TextBox x:Name="H1" Grid.Column="3" Grid.Row="2" Text="" Background="{Binding Path=HourGMColor, Mode=TwoWay}" Height="25"  TextWrapping="Wrap" BorderThickness="3" SelectionOpacity="0" Focusable="True"/>
         <TextBox x:Name="H2" Grid.Column="3" Grid.Row="3" Text="{Binding Path=H2, Mode=OneWay}" Background="{Binding Path=HourSteamColor, Mode=TwoWay}" Height="25"  TextWrapping="Wrap" BorderThickness="3,3,3,0"/>
@@ -48,7 +50,7 @@
 
 
 
-        <TextBox x:Name="DTitle" Grid.Column="4" Grid.Row="1" Text="Day" Background="White" Height="25"  TextWrapping="Wrap" TextAlignment="Center" BorderThickness="3"/>
+        <TextBox x:Name="DTitle" Grid.Column="4" Grid.Row="1" Text="Day" Background="White" Height="25"  TextWrapping="Wrap" TextAlignment="Center" BorderThickness="3" FontWeight="Bold" IsReadOnly="True"/>
 
         <TextBox x:Name="D1" Grid.Column="4" Grid.Row="2" Text="" Background="{Binding Path=DayGMColor, Mode=TwoWay}" Height="25"  TextWrapping="Wrap" BorderThickness="3"/>
         <TextBox x:Name="D2" Grid.Column="4" Grid.Row="3" Text="{Binding Path=D2, Mode=TwoWay}" Background="{Binding Path=DaySteamColor, Mode=TwoWay}" Height="25"  TextWrapping="Wrap" BorderThickness="3,3,3,0"/>
@@ -61,7 +63,7 @@
 
 
 
-        <TextBox x:Name="MTitle" Grid.Column="5" Grid.Row="1" Text="Month" Background="White" Height="25"  TextWrapping="Wrap" TextAlignment="Center" BorderThickness="3"/>
+        <TextBox x:Name="MTitle" Grid.Column="5" Grid.Row="1" Text="Month" Background="White" Height="25"  TextWrapping="Wrap" TextAlignment="Center" BorderThickness="3" FontWeight="Bold" IsReadOnly="True"/>
 
         <TextBox x:Name="M1" Grid.Column="5" Grid.Row="2" Text="" Background="{Binding Path=MonthGMColor, Mode=TwoWay}" Height="25"  TextWrapping="Wrap" BorderThickness="3"/>
         <TextBox x:Name="M2" Grid.Column="5" Grid.Row="3" Text="{Binding Path=M2, Mode=TwoWay}" Background="{Binding Path=MonthSteamColor, Mode=TwoWay}" Height="25"  TextWrapping="Wrap" BorderThickness="3,3,3,0"/>
@@ -74,7 +76,7 @@
 
 
 
-        <TextBox x:Name="YTitle" Grid.Column="6" Grid.Row="1" Text="Year" Background="White" Height="25"  TextWrapping="Wrap" TextAlignment="Center" BorderThickness="3"/>
+        <TextBox x:Name="YTitle" Grid.Column="6" Grid.Row="1" Text="Year" Background="White" Height="25"  TextWrapping="Wrap" TextAlignment="Center" BorderThickness="3" FontWeight="Bold" IsReadOnly="True"/>
 
         <TextBox x:Name="Y1" Grid.Column="6" Grid.Row="2" Text="" Background="{Binding Path=YearGMColor, Mode=TwoWay}" Height="25"  TextWrapping="Wrap" BorderThickness="3"/>
         <TextBox x:Name="Y2" Grid.Column="6" Grid.Row="3" Text="{Binding Path=Y2, Mode=TwoWay}" Background="{Binding Path=YearSteamColor, Mode=TwoWay}" Height="25"  TextWrapping="Wrap" BorderThickness="3,3,3,0"/>
@@ -85,5 +87,5 @@
         <TextBox x:Name="Y7" Grid.Column="6" Grid.Row="8" Text="{Binding Path=Y7, Mode=TwoWay}" Background="{Binding Path=YearBranchColor, Mode=TwoWay}" Height="25"  TextWrapping="Wrap" BorderThickness="3,0,3,3"/>
         <TextBox x:Name="Y8" Grid.Column="6" Grid.Row="9" Text="{Binding Path=Y8, Mode=TwoWay}" Background="LightGray" Height="25"  TextWrapping="Wrap" BorderThickness="3"/>
     </Grid>
-  
+
 </UserControl>
