@@ -5,26 +5,13 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:WpfAkuSQLiteHome.Views"
              mc:Ignorable="d" 
-             d:DesignHeight="700" d:DesignWidth="1200" Background="LightGray">
+             d:DesignHeight="200" d:DesignWidth="200" Background="Green">
     <Grid>
-        <Ellipse Fill="LightYellow" Height="300" Width="300" Margin="555,400,345,0" Visibility="Visible" ></Ellipse>
-        <Ellipse Fill="LightYellow" Height="300" Width="300" Margin="190,385,710,15" Visibility="Visible" ></Ellipse>
-        <Ellipse Fill="LightYellow" Height="300" Width="300" Margin="410,15,490,385" Visibility="Visible" ></Ellipse>
-        <Ellipse Fill="LightYellow" Height="300" Width="300" Margin="75,100,825,300" Visibility="Visible" ></Ellipse>
-        <Ellipse Fill="LightYellow" Height="300" Width="300" Margin="720,145,180,255" Visibility="Visible" ></Ellipse>
-        <Rectangle Fill="Black" HorizontalAlignment="Left" Height="20" Margin="345,405,0,0" VerticalAlignment="Top" Width="495" RenderTransformOrigin="0.5,0.5">
-            <Rectangle.RenderTransform>
-                <TransformGroup>
-                    <ScaleTransform/>
-                    <SkewTransform/>
-                    <RotateTransform Angle="143.05"/>
-                    <TranslateTransform/>
-                </TransformGroup>
-            </Rectangle.RenderTransform>
-        </Rectangle>
+        <Ellipse Fill="LightYellow" Height="300" Width="300" Margin="255,1625,245,75" Visibility="Visible" ></Ellipse>
         <TextBox HorizontalAlignment="Left" Height="55" Margin="80,110,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="75"/>
         <TextBox HorizontalAlignment="Left" Height="55" Margin="285,100,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="75"/>
-        <TextBox HorizontalAlignment="Left" Height="55" Margin="75,320,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="75"/>
+        <TextBox HorizontalAlignment="Left" Height="55" Margin="190,530,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="75"/>
         <TextBox HorizontalAlignment="Left" Height="55" Margin="315,325,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="75"/>
+        <Ellipse Fill="LightYellow" Height="300" Width="300" Margin="285,465,215,1235" Visibility="Visible" />
     </Grid>
 </UserControl>
