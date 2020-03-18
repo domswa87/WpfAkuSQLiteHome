@@ -122,57 +122,7 @@ namespace WpfAkuSQLiteHome.ViewModels
 
         public CalculatorOutput CalculatorOutput;
 
-        public void FillTableFromCalculatorOutput(CalculatorOutput calculatorOutput)
-        {
-            this.CalculatorOutput = calculatorOutput;
-            H1 = "";
-            H2 = CalculatorOutput.Hour.Steam.ChineseSign;
-            H3 = CalculatorOutput.Hour.Steam.ChineseString;
-            H4 = CalculatorOutput.Hour.Steam.EnglishString;
-            H5 = CalculatorOutput.Hour.Branch.ChineseSign;
-            H6 = CalculatorOutput.Hour.Branch.ChineseString;
-            H7 = CalculatorOutput.Hour.Branch.EnglishString;
-            H8 = CalculatorOutput.Hour.BelowRowTable;
-            HourGMColor = CalculatorOutput.Hour.GMColour;
-            HourSteamColor = CalculatorOutput.Hour.Steam.Colour;
-            HourBranchColor = CalculatorOutput.Hour.Branch.Colour;
 
-            D1 = "";
-            D2 = CalculatorOutput.Day.Steam.ChineseSign;
-            D3 = CalculatorOutput.Day.Steam.ChineseString;
-            D4 = CalculatorOutput.Day.Steam.EnglishString;
-            D5 = CalculatorOutput.Day.Branch.ChineseSign;
-            D6 = CalculatorOutput.Day.Branch.ChineseString;
-            D7 = CalculatorOutput.Day.Branch.EnglishString;
-            D8 = CalculatorOutput.Day.BelowRowTable;
-            DayGMColor = CalculatorOutput.Day.GMColour;
-            DaySteamColor = CalculatorOutput.Day.Steam.Colour;
-            DayBranchColor = CalculatorOutput.Day.Branch.Colour;
-
-            Y1 = "";
-            Y2 = CalculatorOutput.Year.Steam.ChineseSign;
-            Y3 = CalculatorOutput.Year.Steam.ChineseString;
-            Y4 = CalculatorOutput.Year.Steam.EnglishString;
-            Y5 = CalculatorOutput.Year.Branch.ChineseSign;
-            Y6 = CalculatorOutput.Year.Branch.ChineseString;
-            Y7 = CalculatorOutput.Year.Branch.EnglishString;
-            Y8 = CalculatorOutput.Year.BelowRowTable;
-            YearGMColor = CalculatorOutput.Year.GMColour;
-            YearSteamColor = CalculatorOutput.Year.Steam.Colour;
-            YearBranchColor = CalculatorOutput.Year.Branch.Colour;
-
-            M1 = "";
-            M2 = CalculatorOutput.Month.Steam.ChineseSign;
-            M3 = CalculatorOutput.Month.Steam.ChineseString;
-            M4 = CalculatorOutput.Month.Steam.EnglishString;
-            M5 = CalculatorOutput.Month.Branch.ChineseSign;
-            M6 = CalculatorOutput.Month.Branch.ChineseString;
-            M7 = CalculatorOutput.Month.Branch.EnglishString;
-            M8 = CalculatorOutput.Month.BelowRowTable;
-            MonthGMColor = CalculatorOutput.Month.GMColour;
-            MonthSteamColor = CalculatorOutput.Month.Steam.Colour;
-            MonthBranchColor = CalculatorOutput.Month.Branch.Colour;
-        }
 
         public TableCalculatorViewModel()
         {

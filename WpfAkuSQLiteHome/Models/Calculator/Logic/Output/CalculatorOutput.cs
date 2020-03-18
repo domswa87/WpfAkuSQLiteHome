@@ -9,14 +9,13 @@ using WpfAkuSQLiteHome.Models.Calculator;
 
 namespace WpfAkuSQLiteHome.Models
 {
-    public class CalculatorOutput : INotifyPropertyChanged
+    public class CalculatorOutput 
     {
         public ColumnCLass Hour { get; set; }
         public ColumnCLass Day { get; set; }
         public ColumnCLass Month { get; set; }
         public ColumnCLass Year { get; set; }
         public AdditionalInfo AdditionalInfo { get; set; }
-
 
 
         public CalculatorOutput()
@@ -27,39 +26,15 @@ namespace WpfAkuSQLiteHome.Models
             this.Hour = new ColumnCLass();
             this.AdditionalInfo = new AdditionalInfo();
         }
-
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        private void OnPropertyRaised(string propertname)
-        {
-            if (PropertyChanged != null)
-            {
-                PropertyChanged(this, new PropertyChangedEventArgs(propertname));
-            }
-        }
+       
     }
 
-    public class ColumnCLass : INotifyPropertyChanged
+    public class ColumnCLass 
     {
-
-        private SolidColorBrush _gmcolour;
-        public SolidColorBrush GMColour
-        { get { return _gmcolour; } set { _gmcolour = value; OnPropertyRaised("GMColour"); } }
-
-
-        private SymbolClass _steam;
-        public SymbolClass Steam
-        { get { return _steam; } set { _steam = value; OnPropertyRaised("Steam"); } }
-
-
-        private SymbolClass _branch;
-        public SymbolClass Branch
-        { get { return _branch; } set { _branch = value; OnPropertyRaised("Branch"); } }
-
-
-        private string _belowRowTable;
-        public string BelowRowTable
-        { get { return _belowRowTable; } set { _belowRowTable = value; OnPropertyRaised("BelowRowTable"); } }
+        public SolidColorBrush GMColour { get; set; }
+        public SymbolClass Steam { get; set; }
+        public SymbolClass Branch { get; set; }
+        public string BelowRowTable { get; set; }
 
 
         public ColumnCLass()
@@ -69,19 +44,10 @@ namespace WpfAkuSQLiteHome.Models
             this.GMColour = null;
             this.BelowRowTable = null;
         }
-
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        private void OnPropertyRaised(string propertname)
-        {
-            if (PropertyChanged != null)
-            {
-                PropertyChanged(this, new PropertyChangedEventArgs(propertname));
-            }
-        }
+      
     }
 
-    public class SymbolClass : INotifyPropertyChanged
+    public class SymbolClass 
     {
         public SymbolClass()
         {
@@ -91,36 +57,11 @@ namespace WpfAkuSQLiteHome.Models
             this.Colour = null;
         }
 
+        public string ChineseSign { get; set; }
+        public string ChineseString { get; set; }
+        public string EnglishString { get; set; }
+        public SolidColorBrush Colour { get; set; }
 
-        private string _chineseSign;
-        public string ChineseSign
-        { get { return _chineseSign; } set { _chineseSign = value; OnPropertyRaised("ChineseSign"); } }
-
-
-        private string _chineseString;
-        public string ChineseString
-        { get { return _chineseString; } set { _chineseString = value; OnPropertyRaised("ChineseString"); } }
-
-
-        private string _englishString;
-        public string EnglishString
-        { get { return _englishString; } set { _englishString = value; OnPropertyRaised("EnglishString"); } }
-
-
-        private SolidColorBrush _colour;
-        public SolidColorBrush Colour
-        { get { return _colour; } set { _colour = value; OnPropertyRaised("Colour"); } }
-
-
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        private void OnPropertyRaised(string propertname)
-        {
-            if (PropertyChanged != null)
-            {
-                PropertyChanged(this, new PropertyChangedEventArgs(propertname));
-            }
-        }
     }
    
 

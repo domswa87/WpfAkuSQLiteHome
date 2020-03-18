@@ -16,12 +16,11 @@ namespace WpfAkuSQLiteHome.ViewModels
         public string Hour { get; set; } = "3";
 
         public InputCalculatorViewModel(IEventAggregator eventAggregator) => EventAggregator = eventAggregator;
-        public DateTime InputDate { get; set; }
         public IEventAggregator EventAggregator { get; }
 
         public void Calculate()
         {
-            InputDate = new DateTime(int.Parse(Year), int.Parse(Month), int.Parse(Day), int.Parse(Hour), 0, 0);
+       
             EventAggregator.BeginPublishOnUIThread("calculate");
         }
     }

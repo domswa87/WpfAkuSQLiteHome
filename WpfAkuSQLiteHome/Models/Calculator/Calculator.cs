@@ -11,21 +11,18 @@ namespace WpfAkuSQLiteHome.Models.Calculator
 {
     public class Calculator
     {
-        public DateTime GivenDate { get; set; }
-        public DatabaseTablesCollection DatabaseTablesCollection { get; set; }
+     
         public CalculatorLogic CalculatorLogic { get; set; }
 
 
-        public Calculator(DateTime givenDate)
+        public Calculator()
         {
-            this.GivenDate = givenDate;
-            DatabaseTablesCollection = new DatabaseTablesCollection();
-            CalculatorLogic = new CalculatorLogic(GivenDate, DatabaseTablesCollection);
+            CalculatorLogic = new CalculatorLogic();
         }
 
-        public CalculatorOutput CalculateOutput()
+        public CalculatorOutput CalculateOutput(DateTime GivenDate, DatabaseTablesCollection DatabaseTablesCollection)
         {
-            return CalculatorLogic.CalculateOutput();
+            return CalculatorLogic.CalculateOutput(GivenDate, DatabaseTablesCollection);
         }
 
     }

@@ -10,14 +10,13 @@ namespace WpfAkuSQLiteHome.Models.Calculator
 {
     public class CalculatorLogic
     {
-        public DateTime GivenDate { get; set; }
-        public DatabaseTablesCollection DatabaseTablesCollection { get; set; }
-        public CalculatorOutput CalculatorOutput { get; set; }
+        private DateTime GivenDate { get; set; }
+        private DatabaseTablesCollection DatabaseTablesCollection { get; set; }
+        private CalculatorOutput CalculatorOutput { get; set; }
 
-        public CalculatorLogic(DateTime givenDate, DatabaseTablesCollection databaseTablesCollection)
+        public CalculatorLogic()
         {
-            this.GivenDate = givenDate;
-            this.DatabaseTablesCollection = databaseTablesCollection;
+           
         }
 
         private int YearSteamKey = 0;
@@ -25,8 +24,10 @@ namespace WpfAkuSQLiteHome.Models.Calculator
         private int monthNumber = 0;
         private int DaySteamKey = 0;
 
-        public CalculatorOutput CalculateOutput()
+        public CalculatorOutput CalculateOutput(DateTime givenDate, DatabaseTablesCollection databaseTablesCollection)
         {
+            this.GivenDate = givenDate;
+            this.DatabaseTablesCollection = databaseTablesCollection;
             this.CalculatorOutput = new CalculatorOutput();
             YearCalculation();
             MonthCalculation();

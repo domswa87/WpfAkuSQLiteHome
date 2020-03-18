@@ -12,6 +12,5 @@ namespace WpfAkuSQLiteHome.ViewModels
         string Month { get; set; }
         string Day { get; set; }
         string Hour { get; set; }
-        DateTime InputDate { get; set; }
     }
 }
