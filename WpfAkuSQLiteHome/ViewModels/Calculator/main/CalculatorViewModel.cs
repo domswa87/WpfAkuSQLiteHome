@@ -11,10 +11,14 @@ namespace WpfAkuSQLiteHome.ViewModels
 {
     public class CalculatorViewModel : Conductor<object>.Collection.AllActive, ICalculatorViewModel, IHandle<string>
     {
-        public IEventAggregator EventAggregator { get; }
+ 
         public IInputCalculatorViewModel InputCalculatorViewModel { get; }
         public ITableCalculatorViewModel TableCalculatorViewModel { get; }
         public IGraphCalculatorViewModel GraphCalculatorViewModel { get; }
+        public IEventAggregator EventAggregator { get; }
+
+
+
         public DatabaseTablesCollection DatabaseTablesCollection { get; set; }
         public Calculator Calculator { get; set; }
         public CalculatorOutput CalculatorOutput { get; set; }
@@ -44,16 +48,13 @@ namespace WpfAkuSQLiteHome.ViewModels
             {
                 InputDate = new DateTime(int.Parse(InputCalculatorViewModel.Year), int.Parse(InputCalculatorViewModel.Month), int.Parse(InputCalculatorViewModel.Day), int.Parse(InputCalculatorViewModel.Hour), 0, 0);
                 // validation
-               
-                
                 CalculatorOutput = Calculator.CalculateOutput(InputDate, DatabaseTablesCollection);
-                UpdateTableViewModel(CalculatorOutput);
+                UpdateTableViewModel();
             }
         }
 
-        public void UpdateTableViewModel(CalculatorOutput calculatorOutput)
+        public void UpdateTableViewModel()
         {
-            this.CalculatorOutput = calculatorOutput;
             TableCalculatorViewModel.H1 = "";
             TableCalculatorViewModel.H2 = CalculatorOutput.Hour.Steam.ChineseSign;
             TableCalculatorViewModel.H3 = CalculatorOutput.Hour.Steam.ChineseString;

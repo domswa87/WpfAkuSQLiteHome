@@ -67,10 +67,6 @@ namespace WpfAkuSQLiteHome.ViewModels
 
 
 
-
-
-
-
         private string h1;
         private string h2;
         private string h3;
@@ -119,9 +115,6 @@ namespace WpfAkuSQLiteHome.ViewModels
         private Brush yearGMColor = new SolidColorBrush(Colors.LightGray);
         private Brush yearSteamColor = new SolidColorBrush(Colors.LightGray);
         private Brush yearBranchColor = new SolidColorBrush(Colors.LightGray);
-
-        public CalculatorOutput CalculatorOutput;
-
 
 
         public TableCalculatorViewModel()

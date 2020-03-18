@@ -15,13 +15,20 @@ namespace WpfAkuSQLiteHome.ViewModels
         public string Day { get; set; } = "3";
         public string Hour { get; set; } = "3";
 
+        public void Calculate()
+        {
+            EventAggregator.BeginPublishOnUIThread("calculate");
+        }
+
+
+
+
+
+
+
         public InputCalculatorViewModel(IEventAggregator eventAggregator) => EventAggregator = eventAggregator;
         public IEventAggregator EventAggregator { get; }
 
-        public void Calculate()
-        {
-       
-            EventAggregator.BeginPublishOnUIThread("calculate");
-        }
+      
     }
 }

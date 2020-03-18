@@ -26,7 +26,6 @@ namespace WpfAkuSQLiteHome.Models
             this.Hour = new ColumnCLass();
             this.AdditionalInfo = new AdditionalInfo();
         }
-       
     }
 
     public class ColumnCLass 
@@ -36,7 +35,6 @@ namespace WpfAkuSQLiteHome.Models
         public SymbolClass Branch { get; set; }
         public string BelowRowTable { get; set; }
 
-
         public ColumnCLass()
         {
             this.Steam = new SymbolClass();
@@ -44,7 +42,6 @@ namespace WpfAkuSQLiteHome.Models
             this.GMColour = null;
             this.BelowRowTable = null;
         }
-      
     }
 
     public class SymbolClass 
@@ -61,7 +58,6 @@ namespace WpfAkuSQLiteHome.Models
         public string ChineseString { get; set; }
         public string EnglishString { get; set; }
         public SolidColorBrush Colour { get; set; }
-
     }
    
 

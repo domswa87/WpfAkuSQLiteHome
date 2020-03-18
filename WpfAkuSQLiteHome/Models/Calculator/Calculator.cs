@@ -11,9 +11,7 @@ namespace WpfAkuSQLiteHome.Models.Calculator
 {
     public class Calculator
     {
-     
         public CalculatorLogic CalculatorLogic { get; set; }
-
 
         public Calculator()
         {

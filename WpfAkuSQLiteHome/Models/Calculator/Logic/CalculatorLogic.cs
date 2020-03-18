@@ -115,7 +115,6 @@ namespace WpfAkuSQLiteHome.Models.Calculator
                 }
             }
 
-     //       GivenDate = new DateTime(int.Parse(GivenDate.Year.ToString()), int.Parse(GivenDate.Month.ToString()), int.Parse(GivenDate.Day.ToString()));
             int counter = 0;
             int monthNumber = 0;
             foreach (var item in DateList)
