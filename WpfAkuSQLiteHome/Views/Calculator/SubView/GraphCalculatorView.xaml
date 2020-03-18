@@ -5,13 +5,90 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:WpfAkuSQLiteHome.Views"
              mc:Ignorable="d" 
-             d:DesignHeight="200" d:DesignWidth="200" Background="Green">
+             d:DesignHeight="400" d:DesignWidth="400" Background="#FFA29C93">
     <Grid>
-        <Ellipse Fill="LightYellow" Height="300" Width="300" Margin="255,1625,245,75" Visibility="Visible" ></Ellipse>
-        <TextBox HorizontalAlignment="Left" Height="55" Margin="80,110,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="75"/>
-        <TextBox HorizontalAlignment="Left" Height="55" Margin="285,100,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="75"/>
-        <TextBox HorizontalAlignment="Left" Height="55" Margin="190,530,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="75"/>
-        <TextBox HorizontalAlignment="Left" Height="55" Margin="315,325,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="75"/>
-        <Ellipse Fill="LightYellow" Height="300" Width="300" Margin="285,465,215,1235" Visibility="Visible" />
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="20"/>
+            <ColumnDefinition Width="20"/>
+            <ColumnDefinition Width="20"/>
+            <ColumnDefinition Width="20"/>
+            <ColumnDefinition Width="20"/>
+            <ColumnDefinition Width="20"/>
+            <ColumnDefinition Width="20"/>
+            <ColumnDefinition Width="20"/>
+            <ColumnDefinition Width="20"/>
+            <ColumnDefinition Width="20"/>
+            <ColumnDefinition Width="20"/>
+            <ColumnDefinition Width="20"/>
+            <ColumnDefinition Width="20"/>
+            <ColumnDefinition Width="20"/>
+            <ColumnDefinition Width="20"/>
+            <ColumnDefinition Width="20"/>
+            <ColumnDefinition Width="20"/>
+            <ColumnDefinition Width="20"/>
+            <ColumnDefinition Width="20"/>
+            <ColumnDefinition Width="20"/>
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="20" />
+            <RowDefinition Height="20" />
+            <RowDefinition Height="20" />
+            <RowDefinition Height="20" />
+            <RowDefinition Height="20" />
+            <RowDefinition Height="20" />
+            <RowDefinition Height="20" />
+            <RowDefinition Height="20" />
+            <RowDefinition Height="20" />
+            <RowDefinition Height="20" />
+            <RowDefinition Height="20" />
+            <RowDefinition Height="20" />
+            <RowDefinition Height="20" />
+            <RowDefinition Height="20" />
+            <RowDefinition Height="20" />
+            <RowDefinition Height="20" />
+            <RowDefinition Height="20" />
+            <RowDefinition Height="20" />
+            <RowDefinition Height="20" />
+            <RowDefinition Height="20" />
+        </Grid.RowDefinitions>
+
+        <Ellipse Grid.Row="3" Grid.Column="8" Fill="LightYellow" Height="80" Width="80"  Visibility="Visible" Margin="0,0,0,0" Grid.ColumnSpan="4" HorizontalAlignment="Left" Grid.RowSpan="4"/>
+        <Ellipse Grid.Row="7" Grid.Column="3" Fill="LightYellow" Height="80" Width="80"  Visibility="Visible"  Margin="0,0,0,0" Grid.ColumnSpan="4" HorizontalAlignment="Left" Grid.RowSpan="4"/>
+        <Ellipse Grid.Row="7" Grid.Column="13" Fill="LightYellow" Height="80" Width="80"  Visibility="Visible"  Margin="0,0,0,0" Grid.ColumnSpan="4" HorizontalAlignment="Left" Grid.RowSpan="4"/>
+        <Ellipse Grid.Row="13" Grid.Column="5" Fill="LightYellow" Height="80" Width="80"  Visibility="Visible"   Margin="0,0,0,0" Grid.ColumnSpan="4" HorizontalAlignment="Left" Grid.RowSpan="4"/>
+        <Ellipse Grid.Row="13" Grid.Column="11" Fill="LightYellow" Height="80" Width="80"  Visibility="Visible"   Margin="0,0,0,0" Grid.ColumnSpan="4" HorizontalAlignment="Left" Grid.RowSpan="4"/>
+
+        <TextBox  x:Name="Head" FontSize="20" Width="80"  HorizontalAlignment="Left" TextWrapping="Wrap" Text="" Grid.ColumnSpan="5" Margin="1,14,0,14" Grid.RowSpan="4" Grid.Column="8" Grid.Row="3" FontWeight="Bold" IsReadOnly="True" BorderBrush="{x:Null}" Background="{x:Null}" TextAlignment="Center" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" />
+        <TextBox  x:Name="ArmR" FontSize="20" Width="80"  HorizontalAlignment="Left" TextWrapping="Wrap" Text="" Grid.ColumnSpan="4" Margin="0,16,0,14" Grid.RowSpan="4" Grid.Column="13" Grid.Row="7" FontWeight="Bold" IsReadOnly="True" BorderBrush="{x:Null}" Background="{x:Null}" TextAlignment="Center" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" />
+        <TextBox  x:Name="ArmL" FontSize="20" Width="80"  HorizontalAlignment="Left" TextWrapping="Wrap" Text="" Grid.ColumnSpan="4" Margin="0,16,0,14" Grid.RowSpan="4" Grid.Column="3" Grid.Row="7" FontWeight="Bold" IsReadOnly="True" BorderBrush="{x:Null}" Background="{x:Null}" TextAlignment="Center" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" />
+        <TextBox  x:Name="LegR" FontSize="20" Width="80"  HorizontalAlignment="Left" TextWrapping="Wrap" Text="" Grid.ColumnSpan="4" Margin="0,15" Grid.RowSpan="4" Grid.Column="11" Grid.Row="13" FontWeight="Bold" IsReadOnly="True" BorderBrush="{x:Null}" Background="{x:Null}" TextAlignment="Center" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" />
+        <TextBox  x:Name="LegL" FontSize="20" Width="80"  HorizontalAlignment="Left" TextWrapping="Wrap" Text="" Grid.ColumnSpan="5" Margin="1,16,0,14" Grid.RowSpan="4" Grid.Column="5" Grid.Row="13" FontWeight="Bold" IsReadOnly="True" BorderBrush="{x:Null}" Background="{x:Null}" TextAlignment="Center" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" />
+        <Label Content="Year Steam"  FontSize="20" Grid.Column="7" Margin="0,5,2,5" HorizontalAlignment="Right" Width="115" Background="{x:Null}" Grid.ColumnSpan="6" Grid.RowSpan="2" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Padding="0"/>
+
+        <TextBlock  x:Name="HeadUR" Text="" Grid.Column="11" HorizontalAlignment="Left" Grid.Row="2" Grid.RowSpan="2" TextWrapping="Wrap"  VerticalAlignment="Center" Grid.ColumnSpan="2" Width="40" Height="40" Padding="6" FontSize="20" FontWeight="Bold"/>
+        <TextBlock  x:Name="HeadUL" Text="" Grid.Column="7" HorizontalAlignment="Left" Grid.Row="2" Grid.RowSpan="2" TextWrapping="Wrap"  VerticalAlignment="Center" Grid.ColumnSpan="2" Width="40" Height="40" Padding="6" FontSize="20" FontWeight="Bold"/>
+        <TextBlock  x:Name="HeadDR" Text="" Grid.Column="11" HorizontalAlignment="Left" Grid.Row="6" Grid.RowSpan="2" TextWrapping="Wrap"  VerticalAlignment="Center" Grid.ColumnSpan="2" Width="40" Height="40" Padding="6" FontSize="20" FontWeight="Bold"/>
+        <TextBlock  x:Name="HeadDL" Text="" Grid.Column="7" HorizontalAlignment="Left" Grid.Row="6" Grid.RowSpan="2" TextWrapping="Wrap"  VerticalAlignment="Center" Grid.ColumnSpan="2" Width="40" Height="40" Padding="6" FontSize="20" FontWeight="Bold"/>
+
+        <TextBlock  x:Name="ArmRUR" Text="" Grid.Column="17" HorizontalAlignment="Left" Grid.Row="8" Grid.RowSpan="2" TextWrapping="Wrap"  VerticalAlignment="Center" Grid.ColumnSpan="2" Width="40" Height="40" Padding="6" FontSize="20" FontWeight="Bold"/>
+        <TextBlock  x:Name="ArmRUL" Text="" Grid.Column="11" HorizontalAlignment="Left" Grid.Row="8" Grid.RowSpan="2" TextWrapping="Wrap"  VerticalAlignment="Center" Grid.ColumnSpan="2" Width="40" Height="40" Padding="6" FontSize="20" FontWeight="Bold"/>
+
+        <TextBlock  x:Name="ArmLUR" Text="" Grid.Column="7" HorizontalAlignment="Left" Grid.Row="8" Grid.RowSpan="2" TextWrapping="Wrap"  VerticalAlignment="Center" Grid.ColumnSpan="2" Width="40" Height="40" Padding="6" FontSize="20" FontWeight="Bold"/>
+        <TextBlock  x:Name="ArmLUL" Text="" HorizontalAlignment="Left" Grid.Row="8" Grid.RowSpan="2" TextWrapping="Wrap"  VerticalAlignment="Center" Grid.ColumnSpan="2" Width="40" Height="40" Padding="6" FontSize="20" FontWeight="Bold" Grid.Column="1"/>
+
+        <TextBlock  x:Name="LegLUR" Text="" Grid.Column="8" HorizontalAlignment="Left" Grid.Row="12" Grid.RowSpan="2" VerticalAlignment="Center" Grid.ColumnSpan="2" Width="40" Height="40" Padding="6" FontSize="20" FontWeight="Bold"/>
+        <TextBlock  x:Name="LegLDL" Text="" Grid.Column="4" HorizontalAlignment="Left" Grid.Row="16" Grid.RowSpan="2" VerticalAlignment="Center" Grid.ColumnSpan="2" Width="40" Height="40" Padding="6" FontSize="20" FontWeight="Bold"/>
+        <TextBlock  x:Name="LegRUL" Text="" HorizontalAlignment="Left" Grid.Row="12" Grid.RowSpan="2" TextWrapping="Wrap"  VerticalAlignment="Center" Grid.ColumnSpan="2" Width="40" Height="40" Padding="6" FontSize="20" FontWeight="Bold" Grid.Column="10"/>
+        <TextBlock  x:Name="LegRDR" Text="" Grid.Column="14" HorizontalAlignment="Left" Grid.Row="16" Grid.RowSpan="2" VerticalAlignment="Center" Grid.ColumnSpan="2" Width="40" Height="40" Padding="6" FontSize="20" FontWeight="Bold"/>
+
+
+
+
+
+
+
+
+
     </Grid>
 </UserControl>

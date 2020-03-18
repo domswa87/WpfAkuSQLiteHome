@@ -98,6 +98,8 @@
     </ApplicationDefinition>
     <Compile Include="Bootstrapper.cs" />
     <Compile Include="Models\Calculator\Calculator.cs" />
+    <Compile Include="Models\Calculator\GraphLogic.cs" />
+    <Compile Include="Models\Calculator\GraphModel.cs" />
     <Compile Include="Models\Calculator\Logic\CalculatorLogic.cs" />
     <Compile Include="Models\Calculator\Logic\Output\CalculatorOutput.cs" />
     <Compile Include="Models\Calculator\DataForCalculation\DataAccess\Tables\DatabaseTables.cs" />

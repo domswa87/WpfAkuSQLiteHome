@@ -23,7 +23,6 @@
             <RowDefinition Height="20" />
             <RowDefinition Height="20" />
             <RowDefinition Height="10" />
-
         </Grid.RowDefinitions>
         <Label Content="Year" Grid.Column="1" Grid.Row="1" Height="20" FontSize="12" FontWeight="Bold" VerticalContentAlignment="Center" Padding="0"/>
         <Label Content="Month" Grid.Column="1" Grid.Row="2" VerticalAlignment="Top" Height="20"  VerticalContentAlignment="Center" FontSize="12" FontWeight="Bold" Padding="0"/>
