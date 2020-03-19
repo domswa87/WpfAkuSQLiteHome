@@ -46,7 +46,12 @@ namespace WpfAkuSQLiteHome
 
         protected override void OnStartup(object sender, StartupEventArgs e)
         {
-            DisplayRootViewFor<ShellViewModel>();
+            Dictionary<string, object> window_settings = new Dictionary<string, object>();
+            window_settings.Add("WindowStartupLocation", System.Windows.WindowStartupLocation.CenterScreen);
+            window_settings.Add("WindowState", System.Windows.WindowState.Maximized);
+            window_settings.Add("SizeToContent", System.Windows.SizeToContent.WidthAndHeight);
+
+            DisplayRootViewFor<ShellViewModel>(window_settings);
         }
 
         protected override object GetInstance(Type service, string key)

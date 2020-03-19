@@ -10,6 +10,7 @@ namespace WpfAkuSQLiteHome.ViewModels
     public class ShellViewModel : Conductor<object>.Collection.OneActive
     {
         private string myVar;
+        private readonly IWindowManager windowManager;
 
         public string MyPropertyDS
         {
@@ -23,10 +24,11 @@ namespace WpfAkuSQLiteHome.ViewModels
         public ICalendarViewModel CalendarViewModel { get; }
     
 
-        public ShellViewModel(ICalculatorViewModel sBCalculatorViewModel, ICalendarViewModel calendarViewModel)
+        public ShellViewModel(ICalculatorViewModel sBCalculatorViewModel, ICalendarViewModel calendarViewModel, IWindowManager windowManager)
         {
             SBCalculatorViewModel = sBCalculatorViewModel;
             CalendarViewModel = calendarViewModel;
+            this.windowManager = windowManager;
         }
 
         public void LoadPageOne() => ActivateItem(SBCalculatorViewModel);
