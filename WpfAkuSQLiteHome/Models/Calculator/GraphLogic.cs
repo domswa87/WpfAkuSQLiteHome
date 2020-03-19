@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace WpfAkuSQLiteHome.Models.Calculator
 {
-    static class GraphLogic
+    public class GraphLogic
     {
-        public static GraphModel graphModel { get; set; }
+        public GraphModel graphModel { get; set; }
 
-        public static GraphModel FillGraphModel(CalculatorOutput CalculatorOutput)
+        public GraphModel FillGraphModel(CalculatorOutput CalculatorOutput)
         {
             graphModel = new GraphModel();
             string yearSteam = CalculatorOutput.Year.Steam.EnglishString;
@@ -57,7 +57,6 @@ namespace WpfAkuSQLiteHome.Models.Calculator
                     graphModel.LegL = "+";
                     break;
             }
-
 
             string yearBranch = CalculatorOutput.Year.Branch.EnglishString;
             switch (yearBranch)

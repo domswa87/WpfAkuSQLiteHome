@@ -18,7 +18,6 @@ namespace WpfAkuSQLiteHome.ViewModels
         }
 
 
-
         public ICalculatorViewModel SBCalculatorViewModel { get; }
     
         public ICalendarViewModel CalendarViewModel { get; }

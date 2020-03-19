@@ -5,10 +5,17 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:WpfAkuSQLiteHome.Views"
              mc:Ignorable="d" 
-             d:DesignHeight="1200" d:DesignWidth="1900" Background="LightSlateGray" >
+             d:DesignHeight="1000" d:DesignWidth="1200" Background="LightSlateGray"  >
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="20"/>
+            <ColumnDefinition Width="100"/>
+            <ColumnDefinition Width="100"/>
+            <ColumnDefinition Width="100"/>
+            <ColumnDefinition Width="100"/>
+            <ColumnDefinition Width="100"/>
+            <ColumnDefinition Width="100"/>
+            <ColumnDefinition Width="100"/>
             <ColumnDefinition Width="100"/>
             <ColumnDefinition Width="100"/>
             <ColumnDefinition Width="100"/>
@@ -22,6 +29,12 @@
             <RowDefinition Height="30"/>
             <RowDefinition Height="100"/>
             <RowDefinition Height="100"/>
+            <RowDefinition Height="100"/>
+            <RowDefinition Height="100"/>
+            <RowDefinition Height="100"/>
+            <RowDefinition Height="100"/>
+            <RowDefinition Height="100"/>
+            <RowDefinition Height="100"/>
             <RowDefinition Height="*"/>
             <RowDefinition Height="20"/>
         </Grid.RowDefinitions>
@@ -32,7 +45,7 @@
         <Button x:Name="LoadPageFour" Grid.Row="1" Grid.Column="4">Fourth</Button>
         <Button x:Name="LoadPageFive" Grid.Row="1" Grid.Column="5">Fifth</Button>
         <TextBox x:Name="MyPropertDS" Grid.Row="1" Grid.Column="6"></TextBox>
-        <ContentControl Grid.Row="2" Grid.Column="1" Grid.RowSpan="3" Grid.ColumnSpan="6" x:Name="ActiveItem"/>
+        <ContentControl Width="1000" Height="800" Grid.Row="2" Grid.Column="1" Grid.RowSpan="8" Grid.ColumnSpan="10" x:Name="ActiveItem"/>
 
     </Grid>
 </UserControl>

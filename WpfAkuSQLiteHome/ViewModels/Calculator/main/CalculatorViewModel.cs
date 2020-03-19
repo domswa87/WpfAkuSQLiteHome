@@ -22,6 +22,8 @@ namespace WpfAkuSQLiteHome.ViewModels
         public DatabaseTablesCollection DatabaseTablesCollection { get; set; }
         public Calculator Calculator { get; set; }
         public CalculatorOutput CalculatorOutput { get; set; }
+        public GraphLogic GraphLogic { get; set; }
+        public GraphModel GraphModel { get; set; }
         public DateTime InputDate { get; set; }
 
 
@@ -39,7 +41,8 @@ namespace WpfAkuSQLiteHome.ViewModels
         {
             DatabaseTablesCollection = new DatabaseTablesCollection();
             Calculator = new Calculator();
-
+            GraphLogic = new GraphLogic();
+            GraphModel = new GraphModel();
         }
 
         public void Handle(string message)
@@ -48,13 +51,15 @@ namespace WpfAkuSQLiteHome.ViewModels
             {
                 InputDate = new DateTime(int.Parse(InputCalculatorViewModel.Year), int.Parse(InputCalculatorViewModel.Month), int.Parse(InputCalculatorViewModel.Day), int.Parse(InputCalculatorViewModel.Hour), 0, 0);
                 // validation
+
                 CalculatorOutput = Calculator.CalculateOutput(InputDate, DatabaseTablesCollection);
                 UpdateTableViewModel();
 
-                GraphModel graphModel = GraphLogic.FillGraphModel(CalculatorOutput);
-                UpdateGraphViewModel(graphModel);
+                GraphModel = GraphLogic.FillGraphModel(CalculatorOutput);
+                UpdateGraphViewModel();
             }
         }
+
 
         public void UpdateTableViewModel()
         {
@@ -107,44 +112,33 @@ namespace WpfAkuSQLiteHome.ViewModels
             TableCalculatorViewModel.MonthBranchColor = CalculatorOutput.Month.Branch.Colour;
         }
 
-        public void UpdateGraphViewModel(GraphModel graphModel)
+        public void UpdateGraphViewModel()
         {
-            GraphCalculatorViewModel.Head = graphModel.Head;
-            GraphCalculatorViewModel.ArmR = graphModel.ArmR;
-            GraphCalculatorViewModel.ArmL = graphModel.ArmL;
-            GraphCalculatorViewModel.LegR = graphModel.LegR;
-            GraphCalculatorViewModel.LegL = graphModel.LegL;
+            GraphCalculatorViewModel.Head = GraphModel.Head;
+            GraphCalculatorViewModel.ArmR = GraphModel.ArmR;
+            GraphCalculatorViewModel.ArmL = GraphModel.ArmL;
+            GraphCalculatorViewModel.LegR = GraphModel.LegR;
+            GraphCalculatorViewModel.LegL = GraphModel.LegL;
 
 
-            GraphCalculatorViewModel.HeadUR = graphModel.HeadUR;
-            GraphCalculatorViewModel.ArmRUR = graphModel.ArmRUR;
-            GraphCalculatorViewModel.ArmLUR = graphModel.ArmLUR;
-            GraphCalculatorViewModel.LegRUR = graphModel.LegRUR;
-            GraphCalculatorViewModel.LegLUR = graphModel.LegLUR;
+            GraphCalculatorViewModel.HeadUR = GraphModel.HeadUR;
+            GraphCalculatorViewModel.ArmRUR = GraphModel.ArmRUR;
+            GraphCalculatorViewModel.ArmLUR = GraphModel.ArmLUR;
+            GraphCalculatorViewModel.LegLUR = GraphModel.LegLUR;
 
 
-            GraphCalculatorViewModel.HeadUL = graphModel.HeadUL;
-            GraphCalculatorViewModel.ArmRUL = graphModel.ArmRUL;
-            GraphCalculatorViewModel.ArmLUL = graphModel.ArmLUL;
-            GraphCalculatorViewModel.LegRUL = graphModel.LegRUL;
-            GraphCalculatorViewModel.LegLUL = graphModel.LegLUL;
+            GraphCalculatorViewModel.HeadUL = GraphModel.HeadUL;
+            GraphCalculatorViewModel.ArmRUL = GraphModel.ArmRUL;
+            GraphCalculatorViewModel.ArmLUL = GraphModel.ArmLUL;
+            GraphCalculatorViewModel.LegRUL = GraphModel.LegRUL;
 
 
-            GraphCalculatorViewModel.HeadDR = graphModel.HeadDR;
-            GraphCalculatorViewModel.ArmRDR = graphModel.ArmRDR;
-            GraphCalculatorViewModel.ArmLDR = graphModel.ArmLDR;
-            GraphCalculatorViewModel.LegRDR = graphModel.LegRDR;
-            GraphCalculatorViewModel.LegLDR = graphModel.LegLDR;
+            GraphCalculatorViewModel.HeadDR = GraphModel.HeadDR;
+            GraphCalculatorViewModel.LegRDR = GraphModel.LegRDR;
 
 
-            GraphCalculatorViewModel.HeadDL = graphModel.HeadDL;
-            GraphCalculatorViewModel.ArmRDL = graphModel.ArmRDL;
-            GraphCalculatorViewModel.ArmLDL = graphModel.ArmLDL;
-            GraphCalculatorViewModel.LegRDL = graphModel.LegRDL;
-            GraphCalculatorViewModel.LegLDL = graphModel.LegLDL;
-
-
-
+            GraphCalculatorViewModel.HeadDL = GraphModel.HeadDL;
+            GraphCalculatorViewModel.LegLDL = GraphModel.LegLDL;
         }
     }
 }
