@@ -139,6 +139,12 @@ namespace WpfAkuSQLiteHome.ViewModels
 
             GraphCalculatorViewModel.HeadDL = GraphModel.HeadDL;
             GraphCalculatorViewModel.LegLDL = GraphModel.LegLDL;
+
+            GraphCalculatorViewModel.HeadFontSize = GraphModel.HeadFontSize;
+            GraphCalculatorViewModel.ArmRFontSize = GraphModel.ArmRFontSize;
+            GraphCalculatorViewModel.ArmLFontSize = GraphModel.ArmLFontSize;
+            GraphCalculatorViewModel.LegRFontSize = GraphModel.LegRFontSize;
+            GraphCalculatorViewModel.LegLFontSize = GraphModel.LegLFontSize;
         }
     }
 }

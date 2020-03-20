@@ -33,5 +33,11 @@ namespace WpfAkuSQLiteHome.Models.Calculator
 
         public string HeadDL { get; set; }
         public string LegLDL { get; set; }
+
+        public int HeadFontSize { get; set; }
+        public int ArmRFontSize { get; set; }
+        public int ArmLFontSize { get; set; }
+        public int LegRFontSize { get; set; }
+        public int LegLFontSize { get; set; }
     }
 }

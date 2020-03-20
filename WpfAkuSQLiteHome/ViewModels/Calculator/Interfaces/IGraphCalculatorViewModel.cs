@@ -19,5 +19,10 @@
         string LegL { get; set; }
         string LegLUR { get; set; }
         string LegLDL { get; set; }
+        int HeadFontSize { get; set; }
+        int ArmRFontSize { get; set; }
+        int ArmLFontSize { get; set; }
+        int LegLFontSize { get; set; }
+        int LegRFontSize { get; set; }
     }
 }

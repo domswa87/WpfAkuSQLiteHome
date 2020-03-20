@@ -72,5 +72,25 @@ namespace WpfAkuSQLiteHome.ViewModels
 
         private string legLDL;
         public string LegLDL { get => legLDL; set { legLDL = value; NotifyOfPropertyChange(() => LegLDL); } }
+
+
+        private int headFontSize;
+        public int HeadFontSize { get => headFontSize; set { headFontSize = value; NotifyOfPropertyChange(() => HeadFontSize); } }
+
+
+        private int armRFontSize;
+        public int ArmRFontSize { get => armRFontSize; set { armRFontSize = value; NotifyOfPropertyChange(() => ArmRFontSize); } }
+
+
+        private int armLFontSize;
+        public int ArmLFontSize { get => armLFontSize; set { armLFontSize = value; NotifyOfPropertyChange(() => ArmLFontSize); } }
+
+
+        private int legLFontSize;
+        public int LegLFontSize { get => legLFontSize; set { legLFontSize = value; NotifyOfPropertyChange(() => LegLFontSize); } }
+
+
+        private int legRFontSize;
+        public int LegRFontSize { get => legRFontSize; set { legRFontSize = value; NotifyOfPropertyChange(() => LegRFontSize); } }
     }
 }
