@@ -23,6 +23,7 @@ namespace WpfAkuSQLiteHome.Models.Calculator
         private int YearBranchKey = 0;
         private int monthNumber = 0;
         private int DaySteamKey = 0;
+        private string Division;
 
         public CalculatorOutput CalculateOutput(DateTime givenDate, DatabaseTablesCollection databaseTablesCollection)
         {
@@ -33,7 +34,26 @@ namespace WpfAkuSQLiteHome.Models.Calculator
             MonthCalculation();
             DayCalculation();
             HourCalculation();
+            DivisionCalculation();
             return CalculatorOutput;
+        }
+
+        private void DivisionCalculation()
+        {
+            int _monthNumber = monthNumber;
+            int _branchKey = YearBranchKey;
+            if (_monthNumber > 6)
+            {
+                _branchKey = _branchKey + 3;
+            }
+            int divisionKey = _branchKey % 6;
+            if (divisionKey==0)
+            {
+                divisionKey = 6;
+            }
+            string[] divisionsArray = { "Shao Yin", "Tai Yin", "Shao Yang", "Yang Ming", "Tai Yang", "Jue Yin" };
+            Division = divisionsArray[divisionKey - 1];
+            AssignDivisionCalculatorOutput();
         }
 
         private void YearCalculation()
@@ -185,6 +205,14 @@ namespace WpfAkuSQLiteHome.Models.Calculator
             CalculatorOutput.Hour.Branch.Colour = GetColor(DatabaseTablesCollection.branchTables[branchKey - 1].Colour);
             CalculatorOutput.Hour.BelowRowTable = DatabaseTablesCollection.branchTables[branchKey - 1].BelowTableRow;
         }
+
+        private void AssignDivisionCalculatorOutput()
+        {
+            CalculatorOutput.AdditionalInfo.Division = Division;
+        }
+
+
+
 
         private SolidColorBrush GetColor(string color)
         {

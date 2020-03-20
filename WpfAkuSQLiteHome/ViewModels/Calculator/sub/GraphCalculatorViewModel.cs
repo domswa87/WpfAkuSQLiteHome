@@ -9,6 +9,11 @@ namespace WpfAkuSQLiteHome.ViewModels
 {
     public class GraphCalculatorViewModel : Screen, IGraphCalculatorViewModel
     {
+        // Division
+        private string division;
+        public string Division { get => division; set { division = value; NotifyOfPropertyChange(() => Division); } }
+
+
         // HEAD
         private string head;
         public string Head { get => head; set { head = value; NotifyOfPropertyChange(() => Head); } }

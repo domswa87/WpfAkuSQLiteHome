@@ -44,7 +44,7 @@
 
         <ContentControl  Height="200" Width="200" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="1"  Grid.RowSpan="1" x:Name="InputCalculatorViewModel"/>
         <ContentControl  Height="200" Width="600" Grid.Row="1" Grid.Column="2" Grid.ColumnSpan="3"  Grid.RowSpan="1" x:Name="TableCalculatorViewModel"/>
-        <ScrollViewer FlowDirection="RightToLeft" Grid.Row="2" Grid.Column="1" Grid.RowSpan="5" Grid.ColumnSpan="5">
+        <ScrollViewer FlowDirection="LeftToRight" Grid.Row="2" Grid.Column="1" Grid.RowSpan="5" Grid.ColumnSpan="5" VerticalScrollBarVisibility="Hidden" Background="#FFB69E6A">
             <ContentControl  Height="1500" Width="900" Margin="0,0,0,0"  x:Name="GraphCalculatorViewModel"/>
         </ScrollViewer>
     </Grid>

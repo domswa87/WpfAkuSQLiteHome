@@ -24,5 +24,6 @@
         int ArmLFontSize { get; set; }
         int LegLFontSize { get; set; }
         int LegRFontSize { get; set; }
+        string Division { get; set; }
     }
 }

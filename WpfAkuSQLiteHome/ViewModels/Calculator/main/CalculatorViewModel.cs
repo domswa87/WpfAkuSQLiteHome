@@ -145,6 +145,8 @@ namespace WpfAkuSQLiteHome.ViewModels
             GraphCalculatorViewModel.ArmLFontSize = GraphModel.ArmLFontSize;
             GraphCalculatorViewModel.LegRFontSize = GraphModel.LegRFontSize;
             GraphCalculatorViewModel.LegLFontSize = GraphModel.LegLFontSize;
+
+            GraphCalculatorViewModel.Division = CalculatorOutput.AdditionalInfo.Division;
         }
     }
 }
