@@ -68,7 +68,8 @@ namespace WpfAkuSQLiteHome.Models
         public string Season { get; set; }
 
         public string Forbidden { get; set; }
-        public string ForbiddenMeridians { get; set; }
+        public string ForbiddenMeridians1 { get; set; }
+        public string ForbiddenMeridians2 { get; set; }
         public string ForbiddenRegion { get; set; }
 
         public string Hsiu { get; set; }

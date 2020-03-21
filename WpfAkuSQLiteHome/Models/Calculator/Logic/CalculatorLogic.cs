@@ -24,6 +24,7 @@ namespace WpfAkuSQLiteHome.Models.Calculator
         private int monthNumber = 0;
         private int DaySteamKey = 0;
         private string Division;
+        private int DayAdjustemntNumber =0;
 
         public CalculatorOutput CalculateOutput(DateTime givenDate, DatabaseTablesCollection databaseTablesCollection)
         {
@@ -35,7 +36,59 @@ namespace WpfAkuSQLiteHome.Models.Calculator
             DayCalculation();
             HourCalculation();
             DivisionCalculation();
+            CorrectiveEnergyCalculation();
+            SeasonCalculation(givenDate);
+            ForbiddenCalculation();
             return CalculatorOutput;
+        }
+
+        private void ForbiddenCalculation()
+        {
+            int forbiddenKey = DayAdjustemntNumber;
+            CalculatorOutput.AdditionalInfo.ForbiddenMeridians1 = DatabaseTablesCollection.dayTables[forbiddenKey - 1].Symbol1;
+            CalculatorOutput.AdditionalInfo.ForbiddenMeridians2 = DatabaseTablesCollection.dayTables[forbiddenKey - 1].Symbol2;
+            CalculatorOutput.AdditionalInfo.ForbiddenRegion = DatabaseTablesCollection.dayTables[forbiddenKey - 1].Rest;
+        }
+
+        private void SeasonCalculation(DateTime givenDate)
+        {
+            int day = givenDate.Day;
+            int month = givenDate.Month;
+            int[] MonthArray = { 0,1,2,4,5,7,8,10,11 };
+            int seasonKey = int.Parse(MonthArray.Select(element => element <= month).First().ToString());
+            int SeasonKey = Array.FindIndex(MonthArray, element => element == seasonKey) + 1;
+            int[] DayArray = { 0,18,5,18,6,21,8,21,8 };
+            int relevantDay = DayArray[SeasonKey - 1];
+            int relevantMonth = MonthArray[SeasonKey - 1];
+            int adjustedKey;
+            if (month > relevantMonth)
+            {
+                adjustedKey = seasonKey;
+            }
+            else
+            {
+                if (day<relevantDay)
+                {
+                    adjustedKey = seasonKey - 1;
+                }
+                else
+                {
+                    adjustedKey = seasonKey;
+                }
+            }
+            string[] SeasonArray = { "Winter", "Winter (Earth)", "Spring", "Spring (Earth)", "Summer", "Summer (Earth)", "Autumn", "Autumn (Earth)","Winter" };
+            string[] ForbiddenArray = { "3 leg yin left", "3 leg yin left", "3 leg yang left", "3 leg yang left","3 leg yang right","3 leg yang right","3 leg yin right","3 leg yin right","3 leg yin left" };
+            CalculatorOutput.AdditionalInfo.Season = SeasonArray[adjustedKey - 1];
+            CalculatorOutput.AdditionalInfo.Forbidden = ForbiddenArray[adjustedKey - 1];
+        }
+
+        private void CorrectiveEnergyCalculation()
+        {
+            int correctionKey = YearBranchKey%6;
+            if (correctionKey == 0)
+                correctionKey = 6;
+            string[] CorrectionKeyArray = { "Fire M.", "Earth", "Fire P.", "Metal", "Water", "Wood" };
+            CalculatorOutput.AdditionalInfo.CorrectiveEnergy = CorrectionKeyArray[correctionKey - 1];
         }
 
         private void DivisionCalculation()
@@ -78,9 +131,9 @@ namespace WpfAkuSQLiteHome.Models.Calculator
             var betweenDatesDays = (GivenDate - Convert.ToDateTime("01/01/1904")).TotalDays;
             int days = Convert.ToInt32(betweenDatesDays);
             int keyNumber = (days - 29) % 60 == 0 ? 60 : (days - 29) % 60;
-            int adjustedNumber = keyNumber == 13 ? keyNumber + 1 : keyNumber;
-            int steamKey = adjustedNumber % 10 == 0 ? 10 : adjustedNumber % 10;
-            int branchKey = adjustedNumber % 12 == 0 ? 12 : adjustedNumber % 12;
+            DayAdjustemntNumber = keyNumber == 13 ? keyNumber + 1 : keyNumber;
+            int steamKey = DayAdjustemntNumber % 10 == 0 ? 10 : DayAdjustemntNumber % 10;
+            int branchKey = DayAdjustemntNumber % 12 == 0 ? 12 : DayAdjustemntNumber % 12;
             DaySteamKey = steamKey;
             AssignDayCalculatorOutput(steamKey, branchKey);
         }

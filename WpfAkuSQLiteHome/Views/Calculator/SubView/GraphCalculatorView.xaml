@@ -59,11 +59,26 @@
         <Ellipse Grid.Row="13" Grid.Column="5" Fill="LightYellow" Height="80" Width="80"  Visibility="Visible"   Margin="0,0,0,0" Grid.ColumnSpan="4" HorizontalAlignment="Left" Grid.RowSpan="4"/>
         <Ellipse Grid.Row="13" Grid.Column="11" Fill="LightYellow" Height="80" Width="80"  Visibility="Visible"   Margin="0,0,0,0" Grid.ColumnSpan="4" HorizontalAlignment="Left" Grid.RowSpan="4"/>
 
-        <TextBox  x:Name="Head" FontSize="{Binding Path=HeadFontSize}" Width="80"  HorizontalAlignment="Left" TextWrapping="Wrap" Text="" Grid.ColumnSpan="5" Margin="1,14,0,14" Grid.RowSpan="4" Grid.Column="8" Grid.Row="3" FontWeight="Bold" IsReadOnly="True" BorderBrush="{x:Null}" Background="{x:Null}" TextAlignment="Center" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"  />
-        <TextBox  x:Name="ArmR" FontSize="{Binding Path=ArmRFontSize}" Width="80"  HorizontalAlignment="Left" TextWrapping="Wrap" Text="" Grid.ColumnSpan="4" Margin="0,16,0,14" Grid.RowSpan="4" Grid.Column="13" Grid.Row="7" FontWeight="Bold" IsReadOnly="True" BorderBrush="{x:Null}" Background="{x:Null}" TextAlignment="Center" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" />
+        <Label  x:Name="Head" FontSize="{Binding Path=HeadFontSize}" Margin="{Binding Path=HeadMargin}" Width="80" Height="120" VerticalContentAlignment="Center"
+                HorizontalContentAlignment="Center"  Background="{x:Null}" Padding="0" Grid.ColumnSpan="4" Grid.Column="8"  Grid.RowSpan="7" Grid.Row="1" FontFamily="SimSun-ExtB" />
+
+        <Label  x:Name="ArmR" FontSize="{Binding Path=ArmRFontSize}" Margin="{Binding Path=ArmRMargin}" Width="80" Height="120" VerticalContentAlignment="Center"
+                HorizontalContentAlignment="Center"  Background="{x:Null}" Padding="0" Grid.ColumnSpan="4" Grid.Column="13"  Grid.RowSpan="7" Grid.Row="5" FontFamily="SimSun-ExtB"/>
+
+        <Label  x:Name="ArmL" FontSize="{Binding Path=ArmLFontSize}" Margin="{Binding Path=ArmLMargin}" Width="80" Height="120" VerticalContentAlignment="Center"
+                HorizontalContentAlignment="Center"  Background="{x:Null}" Padding="0" Grid.ColumnSpan="4" Grid.Column="3"  Grid.RowSpan="7" Grid.Row="5" FontFamily="SimSun-ExtB"/>
+
+        <Label  x:Name="LegL" FontSize="{Binding Path=LegLFontSize}" Margin="{Binding Path=LegLMargin}" Width="80" Height="120" VerticalContentAlignment="Center"
+                HorizontalContentAlignment="Center"  Background="{x:Null}" Padding="0" Grid.ColumnSpan="4" Grid.Column="5"  Grid.RowSpan="7" Grid.Row="11" FontFamily="SimSun-ExtB"/>
+
+        <Label  x:Name="LegR" FontSize="{Binding Path=LegRFontSize}" Margin="{Binding Path=LegRMargin}" Width="80" Height="120" VerticalContentAlignment="Center"
+                HorizontalContentAlignment="Center"  Background="{x:Null}" Padding="0" Grid.ColumnSpan="4" Grid.Column="11"  Grid.RowSpan="7" Grid.Row="11" FontFamily="SimSun-ExtB"/>
+        
+
+        <!--<TextBox  x:Name="ArmR" FontSize="{Binding Path=ArmRFontSize}" Width="80"  HorizontalAlignment="Left" TextWrapping="Wrap" Text="" Grid.ColumnSpan="4" Margin="0,16,0,14" Grid.RowSpan="4" Grid.Column="13" Grid.Row="7" FontWeight="Bold" IsReadOnly="True" BorderBrush="{x:Null}" Background="{x:Null}" TextAlignment="Center" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" />
         <TextBox  x:Name="ArmL" FontSize="{Binding Path=ArmLFontSize}" Width="80"  HorizontalAlignment="Left" TextWrapping="Wrap" Text="" Grid.ColumnSpan="4" Margin="0,16,0,14" Grid.RowSpan="4" Grid.Column="3" Grid.Row="7" FontWeight="Bold" IsReadOnly="True" BorderBrush="{x:Null}" Background="{x:Null}" TextAlignment="Center" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" />
         <TextBox  x:Name="LegR" FontSize="{Binding Path=LegRFontSize}" Width="80"  HorizontalAlignment="Left" TextWrapping="Wrap" Text="" Grid.ColumnSpan="4" Margin="0,15" Grid.RowSpan="4" Grid.Column="11" Grid.Row="13" FontWeight="Bold" IsReadOnly="True" BorderBrush="{x:Null}" Background="{x:Null}" TextAlignment="Center" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" />
-        <TextBox  x:Name="LegL" FontSize="{Binding Path=LegLFontSize}" Width="80"  HorizontalAlignment="Left" TextWrapping="Wrap" Text="" Grid.ColumnSpan="5" Margin="1,16,0,14" Grid.RowSpan="4" Grid.Column="5" Grid.Row="13" FontWeight="Bold" IsReadOnly="True" BorderBrush="{x:Null}" Background="{x:Null}" TextAlignment="Center" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" />
+        <TextBox  x:Name="LegL" FontSize="{Binding Path=LegLFontSize}" Width="80"  HorizontalAlignment="Left" TextWrapping="Wrap" Text="" Grid.ColumnSpan="5" Margin="1,16,0,14" Grid.RowSpan="4" Grid.Column="5" Grid.Row="13" FontWeight="Bold" IsReadOnly="True" BorderBrush="{x:Null}" Background="{x:Null}" TextAlignment="Center" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" />-->
 
         <Label Content="Year Steam"  FontSize="20" Grid.Column="7" Margin="0,5,2,5" HorizontalAlignment="Right" Width="115" Background="{x:Null}" Grid.ColumnSpan="6" Grid.RowSpan="2" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Padding="0"/>
         <Label x:Name="Division"  FontSize="20" Grid.Column="1" Margin="0,10,15,0" HorizontalAlignment="Right" Width="75" Background="{x:Null}" Grid.ColumnSpan="5" Grid.RowSpan="2" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Padding="0"/>

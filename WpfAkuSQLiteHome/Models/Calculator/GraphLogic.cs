@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace WpfAkuSQLiteHome.Models.Calculator
 {
@@ -14,70 +15,102 @@ namespace WpfAkuSQLiteHome.Models.Calculator
         {
             graphModel = new GraphModel();
             string yearSteam = CalculatorOutput.Year.Steam.EnglishString;
-            int bigFont = 35;
-            int smallFont = 25;
+            int bigFont = 80;
+            int smallFont = 30;
+            Thickness smallFontMargin = new Thickness(0,15,0,0);
+            Thickness bigFontMargin = new Thickness(0, 0, 0, 0);
             switch (yearSteam)
             {
               
                 case "GB":
                     graphModel.ArmR = yearSteam + " +";
                     graphModel.ArmRFontSize = smallFont;
+                    graphModel.ArmRMargin = smallFontMargin;
+
                     graphModel.ArmL = "-";
                     graphModel.ArmLFontSize = bigFont;
+                    graphModel.ArmLMargin = bigFontMargin;
                     break;
                 case "LIV":
                     graphModel.LegR = yearSteam + " -";
                     graphModel.LegRFontSize = smallFont;
+                    graphModel.LegRMargin = smallFontMargin;
+
                     graphModel.Head = "+";
                     graphModel.HeadFontSize = bigFont;
+                    graphModel.HeadMargin = bigFontMargin;
                     break;
                 case "SI":
                     graphModel.LegL = yearSteam + " +";
                     graphModel.LegLFontSize = smallFont;
+                    graphModel.LegLMargin = smallFontMargin;
+
                     graphModel.Head = "-";
                     graphModel.HeadFontSize = bigFont;
+                    graphModel.HeadMargin = bigFontMargin;
                     break;
                 case "HT":
                     graphModel.ArmL = yearSteam + " -";
                     graphModel.ArmLFontSize = smallFont;
+                    graphModel.ArmLMargin = smallFontMargin;
+
                     graphModel.LegR = "+";
                     graphModel.LegRFontSize = bigFont;
+                    graphModel.LegRMargin = bigFontMargin;
                     break;
                 case "ST":
                     graphModel.Head = yearSteam + " +";
                     graphModel.HeadFontSize = smallFont;
+                    graphModel.HeadMargin = smallFontMargin;
+
                     graphModel.LegR = "-";
                     graphModel.LegRFontSize = bigFont;
+                    graphModel.LegRMargin = bigFontMargin;
                     break;
                 case "SP":
                     graphModel.ArmR = yearSteam + " -";
                     graphModel.ArmRFontSize = smallFont;
+                    graphModel.ArmRMargin = smallFontMargin;
+
                     graphModel.ArmL = "+";
                     graphModel.ArmLFontSize = bigFont;
+                    graphModel.ArmLMargin = bigFontMargin;
                     break;
                 case "CO":
                     graphModel.LegR = yearSteam + " +";
                     graphModel.LegRFontSize = smallFont;
+                    graphModel.LegRMargin = smallFontMargin;
+
                     graphModel.ArmL = "-";
                     graphModel.ArmLFontSize = bigFont;
+                    graphModel.ArmLMargin = bigFontMargin;
                     break;
                 case "LU":
                     graphModel.LegL = yearSteam + " -";
                     graphModel.LegLFontSize = smallFont;
+                    graphModel.LegLMargin = smallFontMargin;
+
                     graphModel.ArmR = "+";
                     graphModel.ArmRFontSize = bigFont;
+                    graphModel.ArmRMargin = bigFontMargin;
                     break;
                 case "BL":
                     graphModel.ArmL = yearSteam + " +";
                     graphModel.ArmLFontSize = smallFont;
+                    graphModel.ArmLMargin = smallFontMargin;
+
                     graphModel.ArmR = "-";
                     graphModel.ArmRFontSize = bigFont;
+                    graphModel.ArmRMargin = bigFontMargin;
                     break;
                 case "KI":
                     graphModel.Head = yearSteam + " -";
                     graphModel.HeadFontSize = smallFont;
+                    graphModel.HeadMargin = smallFontMargin;
+
                     graphModel.LegL = "+";
                     graphModel.LegLFontSize = bigFont;
+                    graphModel.LegLMargin = bigFontMargin;
                     break;
             }
 

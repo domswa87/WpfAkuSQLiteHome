@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace WpfAkuSQLiteHome.ViewModels
 {
@@ -79,6 +80,8 @@ namespace WpfAkuSQLiteHome.ViewModels
         public string LegLDL { get => legLDL; set { legLDL = value; NotifyOfPropertyChange(() => LegLDL); } }
 
 
+        // SMALL SYMBOLS
+
         private int headFontSize;
         public int HeadFontSize { get => headFontSize; set { headFontSize = value; NotifyOfPropertyChange(() => HeadFontSize); } }
 
@@ -97,5 +100,23 @@ namespace WpfAkuSQLiteHome.ViewModels
 
         private int legRFontSize;
         public int LegRFontSize { get => legRFontSize; set { legRFontSize = value; NotifyOfPropertyChange(() => LegRFontSize); } }
+
+        // BIG SYMBOLS
+
+        private int headMargin;
+        public int HeadMargin { get => headMargin; set { headMargin = value; NotifyOfPropertyChange(() => HeadMargin); } }
+
+        private int armRMargin;
+        public int ArmRMargin { get => armRMargin; set { armRMargin = value; NotifyOfPropertyChange(() => ArmRMargin); } }
+
+        private int armLMargin;
+        public int ArmLMargin { get => armLMargin; set { armLMargin = value; NotifyOfPropertyChange(() => ArmLMargin); } }
+
+        private int legRMargin;
+        public int LegRMargin { get => legRMargin; set { legRMargin = value; NotifyOfPropertyChange(() => LegRMargin); } }
+
+        private int legLMargin;
+        public int LegLMargin { get => legLMargin; set { legLMargin = value; NotifyOfPropertyChange(() => LegLMargin); } }
+
     }
 }

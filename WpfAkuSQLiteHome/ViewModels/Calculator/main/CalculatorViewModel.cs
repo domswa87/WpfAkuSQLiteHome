@@ -147,6 +147,11 @@ namespace WpfAkuSQLiteHome.ViewModels
             GraphCalculatorViewModel.LegLFontSize = GraphModel.LegLFontSize;
 
             GraphCalculatorViewModel.Division = CalculatorOutput.AdditionalInfo.Division;
+            GraphCalculatorViewModel.HeadMargin = GraphModel.HeadMargin;
+            GraphCalculatorViewModel.ArmRMargin = GraphModel.ArmRMargin;
+            GraphCalculatorViewModel.ArmLMargin = GraphModel.ArmLMargin;
+            GraphCalculatorViewModel.LegRMargin = GraphModel.LegRMargin;
+            GraphCalculatorViewModel.LegLMargin = GraphModel.LegLMargin;
         }
     }
 }

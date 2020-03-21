@@ -1,4 +1,6 @@
-﻿namespace WpfAkuSQLiteHome.ViewModels
+﻿using System.Windows;
+
+namespace WpfAkuSQLiteHome.ViewModels
 {
     public interface IGraphCalculatorViewModel
     {
@@ -25,5 +27,10 @@
         int LegLFontSize { get; set; }
         int LegRFontSize { get; set; }
         string Division { get; set; }
+        Thickness HeadMargin { get; set; }
+        Thickness ArmRMargin { get; set; }
+        Thickness ArmLMargin { get; set; }
+        Thickness LegRMargin { get; set; }
+        Thickness LegLMargin { get; set; }
     }
 }

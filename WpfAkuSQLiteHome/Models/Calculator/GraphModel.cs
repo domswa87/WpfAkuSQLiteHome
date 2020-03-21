@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace WpfAkuSQLiteHome.Models.Calculator
 {
@@ -39,5 +40,12 @@ namespace WpfAkuSQLiteHome.Models.Calculator
         public int ArmLFontSize { get; set; }
         public int LegRFontSize { get; set; }
         public int LegLFontSize { get; set; }
+
+        public Thickness HeadMargin { get; set; }
+        public Thickness ArmRMargin { get; set; }
+        public Thickness ArmLMargin { get; set; }
+        public Thickness LegRMargin { get; set; }
+        public Thickness LegLMargin { get; set; }
+
     }
 }
