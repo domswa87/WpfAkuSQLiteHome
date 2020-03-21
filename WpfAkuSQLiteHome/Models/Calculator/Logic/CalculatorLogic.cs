@@ -79,12 +79,14 @@ namespace WpfAkuSQLiteHome.Models.Calculator
         {
             int day = givenDate.Day;
             int month = givenDate.Month;
-            int[] MonthArray = { 0,1,2,4,5,7,8,10,11 };
-            int seasonKey = int.Parse(MonthArray.Select(element => element <= month).First().ToString());
-            int SeasonKey = Array.FindIndex(MonthArray, element => element == seasonKey) + 1;
+            List<int> MontTable = new List<int> { 0,1,2,4,5,7,8,10,11 };
+
+            var query = MontTable.Where(n => n < 3);
+            var LastElement = query.Last();
+            int seasonKey = MontTable.IndexOf(LastElement) + 1;
             int[] DayArray = { 0,18,5,18,6,21,8,21,8 };
-            int relevantDay = DayArray[SeasonKey - 1];
-            int relevantMonth = MonthArray[SeasonKey - 1];
+            int relevantDay = DayArray[seasonKey - 1];
+            int relevantMonth = MontTable[seasonKey - 1];
             int adjustedKey;
             if (month > relevantMonth)
             {

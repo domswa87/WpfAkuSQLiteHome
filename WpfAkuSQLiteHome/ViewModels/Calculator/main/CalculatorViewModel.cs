@@ -11,10 +11,11 @@ namespace WpfAkuSQLiteHome.ViewModels
 {
     public class CalculatorViewModel : Conductor<object>.Collection.AllActive, ICalculatorViewModel, IHandle<string>
     {
- 
+
         public IInputCalculatorViewModel InputCalculatorViewModel { get; }
         public ITableCalculatorViewModel TableCalculatorViewModel { get; }
         public IGraphCalculatorViewModel GraphCalculatorViewModel { get; }
+        public ITableRestCalculatorViewModel TableRestCalculatorViewModel { get; }
         public IEventAggregator EventAggregator { get; }
 
 
@@ -27,12 +28,14 @@ namespace WpfAkuSQLiteHome.ViewModels
         public DateTime InputDate { get; set; }
 
 
-        public CalculatorViewModel(IEventAggregator eventAggregator, IInputCalculatorViewModel inputCalculatorViewModel, ITableCalculatorViewModel tableCalculatorViewModel, IGraphCalculatorViewModel graphCalculatorViewModel)
+        public CalculatorViewModel(IEventAggregator eventAggregator, IInputCalculatorViewModel inputCalculatorViewModel, ITableCalculatorViewModel tableCalculatorViewModel,
+                                    IGraphCalculatorViewModel graphCalculatorViewModel, ITableRestCalculatorViewModel tableRestCalculatorViewModel)
         {
             EventAggregator = eventAggregator;
             InputCalculatorViewModel = inputCalculatorViewModel;
             TableCalculatorViewModel = tableCalculatorViewModel;
             GraphCalculatorViewModel = graphCalculatorViewModel;
+            TableRestCalculatorViewModel = tableRestCalculatorViewModel;
             EventAggregator.Subscribe(this);
             InitializeData();
         }
@@ -57,9 +60,27 @@ namespace WpfAkuSQLiteHome.ViewModels
 
                 GraphModel = GraphLogic.FillGraphModel(CalculatorOutput);
                 UpdateGraphViewModel();
+
+                UpdateTableRestViewModel();
             }
         }
 
+        private void UpdateTableRestViewModel()
+        {
+            TableRestCalculatorViewModel.H1 = CalculatorOutput.AdditionalInfo.Division;
+            TableRestCalculatorViewModel.H2 = CalculatorOutput.AdditionalInfo.CorrectiveEnergy;
+            TableRestCalculatorViewModel.H3 = CalculatorOutput.AdditionalInfo.Season;
+            TableRestCalculatorViewModel.H4 = CalculatorOutput.AdditionalInfo.Forbidden;
+            TableRestCalculatorViewModel.H5 = CalculatorOutput.AdditionalInfo.ForbiddenMeridians1;
+            TableRestCalculatorViewModel.H6 = CalculatorOutput.AdditionalInfo.ForbiddenMeridians2;
+            TableRestCalculatorViewModel.H7 = CalculatorOutput.AdditionalInfo.ForbiddenRegion;
+            TableRestCalculatorViewModel.H8 = CalculatorOutput.AdditionalInfo.Hsiu.Animal;
+            TableRestCalculatorViewModel.H9 = CalculatorOutput.AdditionalInfo.Hsiu.Direction;
+            TableRestCalculatorViewModel.H10 = CalculatorOutput.AdditionalInfo.Hsiu.Element;
+            TableRestCalculatorViewModel.H11 = CalculatorOutput.AdditionalInfo.Hsiu.Planet;
+            TableRestCalculatorViewModel.H12 = CalculatorOutput.AdditionalInfo.Hsiu.Elts;
+            TableRestCalculatorViewModel.H13 = CalculatorOutput.AdditionalInfo.Hsiu.Points;
+        }
 
         public void UpdateTableViewModel()
         {
@@ -147,11 +168,7 @@ namespace WpfAkuSQLiteHome.ViewModels
             GraphCalculatorViewModel.LegLFontSize = GraphModel.LegLFontSize;
 
             GraphCalculatorViewModel.Division = CalculatorOutput.AdditionalInfo.Division;
-            GraphCalculatorViewModel.HeadMargin = GraphModel.HeadMargin;
-            GraphCalculatorViewModel.ArmRMargin = GraphModel.ArmRMargin;
-            GraphCalculatorViewModel.ArmLMargin = GraphModel.ArmLMargin;
-            GraphCalculatorViewModel.LegRMargin = GraphModel.LegRMargin;
-            GraphCalculatorViewModel.LegLMargin = GraphModel.LegLMargin;
+   
         }
     }
 }

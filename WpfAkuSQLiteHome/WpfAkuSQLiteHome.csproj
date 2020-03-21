@@ -111,6 +111,8 @@
     <Compile Include="ViewModels\Calculator\Interfaces\ICalculatorViewModel.cs" />
     <Compile Include="ViewModels\Calculator\Interfaces\ITableCalculatorViewModel.cs" />
     <Compile Include="ViewModels\Calculator\Interfaces\IGraphCalculatorViewModel.cs" />
+    <Compile Include="ViewModels\Calculator\Interfaces\ITableRestCalculatorViewModel.cs" />
+    <Compile Include="ViewModels\Calculator\sub\TableRestCalculatorViewModel.cs" />
     <Compile Include="ViewModels\Calendar\CalendarViewModel.cs" />
     <Compile Include="ViewModels\Calendar\DayViewModel.cs" />
     <Compile Include="ViewModels\Calendar\Interfaces\ICalendarViewModel.cs" />
@@ -119,6 +121,9 @@
     <Compile Include="ViewModels\Calculator\sub\TableCalculatorViewModel.cs" />
     <Compile Include="ViewModels\Calculator\sub\InputCalculatorViewModel.cs" />
     <Compile Include="ViewModels\ShellViewModel.cs" />
+    <Compile Include="Views\Calculator\SubView\TableRestCalculatorView.xaml.cs">
+      <DependentUpon>TableRestCalculatorView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\Calendar\Main\CalendarView.xaml.cs">
       <DependentUpon>CalendarView.xaml</DependentUpon>
     </Compile>
@@ -145,6 +150,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Models\Calculator\DataForCalculation\DataAccess\DataAccessClass.cs" />
+    <Page Include="Views\Calculator\SubView\TableRestCalculatorView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\Calendar\Main\CalendarView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

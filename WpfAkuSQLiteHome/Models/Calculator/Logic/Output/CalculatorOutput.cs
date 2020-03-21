@@ -63,9 +63,15 @@ namespace WpfAkuSQLiteHome.Models
 
     public class AdditionalInfo
     {
-        public string Division { get; set; }
+        public AdditionalInfo()
+        {
+            this.Division = null;
+            this.CorrectiveEnergy = null;
+        }
+
+        public string Division { get; set; } 
         public string CorrectiveEnergy { get; set; }
-        public string Season { get; set; }
+        public string Season { get; set; } = null;
 
         public string Forbidden { get; set; }
         public string ForbiddenMeridians1 { get; set; }
