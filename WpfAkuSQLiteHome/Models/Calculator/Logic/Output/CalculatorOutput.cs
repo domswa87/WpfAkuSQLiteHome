@@ -71,10 +71,16 @@ namespace WpfAkuSQLiteHome.Models
         public string ForbiddenMeridians1 { get; set; }
         public string ForbiddenMeridians2 { get; set; }
         public string ForbiddenRegion { get; set; }
+        public Hsiu Hsiu { get; set; } = new Hsiu();
+    }
 
-        public string Hsiu { get; set; }
+    public class Hsiu
+    {
+        public string Animal { get; set; }
+        public string Direction { get; set; }
+        public string Element { get; set; }
         public string Planet { get; set; }
+        public string Elts { get; set; }
         public string Points { get; set; }
-
     }
 }

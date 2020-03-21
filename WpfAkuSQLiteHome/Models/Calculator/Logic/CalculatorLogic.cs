@@ -25,6 +25,7 @@ namespace WpfAkuSQLiteHome.Models.Calculator
         private int DaySteamKey = 0;
         private string Division;
         private int DayAdjustemntNumber =0;
+        private int DaysBetweenGivenDateAnd1904 = 0;
 
         public CalculatorOutput CalculateOutput(DateTime givenDate, DatabaseTablesCollection databaseTablesCollection)
         {
@@ -39,8 +40,32 @@ namespace WpfAkuSQLiteHome.Models.Calculator
             CorrectiveEnergyCalculation();
             SeasonCalculation(givenDate);
             ForbiddenCalculation();
+            HsiuCalculation();
+
             return CalculatorOutput;
         }
+
+        private void HsiuCalculation()
+        {
+            int hsiuKey;
+            int daysMinus19 = DaysBetweenGivenDateAnd1904 - 19;
+            int restFromDivision = daysMinus19 % 28;
+            if (restFromDivision ==0)
+            {
+                hsiuKey = 28;
+            }
+            else
+            {
+                hsiuKey = restFromDivision;
+            }
+            CalculatorOutput.AdditionalInfo.Hsiu.Animal = DatabaseTablesCollection.hsiuTable[hsiuKey - 1].Animal;
+            CalculatorOutput.AdditionalInfo.Hsiu.Direction = DatabaseTablesCollection.hsiuTable[hsiuKey - 1].Direction;
+            CalculatorOutput.AdditionalInfo.Hsiu.Element = DatabaseTablesCollection.hsiuTable[hsiuKey - 1].Element;
+            CalculatorOutput.AdditionalInfo.Hsiu.Planet = DatabaseTablesCollection.hsiuTable[hsiuKey - 1].Planet;
+            CalculatorOutput.AdditionalInfo.Hsiu.Elts = DatabaseTablesCollection.hsiuTable[hsiuKey - 1].Elts;
+            CalculatorOutput.AdditionalInfo.Hsiu.Points = DatabaseTablesCollection.hsiuTable[hsiuKey - 1].Rest;
+        }
+
 
         private void ForbiddenCalculation()
         {
@@ -130,6 +155,7 @@ namespace WpfAkuSQLiteHome.Models.Calculator
         {
             var betweenDatesDays = (GivenDate - Convert.ToDateTime("01/01/1904")).TotalDays;
             int days = Convert.ToInt32(betweenDatesDays);
+            DaysBetweenGivenDateAnd1904 = days;
             int keyNumber = (days - 29) % 60 == 0 ? 60 : (days - 29) % 60;
             DayAdjustemntNumber = keyNumber == 13 ? keyNumber + 1 : keyNumber;
             int steamKey = DayAdjustemntNumber % 10 == 0 ? 10 : DayAdjustemntNumber % 10;
