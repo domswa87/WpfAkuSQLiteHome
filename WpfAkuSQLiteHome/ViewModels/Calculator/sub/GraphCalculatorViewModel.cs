@@ -161,6 +161,9 @@ namespace WpfAkuSQLiteHome.ViewModels
         private string legLDLUnderline;
         public string LegLDLUnderline { get => legLDLUnderline; set { legLDLUnderline = value; NotifyOfPropertyChange(() => LegLDLUnderline); } }
 
+        // Divisions
 
+        private Visibility div1 = Visibility.Hidden;
+        public Visibility Div1 { get => div1; set { div1 = value; NotifyOfPropertyChange(() => Div1); } }
     }
 }

@@ -62,5 +62,8 @@ namespace WpfAkuSQLiteHome.Models.Calculator
 
         public string HeadDLUnderline { get; set; }
         public string LegLDLUnderline { get; set; }
+
+        // DIVISIONS
+        public Visibility Div1 { get; set; } = Visibility.Hidden;
     }
 }

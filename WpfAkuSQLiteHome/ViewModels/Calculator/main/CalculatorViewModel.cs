@@ -135,6 +135,7 @@ namespace WpfAkuSQLiteHome.ViewModels
 
         public void UpdateGraphViewModel()
         {
+      
             GraphCalculatorViewModel.Head = GraphModel.Head;
             GraphCalculatorViewModel.ArmR = GraphModel.ArmR;
             GraphCalculatorViewModel.ArmL = GraphModel.ArmL;
@@ -176,24 +177,23 @@ namespace WpfAkuSQLiteHome.ViewModels
             GraphCalculatorViewModel.HeadDLUnderline = GraphModel.HeadDLUnderline;
             GraphCalculatorViewModel.LegLDLUnderline = GraphModel.LegLDLUnderline;
 
-
-
-
-
+            // BIG SIGNS
             GraphCalculatorViewModel.HeadSignB = GraphModel.HeadSignB;
             GraphCalculatorViewModel.ArmRSignB = GraphModel.ArmRSignB;
             GraphCalculatorViewModel.ArmLSignB = GraphModel.ArmLSignB;
             GraphCalculatorViewModel.LegRSignB = GraphModel.LegRSignB;
             GraphCalculatorViewModel.LegLSignB = GraphModel.LegLSignB;
 
+            // SMALL SIGNS
             GraphCalculatorViewModel.HeadSignS = GraphModel.HeadSignS;
             GraphCalculatorViewModel.ArmRSignS = GraphModel.ArmRSignS;
             GraphCalculatorViewModel.ArmLSignS = GraphModel.ArmLSignS;
             GraphCalculatorViewModel.LegRSignS = GraphModel.LegRSignS;
             GraphCalculatorViewModel.LegLSignS = GraphModel.LegLSignS;
 
+            //DIVISIONS
             GraphCalculatorViewModel.Division = CalculatorOutput.AdditionalInfo.Division;
-   
+            GraphCalculatorViewModel.Div1 = GraphModel.Div1;
         }
     }
 }

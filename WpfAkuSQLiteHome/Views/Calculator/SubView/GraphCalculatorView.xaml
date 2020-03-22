@@ -53,7 +53,7 @@
             <RowDefinition Height="20" />
         </Grid.RowDefinitions>
 
-        <Label x:Name="Division"  FontSize="20" Grid.Column="1" Margin="0,10,15,0" HorizontalAlignment="Right" Width="75" Background="{x:Null}" Grid.ColumnSpan="5" Grid.RowSpan="2" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Padding="0"/>
+        <Label x:Name="Division"  FontSize="20" Margin="0,10,0,0" HorizontalAlignment="Right" Width="100" Background="{x:Null}" Grid.ColumnSpan="5" Grid.RowSpan="2" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Padding="0" Grid.Column="1"/>
         <Label Content="Year Steam"  FontSize="20" Grid.Column="7" Margin="0,5,2,5" HorizontalAlignment="Right" Width="115" Background="{x:Null}" Grid.ColumnSpan="6" Grid.RowSpan="2" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Padding="0"/>
 
 
@@ -114,7 +114,7 @@
 
         <TextBlock  x:Name="LegRUL" Text="Lu" HorizontalAlignment="Left" Grid.Row="12" Grid.RowSpan="2" TextWrapping="Wrap"  VerticalAlignment="Center" Grid.ColumnSpan="2" Width="40" Height="40" Padding="6" FontSize="20" FontWeight="Bold" Grid.Column="10"/>
         <TextBlock  x:Name="LegRDR" Text="Co" Grid.Column="14" HorizontalAlignment="Left" Grid.Row="16" Grid.RowSpan="2" VerticalAlignment="Center" Grid.ColumnSpan="2" Width="40" Height="40" Padding="6" FontSize="20" FontWeight="Bold"/>
-        
+
         <!--DOUBLE UNDERLINE-->
         <Label  x:Name="HeadURUnderline" Content="" FontSize="50" Width="60" Height="60" VerticalContentAlignment="Center"
                 Grid.Row="2" Grid.Column="10" Grid.RowSpan="4" Grid.ColumnSpan="4" FontFamily="Baskerville Old Face" HorizontalContentAlignment="Center" Padding="0" Margin="7,4,13,16"
@@ -152,5 +152,46 @@
         <Label  x:Name="LegLDLUnderline" Content="" FontSize="50" Width="60" Height="60" VerticalContentAlignment="Center"
                 Grid.Row="16" Grid.Column="3" Grid.RowSpan="4" Grid.ColumnSpan="4" FontFamily="Baskerville Old Face" HorizontalContentAlignment="Center" Padding="0" Margin="6,4,14,16"
                  />
+
+
+        <!--DIVISION-->
+        <!--1-->
+        <Grid x:Name="div1" Grid.Row="9" Grid.Column="13" Margin="15,9,0,0" Grid.RowSpan="10" Grid.ColumnSpan="6" Visibility="{Binding Path=Div1, Mode=TwoWay}">
+            <TextBlock  x:Name="LegRDRc" Text="Co" HorizontalAlignment="Left" VerticalAlignment="Center" Width="40" Height="40" Padding="6" FontSize="16" FontWeight="Bold" Margin="35,115,0,36"/>
+            <TextBlock  x:Name="LegRDRcx" Text="St" HorizontalAlignment="Left" VerticalAlignment="Center" Width="40" Height="40" Padding="6" FontSize="16" FontWeight="Bold" Margin="75,0,-10,151"/>
+            <Rectangle HorizontalAlignment="Left" Height="133" Margin="52,9,0,0" VerticalAlignment="Top" Width="1" Fill="Black" RenderTransformOrigin="0.5,0.5">
+                <Rectangle.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="-160.662"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Rectangle.RenderTransform>
+            </Rectangle>
+            <Rectangle HorizontalAlignment="Left" Height="14" Margin="24,129,0,0" VerticalAlignment="Top" Width="1" Fill="Black" RenderTransformOrigin="0.5,0.5">
+                <Rectangle.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="-67.852"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Rectangle.RenderTransform>
+            </Rectangle>
+            <Rectangle HorizontalAlignment="Left" Height="15" Margin="68,2,0,0" VerticalAlignment="Top" Width="1" Fill="Black" RenderTransformOrigin="0.5,0.5">
+                <Rectangle.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="-61.697"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Rectangle.RenderTransform>
+            </Rectangle>
+        </Grid>
+
+
+
     </Grid>
 </UserControl>

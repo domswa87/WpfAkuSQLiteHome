@@ -128,6 +128,14 @@ namespace WpfAkuSQLiteHome.Models.Calculator
                     break;
             }
 
+
+            string division = CalculatorOutput.AdditionalInfo.Division;
+            switch (division)
+            {
+                case "Yang Ming":
+                    graphModel.Div1 = Visibility.Visible;
+                    break;
+            }
             return graphModel;
         }
     }
