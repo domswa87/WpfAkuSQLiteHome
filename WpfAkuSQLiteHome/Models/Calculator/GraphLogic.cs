@@ -15,102 +15,62 @@ namespace WpfAkuSQLiteHome.Models.Calculator
         {
             graphModel = new GraphModel();
             string yearSteam = CalculatorOutput.Year.Steam.EnglishString;
-            int bigFont = 80;
-            int smallFont = 30;
             Thickness smallFontMargin = new Thickness(0,15,0,0);
             Thickness bigFontMargin = new Thickness(0, 0, 0, 0);
-            switch (yearSteam)
+            String yearSteamToLower = new String(yearSteam.Select((ch, index) => (index == 0) ? ch : Char.ToLower(ch)).ToArray());
+
+            switch (yearSteamToLower)
             {
               
-                case "GB":
-                    graphModel.ArmR = yearSteam + " +";
-                    graphModel.ArmRFontSize = smallFont;
-                    graphModel.ArmRMargin = smallFontMargin;
-
-                    graphModel.ArmL = "-";
-                    graphModel.ArmLFontSize = bigFont;
-                    graphModel.ArmLMargin = bigFontMargin;
+                case "Gb":
+                    graphModel.ArmR = yearSteamToLower;
+                    graphModel.ArmRSignS = "+";
+                    graphModel.ArmLSignB = "-";
                     break;
-                case "LIV":
-                    graphModel.LegR = yearSteam + " -";
-                    graphModel.LegRFontSize = smallFont;
-                    graphModel.LegRMargin = smallFontMargin;
-
-                    graphModel.Head = "+";
-                    graphModel.HeadFontSize = bigFont;
-                    graphModel.HeadMargin = bigFontMargin;
+                case "Liv":
+                    graphModel.LegR = yearSteamToLower;
+                    graphModel.LegRSignS = "-";
+                    graphModel.HeadSignB = "+";
                     break;
-                case "SI":
-                    graphModel.LegL = yearSteam + " +";
-                    graphModel.LegLFontSize = smallFont;
-                    graphModel.LegLMargin = smallFontMargin;
-
-                    graphModel.Head = "-";
-                    graphModel.HeadFontSize = bigFont;
-                    graphModel.HeadMargin = bigFontMargin;
+                case "Si":
+                    graphModel.LegL = yearSteamToLower;
+                    graphModel.LegLSignS = "+";
+                    graphModel.HeadSignB = "-";
                     break;
-                case "HT":
-                    graphModel.ArmL = yearSteam + " -";
-                    graphModel.ArmLFontSize = smallFont;
-                    graphModel.ArmLMargin = smallFontMargin;
-
-                    graphModel.LegR = "+";
-                    graphModel.LegRFontSize = bigFont;
-                    graphModel.LegRMargin = bigFontMargin;
+                case "Ht":
+                    graphModel.ArmL = yearSteamToLower;
+                    graphModel.ArmLSignS = "-";
+                    graphModel.LegRSignB = "+";
                     break;
-                case "ST":
-                    graphModel.Head = yearSteam + " +";
-                    graphModel.HeadFontSize = smallFont;
-                    graphModel.HeadMargin = smallFontMargin;
-
-                    graphModel.LegR = "-";
-                    graphModel.LegRFontSize = bigFont;
-                    graphModel.LegRMargin = bigFontMargin;
+                case "St":
+                    graphModel.Head = yearSteamToLower;
+                    graphModel.HeadSignS = "+";
+                    graphModel.LegRSignB = "-";
                     break;
-                case "SP":
-                    graphModel.ArmR = yearSteam + " -";
-                    graphModel.ArmRFontSize = smallFont;
-                    graphModel.ArmRMargin = smallFontMargin;
-
-                    graphModel.ArmL = "+";
-                    graphModel.ArmLFontSize = bigFont;
-                    graphModel.ArmLMargin = bigFontMargin;
+                case "Sp":
+                    graphModel.ArmR = yearSteamToLower;
+                    graphModel.ArmRSignS = "-";
+                    graphModel.ArmLSignB = "+";
                     break;
-                case "CO":
-                    graphModel.LegR = yearSteam + " +";
-                    graphModel.LegRFontSize = smallFont;
-                    graphModel.LegRMargin = smallFontMargin;
-
-                    graphModel.ArmL = "-";
-                    graphModel.ArmLFontSize = bigFont;
-                    graphModel.ArmLMargin = bigFontMargin;
+                case "Co":
+                    graphModel.LegR = yearSteamToLower;
+                    graphModel.LegRSignS = "+";
+                    graphModel.ArmLSignB = "-";
                     break;
-                case "LU":
-                    graphModel.LegL = yearSteam + " -";
-                    graphModel.LegLFontSize = smallFont;
-                    graphModel.LegLMargin = smallFontMargin;
-
-                    graphModel.ArmR = "+";
-                    graphModel.ArmRFontSize = bigFont;
-                    graphModel.ArmRMargin = bigFontMargin;
+                case "Lu":
+                    graphModel.LegL = yearSteamToLower;
+                    graphModel.LegLSignS = "-";
+                    graphModel.ArmRSignB = "+";
                     break;
-                case "BL":
-                    graphModel.ArmL = yearSteam + " +";
-                    graphModel.ArmLFontSize = smallFont;
-                    graphModel.ArmLMargin = smallFontMargin;
-
-                    graphModel.ArmR = "-";
-                    graphModel.ArmRFontSize = bigFont;
-                    graphModel.ArmRMargin = bigFontMargin;
+                case "Bl":
+                    graphModel.ArmL = yearSteamToLower;
+                    graphModel.ArmLSignS = "+";
+                    graphModel.ArmRSignB = "-";
                     break;
-                case "KI":
-                    graphModel.Head = yearSteam + " -";
-                    graphModel.HeadFontSize = smallFont;
-                    graphModel.HeadMargin = smallFontMargin;
-
-                    graphModel.LegL = "+";
-                    graphModel.LegLFontSize = bigFont;
-                    graphModel.LegLMargin = bigFontMargin;
+                case "Ki":
+                    graphModel.Head = yearSteamToLower;
+                    graphModel.HeadSignS = "-";
+                    graphModel.LegLSignB = "+";
                     break;
             }
 

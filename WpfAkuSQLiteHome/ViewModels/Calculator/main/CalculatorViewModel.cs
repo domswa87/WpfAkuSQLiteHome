@@ -161,11 +161,17 @@ namespace WpfAkuSQLiteHome.ViewModels
             GraphCalculatorViewModel.HeadDL = GraphModel.HeadDL;
             GraphCalculatorViewModel.LegLDL = GraphModel.LegLDL;
 
-            GraphCalculatorViewModel.HeadFontSize = GraphModel.HeadFontSize;
-            GraphCalculatorViewModel.ArmRFontSize = GraphModel.ArmRFontSize;
-            GraphCalculatorViewModel.ArmLFontSize = GraphModel.ArmLFontSize;
-            GraphCalculatorViewModel.LegRFontSize = GraphModel.LegRFontSize;
-            GraphCalculatorViewModel.LegLFontSize = GraphModel.LegLFontSize;
+            GraphCalculatorViewModel.HeadSignB = GraphModel.HeadSignB;
+            GraphCalculatorViewModel.ArmRSignB = GraphModel.ArmRSignB;
+            GraphCalculatorViewModel.ArmLSignB = GraphModel.ArmLSignB;
+            GraphCalculatorViewModel.LegRSignB = GraphModel.LegRSignB;
+            GraphCalculatorViewModel.LegLSignB = GraphModel.LegLSignB;
+
+            GraphCalculatorViewModel.HeadSignS = GraphModel.HeadSignS;
+            GraphCalculatorViewModel.ArmRSignS = GraphModel.ArmRSignS;
+            GraphCalculatorViewModel.ArmLSignS = GraphModel.ArmLSignS;
+            GraphCalculatorViewModel.LegRSignS = GraphModel.LegRSignS;
+            GraphCalculatorViewModel.LegLSignS = GraphModel.LegLSignS;
 
             GraphCalculatorViewModel.Division = CalculatorOutput.AdditionalInfo.Division;
    
