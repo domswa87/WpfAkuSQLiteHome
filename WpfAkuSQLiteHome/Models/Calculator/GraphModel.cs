@@ -65,5 +65,10 @@ namespace WpfAkuSQLiteHome.Models.Calculator
 
         // DIVISIONS
         public Visibility Div1 { get; set; } = Visibility.Hidden;
+        public Visibility Div2 { get; set; } = Visibility.Hidden;
+        public Visibility Div3 { get; set; } = Visibility.Hidden;
+        public Visibility Div4 { get; set; } = Visibility.Hidden;
+        public Visibility Div5 { get; set; } = Visibility.Hidden;
+        public Visibility Div6 { get; set; } = Visibility.Hidden;
     }
 }

@@ -45,5 +45,10 @@ namespace WpfAkuSQLiteHome.ViewModels
         string LegLURUnderline { get; set; }
         string LegLDLUnderline { get; set; }
         Visibility Div1 { get; set; }
+        Visibility Div2 { get; set; }
+        Visibility Div3 { get; set; }
+        Visibility Div4 { get; set; }
+        Visibility Div5 { get; set; }
+        Visibility Div6 { get; set; }
     }
 }

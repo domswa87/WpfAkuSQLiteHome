@@ -194,6 +194,11 @@ namespace WpfAkuSQLiteHome.ViewModels
             //DIVISIONS
             GraphCalculatorViewModel.Division = CalculatorOutput.AdditionalInfo.Division;
             GraphCalculatorViewModel.Div1 = GraphModel.Div1;
+            GraphCalculatorViewModel.Div2 = GraphModel.Div2;
+            GraphCalculatorViewModel.Div3 = GraphModel.Div3;
+            GraphCalculatorViewModel.Div4 = GraphModel.Div4;
+            GraphCalculatorViewModel.Div5 = GraphModel.Div5;
+            GraphCalculatorViewModel.Div6 = GraphModel.Div6;
         }
     }
 }

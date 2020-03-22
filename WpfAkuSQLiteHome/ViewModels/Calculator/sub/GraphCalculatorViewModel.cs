@@ -165,5 +165,20 @@ namespace WpfAkuSQLiteHome.ViewModels
 
         private Visibility div1 = Visibility.Hidden;
         public Visibility Div1 { get => div1; set { div1 = value; NotifyOfPropertyChange(() => Div1); } }
+
+        private Visibility div2 = Visibility.Hidden;
+        public Visibility Div2 { get => div2; set { div2 = value; NotifyOfPropertyChange(() => Div2); } }
+
+        private Visibility div3 = Visibility.Hidden;
+        public Visibility Div3 { get => div3; set { div3 = value; NotifyOfPropertyChange(() => Div3); } }
+
+        private Visibility div4 = Visibility.Hidden;
+        public Visibility Div4 { get => div4; set { div4 = value; NotifyOfPropertyChange(() => Div4); } }
+
+        private Visibility div5 = Visibility.Hidden;
+        public Visibility Div5 { get => div5; set { div5 = value; NotifyOfPropertyChange(() => Div5); } }
+
+        private Visibility div6 = Visibility.Hidden;
+        public Visibility Div6 { get => div6; set { div6 = value; NotifyOfPropertyChange(() => Div6); } }
     }
 }

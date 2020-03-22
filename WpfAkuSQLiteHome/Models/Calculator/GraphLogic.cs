@@ -135,6 +135,21 @@ namespace WpfAkuSQLiteHome.Models.Calculator
                 case "Yang Ming":
                     graphModel.Div1 = Visibility.Visible;
                     break;
+                case "Tai Yin":
+                    graphModel.Div2 = Visibility.Visible;
+                    break;
+                case "Shao Yang":
+                    graphModel.Div3 = Visibility.Visible;
+                    break;
+                case "Jue Yin":
+                    graphModel.Div4 = Visibility.Visible;
+                    break;
+                case "Shao Yin":
+                    graphModel.Div5 = Visibility.Visible;
+                    break;
+                case "Tai Yang":
+                    graphModel.Div6 = Visibility.Visible;
+                    break;
             }
             return graphModel;
         }
