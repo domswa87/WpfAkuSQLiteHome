@@ -75,45 +75,57 @@ namespace WpfAkuSQLiteHome.Models.Calculator
             }
 
             string yearBranch = CalculatorOutput.Year.Branch.EnglishString;
-            switch (yearBranch)
+            String yearBranchToLower = new String(yearBranch.Select((ch, index) => (index == 0) ? ch : Char.ToLower(ch)).ToArray());
+            switch (yearBranchToLower)
             {
-                case "GB":
-                    graphModel.ArmLUL = yearBranch;
+                case "Gb":
+                    graphModel.ArmLUL = yearBranchToLower;
+                    graphModel.ArmLULUnderline = "=";
                     break;
-                case "LIV":
-                    graphModel.ArmLUR = yearBranch;
+                case "Liv":
+                    graphModel.ArmLUR = yearBranchToLower;
+                    graphModel.ArmLURUnderline = "=";
                     break;
-                case "LU":
-                    graphModel.LegRUL = yearBranch;
+                case "Lu":
+                    graphModel.LegRUL = yearBranchToLower;
+                    graphModel.LegRULUnderline = "=";
                     break;
-                case "CO":
-                    graphModel.LegRDR = yearBranch;
+                case "Co":
+                    graphModel.LegRDR = yearBranchToLower;
+                    graphModel.LegRDRUnderline = "=";
                     break;
-                case "ST":
-                    graphModel.ArmRUR = yearBranch;
+                case "St":
+                    graphModel.ArmRUR = yearBranchToLower;
+                    graphModel.ArmRURUnderline = "=";
                     break;
-                case "SP":
-                    graphModel.ArmRUL = yearBranch;
+                case "Sp":
+                    graphModel.ArmRUL = yearBranchToLower;
+                    graphModel.ArmRULUnderline = "=";
                     break;
-                case "HT":
-                    graphModel.HeadDL = yearBranch;
+                case "Ht":
+                    graphModel.HeadDL = yearBranchToLower;
+                    graphModel.HeadDLUnderline = "=";
                     break;
-                case "SI":
-                    graphModel.HeadUL = yearBranch;
+                case "Si":
+                    graphModel.HeadUL = yearBranchToLower;
+                    graphModel.HeadULUnderline = "=";
                     break;
-                case "BL":
-                    graphModel.LegLDL = yearBranch;
+                case "Bl":
+                    graphModel.LegLDL = yearBranchToLower;
+                    graphModel.LegLDLUnderline = "=";
                     break;
-                case "KI":
-                    graphModel.LegLUR = yearBranch;
+                case "Ki":
+                    graphModel.LegLUR = yearBranchToLower;
+                    graphModel.LegLURUnderline = "=";
                     break;
-                case "PC":
-                    graphModel.HeadDR = yearBranch;
+                case "Pc":
+                    graphModel.HeadDR = yearBranchToLower;
+                    graphModel.HeadDRUnderline = "=";
                     break;
-                case "TH":
-                    graphModel.HeadUR = "SJ";
+                case "Th":
+                    graphModel.HeadUR = "Sj";
+                    graphModel.HeadURUnderline = "=";
                     break;
-
             }
 
             return graphModel;

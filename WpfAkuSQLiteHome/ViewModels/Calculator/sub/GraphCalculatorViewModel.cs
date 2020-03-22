@@ -116,7 +116,51 @@ namespace WpfAkuSQLiteHome.ViewModels
         public string LegLDL { get => legLDL; set { legLDL = value; NotifyOfPropertyChange(() => LegLDL); } }
 
 
-     
+
+
+        // UNDERLINE
+
+        // HEAD 
+        private string headURUnderline;
+        public string HeadURUnderline { get => headURUnderline; set { headURUnderline = value; NotifyOfPropertyChange(() => HeadURUnderline); } }
+
+        private string headULUnderline;
+        public string HeadULUnderline { get => headULUnderline; set { headULUnderline = value; NotifyOfPropertyChange(() => HeadULUnderline); } }
+
+        private string headDRUnderline;
+        public string HeadDRUnderline { get => headDRUnderline; set { headDRUnderline = value; NotifyOfPropertyChange(() => HeadDRUnderline); } }
+
+        private string headDLUnderline;
+        public string HeadDLUnderline { get => headDLUnderline; set { headDLUnderline = value; NotifyOfPropertyChange(() => HeadDLUnderline); } }
+
+        // ARM R 
+        private string armRURUnderline;
+        public string ArmRURUnderline { get => armRURUnderline; set { armRURUnderline = value; NotifyOfPropertyChange(() => ArmRURUnderline); } }
+
+        private string armRULUnderline;
+        public string ArmRULUnderline { get => armRULUnderline; set { armRULUnderline = value; NotifyOfPropertyChange(() => ArmRULUnderline); } }
+
+        // ARM L 
+        private string armLURUnderline;
+        public string ArmLURUnderline { get => armLURUnderline; set { armLURUnderline = value; NotifyOfPropertyChange(() => ArmLURUnderline); } }
+
+        private string armLULUnderline;
+        public string ArmLULUnderline { get => armLULUnderline; set { armLULUnderline = value; NotifyOfPropertyChange(() => ArmLULUnderline); } }
+
+        // LEG R 
+        private string legRDRUnderline;
+        public string LegRDRUnderline { get => legRDRUnderline; set { legRDRUnderline = value; NotifyOfPropertyChange(() => LegRDRUnderline); } }
+
+        private string legRULUnderline;
+        public string LegRULUnderline { get => legRULUnderline; set { legRULUnderline = value; NotifyOfPropertyChange(() => LegRULUnderline); } }
+
+        // LEG L 
+        private string legLURUnderline;
+        public string LegLURUnderline { get => legLURUnderline; set { legLURUnderline = value; NotifyOfPropertyChange(() => LegLURUnderline); } }
+
+        private string legLDLUnderline;
+        public string LegLDLUnderline { get => legLDLUnderline; set { legLDLUnderline = value; NotifyOfPropertyChange(() => LegLDLUnderline); } }
+
 
     }
 }

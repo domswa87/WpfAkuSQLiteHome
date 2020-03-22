@@ -142,24 +142,43 @@ namespace WpfAkuSQLiteHome.ViewModels
             GraphCalculatorViewModel.LegL = GraphModel.LegL;
 
 
+            // branches
             GraphCalculatorViewModel.HeadUR = GraphModel.HeadUR;
             GraphCalculatorViewModel.ArmRUR = GraphModel.ArmRUR;
             GraphCalculatorViewModel.ArmLUR = GraphModel.ArmLUR;
             GraphCalculatorViewModel.LegLUR = GraphModel.LegLUR;
-
 
             GraphCalculatorViewModel.HeadUL = GraphModel.HeadUL;
             GraphCalculatorViewModel.ArmRUL = GraphModel.ArmRUL;
             GraphCalculatorViewModel.ArmLUL = GraphModel.ArmLUL;
             GraphCalculatorViewModel.LegRUL = GraphModel.LegRUL;
 
-
             GraphCalculatorViewModel.HeadDR = GraphModel.HeadDR;
             GraphCalculatorViewModel.LegRDR = GraphModel.LegRDR;
 
-
             GraphCalculatorViewModel.HeadDL = GraphModel.HeadDL;
             GraphCalculatorViewModel.LegLDL = GraphModel.LegLDL;
+
+            // underlines
+            GraphCalculatorViewModel.HeadURUnderline = GraphModel.HeadURUnderline;
+            GraphCalculatorViewModel.ArmRURUnderline = GraphModel.ArmRURUnderline;
+            GraphCalculatorViewModel.ArmLURUnderline = GraphModel.ArmLURUnderline;
+            GraphCalculatorViewModel.LegLURUnderline = GraphModel.LegLURUnderline;
+
+            GraphCalculatorViewModel.HeadULUnderline = GraphModel.HeadULUnderline;
+            GraphCalculatorViewModel.ArmRULUnderline = GraphModel.ArmRULUnderline;
+            GraphCalculatorViewModel.ArmLULUnderline = GraphModel.ArmLULUnderline;
+            GraphCalculatorViewModel.LegRULUnderline = GraphModel.LegRULUnderline;
+
+            GraphCalculatorViewModel.HeadDRUnderline = GraphModel.HeadDRUnderline;
+            GraphCalculatorViewModel.LegRDRUnderline = GraphModel.LegRDRUnderline;
+
+            GraphCalculatorViewModel.HeadDLUnderline = GraphModel.HeadDLUnderline;
+            GraphCalculatorViewModel.LegLDLUnderline = GraphModel.LegLDLUnderline;
+
+
+
+
 
             GraphCalculatorViewModel.HeadSignB = GraphModel.HeadSignB;
             GraphCalculatorViewModel.ArmRSignB = GraphModel.ArmRSignB;

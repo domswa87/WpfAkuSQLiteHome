@@ -45,5 +45,22 @@ namespace WpfAkuSQLiteHome.Models.Calculator
         public string HeadDL { get; set; }
         public string LegLDL { get; set; }
 
+        // UNDERLINE
+
+        public string HeadURUnderline { get; set; }
+        public string ArmRURUnderline { get; set; }
+        public string ArmLURUnderline { get; set; }
+        public string LegLURUnderline { get; set; }
+
+        public string HeadULUnderline { get; set; }
+        public string ArmRULUnderline { get; set; }
+        public string ArmLULUnderline { get; set; }
+        public string LegRULUnderline { get; set; }
+
+        public string HeadDRUnderline { get; set; }
+        public string LegRDRUnderline { get; set; }
+
+        public string HeadDLUnderline { get; set; }
+        public string LegLDLUnderline { get; set; }
     }
 }

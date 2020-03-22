@@ -32,5 +32,17 @@ namespace WpfAkuSQLiteHome.ViewModels
         string LegRUL { get; set; }
         string LegLUR { get; set; }
         string LegLDL { get; set; }
+        string HeadURUnderline { get; set; }
+        string HeadULUnderline { get; set; }
+        string HeadDRUnderline { get; set; }
+        string HeadDLUnderline { get; set; }
+        string ArmRURUnderline { get; set; }
+        string ArmRULUnderline { get; set; }
+        string ArmLURUnderline { get; set; }
+        string ArmLULUnderline { get; set; }
+        string LegRDRUnderline { get; set; }
+        string LegRULUnderline { get; set; }
+        string LegLURUnderline { get; set; }
+        string LegLDLUnderline { get; set; }
     }
 }

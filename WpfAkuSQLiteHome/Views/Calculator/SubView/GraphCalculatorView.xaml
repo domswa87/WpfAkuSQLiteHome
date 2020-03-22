@@ -53,6 +53,10 @@
             <RowDefinition Height="20" />
         </Grid.RowDefinitions>
 
+        <Label x:Name="Division"  FontSize="20" Grid.Column="1" Margin="0,10,15,0" HorizontalAlignment="Right" Width="75" Background="{x:Null}" Grid.ColumnSpan="5" Grid.RowSpan="2" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Padding="0"/>
+        <Label Content="Year Steam"  FontSize="20" Grid.Column="7" Margin="0,5,2,5" HorizontalAlignment="Right" Width="115" Background="{x:Null}" Grid.ColumnSpan="6" Grid.RowSpan="2" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Padding="0"/>
+
+
         <!--ELIPSES-->
         <Ellipse Grid.Row="3" Grid.Column="8" Fill="LightYellow" Height="80" Width="80"  Visibility="Visible" Margin="0,0,0,0" Grid.ColumnSpan="4" HorizontalAlignment="Left" Grid.RowSpan="4"/>
         <Ellipse Grid.Row="7" Grid.Column="3" Fill="LightYellow" Height="80" Width="80"  Visibility="Visible"  Margin="0,0,0,0" Grid.ColumnSpan="4" HorizontalAlignment="Left" Grid.RowSpan="4"/>
@@ -93,23 +97,60 @@
         <Label  x:Name="LegRSignS" Content="" FontSize="45" Width="40" Height="40" VerticalContentAlignment="Center"
                 HorizontalContentAlignment="Center" Padding="0" Grid.Row="13" Grid.Column="12" Grid.RowSpan="3" Grid.ColumnSpan="3" FontFamily="Berlin Sans FB Demi" Margin="18,15,2,5" />
         <!--STEMS-->
-        <Label Content="Year Steam"  FontSize="20" Grid.Column="7" Margin="0,5,2,5" HorizontalAlignment="Right" Width="115" Background="{x:Null}" Grid.ColumnSpan="6" Grid.RowSpan="2" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Padding="0"/>
-        <Label x:Name="Division"  FontSize="20" Grid.Column="1" Margin="0,10,15,0" HorizontalAlignment="Right" Width="75" Background="{x:Null}" Grid.ColumnSpan="5" Grid.RowSpan="2" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Padding="0"/>
 
-        <TextBlock  x:Name="HeadUR" Text="" Grid.Column="11" HorizontalAlignment="Left" Grid.Row="2" Grid.RowSpan="2" TextWrapping="Wrap"  VerticalAlignment="Center" Grid.ColumnSpan="2" Width="40" Height="40" Padding="6" FontSize="20" FontWeight="Bold"/>
-        <TextBlock  x:Name="HeadUL" Text="" Grid.Column="7" HorizontalAlignment="Left" Grid.Row="2" Grid.RowSpan="2" TextWrapping="Wrap"  VerticalAlignment="Center" Grid.ColumnSpan="2" Width="40" Height="40" Padding="6" FontSize="20" FontWeight="Bold"/>
-        <TextBlock  x:Name="HeadDR" Text="" Grid.Column="11" HorizontalAlignment="Left" Grid.Row="6" Grid.RowSpan="2" TextWrapping="Wrap"  VerticalAlignment="Center" Grid.ColumnSpan="2" Width="40" Height="40" Padding="6" FontSize="20" FontWeight="Bold"/>
-        <TextBlock  x:Name="HeadDL" Text="" Grid.Column="7" HorizontalAlignment="Left" Grid.Row="6" Grid.RowSpan="2" TextWrapping="Wrap"  VerticalAlignment="Center" Grid.ColumnSpan="2" Width="40" Height="40" Padding="6" FontSize="20" FontWeight="Bold"/>
+        <TextBlock  x:Name="HeadUR" Text="Sj" Grid.Column="11" HorizontalAlignment="Left" Grid.Row="2" Grid.RowSpan="2" TextWrapping="Wrap"  VerticalAlignment="Center" Grid.ColumnSpan="2" Width="40" Height="40" Padding="6" FontSize="20" FontWeight="Bold"/>
+        <TextBlock  x:Name="HeadUL" Text="Si" Grid.Column="7" HorizontalAlignment="Left" Grid.Row="2" Grid.RowSpan="2" TextWrapping="Wrap"  VerticalAlignment="Center" Grid.ColumnSpan="2" Width="40" Height="40" Padding="6" FontSize="20" FontWeight="Bold"/>
+        <TextBlock  x:Name="HeadDR" Text="Ht" Grid.Column="11" HorizontalAlignment="Left" Grid.Row="6" Grid.RowSpan="2" TextWrapping="Wrap"  VerticalAlignment="Center" Grid.ColumnSpan="2" Width="40" Height="40" Padding="6" FontSize="20" FontWeight="Bold"/>
+        <TextBlock  x:Name="HeadDL" Text="Pc" Grid.Column="7" HorizontalAlignment="Left" Grid.Row="6" Grid.RowSpan="2" TextWrapping="Wrap"  VerticalAlignment="Center" Grid.ColumnSpan="2" Width="40" Height="40" Padding="6" FontSize="20" FontWeight="Bold"/>
 
-        <TextBlock  x:Name="ArmRUR" Text="" Grid.Column="17" HorizontalAlignment="Left" Grid.Row="8" Grid.RowSpan="2" TextWrapping="Wrap"  VerticalAlignment="Center" Grid.ColumnSpan="2" Width="40" Height="40" Padding="6" FontSize="20" FontWeight="Bold"/>
-        <TextBlock  x:Name="ArmRUL" Text="" Grid.Column="11" HorizontalAlignment="Left" Grid.Row="8" Grid.RowSpan="2" TextWrapping="Wrap"  VerticalAlignment="Center" Grid.ColumnSpan="2" Width="40" Height="40" Padding="6" FontSize="20" FontWeight="Bold"/>
+        <TextBlock  x:Name="ArmRUR" Text="St" Grid.Column="17" HorizontalAlignment="Left" Grid.Row="8" Grid.RowSpan="2" TextWrapping="Wrap"  VerticalAlignment="Center" Grid.ColumnSpan="2" Width="40" Height="40" Padding="6" FontSize="20" FontWeight="Bold"/>
+        <TextBlock  x:Name="ArmRUL" Text="Sp" Grid.Column="11" HorizontalAlignment="Left" Grid.Row="8" Grid.RowSpan="2" TextWrapping="Wrap"  VerticalAlignment="Center" Grid.ColumnSpan="2" Width="40" Height="40" Padding="6" FontSize="20" FontWeight="Bold"/>
 
-        <TextBlock  x:Name="ArmLUR" Text="" Grid.Column="7" HorizontalAlignment="Left" Grid.Row="8" Grid.RowSpan="2" TextWrapping="Wrap"  VerticalAlignment="Center" Grid.ColumnSpan="2" Width="40" Height="40" Padding="6" FontSize="20" FontWeight="Bold"/>
-        <TextBlock  x:Name="ArmLUL" Text="" HorizontalAlignment="Left" Grid.Row="8" Grid.RowSpan="2" TextWrapping="Wrap"  VerticalAlignment="Center" Grid.ColumnSpan="2" Width="40" Height="40" Padding="6" FontSize="20" FontWeight="Bold" Grid.Column="1"/>
+        <TextBlock  x:Name="ArmLUR" Text="Liv" Grid.Column="7" HorizontalAlignment="Left" Grid.Row="8" Grid.RowSpan="2" TextWrapping="Wrap"  VerticalAlignment="Center" Grid.ColumnSpan="2" Width="40" Height="40" Padding="6" FontSize="20" FontWeight="Bold"/>
+        <TextBlock  x:Name="ArmLUL" Text="Gb" HorizontalAlignment="Left" Grid.Row="8" Grid.RowSpan="2" TextWrapping="Wrap"  VerticalAlignment="Center" Grid.ColumnSpan="2" Width="40" Height="40" Padding="6" FontSize="20" FontWeight="Bold" Grid.Column="1"/>
 
-        <TextBlock  x:Name="LegLUR" Text="" Grid.Column="8" HorizontalAlignment="Left" Grid.Row="12" Grid.RowSpan="2" VerticalAlignment="Center" Grid.ColumnSpan="2" Width="40" Height="40" Padding="6" FontSize="20" FontWeight="Bold"/>
-        <TextBlock  x:Name="LegLDL" Text="" Grid.Column="4" HorizontalAlignment="Left" Grid.Row="16" Grid.RowSpan="2" VerticalAlignment="Center" Grid.ColumnSpan="2" Width="40" Height="40" Padding="6" FontSize="20" FontWeight="Bold"/>
-        <TextBlock  x:Name="LegRUL" Text="" HorizontalAlignment="Left" Grid.Row="12" Grid.RowSpan="2" TextWrapping="Wrap"  VerticalAlignment="Center" Grid.ColumnSpan="2" Width="40" Height="40" Padding="6" FontSize="20" FontWeight="Bold" Grid.Column="10"/>
-        <TextBlock  x:Name="LegRDR" Text="" Grid.Column="14" HorizontalAlignment="Left" Grid.Row="16" Grid.RowSpan="2" VerticalAlignment="Center" Grid.ColumnSpan="2" Width="40" Height="40" Padding="6" FontSize="20" FontWeight="Bold"/>
+        <TextBlock  x:Name="LegLUR" Text="Ki" Grid.Column="8" HorizontalAlignment="Left" Grid.Row="12" Grid.RowSpan="2" VerticalAlignment="Center" Grid.ColumnSpan="2" Width="40" Height="40" Padding="6" FontSize="20" FontWeight="Bold"/>
+        <TextBlock  x:Name="LegLDL" Text="Bl" Grid.Column="4" HorizontalAlignment="Left" Grid.Row="16" Grid.RowSpan="2" VerticalAlignment="Center" Grid.ColumnSpan="2" Width="40" Height="40" Padding="6" FontSize="20" FontWeight="Bold"/>
+
+        <TextBlock  x:Name="LegRUL" Text="Lu" HorizontalAlignment="Left" Grid.Row="12" Grid.RowSpan="2" TextWrapping="Wrap"  VerticalAlignment="Center" Grid.ColumnSpan="2" Width="40" Height="40" Padding="6" FontSize="20" FontWeight="Bold" Grid.Column="10"/>
+        <TextBlock  x:Name="LegRDR" Text="Co" Grid.Column="14" HorizontalAlignment="Left" Grid.Row="16" Grid.RowSpan="2" VerticalAlignment="Center" Grid.ColumnSpan="2" Width="40" Height="40" Padding="6" FontSize="20" FontWeight="Bold"/>
+        
+        <!--DOUBLE UNDERLINE-->
+        <Label  x:Name="HeadURUnderline" Content="" FontSize="50" Width="60" Height="60" VerticalContentAlignment="Center"
+                Grid.Row="2" Grid.Column="10" Grid.RowSpan="4" Grid.ColumnSpan="4" FontFamily="Baskerville Old Face" HorizontalContentAlignment="Center" Padding="0" Margin="7,4,13,16"
+                 />
+        <Label  x:Name="HeadULUnderline" Content="" FontSize="50" Width="60" Height="60" VerticalContentAlignment="Center"
+                Grid.Row="2" Grid.Column="6" Grid.RowSpan="4" Grid.ColumnSpan="4" FontFamily="Baskerville Old Face" HorizontalContentAlignment="Center" Padding="0" Margin="5,4,15,16"
+                 />
+        <Label  x:Name="HeadDRUnderline" Content="" FontSize="50" Width="60" Height="60" VerticalContentAlignment="Center"
+                Grid.Row="6" Grid.Column="10" Grid.RowSpan="4" Grid.ColumnSpan="4" FontFamily="Baskerville Old Face" HorizontalContentAlignment="Center" Padding="0" Margin="8,4,12,16"
+                 />
+        <Label  x:Name="HeadDLUnderline" Content="" FontSize="50" Width="60" Height="60" VerticalContentAlignment="Center"
+                Grid.Row="6" Grid.Column="6" Grid.RowSpan="4" Grid.ColumnSpan="4" FontFamily="Baskerville Old Face" HorizontalContentAlignment="Center" Padding="0" Margin="8,4,12,16"
+                 />
+        <Label  x:Name="ArmRURUnderline" Content="" FontSize="50" Width="60" Height="60" VerticalContentAlignment="Center"
+                Grid.Row="8" Grid.Column="16" Grid.RowSpan="4" Grid.ColumnSpan="4" FontFamily="Baskerville Old Face" HorizontalContentAlignment="Center" Padding="0" Margin="8,4,12,16"
+                 />
+        <Label  x:Name="ArmRULUnderline" Content="" FontSize="50" Width="60" Height="60" VerticalContentAlignment="Center"
+                Grid.Row="8" Grid.Column="10" Grid.RowSpan="4" Grid.ColumnSpan="4" FontFamily="Baskerville Old Face" HorizontalContentAlignment="Center" Padding="0" Margin="8,4,12,16"
+                 />
+        <Label  x:Name="ArmLURUnderline" Content="" FontSize="50" Width="60" Height="60" VerticalContentAlignment="Center"
+                Grid.Row="8" Grid.Column="6" Grid.RowSpan="4" Grid.ColumnSpan="4" FontFamily="Baskerville Old Face" HorizontalContentAlignment="Center" Padding="0" Margin="10,4,10,16"
+                 />
+        <Label  x:Name="ArmLULUnderline" Content="" FontSize="50" Width="60" Height="60" VerticalContentAlignment="Center"
+                Grid.Row="8" Grid.Column="0" Grid.RowSpan="4" Grid.ColumnSpan="4" FontFamily="Baskerville Old Face" HorizontalContentAlignment="Center" Padding="0" Margin="8,4,12,16"
+                 />
+        <Label  x:Name="LegRULUnderline" Content="" FontSize="50" Width="60" Height="60" VerticalContentAlignment="Center"
+                Grid.Row="12" Grid.Column="9" Grid.RowSpan="4" Grid.ColumnSpan="4" FontFamily="Baskerville Old Face" HorizontalContentAlignment="Center" Padding="0" Margin="8,4,12,16"
+                 />
+        <Label  x:Name="LegRDRUnderline" Content="" FontSize="50" Width="60" Height="60" VerticalContentAlignment="Center"
+                Grid.Row="16" Grid.Column="13" Grid.RowSpan="4" Grid.ColumnSpan="4" FontFamily="Baskerville Old Face" HorizontalContentAlignment="Center" Padding="0" Margin="9,4,11,16"
+                 />
+        <Label  x:Name="LegLURUnderline" Content="" FontSize="50" Width="60" Height="60" VerticalContentAlignment="Center"
+                Grid.Row="12" Grid.Column="7" Grid.RowSpan="4" Grid.ColumnSpan="4" FontFamily="Baskerville Old Face" HorizontalContentAlignment="Center" Padding="0" Margin="6,4,14,16"
+                 />
+        <Label  x:Name="LegLDLUnderline" Content="" FontSize="50" Width="60" Height="60" VerticalContentAlignment="Center"
+                Grid.Row="16" Grid.Column="3" Grid.RowSpan="4" Grid.ColumnSpan="4" FontFamily="Baskerville Old Face" HorizontalContentAlignment="Center" Padding="0" Margin="6,4,14,16"
+                 />
     </Grid>
 </UserControl>
