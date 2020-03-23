@@ -16,6 +16,7 @@ namespace WpfAkuSQLiteHome.ViewModels
         public ITableCalculatorViewModel TableCalculatorViewModel { get; }
         public IGraphCalculatorViewModel GraphCalculatorViewModel { get; }
         public ITableRestCalculatorViewModel TableRestCalculatorViewModel { get; }
+        public IScrollCalculatorViewModel ScrollCalculatorViewModel { get; }
         public IEventAggregator EventAggregator { get; }
 
 
@@ -29,13 +30,14 @@ namespace WpfAkuSQLiteHome.ViewModels
 
 
         public CalculatorViewModel(IEventAggregator eventAggregator, IInputCalculatorViewModel inputCalculatorViewModel, ITableCalculatorViewModel tableCalculatorViewModel,
-                                    IGraphCalculatorViewModel graphCalculatorViewModel, ITableRestCalculatorViewModel tableRestCalculatorViewModel)
+                                    IGraphCalculatorViewModel graphCalculatorViewModel, ITableRestCalculatorViewModel tableRestCalculatorViewModel, IScrollCalculatorViewModel scrollCalculatorViewModel)
         {
             EventAggregator = eventAggregator;
             InputCalculatorViewModel = inputCalculatorViewModel;
             TableCalculatorViewModel = tableCalculatorViewModel;
             GraphCalculatorViewModel = graphCalculatorViewModel;
             TableRestCalculatorViewModel = tableRestCalculatorViewModel;
+            ScrollCalculatorViewModel = scrollCalculatorViewModel;
             EventAggregator.Subscribe(this);
             InitializeData();
         }

@@ -34,32 +34,32 @@
 
             </Grid.RowDefinitions>
 
-            <TextBlock x:Name="H1" Grid.Column="2" Grid.Row="2" Background="White"></TextBlock>
-            <TextBlock x:Name="H2" Grid.Column="2" Grid.Row="3" Background="White"></TextBlock>
-            <TextBlock x:Name="H3" Grid.Column="2" Grid.Row="4" Background="White"></TextBlock>
-            <TextBlock x:Name="H4" Grid.Column="2" Grid.Row="5" Background="White"></TextBlock>
-            <TextBlock x:Name="H5" Grid.Column="2" Grid.Row="6" Background="White"></TextBlock>
-            <TextBlock x:Name="H6" Grid.Column="2" Grid.Row="7" Background="White"></TextBlock>
-            <TextBlock x:Name="H7" Grid.Column="2" Grid.Row="8" Background="White"></TextBlock>
-            <TextBlock x:Name="H8" Grid.Column="2" Grid.Row="9" Background="White"></TextBlock>
-            <TextBlock x:Name="H9" Grid.Column="2" Grid.Row="10" Background="White"></TextBlock>
-            <TextBlock x:Name="H10" Grid.Column="2" Grid.Row="11" Background="White"></TextBlock>
-            <TextBlock x:Name="H11" Grid.Column="2" Grid.Row="12" Background="White"></TextBlock>
-            <TextBlock x:Name="H12" Grid.Column="2" Grid.Row="13" Background="White"></TextBlock>
-            <TextBlock x:Name="H13" Grid.Column="2" Grid.Row="14" Background="White"></TextBlock>
+            <TextBlock x:Name="H1" Grid.Column="2" Grid.Row="2" Background="LightGoldenrodYellow"></TextBlock>
+            <TextBlock x:Name="H2" Grid.Column="2" Grid.Row="3" Background="LightGoldenrodYellow"></TextBlock>
+            <TextBlock x:Name="H3" Grid.Column="2" Grid.Row="4" Background="LightGoldenrodYellow"></TextBlock>
+            <TextBlock x:Name="H4" Grid.Column="2" Grid.Row="5" Background="LightGoldenrodYellow"></TextBlock>
+            <TextBlock x:Name="H5" Grid.Column="2" Grid.Row="6" Background="LightGoldenrodYellow"></TextBlock>
+            <TextBlock x:Name="H6" Grid.Column="2" Grid.Row="7" Background="LightGoldenrodYellow"></TextBlock>
+            <TextBlock x:Name="H7" Grid.Column="2" Grid.Row="8" Background="LightGoldenrodYellow"></TextBlock>
+            <TextBlock x:Name="H8" Grid.Column="2" Grid.Row="9" Background="LightGoldenrodYellow"></TextBlock>
+            <TextBlock x:Name="H9" Grid.Column="2" Grid.Row="10" Background="LightGoldenrodYellow"></TextBlock>
+            <TextBlock x:Name="H10" Grid.Column="2" Grid.Row="11" Background="LightGoldenrodYellow"></TextBlock>
+            <TextBlock x:Name="H11" Grid.Column="2" Grid.Row="12" Background="LightGoldenrodYellow"></TextBlock>
+            <TextBlock x:Name="H12" Grid.Column="2" Grid.Row="13" Background="LightGoldenrodYellow"></TextBlock>
+            <TextBlock x:Name="H13" Grid.Column="2" Grid.Row="14" Background="LightGoldenrodYellow"></TextBlock>
 
-            <TextBlock Text="Division" Grid.Column="1" Grid.Row="2" Background="White"></TextBlock>
-            <TextBlock Text="Corrective Energy" Grid.Column="1" Grid.Row="3" Background="White"></TextBlock>
-            <TextBlock Text="Season" Grid.Column="1" Grid.Row="4" Background="White"></TextBlock>
-            <TextBlock Text="Forbidden" Grid.Column="1" Grid.Row="5" Background="White"></TextBlock>
-            <TextBlock Text="Forbidden Meridian 1" Grid.Column="1" Grid.Row="6" Background="White"></TextBlock>
-            <TextBlock Text="Forbidden Meridian 2" Grid.Column="1" Grid.Row="7" Background="White"></TextBlock>
-            <TextBlock Text="Forbidden Region" Grid.Column="1" Grid.Row="8" Background="White"></TextBlock>
-            <TextBlock Text="Hsiu Animal" Grid.Column="1" Grid.Row="9" Background="White"></TextBlock>
-            <TextBlock Text="Hsiu Direction" Grid.Column="1" Grid.Row="10" Background="White"></TextBlock>
-            <TextBlock Text="Hsiu Element" Grid.Column="1" Grid.Row="11" Background="White"></TextBlock>
-            <TextBlock Text="Hsiu Planet" Grid.Column="1" Grid.Row="12" Background="White"></TextBlock>
-            <TextBlock Text="Hsiu Elts" Grid.Column="1" Grid.Row="13" Background="White"></TextBlock>
-            <TextBlock Text="Hsiu Points" Grid.Column="1" Grid.Row="14" Background="White"></TextBlock>
+            <TextBlock Text="Division" Grid.Column="1" Grid.Row="2" Background="LightGoldenrodYellow"></TextBlock>
+            <TextBlock Text="Corrective Energy" Grid.Column="1" Grid.Row="3" Background="LightGoldenrodYellow"></TextBlock>
+            <TextBlock Text="Season" Grid.Column="1" Grid.Row="4" Background="LightGoldenrodYellow"></TextBlock>
+            <TextBlock Text="Forbidden" Grid.Column="1" Grid.Row="5" Background="LightGoldenrodYellow"></TextBlock>
+            <TextBlock Text="Forbidden Meridian 1" Grid.Column="1" Grid.Row="6" Background="LightGoldenrodYellow"></TextBlock>
+            <TextBlock Text="Forbidden Meridian 2" Grid.Column="1" Grid.Row="7" Background="LightGoldenrodYellow"></TextBlock>
+            <TextBlock Text="Forbidden Region" Grid.Column="1" Grid.Row="8" Background="LightGoldenrodYellow"></TextBlock>
+            <TextBlock Text="Hsiu Animal" Grid.Column="1" Grid.Row="9" Background="LightGoldenrodYellow"></TextBlock>
+            <TextBlock Text="Hsiu Direction" Grid.Column="1" Grid.Row="10" Background="LightGoldenrodYellow"></TextBlock>
+            <TextBlock Text="Hsiu Element" Grid.Column="1" Grid.Row="11" Background="LightGoldenrodYellow"></TextBlock>
+            <TextBlock Text="Hsiu Planet" Grid.Column="1" Grid.Row="12" Background="LightGoldenrodYellow"></TextBlock>
+            <TextBlock Text="Hsiu Elts" Grid.Column="1" Grid.Row="13" Background="LightGoldenrodYellow"></TextBlock>
+            <TextBlock Text="Hsiu Points" Grid.Column="1" Grid.Row="14" Background="LightGoldenrodYellow"></TextBlock>
         </Grid>
 </UserControl>

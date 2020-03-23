@@ -52,8 +52,6 @@
             <RowDefinition Height="20" />
             <RowDefinition Height="20" />
         </Grid.RowDefinitions>
-
-        <Label x:Name="Division"  FontSize="20" Margin="0,10,0,0" HorizontalAlignment="Right" Width="100" Background="{x:Null}" Grid.ColumnSpan="5" Grid.RowSpan="2" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Padding="0" Grid.Column="1"/>
         <Label Content="Year Steam"  FontSize="20" Grid.Column="7" Margin="0,5,2,5" HorizontalAlignment="Right" Width="115" Background="{x:Null}" Grid.ColumnSpan="6" Grid.RowSpan="2" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Padding="0"/>
 
 
@@ -156,7 +154,7 @@
 
         <!--DIVISION-->
         <!--1-->
-        <Grid x:Name="div1" Grid.Row="9" Grid.Column="13" Margin="15,9,0,0" Grid.RowSpan="10" Grid.ColumnSpan="6" Visibility="{Binding Path=Div1, Mode=TwoWay}">
+        <Grid x:Name="Div1" Grid.Row="9" Grid.Column="13" Margin="15,9,0,0" Grid.RowSpan="10" Grid.ColumnSpan="6" Visibility="{Binding Path=Div1, Mode=TwoWay}">
             <TextBlock  x:Name="LegRDRc" Text="Co" HorizontalAlignment="Left" VerticalAlignment="Center" Width="40" Height="40" Padding="6" FontSize="16" FontWeight="Bold" Margin="35,115,0,36"/>
             <TextBlock  x:Name="LegRDRcx" Text="St" HorizontalAlignment="Left" VerticalAlignment="Center" Width="40" Height="40" Padding="6" FontSize="16" FontWeight="Bold" Margin="75,0,-10,151"/>
             <Rectangle HorizontalAlignment="Left" Height="133" Margin="52,9,0,0" VerticalAlignment="Top" Width="1" Fill="Black" RenderTransformOrigin="0.5,0.5">
@@ -185,6 +183,171 @@
                         <ScaleTransform/>
                         <SkewTransform/>
                         <RotateTransform Angle="-61.697"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Rectangle.RenderTransform>
+            </Rectangle>
+        </Grid>
+        <!--2-->
+        <Grid x:Name="Div2" Grid.Row="6" Grid.Column="9" Margin="16,0,19,9" Grid.RowSpan="10" Grid.ColumnSpan="7" Visibility="{Binding Div2, Mode=TwoWay}">
+            <TextBlock  x:Name="LegRDRc1" Text="Lu" HorizontalAlignment="Left" VerticalAlignment="Center" Width="40" Height="40" Padding="6" FontSize="16" FontWeight="Bold" Margin="12,110,0,41"/>
+            <TextBlock  x:Name="LegRDRcx1" Text="Sp" HorizontalAlignment="Left" VerticalAlignment="Center" Width="40" Height="40" Padding="6" FontSize="16" FontWeight="Bold" Margin="30,62,0,89"/>
+            <Rectangle HorizontalAlignment="Left" Height="60" Margin="47,78,0,0" VerticalAlignment="Top" Width="1" Fill="Black" RenderTransformOrigin="0.5,0.5">
+                <Rectangle.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="-160.662"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Rectangle.RenderTransform>
+            </Rectangle>
+            <Rectangle HorizontalAlignment="Left" Height="12" Margin="40,135,0,0" VerticalAlignment="Top" Width="1" Fill="Black" RenderTransformOrigin="0.5,0.5">
+                <Rectangle.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="-33.459"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Rectangle.RenderTransform>
+            </Rectangle>
+            <Rectangle HorizontalAlignment="Left" Height="12" Margin="62,73,0,0" VerticalAlignment="Top" Width="1" Fill="Black" RenderTransformOrigin="0.5,0.5">
+                <Rectangle.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="-98.352"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Rectangle.RenderTransform>
+            </Rectangle>
+        </Grid>
+        <!--3-->
+        <Grid x:Name="Div3" Margin="0,1,11,8" Grid.RowSpan="10" Grid.ColumnSpan="8" Visibility="{Binding Div3, Mode=TwoWay}" Grid.Row="1" Grid.Column="1">
+            <TextBlock  x:Name="LegRDRc2" Text="Gb" HorizontalAlignment="Left" VerticalAlignment="Center" Width="40" Height="40" Padding="6" FontSize="16" FontWeight="Bold" Margin="6,106,0,45"/>
+            <TextBlock  x:Name="LegRDRcx2" Text="Sj" HorizontalAlignment="Left" VerticalAlignment="Center" Width="40" Height="40" Padding="6" FontSize="16" FontWeight="Bold" Margin="103,34,0,117"/>
+            <Rectangle HorizontalAlignment="Left" Height="112" Margin="80,40,0,0" VerticalAlignment="Top" Width="1" Fill="Black" RenderTransformOrigin="0.5,0.5">
+                <Rectangle.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="-127.69"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Rectangle.RenderTransform>
+            </Rectangle>
+            <Rectangle HorizontalAlignment="Left" Height="12" Margin="41,128,0,0" VerticalAlignment="Top" Width="1" Fill="Black" RenderTransformOrigin="0.5,0.5">
+                <Rectangle.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="-52.463"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Rectangle.RenderTransform>
+            </Rectangle>
+            <Rectangle HorizontalAlignment="Left" Height="20" Margin="132,58,0,0" VerticalAlignment="Top" Width="1" Fill="Black" RenderTransformOrigin="0.5,0.5">
+                <Rectangle.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="-50.438"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Rectangle.RenderTransform>
+            </Rectangle>
+        </Grid>
+        <!--4-->
+        <Grid x:Name="Div4" Grid.Row="1" Grid.Column="5" Margin="15,10,0,19" Grid.RowSpan="11" Grid.ColumnSpan="6" Visibility="{Binding Div4, Mode=TwoWay}">
+            <TextBlock  x:Name="LegRDRc3" Text="Liv" HorizontalAlignment="Left" VerticalAlignment="Center" Width="40" Height="40" Padding="6" FontSize="16" FontWeight="Bold" Margin="34,173,0,-22"/>
+            <TextBlock  x:Name="LegRDRcx3" Text="Pc" HorizontalAlignment="Left" VerticalAlignment="Center" Width="40" Height="40" Padding="6" FontSize="16" FontWeight="Bold" Margin="83,105,-18,46"/>
+            <Rectangle HorizontalAlignment="Left" Height="75" Margin="64,115,0,0" VerticalAlignment="Top" Width="1" Fill="Black" RenderTransformOrigin="0.5,0.5">
+                <Rectangle.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="-144.509"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Rectangle.RenderTransform>
+            </Rectangle>
+            <Rectangle HorizontalAlignment="Left" Height="27" Margin="32,161,0,0" VerticalAlignment="Top" Width="1" Fill="Black" RenderTransformOrigin="0.5,0.5">
+                <Rectangle.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="128.743"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Rectangle.RenderTransform>
+            </Rectangle>
+            <Rectangle HorizontalAlignment="Left" Height="24" Margin="77,102,0,0" VerticalAlignment="Top" Width="1" Fill="Black" RenderTransformOrigin="0.5,0.5">
+                <Rectangle.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="-227.84"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Rectangle.RenderTransform>
+            </Rectangle>
+        </Grid>
+        <!--5-->
+        <Grid x:Name="Div5" Grid.Row="6" Grid.Column="6" Margin="8,7,7,2" Grid.RowSpan="10" Grid.ColumnSpan="6" Visibility="{Binding Div5, Mode=TwoWay}">
+            <TextBlock  x:Name="LegRDRc4" Text="Ki" HorizontalAlignment="Left" VerticalAlignment="Center" Width="40" Height="40" Padding="6" FontSize="16" FontWeight="Bold" Margin="31,101,0,50"/>
+            <TextBlock  x:Name="LegRDRcx4" Text="Ht" HorizontalAlignment="Left" VerticalAlignment="Center" Width="40" Height="40" Padding="6" FontSize="16" FontWeight="Bold" Margin="80,10,-15,141"/>
+            <Rectangle HorizontalAlignment="Left" Height="143" Margin="58,0,0,0" VerticalAlignment="Top" Width="1" Fill="Black" RenderTransformOrigin="0.5,0.5">
+                <Rectangle.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="-151.937"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Rectangle.RenderTransform>
+            </Rectangle>
+        </Grid>
+        <!--6-->
+        <Grid x:Name="Div6" Grid.Row="2" Grid.Column="2" Margin="1,0,0,0" Grid.RowSpan="17" Grid.ColumnSpan="8" Visibility="{Binding Div6, Mode=TwoWay}">
+            <TextBlock  x:Name="LegRDRc5" Text="Bl" HorizontalAlignment="Left" VerticalAlignment="Center" Width="40" Height="40" Padding="6" FontSize="16" FontWeight="Bold" Margin="21,247,0,53"/>
+            <TextBlock  x:Name="LegRDRcx5" Text="Si" HorizontalAlignment="Left" VerticalAlignment="Center" Width="40" Height="40" Padding="6" FontSize="16" FontWeight="Bold" Margin="75,3,0,297"/>
+            <Rectangle HorizontalAlignment="Left" Height="69" Margin="32,176,0,0" VerticalAlignment="Top" Width="1" Fill="Black" RenderTransformOrigin="0.5,0.5">
+                <Rectangle.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="-160.662"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Rectangle.RenderTransform>
+            </Rectangle>
+            <Rectangle HorizontalAlignment="Left" Height="41" Margin="39,230,0,0" VerticalAlignment="Top" Width="1" Fill="Black" RenderTransformOrigin="0.5,0.5">
+                <Rectangle.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="-67.852"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Rectangle.RenderTransform>
+            </Rectangle>
+            <Rectangle HorizontalAlignment="Left" Height="73" Margin="82,29,0,0" VerticalAlignment="Top" Width="1" Fill="Black" RenderTransformOrigin="0.5,0.5">
+                <Rectangle.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="-162.136"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Rectangle.RenderTransform>
+            </Rectangle>
+            <Rectangle HorizontalAlignment="Left" Height="31" Margin="108,20,0,0" VerticalAlignment="Top" Width="1" Fill="Black" RenderTransformOrigin="0.5,0.5">
+                <Rectangle.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="-71.484"/>
                         <TranslateTransform/>
                     </TransformGroup>
                 </Rectangle.RenderTransform>
