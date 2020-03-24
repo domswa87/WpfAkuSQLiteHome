@@ -43,8 +43,8 @@
 
         <ContentControl  Height="200" Width="200" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="1"  Grid.RowSpan="1" x:Name="InputCalculatorViewModel"/>
 
-        <ScrollViewer Grid.Row="3" Grid.Column="1" Height="600" Width="1000" Grid.RowSpan="3" Grid.ColumnSpan="3" FlowDirection="LeftToRight"  VerticalScrollBarVisibility="Hidden">
-            <ContentControl  Height="2020" Width="1020" Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="5"  Grid.RowSpan="10" x:Name="ScrollCalculatorViewModel" />
+        <ScrollViewer Grid.Row="2" Grid.Column="1" Height="600" Width="1200" Grid.RowSpan="3" Grid.ColumnSpan="6" FlowDirection="LeftToRight"  VerticalScrollBarVisibility="Hidden">
+            <ContentControl  Grid.Row="2" Grid.Column="1" Height="2200" Width="1200" Grid.ColumnSpan="6"  Grid.RowSpan="11" x:Name="ScrollCalculatorViewModel" />
         </ScrollViewer>
        
     </Grid>
