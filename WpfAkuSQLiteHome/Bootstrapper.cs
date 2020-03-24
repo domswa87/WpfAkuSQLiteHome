@@ -2,8 +2,6 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using WpfAkuSQLiteHome.ViewModels;
 
@@ -35,6 +33,8 @@ namespace WpfAkuSQLiteHome
                 .PerRequest<IGraphCalculatorViewModel, GraphCalculatorViewModel>()
                 .PerRequest<ITableRestCalculatorViewModel, TableRestCalculatorViewModel>()
                 .PerRequest<IScrollCalculatorViewModel, ScrollCalculatorViewModel>()
+                .PerRequest<ITest1ViewModel, Test1ViewModel>()
+                .PerRequest<ITest2ViewModel, Test2ViewModel>()
                 .PerRequest<ICalendarViewModel, CalendarViewModel>();
 
 

@@ -39,17 +39,14 @@
             <RowDefinition Height="200" />
             <RowDefinition Height="200" />
             <RowDefinition Height="10" />
-
         </Grid.RowDefinitions>
 
         <ContentControl  Height="200" Width="200" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="1"  Grid.RowSpan="1" x:Name="InputCalculatorViewModel"/>
-        <ContentControl  Height="200" Width="600" Grid.Row="1" Grid.Column="2" Grid.ColumnSpan="3"  Grid.RowSpan="1" x:Name="TableCalculatorViewModel"/>
-        <ContentControl  Height="400" Width="400" Grid.Row="1" Grid.Column="6" Grid.ColumnSpan="2"  Grid.RowSpan="2" x:Name="TableRestCalculatorViewModel"/>
-        <ScrollViewer FlowDirection="LeftToRight" Grid.Row="2" Grid.Column="1" Grid.RowSpan="5" Grid.ColumnSpan="5" VerticalScrollBarVisibility="Hidden" Background="#FFB69E6A">
-            <ContentControl  Height="1500" Width="900" Margin="0,0,0,0"  x:Name="GraphCalculatorViewModel"/>
+
+        <ScrollViewer Grid.Row="3" Grid.Column="1" Height="600" Width="1000" Grid.RowSpan="3" Grid.ColumnSpan="3" FlowDirection="LeftToRight"  VerticalScrollBarVisibility="Hidden">
+            <ContentControl  Height="2020" Width="1020" Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="5"  Grid.RowSpan="10" x:Name="ScrollCalculatorViewModel" />
         </ScrollViewer>
+       
     </Grid>
-
-
 
 </UserControl>

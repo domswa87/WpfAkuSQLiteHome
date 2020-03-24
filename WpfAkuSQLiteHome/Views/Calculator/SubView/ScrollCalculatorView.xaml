@@ -5,9 +5,36 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:WpfAkuSQLiteHome.Views"
              mc:Ignorable="d" 
-             d:DesignHeight="1500" d:DesignWidth="800" Background="Pink">
+             d:DesignHeight="2020" d:DesignWidth="1020" Background="LightGray">
     <Grid>
-        <ContentControl  Height="400" Width="400" x:Name="TableRestCalculatorViewModel" Margin="0,10,400,1090"/>
-        <ContentControl  Height="600" Width="600" x:Name="GraphCalculatorViewModel" Margin="0,460,200,440"/>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="10"/>
+            <ColumnDefinition Width="200"/>
+            <ColumnDefinition Width="200"/>
+            <ColumnDefinition Width="200"/>
+            <ColumnDefinition Width="200"/>
+            <ColumnDefinition Width="200"/>
+            <ColumnDefinition Width="10"/>
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="10" />
+            <RowDefinition Height="200" />
+            <RowDefinition Height="200" />
+            <RowDefinition Height="200" />
+            <RowDefinition Height="200" />
+            <RowDefinition Height="200" />
+            <RowDefinition Height="200" />
+            <RowDefinition Height="200" />
+            <RowDefinition Height="200" />
+            <RowDefinition Height="200" />
+            <RowDefinition Height="200" />
+            <RowDefinition Height="10" />
+
+        </Grid.RowDefinitions>
+        <ContentControl  Height="400" Width="400" Grid.ColumnSpan="2"  Grid.RowSpan="3" x:Name="GraphCalculatorViewModel" Grid.Column="1" Margin="0,8,0,2"/>
+        <ContentControl  Height="200" Width="600" Grid.Row="4" Grid.ColumnSpan="4" x:Name="TableCalculatorViewModel" />
+        <ContentControl  Height="400" Width="400" Grid.Row="6" Grid.ColumnSpan="2"  Grid.RowSpan="2" x:Name="TableRestCalculatorViewModel" Grid.Column="1"/>
+ 
     </Grid>
 </UserControl>

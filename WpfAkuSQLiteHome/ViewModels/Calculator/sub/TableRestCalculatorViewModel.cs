@@ -10,6 +10,7 @@ namespace WpfAkuSQLiteHome.ViewModels
     public class TableRestCalculatorViewModel : Screen, ITableRestCalculatorViewModel
     {
 
+
         public string H1 { get => h1; set { h1 = value; NotifyOfPropertyChange(() => H1); } }
         public string H2 { get => h2; set { h2 = value; NotifyOfPropertyChange(() => H2); } }
         public string H3 { get => h3; set { h3 = value; NotifyOfPropertyChange(() => H3); } }

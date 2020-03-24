@@ -120,9 +120,13 @@
     <Compile Include="ViewModels\Calculator\main\CalculatorViewModel.cs" />
     <Compile Include="ViewModels\Calculator\sub\TableCalculatorViewModel.cs" />
     <Compile Include="ViewModels\Calculator\sub\InputCalculatorViewModel.cs" />
-    <Compile Include="ViewModels\IScrollCalculatorViewModel.cs" />
-    <Compile Include="ViewModels\ScrollCalculatorViewModel.cs" />
+    <Compile Include="ViewModels\Calculator\Interfaces\IScrollCalculatorViewModel.cs" />
+    <Compile Include="ViewModels\ITest1ViewModel.cs" />
+    <Compile Include="ViewModels\ITest2ViewModel.cs" />
+    <Compile Include="ViewModels\Calculator\sub\ScrollCalculatorViewModel.cs" />
     <Compile Include="ViewModels\ShellViewModel.cs" />
+    <Compile Include="ViewModels\Test1ViewModel.cs" />
+    <Compile Include="ViewModels\Test2ViewModel.cs" />
     <Compile Include="Views\Calculator\SubView\TableRestCalculatorView.xaml.cs">
       <DependentUpon>TableRestCalculatorView.xaml</DependentUpon>
     </Compile>
@@ -155,6 +159,12 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Models\Calculator\DataForCalculation\DataAccess\DataAccessClass.cs" />
+    <Compile Include="Views\Test1View.xaml.cs">
+      <DependentUpon>Test1View.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Test2View.xaml.cs">
+      <DependentUpon>Test2View.xaml</DependentUpon>
+    </Compile>
     <Page Include="Views\Calculator\SubView\TableRestCalculatorView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -188,6 +198,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\ShellView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Test1View.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Test2View.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
