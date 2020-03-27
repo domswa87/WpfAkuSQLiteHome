@@ -70,5 +70,24 @@ namespace WpfAkuSQLiteHome.Models.Calculator
         public Visibility Div4 { get; set; } = Visibility.Hidden;
         public Visibility Div5 { get; set; } = Visibility.Hidden;
         public Visibility Div6 { get; set; } = Visibility.Hidden;
+
+        //DOTS
+        public string HeadDot1 { get; set; }
+        public string ArmRDot1 { get; set; }
+        public string ArmLDot1 { get; set; }
+        public string LegRDot1 { get; set; }
+        public string LegLDot1 { get; set; }
+
+        public string HeadDot2 { get; set; }
+        public string ArmRDot2 { get; set; }
+        public string ArmLDot2 { get; set; }
+        public string LegRDot2 { get; set; }
+        public string LegLDot2 { get; set; }
+
+        public string HeadDot3 { get; set; }
+        public string ArmRDot3 { get; set; }
+        public string ArmLDot3 { get; set; }
+        public string LegRDot3 { get; set; }
+        public string LegLDot3 { get; set; }
     }
 }

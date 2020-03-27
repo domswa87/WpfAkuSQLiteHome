@@ -104,6 +104,7 @@
     <Compile Include="Models\Calculator\Logic\Output\CalculatorOutput.cs" />
     <Compile Include="Models\Calculator\DataForCalculation\DataAccess\Tables\DatabaseTables.cs" />
     <Compile Include="Models\Calculator\DataForCalculation\DatabaseTablesCollection.cs" />
+    <Compile Include="Models\Colors.cs" />
     <Compile Include="Models\Extension\DateTimeExtensions.cs" />
     <Compile Include="Models\Calendar\GoogleCalendarAPI.cs" />
     <Compile Include="ViewModels\Calculator\sub\GraphCalculatorViewModel.cs" />

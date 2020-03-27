@@ -19,6 +19,12 @@ namespace WpfAkuSQLiteHome.Models.Calculator
             Thickness bigFontMargin = new Thickness(0, 0, 0, 0);
             String yearSteamToLower = new String(yearSteam.Select((ch, index) => (index == 0) ? ch : Char.ToLower(ch)).ToArray());
 
+            Colors color1 = Colors.white;
+            Colors color2 = Colors.white;
+            Colors color3 = Colors.white;
+            Colors color4 = Colors.white;
+
+
             switch (yearSteamToLower)
             {
               
@@ -26,51 +32,61 @@ namespace WpfAkuSQLiteHome.Models.Calculator
                     graphModel.ArmR = yearSteamToLower;
                     graphModel.ArmRSignS = "+";
                     graphModel.ArmLSignB = "-";
+                    color1 = Colors.blue;
                     break;
                 case "Liv":
                     graphModel.LegR = yearSteamToLower;
                     graphModel.LegRSignS = "-";
                     graphModel.HeadSignB = "+";
+                    color1 = Colors.yellow;
                     break;
                 case "Si":
                     graphModel.LegL = yearSteamToLower;
                     graphModel.LegLSignS = "+";
                     graphModel.HeadSignB = "-";
+                    color1 = Colors.yellow;
                     break;
                 case "Ht":
                     graphModel.ArmL = yearSteamToLower;
                     graphModel.ArmLSignS = "-";
                     graphModel.LegRSignB = "+";
+                    color1 = Colors.red;
                     break;
                 case "St":
                     graphModel.Head = yearSteamToLower;
                     graphModel.HeadSignS = "+";
                     graphModel.LegRSignB = "-";
+                    color1 = Colors.yellow;
                     break;
                 case "Sp":
                     graphModel.ArmR = yearSteamToLower;
                     graphModel.ArmRSignS = "-";
                     graphModel.ArmLSignB = "+";
+                    color1 = Colors.red;
                     break;
                 case "Co":
                     graphModel.LegR = yearSteamToLower;
                     graphModel.LegRSignS = "+";
                     graphModel.ArmLSignB = "-";
+                    color1 = Colors.green;
                     break;
                 case "Lu":
                     graphModel.LegL = yearSteamToLower;
                     graphModel.LegLSignS = "-";
                     graphModel.ArmRSignB = "+";
+                    color1 = Colors.green;
                     break;
                 case "Bl":
                     graphModel.ArmL = yearSteamToLower;
                     graphModel.ArmLSignS = "+";
                     graphModel.ArmRSignB = "-";
+                    color1 = Colors.white;
                     break;
                 case "Ki":
                     graphModel.Head = yearSteamToLower;
                     graphModel.HeadSignS = "-";
                     graphModel.LegLSignB = "+";
+                    color1 = Colors.white;
                     break;
             }
 
@@ -81,50 +97,62 @@ namespace WpfAkuSQLiteHome.Models.Calculator
                 case "Gb":
                     graphModel.ArmLUL = yearBranchToLower;
                     graphModel.ArmLULUnderline = "=";
+                    color2 = Colors.blue;
                     break;
                 case "Liv":
                     graphModel.ArmLUR = yearBranchToLower;
                     graphModel.ArmLURUnderline = "=";
+                    color2 = Colors.yellow;
                     break;
                 case "Lu":
                     graphModel.LegRUL = yearBranchToLower;
                     graphModel.LegRULUnderline = "=";
+                    color2 = Colors.green;
                     break;
                 case "Co":
                     graphModel.LegRDR = yearBranchToLower;
                     graphModel.LegRDRUnderline = "=";
+                    color2 = Colors.green;
                     break;
                 case "St":
                     graphModel.ArmRUR = yearBranchToLower;
                     graphModel.ArmRURUnderline = "=";
+                    color2 = Colors.yellow;
                     break;
                 case "Sp":
                     graphModel.ArmRUL = yearBranchToLower;
                     graphModel.ArmRULUnderline = "=";
+                    color2 = Colors.red;
                     break;
                 case "Ht":
                     graphModel.HeadDL = yearBranchToLower;
                     graphModel.HeadDLUnderline = "=";
+                    color2 = Colors.red;
                     break;
                 case "Si":
                     graphModel.HeadUL = yearBranchToLower;
                     graphModel.HeadULUnderline = "=";
+                    color2 = Colors.yellow;
                     break;
                 case "Bl":
                     graphModel.LegLDL = yearBranchToLower;
                     graphModel.LegLDLUnderline = "=";
+                    color2 = Colors.white;
                     break;
                 case "Ki":
                     graphModel.LegLUR = yearBranchToLower;
                     graphModel.LegLURUnderline = "=";
+                    color2 = Colors.white;
                     break;
                 case "Pc":
                     graphModel.HeadDR = yearBranchToLower;
                     graphModel.HeadDRUnderline = "=";
+                    color2 = Colors.yellow;
                     break;
                 case "Th":
                     graphModel.HeadUR = "Sj";
                     graphModel.HeadURUnderline = "=";
+                    color2 = Colors.blue;
                     break;
             }
 
@@ -134,24 +162,66 @@ namespace WpfAkuSQLiteHome.Models.Calculator
             {
                 case "Yang Ming":
                     graphModel.Div1 = Visibility.Visible;
+                    color3 = Colors.yellow;
+                    color4 = Colors.green;
                     break;
                 case "Tai Yin":
                     graphModel.Div2 = Visibility.Visible;
+                    color3 = Colors.red;
+                    color4 = Colors.green;
                     break;
                 case "Shao Yang":
                     graphModel.Div3 = Visibility.Visible;
+                    color3 = Colors.yellow;
+                    color4 = Colors.blue;
                     break;
                 case "Jue Yin":
                     graphModel.Div4 = Visibility.Visible;
+                    color3 = Colors.yellow;
+                    color4 = Colors.yellow;
                     break;
                 case "Shao Yin":
                     graphModel.Div5 = Visibility.Visible;
+                    color3 = Colors.red;
+                    color4 = Colors.white;
                     break;
                 case "Tai Yang":
                     graphModel.Div6 = Visibility.Visible;
+                    color3 = Colors.yellow;
+                    color4 = Colors.white;
                     break;
             }
+
+            CalulateDots(color1, color2, color3, color4);
+            
+
+
+            
+
+
+
             return graphModel;
+        }
+
+        private void CalulateDots(Colors colors1, Colors colors2, Colors colors3, Colors colors4)
+        {
+            List<Colors> colorsList = new List<Colors>() { colors1, colors2, colors3, colors4 };
+            int counter = 0;
+
+            foreach (Colors color in colorsList)
+            {
+                if (color == Colors.yellow)
+                {
+                    graphModel.HeadDot1 = ".";
+                }
+
+
+
+
+            }
+
+
+            throw new NotImplementedException();
         }
     }
 }
