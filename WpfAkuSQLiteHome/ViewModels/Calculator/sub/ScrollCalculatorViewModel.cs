@@ -15,12 +15,15 @@ namespace WpfAkuSQLiteHome.ViewModels
         public ITableCalculatorViewModel TableCalculatorViewModel { get; }
         public ITableRestCalculatorViewModel TableRestCalculatorViewModel { get; }
         public IGraphCalculatorViewModel GraphCalculatorViewModel { get; }
+        public IMissingElementsViewModel MissingElementsViewModel { get; }
 
-        public ScrollCalculatorViewModel(ITableCalculatorViewModel tableCalculatorViewModel, ITableRestCalculatorViewModel tableRestCalculatorViewModel, IGraphCalculatorViewModel graphCalculatorViewModel)
+        public ScrollCalculatorViewModel(ITableCalculatorViewModel tableCalculatorViewModel, ITableRestCalculatorViewModel tableRestCalculatorViewModel,
+                                         IGraphCalculatorViewModel graphCalculatorViewModel, IMissingElementsViewModel missingElementsViewModel)
         {
             TableCalculatorViewModel = tableCalculatorViewModel;
             TableRestCalculatorViewModel = tableRestCalculatorViewModel;
             GraphCalculatorViewModel = graphCalculatorViewModel;
+            MissingElementsViewModel = missingElementsViewModel;
         }
       
 
@@ -175,6 +178,22 @@ namespace WpfAkuSQLiteHome.ViewModels
             GraphCalculatorViewModel.LegRDot3 = GraphModel.LegRDot3;
             GraphCalculatorViewModel.LegLDot3 = GraphModel.LegLDot3;
             GraphCalculatorViewModel.ArmLDot3 = GraphModel.ArmLDot3;
+        }
+
+        public void UpdateMissingElementsViewModel(MissingElementModel missingElementModel)
+        {
+            MissingElementsViewModel.EL1 = missingElementModel.EL1;
+            MissingElementsViewModel.EL2 = missingElementModel.EL2;
+            MissingElementsViewModel.EL3 = missingElementModel.EL3;
+            MissingElementsViewModel.EL4 = missingElementModel.EL4;
+            MissingElementsViewModel.EL5 = missingElementModel.EL5;
+
+            MissingElementsViewModel.EM1 = missingElementModel.EM1;
+            MissingElementsViewModel.EM2 = missingElementModel.EM2;
+            MissingElementsViewModel.EM3 = missingElementModel.EM3;
+            MissingElementsViewModel.EM4 = missingElementModel.EM4;
+            MissingElementsViewModel.EM5 = missingElementModel.EM5;
+
         }
     }
 }

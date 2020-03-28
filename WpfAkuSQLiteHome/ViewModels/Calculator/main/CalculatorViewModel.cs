@@ -23,6 +23,8 @@ namespace WpfAkuSQLiteHome.ViewModels
         public CalculatorOutput CalculatorOutput { get; set; }
         public GraphLogic GraphLogic { get; set; }
         public GraphModel GraphModel { get; set; }
+        public MissingElementsLogic MissingElementsLogic { get; set; }
+        public MissingElementModel MissingElementModel { get; set; }
         public DateTime InputDate { get; set; }
 
 
@@ -41,6 +43,8 @@ namespace WpfAkuSQLiteHome.ViewModels
             Calculator = new Calculator();
             GraphLogic = new GraphLogic();
             GraphModel = new GraphModel();
+            MissingElementsLogic = new MissingElementsLogic();
+            GraphModel = new GraphModel();
         }
 
         public void Handle(string message)
@@ -51,12 +55,13 @@ namespace WpfAkuSQLiteHome.ViewModels
                 // validation
 
                 CalculatorOutput = Calculator.CalculateOutput(InputDate, DatabaseTablesCollection);
-                ScrollCalculatorViewModel.UpdateTableViewModel(CalculatorOutput);
-
                 GraphModel = GraphLogic.FillGraphModel(CalculatorOutput);
-                ScrollCalculatorViewModel.UpdateGraphViewModel(GraphModel);
+                MissingElementModel = MissingElementsLogic.FillMissingElementsModel(GraphModel); 
 
+                ScrollCalculatorViewModel.UpdateTableViewModel(CalculatorOutput);
                 ScrollCalculatorViewModel.UpdateTableRestViewModel(CalculatorOutput);
+                ScrollCalculatorViewModel.UpdateGraphViewModel(GraphModel);
+                ScrollCalculatorViewModel.UpdateMissingElementsViewModel(MissingElementModel);
             }
         }
        

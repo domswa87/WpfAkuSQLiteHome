@@ -1,0 +1,50 @@
+﻿<UserControl x:Class="WpfAkuSQLiteHome.Views.MissingElementsView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:WpfAkuSQLiteHome.Views"
+             mc:Ignorable="d" 
+             d:DesignHeight="200" d:DesignWidth="200">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="50"/>
+            <ColumnDefinition Width="50"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="20" />
+            <RowDefinition Height="20" />
+            <RowDefinition Height="20" />
+            <RowDefinition Height="20" />
+            <RowDefinition Height="20" />
+            <RowDefinition Height="20" />
+            <RowDefinition Height="20" />
+            <RowDefinition Height="20" />
+            <RowDefinition Height="*" />
+
+        </Grid.RowDefinitions>
+
+        <TextBlock Text="EL" Grid.Column="1" Grid.Row="2" Background="LightGoldenrodYellow" TextAlignment="Center" FontWeight="Bold"></TextBlock>
+        <TextBlock Text="EM" Grid.Column="2" Grid.Row="2" Background="LightGoldenrodYellow" TextAlignment="Center" FontWeight="Bold"></TextBlock>
+        
+        <TextBlock x:Name="EL1" Grid.Column="1" Grid.Row="3" Background="LightGoldenrodYellow"></TextBlock>
+        <TextBlock x:Name="EL2" Grid.Column="1" Grid.Row="4" Background="LightGoldenrodYellow"></TextBlock>
+        <TextBlock x:Name="EL3" Grid.Column="1" Grid.Row="5" Background="LightGoldenrodYellow"></TextBlock>
+        <TextBlock x:Name="EL4" Grid.Column="1" Grid.Row="6" Background="LightGoldenrodYellow"></TextBlock>
+        <TextBlock x:Name="EL5" Grid.Column="1" Grid.Row="7" Background="LightGoldenrodYellow"></TextBlock>
+
+        <TextBlock x:Name="EM1" Grid.Column="2" Grid.Row="3" Background="LightGoldenrodYellow"></TextBlock>
+        <TextBlock x:Name="EM2" Grid.Column="2" Grid.Row="4" Background="LightGoldenrodYellow"></TextBlock>
+        <TextBlock x:Name="EM3" Grid.Column="2" Grid.Row="5" Background="LightGoldenrodYellow"></TextBlock>
+        <TextBlock x:Name="EM4" Grid.Column="2" Grid.Row="6" Background="LightGoldenrodYellow"></TextBlock>
+        <TextBlock x:Name="EM5" Grid.Column="2" Grid.Row="7" Background="LightGoldenrodYellow"></TextBlock>
+        
+
+
+  
+    </Grid>
+</UserControl>

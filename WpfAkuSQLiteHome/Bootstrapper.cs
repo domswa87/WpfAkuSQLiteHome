@@ -20,8 +20,8 @@ namespace WpfAkuSQLiteHome
 
         protected override void Configure()
         {
-           
-            
+
+
             _container.Instance(_container);
 
             _container
@@ -37,6 +37,7 @@ namespace WpfAkuSQLiteHome
                 .PerRequest<IGraphCalculatorViewModel, GraphCalculatorViewModel>()
                 .PerRequest<ITableRestCalculatorViewModel, TableRestCalculatorViewModel>()
                 .PerRequest<IScrollCalculatorViewModel, ScrollCalculatorViewModel>()
+                .PerRequest<IMissingElementsViewModel, MissingElementsViewModel>()
                 .PerRequest<ITest1ViewModel, Test1ViewModel>()
                 .PerRequest<ITest2ViewModel, Test2ViewModel>()
                 .PerRequest<ICalendarViewModel, CalendarViewModel>();

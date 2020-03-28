@@ -35,6 +35,6 @@
         <ContentControl  Height="400" Width="400" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2"  Grid.RowSpan="2" x:Name="GraphCalculatorViewModel"  BorderThickness="3" BorderBrush="Black"/>
         <ContentControl  Height="200" Width="600" Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="3"  Grid.RowSpan="1" x:Name="TableCalculatorViewModel" BorderThickness="3" BorderBrush="Black" />
         <ContentControl  Height="400" Width="400" Grid.Row="6" Grid.Column="1" Grid.ColumnSpan="2"  Grid.RowSpan="2" x:Name="TableRestCalculatorViewModel"  BorderThickness="3" BorderBrush="Black"/>
- 
+        <ContentControl  Height="200" Width="200" Grid.Row="9" Grid.Column="1" Grid.ColumnSpan="1"  Grid.RowSpan="1" x:Name="MissingElementsViewModel"  BorderThickness="3" BorderBrush="Black"/>
     </Grid>
 </UserControl>

@@ -113,28 +113,32 @@
     <Compile Include="Models\Colors.cs" />
     <Compile Include="Models\Extension\DateTimeExtensions.cs" />
     <Compile Include="Models\Calendar\GoogleCalendarAPI.cs" />
-    <Compile Include="ViewModels\Calculator\sub\GraphCalculatorViewModel.cs" />
+    <Compile Include="Models\Calculator\MissingElementsLogic.cs" />
+    <Compile Include="Models\MissingElementModel.cs" />
+    <Compile Include="ViewModels\Calculator\sub\sub\GraphCalculatorViewModel.cs" />
     <Compile Include="ViewModels\Calculator\Interfaces\IInputCalculatorViewModel.cs" />
     <Compile Include="ViewModels\Calculator\Interfaces\ICalculatorViewModel.cs" />
     <Compile Include="ViewModels\Calculator\Interfaces\ITableCalculatorViewModel.cs" />
     <Compile Include="ViewModels\Calculator\Interfaces\IGraphCalculatorViewModel.cs" />
     <Compile Include="ViewModels\Calculator\Interfaces\ITableRestCalculatorViewModel.cs" />
-    <Compile Include="ViewModels\Calculator\sub\TableRestCalculatorViewModel.cs" />
+    <Compile Include="ViewModels\Calculator\Interfaces\IMissingElementsViewModel.cs" />
+    <Compile Include="ViewModels\Calculator\sub\sub\TableRestCalculatorViewModel.cs" />
     <Compile Include="ViewModels\Calendar\CalendarViewModel.cs" />
     <Compile Include="ViewModels\Calendar\DayViewModel.cs" />
     <Compile Include="ViewModels\Calendar\Interfaces\ICalendarViewModel.cs" />
     <Compile Include="ViewModels\Calendar\Interfaces\IDayViewModel.cs" />
     <Compile Include="ViewModels\Calculator\main\CalculatorViewModel.cs" />
-    <Compile Include="ViewModels\Calculator\sub\TableCalculatorViewModel.cs" />
+    <Compile Include="ViewModels\Calculator\sub\sub\TableCalculatorViewModel.cs" />
     <Compile Include="ViewModels\Calculator\sub\InputCalculatorViewModel.cs" />
     <Compile Include="ViewModels\Calculator\Interfaces\IScrollCalculatorViewModel.cs" />
     <Compile Include="ViewModels\ITest1ViewModel.cs" />
     <Compile Include="ViewModels\ITest2ViewModel.cs" />
     <Compile Include="ViewModels\Calculator\sub\ScrollCalculatorViewModel.cs" />
+    <Compile Include="ViewModels\Calculator\sub\sub\MissingElementsViewModel.cs" />
     <Compile Include="ViewModels\ShellViewModel.cs" />
     <Compile Include="ViewModels\Test1ViewModel.cs" />
     <Compile Include="ViewModels\Test2ViewModel.cs" />
-    <Compile Include="Views\Calculator\SubView\TableRestCalculatorView.xaml.cs">
+    <Compile Include="Views\Calculator\SubView\subView\TableRestCalculatorView.xaml.cs">
       <DependentUpon>TableRestCalculatorView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Calendar\Main\CalendarView.xaml.cs">
@@ -146,17 +150,20 @@
     <Compile Include="Views\Calculator\Main\CalculatorView.xaml.cs">
       <DependentUpon>CalculatorView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\Calculator\SubView\TableCalculatorView.xaml.cs">
+    <Compile Include="Views\Calculator\SubView\subView\TableCalculatorView.xaml.cs">
       <DependentUpon>TableCalculatorView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Calculator\SubView\InputCalculatorView.xaml.cs">
       <DependentUpon>InputCalculatorView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\Calculator\SubView\GraphCalculatorView.xaml.cs">
+    <Compile Include="Views\Calculator\SubView\subView\GraphCalculatorView.xaml.cs">
       <DependentUpon>GraphCalculatorView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Calculator\SubView\ScrollCalculatorView.xaml.cs">
       <DependentUpon>ScrollCalculatorView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Calculator\SubView\subView\MissingElementsView.xaml.cs">
+      <DependentUpon>MissingElementsView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\ShellView.xaml.cs">
       <DependentUpon>ShellView.xaml</DependentUpon>
@@ -172,7 +179,7 @@
     <Compile Include="Views\Test2View.xaml.cs">
       <DependentUpon>Test2View.xaml</DependentUpon>
     </Compile>
-    <Page Include="Views\Calculator\SubView\TableRestCalculatorView.xaml">
+    <Page Include="Views\Calculator\SubView\subView\TableRestCalculatorView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -188,7 +195,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\Calculator\SubView\TableCalculatorView.xaml">
+    <Page Include="Views\Calculator\SubView\subView\TableCalculatorView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -196,11 +203,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\Calculator\SubView\GraphCalculatorView.xaml">
+    <Page Include="Views\Calculator\SubView\subView\GraphCalculatorView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\Calculator\SubView\ScrollCalculatorView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Calculator\SubView\subView\MissingElementsView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
