@@ -180,5 +180,57 @@ namespace WpfAkuSQLiteHome.ViewModels
 
         private Visibility div6 = Visibility.Hidden;
         public Visibility Div6 { get => div6; set { div6 = value; NotifyOfPropertyChange(() => Div6); } }
+
+
+        // Dots
+        //1
+        private string headDot1;
+        public string HeadDot1 { get => headDot1; set { headDot1 = value; NotifyOfPropertyChange(() => HeadDot1); } }
+
+        private string armRDot1;
+        public string ArmRDot1 { get => armRDot1; set { armRDot1 = value; NotifyOfPropertyChange(() => ArmRDot1); } }
+
+        private string armLDot1;
+        public string ArmLDot1 { get => armLDot1; set { armLDot1 = value; NotifyOfPropertyChange(() => ArmLDot1); } }
+
+        private string legRDot1;
+        public string LegRDot1 { get => legRDot1; set { legRDot1 = value; NotifyOfPropertyChange(() => LegRDot1); } }
+
+        private string legLDot1;
+        public string LegLDot1 { get => legLDot1; set { legLDot1 = value; NotifyOfPropertyChange(() => LegLDot1); } }
+
+
+        //2
+        private string headDot2;
+        public string HeadDot2 { get => headDot2; set { headDot2 = value; NotifyOfPropertyChange(() => HeadDot2); } }
+
+        private string armRDot2;
+        public string ArmRDot2 { get => armRDot2; set { armRDot2 = value; NotifyOfPropertyChange(() => ArmRDot2); } }
+
+        private string armLDot2;
+        public string ArmLDot2 { get => armLDot2; set { armLDot2 = value; NotifyOfPropertyChange(() => ArmLDot2); } }
+
+        private string legRDot2;
+        public string LegRDot2 { get => legRDot2; set { legRDot2 = value; NotifyOfPropertyChange(() => LegRDot2); } }
+
+        private string legLDot2;
+        public string LegLDot2 { get => legLDot2; set { legLDot2 = value; NotifyOfPropertyChange(() => LegLDot2); } }
+
+
+        //3
+        private string headDot3;
+        public string HeadDot3 { get => headDot3; set { headDot3 = value; NotifyOfPropertyChange(() => HeadDot3); } }
+
+        private string armRDot3;
+        public string ArmRDot3 { get => armRDot3; set { armRDot3 = value; NotifyOfPropertyChange(() => ArmRDot3); } }
+
+        private string armLDot3;
+        public string ArmLDot3 { get => armLDot3; set { armLDot3 = value; NotifyOfPropertyChange(() => ArmLDot3); } }
+
+        private string legRDot3;
+        public string LegRDot3 { get => legRDot3; set { legRDot3 = value; NotifyOfPropertyChange(() => LegRDot3); } }
+
+        private string legLDot3;
+        public string LegLDot3 { get => legLDot3; set { legLDot3 = value; NotifyOfPropertyChange(() => LegLDot3); } }
     }
 }

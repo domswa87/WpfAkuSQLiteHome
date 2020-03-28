@@ -75,9 +75,9 @@ namespace WpfAkuSQLiteHome.ViewModels
         private string h6;
         private string h7;
         private string h8;
-        private Brush hourGMColor = new SolidColorBrush(Colors.LightGray);
-        private Brush hourSteamColor = new SolidColorBrush(Colors.LightGray);
-        private Brush hourBranchColor = new SolidColorBrush(Colors.LightGray);
+        private Brush hourGMColor = new SolidColorBrush(System.Windows.Media.Colors.LightGray);
+        private Brush hourSteamColor = new SolidColorBrush(System.Windows.Media.Colors.LightGray);
+        private Brush hourBranchColor = new SolidColorBrush(System.Windows.Media.Colors.LightGray);
 
         private string d1;
         private string d2;
@@ -87,9 +87,9 @@ namespace WpfAkuSQLiteHome.ViewModels
         private string d6;
         private string d7;
         private string d8;
-        private Brush dayGMColor = new SolidColorBrush(Colors.LightGray);
-        private Brush daySteamColor = new SolidColorBrush(Colors.LightGray);
-        private Brush dayBranchColor = new SolidColorBrush(Colors.LightGray);
+        private Brush dayGMColor = new SolidColorBrush(System.Windows.Media.Colors.LightGray);
+        private Brush daySteamColor = new SolidColorBrush(System.Windows.Media.Colors.LightGray);
+        private Brush dayBranchColor = new SolidColorBrush(System.Windows.Media.Colors.LightGray);
 
 
         private string m1;
@@ -100,9 +100,9 @@ namespace WpfAkuSQLiteHome.ViewModels
         private string m6;
         private string m7;
         private string m8;
-        private Brush monthGMColor = new SolidColorBrush(Colors.LightGray);
-        private Brush monthSteamColor = new SolidColorBrush(Colors.LightGray);
-        private Brush monthBranchColor = new SolidColorBrush(Colors.LightGray);
+        private Brush monthGMColor = new SolidColorBrush(System.Windows.Media.Colors.LightGray);
+        private Brush monthSteamColor = new SolidColorBrush(System.Windows.Media.Colors.LightGray);
+        private Brush monthBranchColor = new SolidColorBrush(System.Windows.Media.Colors.LightGray);
 
         private string y1;
         private string y2;
@@ -112,9 +112,9 @@ namespace WpfAkuSQLiteHome.ViewModels
         private string y6;
         private string y7;
         private string y8;
-        private Brush yearGMColor = new SolidColorBrush(Colors.LightGray);
-        private Brush yearSteamColor = new SolidColorBrush(Colors.LightGray);
-        private Brush yearBranchColor = new SolidColorBrush(Colors.LightGray);
+        private Brush yearGMColor = new SolidColorBrush(System.Windows.Media.Colors.LightGray);
+        private Brush yearSteamColor = new SolidColorBrush(System.Windows.Media.Colors.LightGray);
+        private Brush yearBranchColor = new SolidColorBrush(System.Windows.Media.Colors.LightGray);
 
 
         public TableCalculatorViewModel()

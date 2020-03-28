@@ -156,6 +156,9 @@ namespace WpfAkuSQLiteHome.ViewModels
             GraphCalculatorViewModel.Div4 = GraphModel.Div4;
             GraphCalculatorViewModel.Div5 = GraphModel.Div5;
             GraphCalculatorViewModel.Div6 = GraphModel.Div6;
+
+            // DOTS
+
         }
     }
 }

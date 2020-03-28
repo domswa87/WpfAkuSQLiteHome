@@ -15,7 +15,7 @@ namespace WpfAkuSQLiteHome.Models.Calculator
         {
             graphModel = new GraphModel();
             string yearSteam = CalculatorOutput.Year.Steam.EnglishString;
-            Thickness smallFontMargin = new Thickness(0,15,0,0);
+            Thickness smallFontMargin = new Thickness(0, 15, 0, 0);
             Thickness bigFontMargin = new Thickness(0, 0, 0, 0);
             String yearSteamToLower = new String(yearSteam.Select((ch, index) => (index == 0) ? ch : Char.ToLower(ch)).ToArray());
 
@@ -27,7 +27,7 @@ namespace WpfAkuSQLiteHome.Models.Calculator
 
             switch (yearSteamToLower)
             {
-              
+
                 case "Gb":
                     graphModel.ArmR = yearSteamToLower;
                     graphModel.ArmRSignS = "+";
@@ -193,35 +193,50 @@ namespace WpfAkuSQLiteHome.Models.Calculator
             }
 
             CalulateDots(color1, color2, color3, color4);
-            
 
 
-            
+
+
 
 
 
             return graphModel;
         }
 
-        private void CalulateDots(Colors colors1, Colors colors2, Colors colors3, Colors colors4)
+        private void CalulateDots(Colors color1, Colors color2, Colors color3, Colors color4)
         {
-            List<Colors> colorsList = new List<Colors>() { colors1, colors2, colors3, colors4 };
-            int counter = 0;
-
-            foreach (Colors color in colorsList)
-            {
-                if (color == Colors.yellow)
+            var dicColorElemental = new Dictionary<Colors, string>
                 {
-                    graphModel.HeadDot1 = ".";
+                {Colors.red,"HeadDot"},
+                {Colors.yellow,"ArmRDot" },
+                {Colors.white,"LegRDot" },
+                {Colors.blue,"LegLDot" },
+                {Colors.green,"ArmLDot" },
+                };
+
+            List<Colors> colorsList = new List<Colors>() { color1, color2, color3, color4 };
+
+            Type type = typeof(GraphModel);
+            Type type2 = graphModel.GetType(); 
+
+            for (int i = 0; i < 4; i++)
+            {
+                Colors activeColor = colorsList[i];
+                string basePropertyName = dicColorElemental[activeColor];
+
+                bool isFirstPropertyEmpty = type.GetProperty(basePropertyName + "1").GetValue(graphModel) is null;
+                bool isSecondPropertyEmpty = type.GetProperty(basePropertyName + "2").GetValue(graphModel) is null;
+
+                if (isFirstPropertyEmpty)
+                    type.GetProperty(basePropertyName + "1").SetValue(graphModel, ".");
+                else
+                {
+                    if (isSecondPropertyEmpty)
+                        type.GetProperty(basePropertyName + "2").SetValue(graphModel, ".");
+                    else
+                        type.GetProperty(basePropertyName + "3").SetValue(graphModel, ".");
                 }
-
-
-
-
             }
-
-
-            throw new NotImplementedException();
         }
     }
 }

@@ -1,8 +1,10 @@
-﻿using Caliburn.Micro;
+﻿using AutoMapper;
+using Caliburn.Micro;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Windows;
+using WpfAkuSQLiteHome.Models.Calculator;
 using WpfAkuSQLiteHome.ViewModels;
 
 namespace WpfAkuSQLiteHome
@@ -14,10 +16,13 @@ namespace WpfAkuSQLiteHome
         public Bootstrapper()
         {
             Initialize();
+          
         }
 
         protected override void Configure()
         {
+            
+
             _container.Instance(_container);
 
             _container
