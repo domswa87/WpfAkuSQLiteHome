@@ -114,7 +114,7 @@
     <Compile Include="Models\Extension\DateTimeExtensions.cs" />
     <Compile Include="Models\Calendar\GoogleCalendarAPI.cs" />
     <Compile Include="Models\Calculator\MissingElementsLogic.cs" />
-    <Compile Include="Models\MissingElementModel.cs" />
+    <Compile Include="Models\Calculator\MissingElementModel.cs" />
     <Compile Include="ViewModels\Calculator\sub\sub\GraphCalculatorViewModel.cs" />
     <Compile Include="ViewModels\Calculator\Interfaces\IInputCalculatorViewModel.cs" />
     <Compile Include="ViewModels\Calculator\Interfaces\ICalculatorViewModel.cs" />

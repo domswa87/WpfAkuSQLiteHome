@@ -56,7 +56,7 @@ namespace WpfAkuSQLiteHome.ViewModels
 
                 CalculatorOutput = Calculator.CalculateOutput(InputDate, DatabaseTablesCollection);
                 GraphModel = GraphLogic.FillGraphModel(CalculatorOutput);
-                MissingElementModel = MissingElementsLogic.FillMissingElementsModel(GraphModel); 
+                MissingElementModel = MissingElementsLogic.FillMissingElementsModel(GraphModel, CalculatorOutput); 
 
                 ScrollCalculatorViewModel.UpdateTableViewModel(CalculatorOutput);
                 ScrollCalculatorViewModel.UpdateTableRestViewModel(CalculatorOutput);
