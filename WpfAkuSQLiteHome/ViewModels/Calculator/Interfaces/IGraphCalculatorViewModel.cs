@@ -50,5 +50,20 @@ namespace WpfAkuSQLiteHome.ViewModels
         Visibility Div4 { get; set; }
         Visibility Div5 { get; set; }
         Visibility Div6 { get; set; }
+        string HeadDot1 { get; set; }
+        string ArmRDot1 { get; set; }
+        string ArmLDot1 { get; set; }
+        string LegRDot1 { get; set; }
+        string LegLDot1 { get; set; }
+        string HeadDot2 { get; set; }
+        string ArmRDot2 { get; set; }
+        string ArmLDot2 { get; set; }
+        string LegRDot2 { get; set; }
+        string LegLDot2 { get; set; }
+        string HeadDot3 { get; set; }
+        string ArmRDot3 { get; set; }
+        string ArmLDot3 { get; set; }
+        string LegRDot3 { get; set; }
+        string LegLDot3 { get; set; }
     }
 }

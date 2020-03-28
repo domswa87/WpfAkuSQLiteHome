@@ -1,4 +1,5 @@
-﻿using Caliburn.Micro;
+﻿using AutoMapper;
+using Caliburn.Micro;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -93,7 +94,6 @@ namespace WpfAkuSQLiteHome.ViewModels
 
         public void UpdateGraphViewModel(GraphModel GraphModel)
         {
-
             GraphCalculatorViewModel.Head = GraphModel.Head;
             GraphCalculatorViewModel.ArmR = GraphModel.ArmR;
             GraphCalculatorViewModel.ArmL = GraphModel.ArmL;
@@ -157,8 +157,24 @@ namespace WpfAkuSQLiteHome.ViewModels
             GraphCalculatorViewModel.Div5 = GraphModel.Div5;
             GraphCalculatorViewModel.Div6 = GraphModel.Div6;
 
-            // DOTS
+            //DOTS
+            GraphCalculatorViewModel.HeadDot1 = GraphModel.HeadDot1;
+            GraphCalculatorViewModel.ArmRDot1 = GraphModel.ArmRDot1;
+            GraphCalculatorViewModel.LegRDot1 = GraphModel.LegRDot1;
+            GraphCalculatorViewModel.LegLDot1 = GraphModel.LegLDot1;
+            GraphCalculatorViewModel.ArmLDot1 = GraphModel.ArmLDot1;
 
+            GraphCalculatorViewModel.HeadDot2 = GraphModel.HeadDot2;
+            GraphCalculatorViewModel.ArmRDot2 = GraphModel.ArmRDot2;
+            GraphCalculatorViewModel.LegRDot2 = GraphModel.LegRDot2;
+            GraphCalculatorViewModel.LegLDot2 = GraphModel.LegLDot2;
+            GraphCalculatorViewModel.ArmLDot2 = GraphModel.ArmLDot2;
+
+            GraphCalculatorViewModel.HeadDot3 = GraphModel.HeadDot3;
+            GraphCalculatorViewModel.ArmRDot3 = GraphModel.ArmRDot3;
+            GraphCalculatorViewModel.LegRDot3 = GraphModel.LegRDot3;
+            GraphCalculatorViewModel.LegLDot3 = GraphModel.LegLDot3;
+            GraphCalculatorViewModel.ArmLDot3 = GraphModel.ArmLDot3;
         }
     }
 }

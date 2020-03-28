@@ -217,7 +217,6 @@ namespace WpfAkuSQLiteHome.Models.Calculator
             List<Colors> colorsList = new List<Colors>() { color1, color2, color3, color4 };
 
             Type type = typeof(GraphModel);
-            Type type2 = graphModel.GetType(); 
 
             for (int i = 0; i < 4; i++)
             {
