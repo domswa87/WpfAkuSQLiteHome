@@ -188,6 +188,19 @@ namespace WpfAkuSQLiteHome.ViewModels
             MissingElementsViewModel.EL4 = missingElementModel.EL4;
             MissingElementsViewModel.EL5 = missingElementModel.EL5;
 
+            MissingElementsViewModel.EM1 = missingElementModel.EM1;
+            MissingElementsViewModel.EM2 = missingElementModel.EM2;
+            MissingElementsViewModel.EM3 = missingElementModel.EM3;
+            MissingElementsViewModel.EM4 = missingElementModel.EM4;
+            MissingElementsViewModel.EM5 = missingElementModel.EM5;
+
+
+            MissingElementsViewModel.EL1Underline = missingElementModel.EL1Underline;
+            MissingElementsViewModel.EL2Underline = missingElementModel.EL2Underline;
+            MissingElementsViewModel.EL3Underline = missingElementModel.EL3Underline;
+            MissingElementsViewModel.EL4Underline = missingElementModel.EL4Underline;
+            MissingElementsViewModel.EL5Underline = missingElementModel.EL5Underline;
+
             MissingElementsViewModel.EM1Underline = missingElementModel.EM1Underline;
             MissingElementsViewModel.EM2Underline = missingElementModel.EM2Underline;
             MissingElementsViewModel.EM3Underline = missingElementModel.EM3Underline;

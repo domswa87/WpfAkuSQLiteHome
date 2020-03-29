@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows;
 using WpfAkuSQLiteHome.Models.Calculator;
@@ -10,43 +11,71 @@ namespace WpfAkuSQLiteHome.Models
 {
     public class MissingElementsLogic
     {
-        MissingElementModel missingElements = new MissingElementModel();
-
+        MissingElementModel missingElements; 
         public MissingElementModel FillMissingElementsModel(GraphModel graphModel, CalculatorOutput calculatorOutput)
         {
+            missingElements = new MissingElementModel();
             List<string> listEL = CalculateListEL(graphModel);
             List<string> listEM = CalculateListEM(graphModel, calculatorOutput);
-            UnderlineDuplicates(listEL, listEM);
+            Decorate(listEL, listEM);
             return missingElements;
         }
 
-        private void UnderlineDuplicates(List<string> listEL, List<string> listEM)
+        private void Decorate(List<string> listEL, List<string> listEM)
+        {
+            List<string> doubletsList = CheckForDoublets(ref listEL, ref listEM);
+            ProcessDuplicates(ref listEL, ref listEM, doubletsList);
+
+        }
+
+        private static List<string> CheckForDoublets(ref List<string> listEL, ref List<string> listEM)
         {
             listEL = listEL.Where(x => x != "").ToList();
             listEM = listEM.Where(x => x != "").ToList();
 
             List<string> doubletsList = listEL.Intersect(listEM).ToList();
-            bool IsDouble = doubletsList.Count == 0;
+            return doubletsList;
+        }
 
+        private void ProcessDuplicates(ref List<string> listEL, ref List<string> listEM, List<string> doubletsList)
+        {
+            listEL = listEL.Except(doubletsList).ToList();
+            listEM = listEM.Except(doubletsList).ToList();
 
-            missingElements.EM1Underline = TextDecorations.Underline;
-            missingElements.EM3Underline = TextDecorations.Underline;
-
-
-            missingElements.EL1 = "AAA";
-            missingElements.EL2 = "BBB";
-            missingElements.EL3 = "CCC";
-            missingElements.EL4 = "DDD";
-            missingElements.EL5 = "EEE";
-
-            if (IsDouble)
+            if (doubletsList.Count > 0)
             {
-                int doubletListSize = doubletsList.Count;
+                var AllProperties = missingElements.GetType().GetProperties();
+                Regex exNumber = new Regex(@"\d");
 
-
+                foreach (var property in AllProperties)
+                {
+                    Match m = exNumber.Match(property.Name);
+                    if (m.Success)
+                    {
+                        int propNumber = int.Parse(m.Value);
+                        if (property.Name.Contains("Underline") && propNumber <= doubletsList.Count)
+                        {
+                            property.SetValue(missingElements, TextDecorations.Underline);
+                        }
+                    }
+                }
             }
 
+            List<string> FinalListEL = doubletsList.Union(listEL).ToList();
+            List<string> FinalListEM = doubletsList.Union(listEM).ToList();
 
+            int counter = 1;
+            foreach (string item in FinalListEL)
+            {
+                missingElements.GetType().GetProperty("EL" + counter).SetValue(missingElements, item);
+                counter++;
+            }
+            counter = 1;
+            foreach (string item in FinalListEM)
+            {
+                missingElements.GetType().GetProperty("EM" + counter).SetValue(missingElements, item);
+                counter++;
+            }
         }
 
         private List<string> CalculateListEL(GraphModel graphModel)
@@ -66,7 +95,7 @@ namespace WpfAkuSQLiteHome.Models
 
             list.Reverse();
             return list;
-         
+
         }
 
         private List<string> CalculateListEM(GraphModel graphModel, CalculatorOutput calculatorOutput)
@@ -125,12 +154,6 @@ namespace WpfAkuSQLiteHome.Models
             list.Reverse();
 
             return list;
-
-            //missingElements.EM1 = list[0];
-            //missingElements.EM2 = list[1];
-            //missingElements.EM3 = list[2];
-            //missingElements.EM4 = list[3];
-            //missingElements.EM5 = list[4];
         }
     }
 }

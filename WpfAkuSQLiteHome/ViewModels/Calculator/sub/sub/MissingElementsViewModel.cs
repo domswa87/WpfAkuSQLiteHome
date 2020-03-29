@@ -45,7 +45,7 @@ namespace WpfAkuSQLiteHome.ViewModels
 
 
         // EL UnderLine
-        private TextDecorationCollection eL1Underline = TextDecorations.Underline;
+        private TextDecorationCollection eL1Underline;
         public TextDecorationCollection EL1Underline { get => eL1Underline; set { eL1Underline = value; NotifyOfPropertyChange(() => EL1Underline); } }
 
         private TextDecorationCollection eL2Underline;

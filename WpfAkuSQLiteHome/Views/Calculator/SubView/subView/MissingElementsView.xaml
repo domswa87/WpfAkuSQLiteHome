@@ -39,17 +39,18 @@
         <!--Background="{Binding Path=HourSteamColor, Mode=TwoWay}"-->
         <!--EL-->
 
-        <TextBlock x:Name="EL1" Grid.Column="1" Grid.Row="3" Background="LightGoldenrodYellow" TextDecorations="{Binding Path=EL1Underline, Mode=TwoWay}"></TextBlock>
-        <TextBlock x:Name="EL2" Grid.Column="1" Grid.Row="4" Background="LightGoldenrodYellow" TextDecorations="{Binding Path=EL2Underline}"></TextBlock>
-        <TextBlock x:Name="EL3" Grid.Column="1" Grid.Row="5" Background="LightGoldenrodYellow" TextDecorations="{Binding Path=EL3Underline}"></TextBlock>
-        <TextBlock x:Name="EL4" Grid.Column="1" Grid.Row="6" Background="LightGoldenrodYellow" TextDecorations="{Binding Path=EL4Underline}"></TextBlock>
-        <TextBlock x:Name="EL5" Grid.Column="1" Grid.Row="7" Background="LightGoldenrodYellow" TextDecorations="{Binding Path=EL5Underline}"></TextBlock>
+
+        <TextBlock x:Name="EL1" Grid.Column="1" Grid.Row="3" Background="LightGoldenrodYellow" TextDecorations="{Binding Path=EL1Underline}" TextAlignment="Center"></TextBlock>
+        <TextBlock x:Name="EL2" Grid.Column="1" Grid.Row="4" Background="LightGoldenrodYellow" TextDecorations="{Binding Path=EL2Underline}" TextAlignment="Center"></TextBlock>
+        <TextBlock x:Name="EL3" Grid.Column="1" Grid.Row="5" Background="LightGoldenrodYellow" TextDecorations="{Binding Path=EL3Underline}" TextAlignment="Center"></TextBlock>
+        <TextBlock x:Name="EL4" Grid.Column="1" Grid.Row="6" Background="LightGoldenrodYellow" TextDecorations="{Binding Path=EL4Underline}" TextAlignment="Center"></TextBlock>
+        <TextBlock x:Name="EL5" Grid.Column="1" Grid.Row="7" Background="LightGoldenrodYellow" TextDecorations="{Binding Path=EL5Underline}" TextAlignment="Center"></TextBlock>
         <!--EM-->
-        <TextBlock x:Name="EM1" Grid.Column="2" Grid.Row="3" Background="LightGoldenrodYellow" TextDecorations="{Binding Path=EM1Underline}"></TextBlock>
-        <TextBlock x:Name="EM2" Grid.Column="2" Grid.Row="4" Background="LightGoldenrodYellow" TextDecorations="{Binding Path=EM2Underline}"></TextBlock>
-        <TextBlock x:Name="EM3" Grid.Column="2" Grid.Row="5" Background="LightGoldenrodYellow" TextDecorations="{Binding Path=EM3Underline}"></TextBlock>
-        <TextBlock x:Name="EM4" Grid.Column="2" Grid.Row="6" Background="LightGoldenrodYellow" TextDecorations="{Binding Path=EM4Underline}"></TextBlock>
-        <TextBlock x:Name="EM5" Grid.Column="2" Grid.Row="7" Background="LightGoldenrodYellow" TextDecorations="{Binding Path=EM5Underline}"></TextBlock>
+        <TextBlock x:Name="EM1" Grid.Column="2" Grid.Row="3" Background="LightGoldenrodYellow" TextDecorations="{Binding Path=EM1Underline}" TextAlignment="Center"></TextBlock>
+        <TextBlock x:Name="EM2" Grid.Column="2" Grid.Row="4" Background="LightGoldenrodYellow" TextDecorations="{Binding Path=EM2Underline}" TextAlignment="Center"></TextBlock>
+        <TextBlock x:Name="EM3" Grid.Column="2" Grid.Row="5" Background="LightGoldenrodYellow" TextDecorations="{Binding Path=EM3Underline}" TextAlignment="Center"></TextBlock>
+        <TextBlock x:Name="EM4" Grid.Column="2" Grid.Row="6" Background="LightGoldenrodYellow" TextDecorations="{Binding Path=EM4Underline}" TextAlignment="Center"></TextBlock>
+        <TextBlock x:Name="EM5" Grid.Column="2" Grid.Row="7" Background="LightGoldenrodYellow" TextDecorations="{Binding Path=EM5Underline}" TextAlignment="Center"></TextBlock>
         <!--Missing Organs-->
         <TextBlock x:Name="MissingOrgans" Grid.Column="5" Grid.Row="2" Background="LightGoldenrodYellow"></TextBlock>
 
