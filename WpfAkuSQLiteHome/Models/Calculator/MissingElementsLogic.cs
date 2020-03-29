@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using WpfAkuSQLiteHome.Models.Calculator;
 
 namespace WpfAkuSQLiteHome.Models
@@ -13,12 +14,42 @@ namespace WpfAkuSQLiteHome.Models
 
         public MissingElementModel FillMissingElementsModel(GraphModel graphModel, CalculatorOutput calculatorOutput)
         {
-            CalculateEL(graphModel);
-            CalculateEM(graphModel, calculatorOutput);
+            List<string> listEL = CalculateListEL(graphModel);
+            List<string> listEM = CalculateListEM(graphModel, calculatorOutput);
+            UnderlineDuplicates(listEL, listEM);
             return missingElements;
         }
 
-        private void CalculateEL(GraphModel graphModel)
+        private void UnderlineDuplicates(List<string> listEL, List<string> listEM)
+        {
+            listEL = listEL.Where(x => x != "").ToList();
+            listEM = listEM.Where(x => x != "").ToList();
+
+            List<string> doubletsList = listEL.Intersect(listEM).ToList();
+            bool IsDouble = doubletsList.Count == 0;
+
+
+            missingElements.EM1Underline = TextDecorations.Underline;
+            missingElements.EM3Underline = TextDecorations.Underline;
+
+
+            missingElements.EL1 = "AAA";
+            missingElements.EL2 = "BBB";
+            missingElements.EL3 = "CCC";
+            missingElements.EL4 = "DDD";
+            missingElements.EL5 = "EEE";
+
+            if (IsDouble)
+            {
+                int doubletListSize = doubletsList.Count;
+
+
+            }
+
+
+        }
+
+        private List<string> CalculateListEL(GraphModel graphModel)
         {
             List<string> list = new List<string>() { "", "", "", "", "" };
 
@@ -34,15 +65,11 @@ namespace WpfAkuSQLiteHome.Models
                 list.Add("F");
 
             list.Reverse();
-
-            missingElements.EL1 = list[0];
-            missingElements.EL2 = list[1];
-            missingElements.EL3 = list[2];
-            missingElements.EL4 = list[3];
-            missingElements.EL5 = list[4];
+            return list;
+         
         }
 
-        private void CalculateEM(GraphModel graphModel, CalculatorOutput calculatorOutput)
+        private List<string> CalculateListEM(GraphModel graphModel, CalculatorOutput calculatorOutput)
         {
             List<string> list = new List<string>() { "", "", "", "", "" };
 
@@ -51,7 +78,7 @@ namespace WpfAkuSQLiteHome.Models
                 {1,"Yang Ming" },
                 {2,"Tai Yin" },
                 {3,"Shao Yang" },
-                {4,"Yue Yin" },
+                {4,"Jue Yin" },
                 {5,"Shao Yin" },
                 {6,"Tai Yang" }
             };
@@ -60,7 +87,7 @@ namespace WpfAkuSQLiteHome.Models
             bool missingArmR = graphModel.ArmR == null && graphModel.ArmRUR == null && graphModel.ArmRUL == null;
             bool missingLegR = graphModel.LegR == null && graphModel.LegRDR == null && graphModel.LegRUL == null;
             bool missingLegL = graphModel.LegL == null && graphModel.LegLUR == null && graphModel.LegLDL == null;
-            bool missingArmL = graphModel.ArmL == null && graphModel.ArmLUR == null && graphModel.ArmRUR == null;
+            bool missingArmL = graphModel.ArmL == null && graphModel.ArmLUR == null && graphModel.ArmLUL == null;
 
             missingHead = missingHead
                           && calculatorOutput.AdditionalInfo.Division != d[3]
@@ -84,7 +111,6 @@ namespace WpfAkuSQLiteHome.Models
                           && calculatorOutput.AdditionalInfo.Division != d[3]
                           && calculatorOutput.AdditionalInfo.Division != d[4];
 
-
             if (missingArmL)
                 list.Add("Wo");
             if (missingLegL)
@@ -98,11 +124,13 @@ namespace WpfAkuSQLiteHome.Models
 
             list.Reverse();
 
-            missingElements.EM1 = list[0];
-            missingElements.EM2 = list[1];
-            missingElements.EM3 = list[2];
-            missingElements.EM4 = list[3];
-            missingElements.EM5 = list[4];
+            return list;
+
+            //missingElements.EM1 = list[0];
+            //missingElements.EM2 = list[1];
+            //missingElements.EM3 = list[2];
+            //missingElements.EM4 = list[3];
+            //missingElements.EM5 = list[4];
         }
     }
 }
