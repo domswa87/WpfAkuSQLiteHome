@@ -11,14 +11,55 @@ namespace WpfAkuSQLiteHome.Models
 {
     public class MissingElementsLogic
     {
-        MissingElementModel missingElements; 
-        public MissingElementModel FillMissingElementsModel(GraphModel graphModel, CalculatorOutput calculatorOutput)
+        MissingElementModel missingElements;
+        public MissingElementModel FillMissingElementsModel(GraphModel graphModel, CalculatorOutput calculatorOutput, DatabaseTablesCollection databaseTablesCollection)
         {
             missingElements = new MissingElementModel();
             List<string> listEL = CalculateListEL(graphModel);
             List<string> listEM = CalculateListEM(graphModel, calculatorOutput);
             Decorate(listEL, listEM);
+            missingElements.MissingOrgans = FillMissingOrgans(listEL, listEM, databaseTablesCollection);
             return missingElements;
+        }
+
+        private string FillMissingOrgans(List<string> listColorsEL, List<string> listColorsEM, DatabaseTablesCollection databaseTablesCollection)
+        {
+            listColorsEL = listColorsEL.Where(x => x != "").ToList();
+            listColorsEM = listColorsEM.Where(x => x != "").ToList();
+
+            List<string> listELSymbols = new List<string>();
+            List<string> listEMSymbols = new List<string>();
+
+            Dictionary<string, string> dict = new Dictionary<string, string>()
+            {
+                {"F","red" },
+                {"E","yellow" },
+                {"M","white" },
+                {"Wt","blue" },
+                {"Wo","green" }
+            };
+
+            foreach (var colorEL in listColorsEL)
+            {
+                string colorText = dict[colorEL];
+                var symbols = databaseTablesCollection.stemsTable.Where(color => color.StemColour == colorText).Select(symbol => symbol.StemsSymbol3);
+
+                foreach (var symbol in symbols)
+                    listELSymbols.Add(symbol);
+            }
+
+            foreach (var colorEM in listColorsEM)
+            {
+                string colorText = dict[colorEM];
+                var symbols = databaseTablesCollection.branchTables.Where(color => color.Colour == colorText).Select(symbol => symbol.Symbol3);
+
+                foreach (var symbol in symbols)
+                    listEMSymbols.Add(symbol);
+            }
+
+            List<string> commonPartList = listELSymbols.Intersect(listEMSymbols).ToList();
+            
+            return string.Join(", ", commonPartList);
         }
 
         private void Decorate(List<string> listEL, List<string> listEM)

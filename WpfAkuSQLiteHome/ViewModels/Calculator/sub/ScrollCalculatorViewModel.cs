@@ -207,7 +207,7 @@ namespace WpfAkuSQLiteHome.ViewModels
             MissingElementsViewModel.EM4Underline = missingElementModel.EM4Underline;
             MissingElementsViewModel.EM5Underline = missingElementModel.EM5Underline;
 
-
+            MissingElementsViewModel.MissingOrgans = missingElementModel.MissingOrgans;
 
 
         }
