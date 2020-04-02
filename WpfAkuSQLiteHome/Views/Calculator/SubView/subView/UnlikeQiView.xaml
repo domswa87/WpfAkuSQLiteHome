@@ -1,0 +1,130 @@
+﻿<UserControl x:Class="WpfAkuSQLiteHome.Views.UnlikeQiView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:WpfAkuSQLiteHome.Views"
+             mc:Ignorable="d" 
+             d:DesignHeight="400" d:DesignWidth="400" Background="Gray" BorderThickness="5" BorderBrush="Black">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="20"/>
+            <ColumnDefinition Width="20"/>
+            <ColumnDefinition Width="20"/>
+            <ColumnDefinition Width="20"/>
+            <ColumnDefinition Width="20"/>
+            <ColumnDefinition Width="20"/>
+            <ColumnDefinition Width="20"/>
+            <ColumnDefinition Width="20"/>
+            <ColumnDefinition Width="20"/>
+            <ColumnDefinition Width="20"/>
+            <ColumnDefinition Width="20"/>
+            <ColumnDefinition Width="20"/>
+            <ColumnDefinition Width="20"/>
+            <ColumnDefinition Width="20"/>
+            <ColumnDefinition Width="20"/>
+            <ColumnDefinition Width="20"/>
+            <ColumnDefinition Width="20"/>
+            <ColumnDefinition Width="20"/>
+            <ColumnDefinition Width="20"/>
+            <ColumnDefinition Width="20"/>
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="20" />
+            <RowDefinition Height="60" />
+            <RowDefinition Height="20" />
+            <RowDefinition Height="20" />
+            <RowDefinition Height="20" />
+            <RowDefinition Height="20" />
+            <RowDefinition Height="20" />
+            <RowDefinition Height="20" />
+            <RowDefinition Height="20" />
+            <RowDefinition Height="20" />
+            <RowDefinition Height="20" />
+            <RowDefinition Height="20" />
+            <RowDefinition Height="20" />
+            <RowDefinition Height="20" />
+            <RowDefinition Height="20" />
+            <RowDefinition Height="20" />
+            <RowDefinition Height="20" />
+            <RowDefinition Height="20" />
+            <RowDefinition Height="20" />
+            <RowDefinition Height="20" />
+        </Grid.RowDefinitions>
+        <Label Content="Unlike QI"  FontSize="20" Grid.Column="8" Margin="0,5" HorizontalAlignment="Right" Width="115" Background="{x:Null}" Grid.ColumnSpan="6" Grid.RowSpan="2" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Padding="0"/>
+
+
+        <!--ELIPSES-->
+        <Ellipse Grid.Row="2" Grid.Column="9" Fill="LightYellow" Height="80" Width="80"  Visibility="Visible" Grid.ColumnSpan="4" HorizontalAlignment="Left" Grid.RowSpan="4"/>
+        <Ellipse Grid.Row="7" Grid.Column="3" Fill="LightYellow" Height="80" Width="80"  Visibility="Visible"  Margin="0,0,0,0" Grid.ColumnSpan="4" HorizontalAlignment="Left" Grid.RowSpan="4"/>
+        <Ellipse Grid.Row="12" Grid.Column="9" Fill="LightYellow" Height="80" Width="80"  Visibility="Visible" Grid.ColumnSpan="4" HorizontalAlignment="Left" Grid.RowSpan="4"/>
+
+        <!--BIG LETTERS-->
+        <Label  x:Name="BigLetterInput" Content="" FontSize="30" Width="60" Height="60" VerticalContentAlignment="Center"
+                HorizontalContentAlignment="Center" Padding="0" Grid.Row="7" Grid.Column="3" Grid.RowSpan="4" Grid.ColumnSpan="4" FontFamily="Berlin Sans FB Demi" Margin="10" />
+        <Label  x:Name="BigLetterUp" Content="" FontSize="30" Width="60" Height="60" VerticalContentAlignment="Center"
+                HorizontalContentAlignment="Center" Padding="0" Grid.Row="2" Grid.Column="9" Grid.RowSpan="4" Grid.ColumnSpan="4" FontFamily="Berlin Sans FB Demi" Margin="10" />
+        <Label  x:Name="BigLetterDown" Content="" FontSize="30" Width="60" Height="60" VerticalContentAlignment="Center"
+                HorizontalContentAlignment="Center" Padding="0" Grid.Row="12" Grid.Column="9" Grid.RowSpan="4" Grid.ColumnSpan="4" FontFamily="Berlin Sans FB Demi" Margin="10" />
+
+        <!--SMALL LETTERS-->
+        <TextBlock  x:Name="SmallLetterInput" Text="" HorizontalAlignment="Left" Grid.Row="6" Grid.RowSpan="2" TextWrapping="Wrap"  VerticalAlignment="Center" Grid.ColumnSpan="2" Width="40" Height="40" Padding="6" 
+                    FontSize="20" FontWeight="Bold" Grid.Column="6"/>
+        <TextBlock  x:Name="SmallLetterUp" Text="" HorizontalAlignment="Left" Grid.Row="1" Grid.RowSpan="2" TextWrapping="Wrap"  VerticalAlignment="Center" Grid.ColumnSpan="2" Width="40" Height="40" Padding="6" 
+                    FontSize="20" FontWeight="Bold" Grid.Column="12" Margin="0,40,0,0"/>
+        <TextBlock  x:Name="SmallLetterDown" Text="" HorizontalAlignment="Left" Grid.Row="11" Grid.RowSpan="2" TextWrapping="Wrap"  VerticalAlignment="Center" Grid.ColumnSpan="2" Width="40" Height="40" Padding="6" 
+                    FontSize="20" FontWeight="Bold" Grid.Column="12"/>
+        <TextBlock  x:Name="SmallLetterDownR" Text="" HorizontalAlignment="Left" Grid.Row="11" Grid.RowSpan="3" TextWrapping="Wrap"  VerticalAlignment="Center" Grid.ColumnSpan="3" Width="40" Height="40" Padding="6" 
+                    FontSize="20" FontWeight="Bold" Grid.Column="5" Margin="12,9,0,11"/>
+        <TextBlock  x:Name="SmallLetterDownL" Text="" HorizontalAlignment="Left" Grid.Row="11" Grid.RowSpan="3" TextWrapping="Wrap"  VerticalAlignment="Center" Grid.ColumnSpan="3" Width="40" Height="40" Padding="6" 
+                    FontSize="20" FontWeight="Bold" Grid.Column="2" Margin="14,9,0,11"/>
+
+        <Rectangle HorizontalAlignment="Left" Height="88" Margin="6,1,0,0" VerticalAlignment="Top" Width="1" Fill="Black" RenderTransformOrigin="0.5,0.5" Grid.Column="8" Grid.Row="5" Grid.RowSpan="5">
+            <Rectangle.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="-143.135"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Rectangle.RenderTransform>
+        </Rectangle>
+
+        <Rectangle HorizontalAlignment="Left" Height="88" Margin="8,9,0,0" VerticalAlignment="Top" Width="1" Fill="Black" RenderTransformOrigin="0.5,0.5" Grid.Column="8" Grid.Row="8" Grid.RowSpan="5">
+            <Rectangle.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="-40.946"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Rectangle.RenderTransform>
+        </Rectangle>
+
+        <Rectangle HorizontalAlignment="Left" Height="24" Margin="2,16,0,0" VerticalAlignment="Top" Width="1" Fill="Black" RenderTransformOrigin="0.5,0.5" Grid.Column="6" Grid.Row="10" Grid.RowSpan="2">
+            <Rectangle.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="-23.662"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Rectangle.RenderTransform>
+        </Rectangle>
+
+        <Rectangle Height="23" Margin="19,17,0,0" VerticalAlignment="Top" Fill="Black" RenderTransformOrigin="0.5,0.5" Grid.Column="3" Grid.Row="10" Grid.RowSpan="2">
+            <Rectangle.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="-157.709"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Rectangle.RenderTransform>
+        </Rectangle>
+
+
+
+    </Grid>
+</UserControl>

@@ -16,14 +16,17 @@ namespace WpfAkuSQLiteHome.ViewModels
         public ITableRestCalculatorViewModel TableRestCalculatorViewModel { get; }
         public IGraphCalculatorViewModel GraphCalculatorViewModel { get; }
         public IMissingElementsViewModel MissingElementsViewModel { get; }
+        public IUnlikeQiViewModel UnlikeQiViewModel { get; }
 
         public ScrollCalculatorViewModel(ITableCalculatorViewModel tableCalculatorViewModel, ITableRestCalculatorViewModel tableRestCalculatorViewModel,
-                                         IGraphCalculatorViewModel graphCalculatorViewModel, IMissingElementsViewModel missingElementsViewModel)
+                                         IGraphCalculatorViewModel graphCalculatorViewModel, IMissingElementsViewModel missingElementsViewModel,
+                                         IUnlikeQiViewModel unlikeQiViewModel)
         {
             TableCalculatorViewModel = tableCalculatorViewModel;
             TableRestCalculatorViewModel = tableRestCalculatorViewModel;
             GraphCalculatorViewModel = graphCalculatorViewModel;
             MissingElementsViewModel = missingElementsViewModel;
+            UnlikeQiViewModel = unlikeQiViewModel;
         }
       
 
@@ -208,8 +211,19 @@ namespace WpfAkuSQLiteHome.ViewModels
             MissingElementsViewModel.EM5Underline = missingElementModel.EM5Underline;
 
             MissingElementsViewModel.MissingOrgans = missingElementModel.MissingOrgans;
+        }
 
+        public void UpdateUnlikeQiViewModel(UnlikeQiModel unlikeQiModel)
+        {
+            UnlikeQiViewModel.BigLetterInput = unlikeQiModel.BigLetterInput;
+            UnlikeQiViewModel.BigLetterUp = unlikeQiModel.BigLetterUp;
+            UnlikeQiViewModel.BigLetterDown = unlikeQiModel.BigLetterDown;
 
+            UnlikeQiViewModel.SmallLetterInput = unlikeQiModel.SmallLetterInput;
+            UnlikeQiViewModel.SmallLetterUp = unlikeQiModel.SmallLetterUp;
+            UnlikeQiViewModel.SmallLetterDown = unlikeQiModel.SmallLetterDown;
+            UnlikeQiViewModel.SmallLetterDownR = unlikeQiModel.SmallLetterDownR;
+            UnlikeQiViewModel.SmallLetterDownL = unlikeQiModel.SmallLetterDownL;
         }
     }
 }

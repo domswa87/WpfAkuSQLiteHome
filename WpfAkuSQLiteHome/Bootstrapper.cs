@@ -38,6 +38,7 @@ namespace WpfAkuSQLiteHome
                 .PerRequest<ITableRestCalculatorViewModel, TableRestCalculatorViewModel>()
                 .PerRequest<IScrollCalculatorViewModel, ScrollCalculatorViewModel>()
                 .PerRequest<IMissingElementsViewModel, MissingElementsViewModel>()
+                .PerRequest<IUnlikeQiViewModel, UnlikeQiViewModel>()
                 .PerRequest<ITest1ViewModel, Test1ViewModel>()
                 .PerRequest<ITest2ViewModel, Test2ViewModel>()
                 .PerRequest<ICalendarViewModel, CalendarViewModel>();

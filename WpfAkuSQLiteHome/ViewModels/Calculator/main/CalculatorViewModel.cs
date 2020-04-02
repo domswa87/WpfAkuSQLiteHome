@@ -25,6 +25,8 @@ namespace WpfAkuSQLiteHome.ViewModels
         public GraphModel GraphModel { get; set; }
         public MissingElementsLogic MissingElementsLogic { get; set; }
         public MissingElementModel MissingElementModel { get; set; }
+        public UnlikeQiLogic UnlikeQiLogic { get; set; }
+        public UnlikeQiModel UnlikeQiModel { get; set; }
         public DateTime InputDate { get; set; }
 
 
@@ -45,6 +47,8 @@ namespace WpfAkuSQLiteHome.ViewModels
             GraphModel = new GraphModel();
             MissingElementsLogic = new MissingElementsLogic();
             GraphModel = new GraphModel();
+            UnlikeQiLogic = new UnlikeQiLogic();
+            UnlikeQiModel = new UnlikeQiModel();
         }
 
         public void Handle(string message)
@@ -56,12 +60,14 @@ namespace WpfAkuSQLiteHome.ViewModels
 
                 CalculatorOutput = Calculator.CalculateOutput(InputDate, DatabaseTablesCollection);
                 GraphModel = GraphLogic.FillGraphModel(CalculatorOutput);
-                MissingElementModel = MissingElementsLogic.FillMissingElementsModel(GraphModel, CalculatorOutput, DatabaseTablesCollection); 
+                MissingElementModel = MissingElementsLogic.FillMissingElementsModel(GraphModel, CalculatorOutput, DatabaseTablesCollection);
+                UnlikeQiModel = UnlikeQiLogic.FillUnlikeQiModel(GraphModel);
 
                 ScrollCalculatorViewModel.UpdateTableViewModel(CalculatorOutput);
                 ScrollCalculatorViewModel.UpdateTableRestViewModel(CalculatorOutput);
                 ScrollCalculatorViewModel.UpdateGraphViewModel(GraphModel);
                 ScrollCalculatorViewModel.UpdateMissingElementsViewModel(MissingElementModel);
+                ScrollCalculatorViewModel.UpdateUnlikeQiViewModel(UnlikeQiModel);
             }
         }
        

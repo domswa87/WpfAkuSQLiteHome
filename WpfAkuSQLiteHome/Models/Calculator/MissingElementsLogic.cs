@@ -19,6 +19,8 @@ namespace WpfAkuSQLiteHome.Models
             List<string> listEM = CalculateListEM(graphModel, calculatorOutput);
             Decorate(listEL, listEM);
             missingElements.MissingOrgans = FillMissingOrgans(listEL, listEM, databaseTablesCollection);
+            if (missingElements.MissingOrgans == "")
+                missingElements.MissingOrgans = "-";
             return missingElements;
         }
 

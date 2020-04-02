@@ -110,6 +110,8 @@
     <Compile Include="Models\Calculator\Logic\Output\CalculatorOutput.cs" />
     <Compile Include="Models\Calculator\DataForCalculation\DataAccess\Tables\DatabaseTables.cs" />
     <Compile Include="Models\Calculator\DataForCalculation\DatabaseTablesCollection.cs" />
+    <Compile Include="Models\Calculator\UnlikeQiLogic.cs" />
+    <Compile Include="Models\Calculator\UnlikeQiModel.cs" />
     <Compile Include="Models\Colors.cs" />
     <Compile Include="Models\Extension\DateTimeExtensions.cs" />
     <Compile Include="Models\Calendar\GoogleCalendarAPI.cs" />
@@ -135,9 +137,11 @@
     <Compile Include="ViewModels\ITest2ViewModel.cs" />
     <Compile Include="ViewModels\Calculator\sub\ScrollCalculatorViewModel.cs" />
     <Compile Include="ViewModels\Calculator\sub\sub\MissingElementsViewModel.cs" />
+    <Compile Include="ViewModels\Calculator\Interfaces\IUnlikeQiViewModel.cs" />
     <Compile Include="ViewModels\ShellViewModel.cs" />
     <Compile Include="ViewModels\Test1ViewModel.cs" />
     <Compile Include="ViewModels\Test2ViewModel.cs" />
+    <Compile Include="ViewModels\Calculator\sub\sub\UnlikeQiViewModel.cs" />
     <Compile Include="Views\Calculator\SubView\subView\TableRestCalculatorView.xaml.cs">
       <DependentUpon>TableRestCalculatorView.xaml</DependentUpon>
     </Compile>
@@ -178,6 +182,9 @@
     </Compile>
     <Compile Include="Views\Test2View.xaml.cs">
       <DependentUpon>Test2View.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Calculator\SubView\subView\UnlikeQiView.xaml.cs">
+      <DependentUpon>UnlikeQiView.xaml</DependentUpon>
     </Compile>
     <Page Include="Views\Calculator\SubView\subView\TableRestCalculatorView.xaml">
       <SubType>Designer</SubType>
@@ -224,6 +231,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\Test2View.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Calculator\SubView\subView\UnlikeQiView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
